@@ -66,7 +66,7 @@ const TRANSACTIONS = [
     img: 'assets/img/transactions/rookmedia.png',
     title: 'DomainSponsor sale to RookMedia',
     sector: 'Advertising Technology',
-    role: 'Buy-side advisor to RookMedia',
+    role: 'Buy-side and Capital Markets Advisor',
     description: 'RookMedia is a adtech and internet marketing business focused on domain name monetization.\n\nDomainSponsor, was a direct competitor of RookMedia, with the companies being top two largest in the space. Combined the business exceeded $100mm in revenue and $25mm of EBITDA.'
   }
 ];

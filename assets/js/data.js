@@ -11,7 +11,7 @@ const TRANSACTIONS = [
     title: 'Core Business Solutions sale to LRQA',
     sector: 'Compliance Solutions / TICC',
     role: 'Sell-side advisor',
-    description: 'Sell-side advisor to leading SaaS and service provider that helps businesses achieve compliance, focused on ISO and CMMC.'
+    description: 'Core Business Solutions is a leading SaaS and services provider focused on cybersecurity and compliance, with deep expertise in ISO and CMMC certifications. The company combines a proprietary compliance management platform with assessment services, serving manufacturers, defense industrial base contractors and other regulated industries. Core Business Solutions experienced rapid growth and scale prior to the transaction, which positioned the company as a strategic acquisition target for LRQA.\n\nLRQA is a leading global assurance and inspection services firm, with capabilities across compliance, cybersecurity, certification, and risk management. LRQA is backed by Goldman Sachs and has been pursuing an active M&A strategy to expand its cybersecurity and compliance practice.\n\nHarbor Ridge Capital advised Core Business Solutions on its sale to LRQA.'
   },
   {
     id: 'promevo',
@@ -27,7 +27,7 @@ const TRANSACTIONS = [
     title: 'MTC sale to 360insights',
     sector: 'Channel Software',
     role: 'Sell-side advisor',
-    description: "MTC is a leading channel software-as-a-service (SaaS) provider, focused on creating effective, efficient sales incentive management solutions that save time and money while increasing engagement and ROI. MTC counted some of the largest technology companies in the world as loyal clients including Samsung and Ingram Micro.\n\n360insights, is a fast growing, well capitalized channel SaaS provider as well, which the software can manage all of one's channel incentives on one platform including SPIFFs, Rebates, CO-OP Advertising and MDF, Sell-Through Allowances, and Volume Incentives."
+    description: 'MTC is a leading channel SaaS provider focused on sales incentive management solutions that save time and money while increasing engagement and ROI. The company counted some of the largest technology companies in the world as loyal clients, including Samsung and Ingram Micro. MTC experienced strong growth and built a loyal enterprise customer base prior to the transaction, which positioned the company as a strategic acquisition target for 360insights.\n\n360insights is a leading channel SaaS provider that manages a full suite of channel incentives — SPIFFs, rebates, co-op advertising and MDF, sell-through allowances, and volume incentives — on a single platform. 360insights is backed by Sageview Capital and has been pursuing an active M&A strategy to consolidate the channel incentives software category.\n\nHarbor Ridge Capital advised MTC on its sale to 360insights.'
   },
   {
     id: 'blackmesh',
@@ -35,7 +35,7 @@ const TRANSACTIONS = [
     title: 'BlackMesh sale to Contegix',
     sector: 'Compliant Cloud / TICC',
     role: 'Sell-side advisor',
-    description: 'Blackmesh is a leading compliance and security-focused cloud services provider, offering high-touch managed services to enterprises and government agencies. As a FedRAMP platform-as-a-service (PaaS) provider, Blackmesh offers cloud services in one of the most secure and compliant environments in the industry.\n\nContegix, is a cloud service provider focused on managing business-critical applications including Atlassian suite of apps, as well as traditional managed IT services for enterprises. Contegix is backed by Strattam Capital.'
+    description: 'BlackMesh is a leading compliance and security-focused cloud services provider, offering high-touch managed services to enterprises and government agencies. As a FedRAMP platform-as-a-service (PaaS) provider, the company delivers cloud services in one of the most secure and compliant environments in the industry. BlackMesh built a strong recurring revenue base and differentiated compliance posture prior to the transaction, which positioned the company as a strategic acquisition target for Contegix.\n\nContegix is a cloud service provider focused on managing business-critical applications, including the Atlassian suite, alongside traditional managed IT services for enterprises. Contegix is backed by Strattam Capital and has been pursuing an active M&A strategy to expand its managed cloud and compliance offerings.\n\nHarbor Ridge Capital advised BlackMesh on its sale to Contegix.'
   },
   {
     id: 'hosting',
@@ -43,7 +43,7 @@ const TRANSACTIONS = [
     title: 'Stelligent sale to Hosting.com',
     sector: 'IT / Cloud Services',
     role: 'Sell-side advisor',
-    description: 'Stelligent is a cloud service provider focused on DevOps Automation and digital transformation, on the Amazon Web Services (AWS) cloud. Specifically, Stelligent is a Premier AWS Consulting Partner, with competencies in financial services and DevOps.\n\nHosting.com, backed by Pamlico Capital, is a cloud service provider, offering secure and compliant solutions across a broad portfolio of solutions including public cloud, private cloud, hybrid IT and dedicated environments.'
+    description: 'Stelligent is a leading cloud services provider focused on DevOps automation and digital transformation on the Amazon Web Services (AWS) cloud. The company is a Premier AWS Consulting Partner, with deep competencies in financial services and DevOps. Stelligent built a strong reputation as one of the most respected AWS partners in the market and experienced rapid growth prior to the transaction, which positioned the company as a strategic acquisition target for Hosting.com.\n\nHosting.com is a leading cloud service provider, offering secure and compliant solutions across a broad portfolio that includes public cloud, private cloud, hybrid IT, and dedicated environments. Hosting.com is backed by Pamlico Capital and has been pursuing an active M&A strategy to expand its cloud and managed services capabilities.\n\nHarbor Ridge Capital advised Hosting.com and Pamlico on its acquisition of Stelligent.'
   },
   {
     id: 'cloud9',
@@ -51,7 +51,7 @@ const TRANSACTIONS = [
     title: 'Cloudnine Realtime sale to AbacusNext',
     sector: 'Managed Services',
     role: 'Sell-side advisor',
-    description: 'Cloudnine Realtime is a managed services cloud provider that specializes in hosting over 1,000 business applications primarily for the financial services and CPA verticals, including Intuit QuickBooks®, Sage, and Microsoft Solutions.\n\nAbacusNext, backed by Providence Equity, is a leading case management software and cloud services provider, focused on the legal space.'
+    description: "Cloudnine Realtime is a leading managed services cloud provider specializing in hosting over 1,000 business applications, primarily for the financial services and CPA verticals — including Intuit QuickBooks®, Sage, and Microsoft Solutions. The company built a loyal customer base across a fragmented small-business market, with strong recurring revenue and deep vertical expertise. Cloudnine Realtime's growth and customer base positioned the company as a strategic acquisition target for AbacusNext.\n\nAbacusNext is a leading case management software and cloud services provider focused on the legal vertical. AbacusNext is backed by Providence Strategic Growth and has been pursuing an active M&A strategy to expand its software and hosting capabilities for professional services firms.\n\nHarbor Ridge Capital advised Cloudnine Realtime on its sale to AbacusNext."
   },
   {
     id: 'conix',
@@ -59,7 +59,7 @@ const TRANSACTIONS = [
     title: 'CONIX sale to CV Systems',
     sector: 'Banking Software',
     role: 'Buy-side advisor to CV Systems',
-    description: 'CV Systems is a leading provider of banking software, with core functionality around automated teller machines (ATM), fraud detection, cybersecurity, on-line payment and transaction processing, and financial software technology solutions.\n\nCONIX has been a cutting-edge fintech software company for many years, with state-of-the-art solutions across important strategic initiatives such as real-time integrated payments, fraud detection, cybersecurity software, and item processing solutions.'
+    description: "CONIX is a cutting-edge fintech software company with state-of-the-art solutions across real-time integrated payments, fraud detection, cybersecurity software, and item processing. The company built a long track record serving financial institutions with mission-critical software. CONIX's product depth and entrenched customer base positioned the company as a strategic acquisition target for CV Systems.\n\nCV Systems is a leading provider of banking software, with core functionality across automated teller machines (ATM), fraud detection, cybersecurity, online payment and transaction processing, and financial software technology solutions. CV Systems has been pursuing an active M&A strategy to broaden its fintech software platform.\n\nHarbor Ridge Capital advised CV Systems on its acquisition of CONIX."
   },
   {
     id: 'rookmedia',
@@ -67,7 +67,7 @@ const TRANSACTIONS = [
     title: 'DomainSponsor sale to RookMedia',
     sector: 'Advertising Technology',
     role: 'Buy-side and Capital Markets Advisor',
-    description: 'RookMedia is a adtech and internet marketing business focused on domain name monetization.\n\nDomainSponsor, was a direct competitor of RookMedia, with the companies being top two largest in the space. Combined the business exceeded $100mm in revenue and $25mm of EBITDA.'
+    description: "DomainSponsor was a leading adtech and internet marketing business focused on domain name monetization, and one of the two largest players in the category. The company generated substantial scale through its monetization platform serving domain owners and advertisers. DomainSponsor's scale and platform positioned the company as a strategic acquisition target for RookMedia.\n\nRookMedia is a leading adtech and internet marketing business focused on domain name monetization. The combination of the two largest players in the space created a business with over $100mm in revenue and $25mm in EBITDA, and a market-leading position in domain monetization.\n\nHarbor Ridge Capital advised RookMedia on its acquisition and financing of DomainSponsor."
   }
 ];
 

@@ -18,7 +18,7 @@ const TRANSACTIONS = [
     img: 'assets/img/transactions/promevo.png',
     title: 'Cohere Capital growth investment in Promevo',
     sector: 'Google Cloud Services',
-    role: 'Buy-side advisor to Cohere Capital',
+    role: 'Buy-side advisor',
     description: "Promevo is one of the largest Google cloud partners in North America. The company is focused on reselling Google Workspace and Chromebooks. Promevo experienced rapid growth, profitability and scale prior to the transaction, which positioned the company for further success with capital, and sophisticated support from Cohere Capital.\n\nCohere Capital is a leading Boston-based, growth-oriented private equity firm. Cohere has a long track record and deep experience investing in and working with growth companies, with domain expertise in tech-enabled services.\n\nHarbor Ridge Capital advised Cohere on it's investment in Promevo."
   },
   {
@@ -58,7 +58,7 @@ const TRANSACTIONS = [
     img: 'assets/img/transactions/conix.png',
     title: 'CONIX sale to CV Systems',
     sector: 'Banking Software',
-    role: 'Buy-side advisor to CV Systems',
+    role: 'Buy-side advisor',
     description: "CONIX is a cutting-edge fintech software company with state-of-the-art solutions across real-time integrated payments, fraud detection, cybersecurity software, and item processing. The company built a long track record serving financial institutions with mission-critical software. CONIX's product depth and entrenched customer base positioned the company as a strategic acquisition target for CV Systems.\n\nCV Systems is a leading provider of banking software, with core functionality across automated teller machines (ATM), fraud detection, cybersecurity, online payment and transaction processing, and financial software technology solutions. CV Systems has been pursuing an active M&A strategy to broaden its fintech software platform.\n\nHarbor Ridge Capital advised CV Systems on its acquisition of CONIX."
   },
   {
@@ -68,6 +68,38 @@ const TRANSACTIONS = [
     sector: 'Advertising Technology',
     role: 'Buy-side and Capital Markets Advisor',
     description: "DomainSponsor was a leading adtech and internet marketing business focused on domain name monetization, and one of the two largest players in the category. The company generated substantial scale through its monetization platform serving domain owners and advertisers. DomainSponsor's scale and platform positioned the company as a strategic acquisition target for RookMedia.\n\nRookMedia is a leading adtech and internet marketing business focused on domain name monetization. The combination of the two largest players in the space created a business with over $100mm in revenue and $25mm in EBITDA, and a market-leading position in domain monetization.\n\nHarbor Ridge Capital advised RookMedia on its acquisition and financing of DomainSponsor."
+  },
+  {
+    id: 'blacklotus',
+    img: 'assets/img/transactions/blacklotus.png',
+    title: 'BlackLotus Communications acquisition of ServerOrigin',
+    sector: 'Cybersecurity / DDoS Mitigation',
+    role: 'Buy-side advisor',
+    description: "BlackLotus Communications is a leading provider of DDoS mitigation and cybersecurity infrastructure services, protecting enterprises, gaming platforms, and critical online services from large-scale denial-of-service attacks. The company built a differentiated network architecture and proprietary mitigation technology that positioned it as a category leader in DDoS protection. BlackLotus pursued the acquisition of ServerOrigin to expand its hosting and infrastructure capabilities.\n\nServerOrigin is a dedicated server hosting and managed infrastructure provider. The acquisition combined ServerOrigin's hosting platform with BlackLotus's DDoS mitigation network to deliver an integrated secure hosting offering.\n\nHarbor Ridge Capital advised BlackLotus Communications on its acquisition of ServerOrigin."
+  },
+  {
+    id: 'lojistic',
+    img: 'assets/img/transactions/lojistic.png',
+    title: 'Lojistic acquisition of Intelliship',
+    sector: 'Logistics Software',
+    role: 'Buy-side advisor',
+    description: "Lojistic is a leading freight audit and parcel shipping management software platform. The company helps shippers reduce parcel and freight costs through real-time analytics, audit recovery, and carrier rate negotiation. Lojistic pursued the acquisition of Intelliship to expand its capabilities across freight modes and customer segments.\n\nIntelliship is a freight transportation management software (TMS) provider serving small and mid-market shippers. The acquisition added complementary TMS functionality to Lojistic's parcel-focused platform.\n\nHarbor Ridge Capital advised Lojistic on its acquisition of Intelliship."
+  },
+  {
+    id: 'backlog',
+    img: 'assets/img/transactions/backlog.png',
+    title: 'BurstNET growth investment from Backlog Capital',
+    sector: 'Internet Infrastructure',
+    role: 'Capital Markets Advisor',
+    description: "BurstNET is a leading dedicated server hosting and internet infrastructure provider, serving SMB and enterprise customers across North America with managed servers, colocation, and bandwidth services. The company built a loyal customer base and strong recurring revenue at scale, which positioned BurstNET as an attractive platform investment for Backlog Capital.\n\nBacklog Capital is a private equity firm focused on growth investments in internet infrastructure and technology services companies. Backlog Capital partners with founder-led businesses to accelerate growth and pursue strategic acquisitions.\n\nHarbor Ridge Capital served as capital markets advisor to BurstNET on its growth investment from Backlog Capital."
+  },
+  {
+    id: 'vazata',
+    img: 'assets/img/transactions/vazata.png',
+    title: 'Vazata growth investment from Ballast Point Ventures',
+    sector: 'Compliant Cloud / TICC',
+    role: 'Capital Markets Advisor',
+    description: "Vazata is a leading provider of compliant cloud, colocation, and managed services for regulated industries, with secure data center facilities serving government and enterprise customers. The company built a strong base of clients requiring compliance-focused hosting (FedRAMP, ITAR, FISMA), which positioned Vazata as an attractive growth investment for Ballast Point Ventures.\n\nBallast Point Ventures is a Florida-based growth equity firm focused on lower middle-market technology and services companies. The firm partners with founder-led businesses to accelerate growth and operational improvement.\n\nHarbor Ridge Capital served as capital markets advisor to Vazata on its growth investment from Ballast Point Ventures."
   }
 ];
 

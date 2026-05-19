@@ -125,25 +125,25 @@ em { font-style: italic; color: var(--brass); }
 }
 .tombstone-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 540 / 700;
   object-fit: contain;
   margin-bottom: 16px;
   background: #fff;
 }
 .tombstone-meta {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--green-deep); margin-bottom: 6px; font-weight: 600;
 }
 .tombstone-title {
   font-family: 'Playfair Display', serif;
-  font-size: 16px; line-height: 1.25;
+  font-size: 18px; line-height: 1.25;
   font-weight: 500; color: var(--ink);
   margin-bottom: 12px;
 }
 .tombstone-link {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--green-deep); margin-top: auto; font-weight: 500;
 }
 
@@ -317,6 +317,12 @@ em { font-style: italic; color: var(--brass); }
   .contact-info h2 { font-size: 36px; }
   .modal { padding: 32px 24px; }
   .tabs { overflow-x: auto; gap: 24px; }
+}
+
+@media (max-width: 600px) {
+  .tombstones { grid-template-columns: 1fr; gap: 24px; }
+  .tombstone { padding: 24px 22px; }
+  .tombstone-title { font-size: 19px; }
 }
 
 /* ========== ARTICLE PAGES ========== */

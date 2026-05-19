@@ -97,7 +97,7 @@ const TRANSACTIONS = [
     id: 'vazata',
     img: 'assets/img/transactions/vazata.png',
     title: 'Vazata growth investment from Ballast Point Ventures',
-    sector: 'Compliant Cloud / TICC',
+    sector: 'Internet Infrastructure',
     role: 'Capital Markets Advisor',
     description: "Vazata is a leading provider of compliant cloud, colocation, and managed services for regulated industries, with secure data center facilities serving government and enterprise customers. The company built a strong base of clients requiring compliance-focused hosting (FedRAMP, ITAR, FISMA), which positioned Vazata as an attractive growth investment for Ballast Point Ventures.\n\nBallast Point Ventures is a Florida-based growth equity firm focused on lower middle-market technology and services companies. The firm partners with founder-led businesses to accelerate growth and operational improvement.\n\nHarbor Ridge Capital served as capital markets advisor to Vazata on its growth investment from Ballast Point Ventures."
   }

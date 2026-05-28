@@ -390,7 +390,86 @@ em { font-style: italic; color: var(--brass); }
   border-top: 1px solid var(--brass);
   font-size: 13px; color: var(--green-deep); opacity: 0.7; font-style: italic; line-height: 1.6;
 }
+.article-subhead {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 400;
+  font-size: 22px; line-height: 1.4;
+  color: var(--green-deep); opacity: 0.75;
+  margin-top: -4px; margin-bottom: 28px;
+}
+.article-body .kicker {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 22px; line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 32px;
+  padding-left: 24px;
+  border-left: 3px solid var(--brass);
+}
+.article-body img.no-border { border: none; }
+.deal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 8px 0; }
+.deal-card { background: #ffffff; border-top: 3px solid var(--brass); padding: 28px 26px; }
+.deal-card.alt { border-top-color: var(--green-deep); }
+.deal-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 22px; padding-bottom: 14px;
+  border-bottom: 1px solid #e8e2d4;
+}
+.deal-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: var(--green-deep); }
+.deal-date { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--green-deep); opacity: 0.7; letter-spacing: 0.05em; }
+.deal-section { margin-bottom: 16px; }
+.deal-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--brass); font-weight: 600; margin-bottom: 5px;
+}
+.deal-value { font-family: 'IBM Plex Serif', serif; font-size: 14.5px; line-height: 1.4; color: var(--ink); }
+.deal-value.big { font-size: 17px; font-weight: 500; color: var(--green-deep); }
+.deal-meta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.gap-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  background: var(--green-deep); padding: 4px; margin: 32px 0 0;
+}
+.gap-stat { background: var(--green-deep); color: var(--cream); padding: 44px 32px 36px; text-align: center; }
+.gap-stat.demand { border-right: 1px solid rgba(201,166,107,0.2); }
+.gap-label-top {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--brass); font-weight: 600; margin-bottom: 14px;
+}
+.gap-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px; line-height: 1; font-weight: 500;
+  color: var(--brass); margin-bottom: 10px; letter-spacing: -0.02em;
+}
+.gap-stat.supply .gap-num { color: var(--cream); opacity: 0.8; }
+.gap-desc {
+  font-family: 'IBM Plex Serif', serif; font-style: italic;
+  font-size: 14px; color: var(--cream); opacity: 0.85; line-height: 1.4;
+}
+.gap-footer {
+  background: var(--green-deep); color: var(--cream); text-align: center;
+  padding: 18px 32px 28px;
+  font-family: 'IBM Plex Sans', sans-serif; font-size: 13px;
+  letter-spacing: 0.05em; opacity: 0.85;
+}
+.gap-footer strong { color: var(--brass); font-weight: 600; }
+.closing-line {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 24px; line-height: 1.35;
+  color: var(--green-deep); text-align: center;
+  margin: 48px 0 24px;
+  padding: 32px 0;
+  border-top: 1px solid var(--brass);
+  border-bottom: 1px solid var(--brass);
+}
 @media (max-width: 700px) {
   .article { padding: 48px 28px 40px; }
   .article h1 { font-size: 30px; }
+  .article-subhead { font-size: 18px; }
+  .article-body .kicker { font-size: 18px; padding-left: 18px; }
+  .deal-grid { grid-template-columns: 1fr; }
+  .deal-card { padding: 24px 22px; }
+  .gap-stats { grid-template-columns: 1fr; }
+  .gap-num { font-size: 56px; }
+  .closing-line { font-size: 20px; }
 }

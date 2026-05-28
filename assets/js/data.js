@@ -115,6 +115,15 @@ const SECTORS = [
 // ---- INSIGHTS (blog posts) ----
 const POSTS = [
   {
+    slug: 'why-frontier-labs-are-buying-services-firms',
+    title: 'Why Frontier Labs Are Buying Services Firms',
+    date: '2026-05-27',
+    dateDisplay: 'May 27, 2026',
+    excerpt: "What the Anthropic-Fractional and OpenAI-Tomoro deals reveal about the AI deployment bottleneck — and the M&A wave it's creating.",
+    tag: 'Market View',
+    href: 'insights/why-frontier-labs-are-buying-services-firms.html'
+  },
+  {
     slug: 'ai-isnt-eating-saas',
     title: "AI Isn't Eating SaaS. It's Expanding It.",
     date: '2026-05-05',

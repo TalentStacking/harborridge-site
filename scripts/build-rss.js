@@ -37,7 +37,7 @@ function clean(s) {
 }
 
 function toRfc822(isoDate) {
-  const d = new Date(`${isoDate}T00:00:00Z`);
+  const d = isoDate.includes('T') ? new Date(isoDate) : new Date(`${isoDate}T00:00:00Z`);
   if (isNaN(d)) throw new Error(`Invalid date: ${isoDate}`);
   return d.toUTCString();
 }

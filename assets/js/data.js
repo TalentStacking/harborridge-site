@@ -204,6 +204,15 @@ const CASE_STUDIES = [
 // ---- WHITEPAPERS ----
 const WHITEPAPERS = [
   {
+    slug: 'fedramp-20x-inflection',
+    title: 'The FedRAMP 20x Inflection',
+    date: '2026-06-12',
+    dateDisplay: 'Industry Insights',
+    excerpt: 'A deep dive into the FedRAMP 20x ecosystem, market size and growth, M&A activity, and the strategic acquirer landscape.',
+    tag: 'Whitepaper',
+    href: 'whitepapers/fedramp-20x-inflection.html'
+  },
+  {
     slug: 'cyber-compliance-trends',
     title: 'Cyber & Compliance Trends',
     date: '2026-01-01',

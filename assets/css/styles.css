@@ -390,6 +390,18 @@ em { font-style: italic; color: var(--brass); }
   border-top: 1px solid var(--brass);
   font-size: 13px; color: var(--green-deep); opacity: 0.7; font-style: italic; line-height: 1.6;
 }
+.article-related {
+  margin-top: 56px; padding-top: 32px;
+  border-top: 1px solid var(--brass);
+}
+.article-related .article-eyebrow { margin-bottom: 12px; }
+.article-related p { margin: 0; }
+.article-related a {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px; color: var(--green-deep);
+  border-bottom: 1px solid var(--brass); padding-bottom: 2px;
+}
+.article-related a:hover { color: var(--brass); opacity: 1; }
 .article-subhead {
   font-family: 'Playfair Display', serif;
   font-style: italic; font-weight: 400;

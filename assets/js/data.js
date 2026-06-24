@@ -105,7 +105,7 @@ const TRANSACTIONS = [
 
 // ---- SECTORS ----
 const SECTORS = [
-  { name: 'Cybersecurity & Compliance', desc: 'MDR, GRC tooling, third-party risk, identity, assessment services, and CMMC/ISO compliance.' },
+  { name: 'Compliance & Cybersecurity', desc: 'IT and cyber compliance audit, SaaS, consulting and managed services. Coverage and deal experience in FedRAMP, CMMC, ISO, and related frameworks.' },
   { name: 'SaaS', desc: 'Vertical and horizontal software, with a focus on bootstrapped and founder-owned businesses.' },
   { name: 'Tech-Enabled Services', desc: 'Services businesses with software-driven operating leverage and recurring revenue.' },
   { name: 'Managed Services', desc: 'MSPs, MSSPs, and cloud services providers serving regulated and SMB-to-enterprise customers.' },

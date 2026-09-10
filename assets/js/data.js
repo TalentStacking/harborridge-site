@@ -108,7 +108,7 @@ const SECTORS = [
   { name: 'Compliance & Cybersecurity', desc: 'IT and cyber compliance audit, SaaS, consulting and managed services. Coverage and deal experience in FedRAMP, CMMC, ISO, and related frameworks.' },
   { name: 'SaaS', desc: 'Vertical and horizontal software, with a focus on bootstrapped and founder-owned businesses.' },
   { name: 'Tech-Enabled Services', desc: 'Services businesses with software-driven operating leverage and recurring revenue.' },
-  { name: 'AI Solution Providers', desc: 'AI-native advisory, implementation, engineering and managed-services firms that turn frontier models capabilities into working, value-generating systems inside real businesses. Agentic builds, deployment, and AI-enabled modernization.' },
+  { name: 'AI Solution Providers', desc: 'AI-native advisory, implementation, engineering and managed-services firms that turn frontier model capabilities into value-generating systems inside businesses.' },
   { name: 'Internet Infrastructure', desc: 'Hosting, data centers, public/private cloud, and adjacent infrastructure platforms.' }
 ];
 

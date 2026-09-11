@@ -115,6 +115,15 @@ const SECTORS = [
 // ---- INSIGHTS (blog posts) ----
 const POSTS = [
   {
+    slug: 'the-picks-and-shovels-play-in-ai-is-services',
+    title: "The Biggest Picks-and-Shovels Play in AI Isn't Infrastructure. It's Services.",
+    date: '2026-09-11',
+    dateDisplay: 'September 11, 2026',
+    excerpt: 'Every platform shift in enterprise software has obeyed the same law: implementation out-earns invention. AI services are under-attached ~10x — and the buyers already know it.',
+    tag: 'Market View',
+    href: 'insights/the-picks-and-shovels-play-in-ai-is-services.html'
+  },
+  {
     slug: 'why-frontier-labs-are-buying-services-firms',
     title: 'Why Frontier Labs Are Buying Services Firms',
     date: '2026-05-27',

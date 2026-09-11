@@ -418,12 +418,8 @@ em { font-style: italic; color: var(--brass); }
   border-left: 3px solid var(--brass);
 }
 .article-body img.no-border { border: none; }
-.article-body .sequel-note {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 13px; font-style: italic;
-  color: var(--green-deep); opacity: 0.75;
-  margin: -8px 0 32px;
-}
+.article-meta a { border-bottom: 1px solid var(--brass); padding-bottom: 1px; }
+.article-meta a:hover { color: var(--brass); opacity: 1; }
 .article-body p a, .article-body li a {
   color: var(--green-deep);
   border-bottom: 1px solid var(--brass); padding-bottom: 1px;

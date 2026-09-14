@@ -119,7 +119,7 @@ const POSTS = [
     title: "The Biggest Picks-and-Shovels Play in AI May Not Be Infrastructure. It's Services.",
     date: '2026-09-11',
     dateDisplay: 'September 11, 2026',
-    excerpt: 'Every platform shift in enterprise software has obeyed the same law: implementation out-earns invention. AI services are under-attached ~10x — and the buyers already know it.',
+    excerpt: "Historical attach rates imply a $200–300B AI services market; it's ~$35B today. Inside the M&A wave, lab partner channel and adoption curve.",
     tag: 'Market View',
     href: 'insights/the-picks-and-shovels-play-in-ai-is-services.html'
   },

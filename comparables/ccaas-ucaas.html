@@ -140,6 +140,11 @@
   /* Table */
   .table-wrap { background: white; border: 1px solid var(--card-border); overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-family: 'IBM Plex Serif', serif; font-size: 13px; }
+  /* All body cells share one font family and size; tabular figures keep numbers aligned */
+  td { font-family: 'IBM Plex Serif', serif; font-size: 13px; font-variant-numeric: tabular-nums; }
+  /* Extra breathing room: Date → Target, and EV/EBITDA → Rationale */
+  #comps-table th:nth-child(2), #comps-table td:nth-child(2) { padding-left: 28px; }
+  #comps-table th:nth-child(9), #comps-table td:nth-child(9) { padding-left: 36px; }
   thead { background: var(--green-deep); }
   th { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brass); font-weight: 600; text-align: left; padding: 14px 12px; border-bottom: 2px solid var(--brass); white-space: nowrap; cursor: pointer; user-select: none; }
   th.num { text-align: right; }
@@ -150,12 +155,12 @@
   tbody tr:nth-child(even) { background: var(--row-alt); }
   tbody tr:hover { background: var(--cream); }
   td { padding: 14px 12px; vertical-align: top; color: var(--ink); }
-  td.num { text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; }
+  td.num { text-align: right; }
   td.num.multiple { color: var(--green-deep); font-weight: 500; }
-  td.date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+  td.date { color: var(--ink-soft); white-space: nowrap; }
   td.target { font-weight: 500; color: var(--green-deep); min-width: 140px; }
   td.acquirer { color: var(--ink); min-width: 140px; }
-  td.desc { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); max-width: 360px; }
+  td.desc { line-height: 1.5; color: var(--ink-soft); max-width: 360px; }
   td.link { text-align: center; width: 40px; }
   td.link a { color: var(--brass); text-decoration: none; font-size: 15px; display: inline-block; line-height: 1; }
   td.link a:hover { color: var(--green-deep); }
@@ -165,8 +170,8 @@
   .na { color: var(--ink-soft); opacity: 0.5; }
 
   /* Ticker row (public comps) */
-  td.ticker { font-family: 'IBM Plex Mono', monospace; font-weight: 500; color: var(--green-deep); min-width: 80px; }
-  td.ticker .company-name { font-family: 'IBM Plex Serif', serif; font-size: 11px; color: var(--ink-soft); font-weight: 400; margin-top: 3px; letter-spacing: 0; }
+  td.ticker { font-weight: 500; color: var(--green-deep); min-width: 80px; }
+  td.ticker .company-name { font-size: 13px; color: var(--ink-soft); font-weight: 400; margin-top: 3px; letter-spacing: 0; }
   .r40-pos { color: var(--green-deep); font-weight: 500; }
   .r40-neg { color: #a84444; }
 
@@ -200,7 +205,7 @@
     .stats { grid-template-columns: repeat(2, 1fr); }
     .sub-cards { grid-template-columns: repeat(2, 1fr); }
     .stat-num { font-size: 36px; }
-    td.desc { display: none; }
+    td.desc, #comps-table th:nth-child(9) { display: none; }
     .cta-block { flex-direction: column; align-items: flex-start; padding: 28px; }
   }
 </style>
@@ -301,7 +306,7 @@
             <th data-sort="ev_rev" class="num">EV / Rev <span class="sort-ind">⇅</span></th>
             <th data-sort="ebitda" class="num">LTM EBITDA <span class="sort-ind">⇅</span></th>
             <th data-sort="ev_ebitda" class="num">EV / EBITDA <span class="sort-ind">⇅</span></th>
-            <th class="num">Rationale</th>
+            <th>Rationale</th>
             <th></th>
           </tr>
         </thead>

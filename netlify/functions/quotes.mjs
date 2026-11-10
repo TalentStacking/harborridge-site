@@ -7,7 +7,7 @@
 // visitors stay well under Finnhub's free-tier limit (60 calls/minute).
 
 // Only these tickers can be requested — keeps the endpoint from being used as an open proxy.
-const TICKERS = ["FIVN", "RNG", "NICE", "ZM", "EGHT", "BAND"];
+const TICKERS = ["FIVN", "RNG", "NICE", "ZM", "EGHT"];
 const FINNHUB = "https://finnhub.io/api/v1";
 
 async function finnhub(path, key) {

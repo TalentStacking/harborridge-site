@@ -355,14 +355,14 @@
       <div class="stat">
         <div class="stat-label">Median YoY Growth</div>
         <div class="stat-num" id="pub-med-growth">6.0%</div>
-        <div class="stat-desc">Last reported quarter, annualized</div>
+        <div class="stat-desc">Fiscal year-to-date, year over year</div>
       </div>
     </div>
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search ticker..." id="public-search">
       <span class="result-count" id="public-result-count">6 companies</span>
-      <span class="as-of" id="public-as-of">As of Nov 9, 2026 · 5:00 PM ET</span>
+      <span class="as-of" id="public-as-of">As of Nov 10, 2026 · 2:59 PM ET</span>
       <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps">↻ Refresh</button>
       <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
       <a class="csv-link" href="#" id="public-csv">⬇ Download CSV</a>
@@ -393,9 +393,10 @@
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> Publicly traded companies with meaningful CCaaS, UCaaS, or CX exposure. Diversified megacaps (Microsoft, Salesforce, Cisco) excluded; pure-play and segment-material companies included.</p>
       <p><strong>Pricing &amp; multiples.</strong> Figures shown are as of the date above. Click Refresh to pull current share prices and market caps from Finnhub; enterprise value is then recalculated holding net debt constant at the latest filing, and EV / Rev and EV / EBITDA are recomputed against LTM financials from the latest filings. Revenue, growth, gross margin and Rule of 40 do not change on refresh.</p>
-      <p><strong>Rule of 40.</strong> Trailing twelve months revenue growth plus trailing twelve months EBITDA margin. A commonly used efficiency benchmark for SaaS and tech services businesses.</p>
+      <p><strong>Financial definitions.</strong> LTM revenue and EBITDA are trailing twelve months (last fiscal year plus fiscal year-to-date, less the prior-year period) from company earnings releases. EBITDA is company-reported adjusted EBITDA; for Zoom, non-GAAP operating income plus depreciation and amortization; for NICE, non-GAAP EBITDA with Q4 2025 depreciation estimated. Net debt is total debt less cash and investments at the latest quarter-end. Growth and gross margin are fiscal year-to-date versus the prior-year period (GAAP gross margin).</p>
+      <p><strong>Rule of 40.</strong> Fiscal year-to-date revenue growth plus LTM EBITDA margin. A commonly used efficiency benchmark for SaaS and tech services businesses.</p>
       <p><strong>Sources.</strong> Finnhub (live prices), SEC EDGAR filings, Capital IQ. Harbor Ridge Capital research.</p>
-      <div class="updated" id="public-updated">Last updated: November 9, 2026, 5:00 PM ET</div>
+      <div class="updated" id="public-updated">Financials as of latest reported quarter (through Sep 30, 2026; Zoom through Jul 31, 2026). Prices last saved: November 10, 2026, 2:59 PM ET.</div>
     </div>
 
   </div>
@@ -476,14 +477,18 @@ const DEALS = [
   {date:"2022-03-03", target:"Integra", acquirer:"net2phone (IDT)", ev:11.5, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"CCaaS", categories:["CCaaS"], desc:"Adds omnichannel CCaaS to net2phone.", url:"https://www.net2phone.com/news/net2phone-acquires-integra-an-omnichannel-ccaas-platform", included:true},
 ];
 
-// ============ PUBLIC COMPS (placeholder data for v2) ============
+// ============ PUBLIC COMPS ============
+// Price / market cap: Finnhub, Nov 10, 2026 2:59 PM ET (updated live by the Refresh button).
+// rev, ebitda = trailing twelve months ($M) = last fiscal year + fiscal YTD − prior-year YTD, from company earnings releases (SEC 8-K / 6-K).
+// ebitda = company-reported adjusted EBITDA; ZM = non-GAAP operating income + D&A; NICE = non-GAAP EBITDA (Q4 2025 D&A estimated).
+// net_debt = total debt − cash & investments at latest quarter-end (negative = net cash). ev = mcap + net_debt.
+// growth = fiscal YTD revenue growth YoY (%); gm = fiscal YTD GAAP gross margin (%); r40 = growth + TTM EBITDA margin.
 const PUBLIC = [
-  {ticker:"FIVN", name:"Five9", price:22.40, mcap:1680, ev:1920, rev:1050, ev_rev:1.8, ev_ebitda:12.4, growth:6.8, gm:60.1, r40:12},
-  {ticker:"RNG", name:"RingCentral", price:30.15, mcap:2820, ev:3650, rev:2410, ev_rev:1.5, ev_ebitda:7.1, growth:5.2, gm:72.8, r40:26},
-  {ticker:"NICE", name:"NICE", price:148.60, mcap:9280, ev:9050, rev:2680, ev_rev:3.4, ev_ebitda:11.8, growth:7.5, gm:70.2, r40:30},
-  {ticker:"ZM", name:"Zoom", price:78.40, mcap:24100, ev:16800, rev:4680, ev_rev:3.6, ev_ebitda:9.8, growth:3.2, gm:76.5, r40:38},
-  {ticker:"EGHT", name:"8x8", price:3.12, mcap:395, ev:710, rev:721, ev_rev:1.0, ev_ebitda:6.2, growth:-1.4, gm:69.0, r40:11},
-  {ticker:"BAND", name:"Bandwidth", price:17.85, mcap:510, ev:830, rev:775, ev_rev:1.1, ev_ebitda:8.5, growth:18.2, gm:40.1, r40:24},
+  {ticker:"FIVN", name:"Five9",       price:27.74, mcap:2073,  net_debt:52.1,    ev:2125,  rev:1241.4, ebitda:303.1,  ev_rev:1.7, ev_ebitda:7.0,  growth:10.9, gm:54.2, r40:35},
+  {ticker:"RNG",  name:"RingCentral", price:72.94, mcap:6161,  net_debt:900.5,   ev:7061,  rev:2621.1, ebitda:705.6,  ev_rev:2.7, ev_ebitda:10.0, growth:5.7,  gm:72.4, r40:33},
+  {ticker:"NICE", name:"NICE",        price:93.24, mcap:5449,  net_debt:-350.9,  ev:5098,  rev:3128.1, ebitda:951.4,  ev_rev:1.6, ev_ebitda:5.4,  growth:8.5,  gm:63.6, r40:39},
+  {ticker:"ZM",   name:"Zoom",        price:90.96, mcap:26540, net_debt:-7249.7, ev:19291, rev:4993.1, ebitda:2146.1, ev_rev:3.9, ev_ebitda:9.0,  growth:5.2,  gm:77.5, r40:48},
+  {ticker:"EGHT", name:"8x8",         price:2.17,  mcap:313,   net_debt:207.7,   ev:521,   rev:752.5,  ebitda:98.5,   ev_rev:0.7, ev_ebitda:5.3,  growth:4.6,  gm:60.4, r40:18},
 ];
 
 // ============ STATE ============
@@ -629,7 +634,7 @@ function renderPublic() {
 // Pulls current price and market cap from /api/quotes (Netlify function → Finnhub).
 // EV is recalculated holding net debt (EV − market cap, from the latest filing) constant;
 // LTM EBITDA is implied from the stored EV / EV/EBITDA. Revenue, growth, margin, R40 unchanged.
-PUBLIC.forEach(c => { c.netDebt = c.ev - c.mcap; c.ebitdaImplied = c.ev / c.ev_ebitda; });
+// net_debt and ebitda are stored per company in PUBLIC (see data notes above).
 
 function fmtAsOfET(d) {
   const date = d.toLocaleDateString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric", year: "numeric" });
@@ -651,9 +656,9 @@ async function refreshPublic() {
       if (!q) return;
       c.price = q.price;
       c.mcap = Math.round(q.mcap);
-      c.ev = Math.round(q.mcap + c.netDebt);
+      c.ev = Math.round(q.mcap + c.net_debt);
       c.ev_rev = round1(c.ev / c.rev);
-      c.ev_ebitda = round1(c.ev / c.ebitdaImplied);
+      c.ev_ebitda = round1(c.ev / c.ebitda);
       updated++;
     });
     renderPublic();

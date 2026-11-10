@@ -215,6 +215,22 @@
 
   .hidden { display: none !important; }
 
+  /* Weekly digest sign-up (compact) */
+  .meta { margin-bottom: 22px; }
+  .digest-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; background: var(--cream); border: 1px solid var(--card-border); border-left: 3px solid var(--brass); padding: 12px 16px; margin-bottom: 32px; max-width: 640px; }
+  .di-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); white-space: nowrap; }
+  .di-row { display: flex; flex: 1; min-width: 240px; }
+  .di-row input { flex: 1; min-width: 0; font-family: 'IBM Plex Serif', Georgia, serif; font-size: 14px; padding: 9px 12px; border: 1px solid var(--card-border); border-right: none; background: white; color: var(--ink); border-radius: 0; }
+  .di-row input:focus { outline: 2px solid var(--brass); outline-offset: 1px; }
+  .di-row button { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 9px 18px; background: var(--brass); color: var(--green-deep); border: 1px solid var(--brass); cursor: pointer; border-radius: 0; }
+  .di-row button:hover { background: #d7b77f; }
+  .di-row button:disabled { opacity: 0.7; cursor: default; }
+  .di-msg { flex-basis: 100%; font-size: 13px; line-height: 1.5; margin: 0; }
+  .di-msg:empty { display: none; }
+  .di-msg.is-ok { color: var(--green-deep); }
+  .di-msg.is-err { color: #9b3b22; }
+  .di-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
   @media (max-width: 900px) {
     .comps-page h1 { font-size: 32px; }
     .stats { grid-template-columns: repeat(2, 1fr); }
@@ -251,6 +267,16 @@
     <span>$ in millions</span>
     <span id="meta-updated">Private: updated Mondays · Public: live</span>
   </div>
+
+  <form class="digest-inline" data-subscribe novalidate>
+    <label class="di-label" for="digest-email">Get weekly updates</label>
+    <div class="di-row">
+      <input type="email" id="digest-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+      <button type="submit">Subscribe</button>
+    </div>
+    <input type="text" name="website" class="di-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="di-msg" data-subscribe-msg role="status" aria-live="polite"></p>
+  </form>
 
   <!-- Private / Public toggle -->
   <div class="mode-toggle">
@@ -869,5 +895,6 @@ sparkline("spark-avg-ebitda", [11.2, 10.5, 9.8, 9.2, 9.5, 9.9], "#c9a66b");
 sparkline("spark-med-ebitda", [9.5, 9.2, 8.6, 8.4, 8.6, 8.9], "#c9a66b");
 </script>
 <script src="/assets/js/nav.js" defer></script>
+<script src="/assets/js/subscribe.js" defer></script>
 </body>
 </html>

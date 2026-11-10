@@ -101,10 +101,36 @@
   .hub-method p:last-child { margin-bottom: 0; }
   .hub-method strong { color: var(--green-deep); font-weight: 600; }
 
+  /* Weekly digest sign-up */
+  .digest-signup { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; background: var(--green-deep); color: var(--cream); border-top: 3px solid var(--brass); padding: 36px 40px; margin-bottom: 40px; }
+  .digest-signup .ds-eyebrow { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 12px; }
+  .digest-signup h2 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; line-height: 1.2; color: #fff; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .digest-signup .ds-copy p { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 15px; line-height: 1.65; color: var(--cream); opacity: 0.88; margin: 0; }
+  .ds-row { display: flex; gap: 0; }
+  .ds-row input { flex: 1; min-width: 0; font-family: 'IBM Plex Serif', Georgia, serif; font-size: 15px; padding: 14px 16px; border: 1px solid var(--brass); border-right: none; background: var(--off-white); color: var(--ink); border-radius: 0; }
+  .ds-row input:focus { outline: 2px solid var(--brass); outline-offset: 2px; }
+  .ds-row button { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 14px 24px; background: var(--brass); color: var(--green-deep); border: 1px solid var(--brass); cursor: pointer; border-radius: 0; }
+  .ds-row button:hover { background: #d7b77f; }
+  .ds-row button:disabled { opacity: 0.7; cursor: default; }
+  .ds-msg { font-size: 14px; line-height: 1.5; margin: 10px 0 0; min-height: 0; }
+  .ds-msg:empty { display: none; }
+  .ds-msg.is-ok { color: var(--brass); }
+  .ds-msg.is-err { color: #f2c4b3; }
+  .ds-note { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.02em; color: var(--cream); opacity: 0.7; margin: 12px 0 0; }
+  .ds-note a { color: var(--brass); }
+  .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .ds-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
   @media (max-width: 900px) {
     .comps-hub .wrap { padding: 0 16px; }
     .comps-hub h1 { font-size: 32px; }
     .hub-layout { grid-template-columns: 1fr; }
+    .digest-signup { grid-template-columns: 1fr; gap: 22px; padding: 28px 22px; }
+    .digest-signup h2 { font-size: 24px; }
+  }
+  @media (max-width: 480px) {
+    .ds-row { flex-direction: column; gap: 10px; }
+    .ds-row input { border-right: 1px solid var(--brass); }
   }
 </style>
 </head>
@@ -127,6 +153,24 @@
   <div class="eyebrow">Comparables</div>
   <h1>Transaction <em>Comparables</em></h1>
   <div class="subhead">Private M&amp;A transactions and public market comps across the verticals we cover.</div>
+
+  <section class="digest-signup" aria-labelledby="digest-title">
+    <div class="ds-copy">
+      <div class="ds-eyebrow">Weekly Digest</div>
+      <h2 id="digest-title">Get new transactions in your inbox every Tuesday.</h2>
+      <p>A weekly email covering the latest private M&amp;A transactions, private comp multiples, and public market stats across every vertical we cover. One email, Tuesday mornings. Unsubscribe anytime.</p>
+    </div>
+    <form class="ds-form" data-subscribe novalidate>
+      <label class="ds-sr" for="digest-email">Email address</label>
+      <div class="ds-row">
+        <input type="email" id="digest-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+        <button type="submit">Subscribe</button>
+      </div>
+      <input type="text" name="website" class="ds-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="ds-msg" data-subscribe-msg role="status" aria-live="polite"></p>
+      <p class="ds-note">No spam. Just research. Replies go to <a href="mailto:research@harborridgecap.com">research@harborridgecap.com</a>.</p>
+    </form>
+  </section>
 
   <div class="hub-layout">
     <div class="vert-grid">
@@ -200,5 +244,6 @@
   </div>
 </footer>
 <script src="/assets/js/nav.js" defer></script>
+<script src="/assets/js/subscribe.js" defer></script>
 </body>
 </html>

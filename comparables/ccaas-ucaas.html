@@ -240,8 +240,8 @@
 
   <!-- Private / Public toggle -->
   <div class="mode-toggle">
-    <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count">23</span></button>
-    <button class="mode-btn" data-mode="public">Public Comps <span class="count">6</span></button>
+    <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">23</span></button>
+    <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">6</span></button>
   </div>
 
   <!-- ====================== PRIVATE VIEW ====================== -->
@@ -251,25 +251,25 @@
     <div class="stats">
       <div class="stat">
         <div class="stat-label">Avg EV / LTM Rev</div>
-        <div class="stat-num">2.2x</div>
+        <div class="stat-num" id="priv-avg-rev">2.2x</div>
         <div class="stat-desc">Across disclosed deals</div>
         <div class="stat-spark" id="spark-avg-rev"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / LTM Rev</div>
-        <div class="stat-num">1.9x</div>
+        <div class="stat-num" id="priv-med-rev">1.9x</div>
         <div class="stat-desc">Trailing 12-month distribution midpoint</div>
         <div class="stat-spark" id="spark-med-rev"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Avg EV / LTM EBITDA</div>
-        <div class="stat-num">9.9x</div>
+        <div class="stat-num" id="priv-avg-ebitda">9.9x</div>
         <div class="stat-desc">Across disclosed deals</div>
         <div class="stat-spark" id="spark-avg-ebitda"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / LTM EBITDA</div>
-        <div class="stat-num">8.9x</div>
+        <div class="stat-num" id="priv-med-ebitda">8.9x</div>
         <div class="stat-desc">Trailing 12-month distribution midpoint</div>
         <div class="stat-spark" id="spark-med-ebitda"></div>
       </div>
@@ -335,29 +335,29 @@
     <div class="stats">
       <div class="stat">
         <div class="stat-label">Avg EV / LTM EBITDA</div>
-        <div class="stat-num">9.3x</div>
-        <div class="stat-desc">Public market, 6 constituents</div>
+        <div class="stat-num" id="pub-avg-ebitda">9.3x</div>
+        <div class="stat-desc" id="pub-constituents">Public market, 6 constituents</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / LTM EBITDA</div>
-        <div class="stat-num">9.2x</div>
+        <div class="stat-num" id="pub-med-ebitda">9.2x</div>
         <div class="stat-desc">Trading as of market close</div>
       </div>
       <div class="stat">
         <div class="stat-label">Avg Rule of 40</div>
-        <div class="stat-num">24</div>
+        <div class="stat-num" id="pub-avg-r40">24</div>
         <div class="stat-desc">Growth + EBITDA margin</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median YoY Growth</div>
-        <div class="stat-num">6.0%</div>
+        <div class="stat-num" id="pub-med-growth">6.0%</div>
         <div class="stat-desc">Last reported quarter, annualized</div>
       </div>
     </div>
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search ticker..." id="public-search">
-      <span class="result-count">6 companies</span>
+      <span class="result-count" id="public-result-count">6 companies</span>
       <span class="as-of">As of Nov 9, 2026 · 5:00 PM ET</span>
       <a class="csv-link" href="#" id="public-csv">⬇ Download CSV</a>
     </div>
@@ -698,7 +698,41 @@ if (location.hash === "#public") {
   document.querySelector('[data-mode="public"]').click();
 }
 
+// ============ HEADLINE STATS & COUNTS (computed from DEALS / PUBLIC) ============
+// Everything below is derived from the data arrays, so adding or editing a deal
+// only requires changing DEALS (or PUBLIC). Static HTML values are fallbacks.
+function round1(v) { return Math.round(v * 10 + 1e-9) / 10; }
+function avgOf(a) { return a.reduce((x, y) => x + y, 0) / a.length; }
+function medOf(a) { const s = [...a].sort((x, y) => x - y), n = s.length; return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2; }
+function setText(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
+function computeHeadline() {
+  const inc = DEALS.filter(d => d.included);
+  const rev = inc.map(d => d.ev_rev).filter(v => v !== null && v !== undefined);
+  const ebitda = inc.map(d => d.ev_ebitda).filter(v => v !== null && v !== undefined);
+  if (rev.length) { setText("priv-avg-rev", round1(avgOf(rev)).toFixed(1) + "x"); setText("priv-med-rev", round1(medOf(rev)).toFixed(1) + "x"); }
+  if (ebitda.length) { setText("priv-avg-ebitda", round1(avgOf(ebitda)).toFixed(1) + "x"); setText("priv-med-ebitda", round1(medOf(ebitda)).toFixed(1) + "x"); }
+  const n = DEALS.length;
+  setText("meta-count", n + " private transaction" + (n === 1 ? "" : "s"));
+  setText("private-count", n);
+  document.querySelectorAll("#view-private .chip").forEach(chip => {
+    const f = chip.dataset.filter;
+    const c = f === "all" ? n : DEALS.filter(d => d.categories.includes(f)).length;
+    const span = chip.querySelector(".count"); if (span) span.textContent = c;
+  });
+  const p = PUBLIC.length;
+  setText("public-count", p);
+  setText("pub-constituents", "Public market, " + p + " constituent" + (p === 1 ? "" : "s"));
+  setText("public-result-count", p + " compan" + (p === 1 ? "y" : "ies"));
+  if (p) {
+    setText("pub-avg-ebitda", round1(avgOf(PUBLIC.map(c => c.ev_ebitda))).toFixed(1) + "x");
+    setText("pub-med-ebitda", round1(medOf(PUBLIC.map(c => c.ev_ebitda))).toFixed(1) + "x");
+    setText("pub-avg-r40", String(Math.round(avgOf(PUBLIC.map(c => c.r40)) + 1e-9)));
+    setText("pub-med-growth", round1(medOf(PUBLIC.map(c => c.growth))).toFixed(1) + "%");
+  }
+}
+
 // Initial render
+computeHeadline();
 computeSubCards();
 renderPrivate();
 renderPublic();

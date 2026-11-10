@@ -82,7 +82,6 @@
     --card-border: #e8e2d4;
     --row-alt: #f4f0e6;
   }
-  .comps-page * { box-sizing: border-box; margin: 0; padding: 0; }
   .comps-page { background: var(--off-white); font-family: 'IBM Plex Serif', Georgia, serif; color: var(--ink); font-size: 16px; line-height: normal; }
   .comps-page a { transition: none; }
   .page { padding: 48px 0 80px; }
@@ -135,6 +134,17 @@
   .search-input:focus { outline: none; border-color: var(--brass); }
   .result-count { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.02em; }
   .as-of { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.04em; opacity: 0.8; padding-left: 12px; border-left: 1px solid var(--card-border); }
+  /* EV / EBITDA history chart */
+  .trend { background: white; border: 1px solid var(--card-border); margin-top: 20px; padding: 22px 24px 16px; }
+  .trend-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .trend-title { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-deep); font-weight: 600; }
+  .trend-legend { display: flex; gap: 18px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); }
+  .trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .trend-legend i { display: inline-block; width: 18px; height: 2px; }
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .trend svg .val { font-size: 11px; font-weight: 600; }
+  .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
   .refresh-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); background: white; border: 1px solid var(--card-border); padding: 6px 10px; cursor: pointer; }
   .refresh-btn:hover { border-color: var(--brass); }
   .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
@@ -389,13 +399,24 @@
       </table>
     </div>
 
+    <!-- EV / EBITDA over time -->
+    <div class="trend" id="trend">
+      <div class="trend-head">
+        <div class="trend-title">EV / LTM EBITDA over time</div>
+        <div class="trend-legend"><span><i style="background:#c9a66b"></i>Average</span><span><i style="background:#0c3b2e"></i>Median</span></div>
+      </div>
+      <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Average and median EV to LTM EBITDA by quarter for the public comps"></svg>
+      <div class="trend-note">Quarter-end values for the current constituents, using LTM EBITDA and net debt as of each quarter-end (Zoom: latest fiscal quarter ended on or before each date). The final point is live and updates with Refresh.</div>
+    </div>
+
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> Publicly traded companies with meaningful CCaaS, UCaaS, or CX exposure. Diversified megacaps (Microsoft, Salesforce, Cisco) excluded; pure-play and segment-material companies included.</p>
       <p><strong>Pricing &amp; multiples.</strong> Figures shown are as of the date above. Click Refresh to pull current share prices and market caps from Finnhub; enterprise value is then recalculated holding net debt constant at the latest filing, and EV / Rev and EV / EBITDA are recomputed against LTM financials from the latest filings. Revenue, growth, gross margin and Rule of 40 do not change on refresh.</p>
-      <p><strong>Financial definitions.</strong> LTM revenue and EBITDA are trailing twelve months (last fiscal year plus fiscal year-to-date, less the prior-year period) from company earnings releases. EBITDA is company-reported adjusted EBITDA; for Zoom, non-GAAP operating income plus depreciation and amortization; for NICE, non-GAAP EBITDA with Q4 2025 depreciation estimated. Net debt is total debt less cash and investments at the latest quarter-end. Growth and gross margin are fiscal year-to-date versus the prior-year period (GAAP gross margin).</p>
+      <p><strong>Financial definitions.</strong> LTM revenue and EBITDA are trailing twelve months (last fiscal year plus fiscal year-to-date, less the prior-year period) from company earnings releases. EBITDA is company-reported adjusted EBITDA; for Zoom, non-GAAP operating income plus depreciation and amortization; for NICE, its reported non-GAAP EBITDA. Net debt is total debt less cash and investments at the latest quarter-end. Growth and gross margin are fiscal year-to-date versus the prior-year period (GAAP gross margin).</p>
       <p><strong>Rule of 40.</strong> Fiscal year-to-date revenue growth plus LTM EBITDA margin. A commonly used efficiency benchmark for SaaS and tech services businesses.</p>
-      <p><strong>Sources.</strong> Finnhub (live prices), SEC EDGAR filings, Capital IQ. Harbor Ridge Capital research.</p>
+      <p><strong>EV / EBITDA over time.</strong> Each quarterly point uses that quarter-end closing price, basic weighted-average shares, net debt at quarter-end and LTM EBITDA through that quarter, for the current constituents only. The final point is today's live value.</p>
+      <p><strong>Sources.</strong> Finnhub (live prices), historical closing prices from public market data, SEC EDGAR filings, Capital IQ. Harbor Ridge Capital research.</p>
       <div class="updated" id="public-updated">Financials as of latest reported quarter (through Sep 30, 2026; Zoom through Jul 31, 2026). Prices last saved: November 10, 2026, 2:59 PM ET.</div>
     </div>
 
@@ -480,15 +501,15 @@ const DEALS = [
 // ============ PUBLIC COMPS ============
 // Price / market cap: Finnhub, Nov 10, 2026 2:59 PM ET (updated live by the Refresh button).
 // rev, ebitda = trailing twelve months ($M) = last fiscal year + fiscal YTD − prior-year YTD, from company earnings releases (SEC 8-K / 6-K).
-// ebitda = company-reported adjusted EBITDA; ZM = non-GAAP operating income + D&A; NICE = non-GAAP EBITDA (Q4 2025 D&A estimated).
+// ebitda = company-reported adjusted EBITDA; ZM = non-GAAP operating income + D&A; NICE = reported non-GAAP EBITDA.
 // net_debt = total debt − cash & investments at latest quarter-end (negative = net cash). ev = mcap + net_debt.
 // growth = fiscal YTD revenue growth YoY (%); gm = fiscal YTD GAAP gross margin (%); r40 = growth + TTM EBITDA margin.
 const PUBLIC = [
   {ticker:"FIVN", name:"Five9",       price:27.74, mcap:2073,  net_debt:52.1,    ev:2125,  rev:1241.4, ebitda:303.1,  ev_rev:1.7, ev_ebitda:7.0,  growth:10.9, gm:54.2, r40:35},
   {ticker:"RNG",  name:"RingCentral", price:72.94, mcap:6161,  net_debt:900.5,   ev:7061,  rev:2621.1, ebitda:705.6,  ev_rev:2.7, ev_ebitda:10.0, growth:5.7,  gm:72.4, r40:33},
-  {ticker:"NICE", name:"NICE",        price:93.24, mcap:5449,  net_debt:-350.9,  ev:5098,  rev:3128.1, ebitda:951.4,  ev_rev:1.6, ev_ebitda:5.4,  growth:8.5,  gm:63.6, r40:39},
+  {ticker:"NICE", name:"NICE",        price:93.24, mcap:5449,  net_debt:-350.9,  ev:5098,  rev:3128.1, ebitda:952.8,  ev_rev:1.6, ev_ebitda:5.4,  growth:8.5,  gm:63.6, r40:39},
   {ticker:"ZM",   name:"Zoom",        price:90.96, mcap:26540, net_debt:-7249.7, ev:19291, rev:4993.1, ebitda:2146.1, ev_rev:3.9, ev_ebitda:9.0,  growth:5.2,  gm:77.5, r40:48},
-  {ticker:"EGHT", name:"8x8",         price:2.17,  mcap:313,   net_debt:207.7,   ev:521,   rev:752.5,  ebitda:98.5,   ev_rev:0.7, ev_ebitda:5.3,  growth:4.6,  gm:60.4, r40:18},
+  {ticker:"EGHT", name:"8x8",         price:2.17,  mcap:313,   net_debt:206.0,   ev:519,   rev:752.5,  ebitda:98.5,   ev_rev:0.7, ev_ebitda:5.3,  growth:4.6,  gm:60.4, r40:18},
 ];
 
 // ============ STATE ============
@@ -642,6 +663,50 @@ function fmtAsOfET(d) {
   return "As of " + date + " · " + time + " ET";
 }
 
+// ============ EV / EBITDA HISTORY CHART ============
+// Quarter-end average and median EV / LTM EBITDA for the current PUBLIC constituents.
+// Each point: quarter-end close × basic weighted-average shares + net debt (debt − cash & investments
+// at that quarter-end), divided by LTM EBITDA through that quarter (same EBITDA definitions as the table).
+// Source: company earnings releases (SEC 8-K / 6-K); closing prices from public market data.
+// Add a new point here each quarter when the PUBLIC financials are updated.
+const EV_EBITDA_HISTORY = [
+  {date:"2024-12-31", label:"Q4 '24", avg:9.85, med:9.02},
+  {date:"2025-03-31", label:"Q1 '25", avg:7.62, med:7.56},
+  {date:"2025-06-30", label:"Q2 '25", avg:7.63, med:8.07},
+  {date:"2025-09-30", label:"Q3 '25", avg:7.30, med:7.54},
+  {date:"2025-12-31", label:"Q4 '25", avg:6.43, med:5.91},
+  {date:"2026-03-31", label:"Q1 '26", avg:5.87, med:6.35},
+  {date:"2026-06-30", label:"Q2 '26", avg:6.05, med:5.76},
+  {date:"2026-09-30", label:"Q3 '26", avg:7.91, med:8.56},
+];
+
+function renderTrend() {
+  const svg = document.getElementById("trend-svg");
+  if (!svg || !PUBLIC.length) return;
+  const nowVals = PUBLIC.map(c => c.ev / c.ebitda);
+  const pts = EV_EBITDA_HISTORY.concat([{ label: "Now", avg: avgOf(nowVals), med: medOf(nowVals), live: true }]);
+  const W = 760, H = 260, L = 40, R = 44, T = 16, B = 30;
+  const all = pts.flatMap(p => [p.avg, p.med]);
+  const lo = Math.max(0, Math.floor(Math.min(...all)) - 1), hi = Math.ceil(Math.max(...all)) + 1;
+  const x = i => L + i * (W - L - R) / (pts.length - 1);
+  const y = v => T + (hi - v) * (H - T - B) / (hi - lo);
+  let g = "";
+  for (let v = lo; v <= hi; v += (hi - lo > 8 ? 2 : 1)) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}x</text>`;
+  }
+  pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle"${p.live ? ' style="font-weight:600;fill:#0c3b2e"' : ''}>${p.label}</text>`; });
+  const line = (key, color) => {
+    const d = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p[key]).toFixed(1)).join(" ");
+    let s = `<path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    pts.forEach((p, i) => { s += `<circle cx="${x(i)}" cy="${y(p[key])}" r="${p.live ? 4 : 3}" fill="${p.live ? color : 'white'}" stroke="${color}" stroke-width="2"><title>${p.label}: ${round1(p[key]).toFixed(1)}x ${key === "avg" ? "average" : "median"}</title></circle>`; });
+    const last = pts[pts.length - 1];
+    s += `<text class="val" x="${x(pts.length - 1) + 8}" y="${y(last[key]) + 4}" style="fill:${color}">${round1(last[key]).toFixed(1)}x</text>`;
+    return s;
+  };
+  svg.innerHTML = g + line("avg", "#c9a66b") + line("med", "#0c3b2e");
+}
+
 async function refreshPublic() {
   const btn = document.getElementById("public-refresh");
   const msg = document.getElementById("public-refresh-msg");
@@ -663,6 +728,7 @@ async function refreshPublic() {
     });
     renderPublic();
     computeHeadline();
+    renderTrend();
     document.getElementById("public-as-of").textContent = fmtAsOfET(new Date(data.asOf));
     const missing = PUBLIC.length - updated;
     if (missing) msg.textContent = missing + " ticker" + (missing === 1 ? "" : "s") + " not updated";
@@ -791,6 +857,7 @@ computeHeadline();
 computeSubCards();
 renderPrivate();
 renderPublic();
+renderTrend();
 
 // Sparklines: approximate rolling 6-quarter trends
 sparkline("spark-avg-rev", [2.6, 2.4, 2.3, 2.1, 2.0, 2.2], "#c9a66b");

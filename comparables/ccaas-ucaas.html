@@ -135,6 +135,10 @@
   .search-input:focus { outline: none; border-color: var(--brass); }
   .result-count { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.02em; }
   .as-of { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.04em; opacity: 0.8; padding-left: 12px; border-left: 1px solid var(--card-border); }
+  .refresh-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); background: white; border: 1px solid var(--card-border); padding: 6px 10px; cursor: pointer; }
+  .refresh-btn:hover { border-color: var(--brass); }
+  .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
+  .refresh-msg { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: #a84444; }
   .csv-link { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brass); text-decoration: none; font-weight: 600; margin-left: auto; padding: 8px 12px; border: 1px solid var(--card-border); }
   .csv-link:hover { background: var(--cream); border-color: var(--brass); }
 
@@ -358,7 +362,9 @@
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search ticker..." id="public-search">
       <span class="result-count" id="public-result-count">6 companies</span>
-      <span class="as-of">As of Nov 9, 2026 · 5:00 PM ET</span>
+      <span class="as-of" id="public-as-of">As of Nov 9, 2026 · 5:00 PM ET</span>
+      <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps">↻ Refresh</button>
+      <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
       <a class="csv-link" href="#" id="public-csv">⬇ Download CSV</a>
     </div>
 
@@ -386,9 +392,9 @@
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> Publicly traded companies with meaningful CCaaS, UCaaS, or CX exposure. Diversified megacaps (Microsoft, Salesforce, Cisco) excluded; pure-play and segment-material companies included.</p>
-      <p><strong>Pricing &amp; multiples.</strong> Market cap and enterprise value refreshed daily after US market close. LTM financials from latest filings. Multiples recalculated nightly.</p>
+      <p><strong>Pricing &amp; multiples.</strong> Figures shown are as of the date above. Click Refresh to pull current share prices and market caps from Finnhub; enterprise value is then recalculated holding net debt constant at the latest filing, and EV / Rev and EV / EBITDA are recomputed against LTM financials from the latest filings. Revenue, growth, gross margin and Rule of 40 do not change on refresh.</p>
       <p><strong>Rule of 40.</strong> Trailing twelve months revenue growth plus trailing twelve months EBITDA margin. A commonly used efficiency benchmark for SaaS and tech services businesses.</p>
-      <p><strong>Sources.</strong> Yahoo Finance, SEC EDGAR filings, Capital IQ. Harbor Ridge Capital research.</p>
+      <p><strong>Sources.</strong> Finnhub (live prices), SEC EDGAR filings, Capital IQ. Harbor Ridge Capital research.</p>
       <div class="updated" id="public-updated">Last updated: November 9, 2026, 5:00 PM ET</div>
     </div>
 
@@ -619,7 +625,51 @@ function renderPublic() {
   }).join("");
 }
 
+// ============ PUBLIC COMPS: LIVE REFRESH ============
+// Pulls current price and market cap from /api/quotes (Netlify function → Finnhub).
+// EV is recalculated holding net debt (EV − market cap, from the latest filing) constant;
+// LTM EBITDA is implied from the stored EV / EV/EBITDA. Revenue, growth, margin, R40 unchanged.
+PUBLIC.forEach(c => { c.netDebt = c.ev - c.mcap; c.ebitdaImplied = c.ev / c.ev_ebitda; });
+
+function fmtAsOfET(d) {
+  const date = d.toLocaleDateString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric", year: "numeric" });
+  const time = d.toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" });
+  return "As of " + date + " · " + time + " ET";
+}
+
+async function refreshPublic() {
+  const btn = document.getElementById("public-refresh");
+  const msg = document.getElementById("public-refresh-msg");
+  btn.disabled = true; btn.textContent = "↻ Refreshing…"; msg.textContent = "";
+  try {
+    const res = await fetch("/api/quotes", { headers: { "Accept": "application/json" } });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.quotes) throw new Error(data.error || "Live data unavailable");
+    let updated = 0;
+    PUBLIC.forEach(c => {
+      const q = data.quotes[c.ticker];
+      if (!q) return;
+      c.price = q.price;
+      c.mcap = Math.round(q.mcap);
+      c.ev = Math.round(q.mcap + c.netDebt);
+      c.ev_rev = round1(c.ev / c.rev);
+      c.ev_ebitda = round1(c.ev / c.ebitdaImplied);
+      updated++;
+    });
+    renderPublic();
+    computeHeadline();
+    document.getElementById("public-as-of").textContent = fmtAsOfET(new Date(data.asOf));
+    const missing = PUBLIC.length - updated;
+    if (missing) msg.textContent = missing + " ticker" + (missing === 1 ? "" : "s") + " not updated";
+  } catch (err) {
+    msg.textContent = "Couldn't refresh right now. Showing last saved figures.";
+  } finally {
+    btn.disabled = false; btn.textContent = "↻ Refresh";
+  }
+}
+document.getElementById("public-refresh").addEventListener("click", refreshPublic);
 // ============ CSV DOWNLOAD ============
+
 function downloadCSV(rows, filename) {
   const csv = rows.map(r => r.map(v => {
     if (v === null || v === undefined) return "";

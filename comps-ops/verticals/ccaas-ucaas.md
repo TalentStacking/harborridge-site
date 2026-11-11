@@ -1,7 +1,6 @@
 # Vertical: CCaaS & UCaaS
 
 - Vertical name (for commit message): CCaaS/UCaaS
-- Sheet: "CCaaS / UCaaS Transaction Comps", spreadsheet ID 1xiHe3sHdSTC1yUIH1YDVJOSKI0X1pv_J-U-_0rE7GzU
 - Page: comparables/ccaas-ucaas.html (URL /comparables/ccaas-ucaas)
 - Slack channel: #ccaas-ucaas-transactions (C0CFP3K22JW)
 
@@ -31,13 +30,15 @@ Search queries to run (separately): "Broadvoice", "Teutonic Holdings", "GoContac
   *Target / Acquirer or Investor* (Type: M&A / Financing / Restructuring; Announced date; country): size and multiple if disclosed; one short note on why it matters. <link>
 - Short, non-technical. Post nothing else and to no other channel.
 
-## Sheet placement
-- "M&A Comps": M&A, mergers, take-privates, majority stakes, restructurings that change control. Vertical values like UCaaS, CCaaS, UCaaS (Europe), CCaaS / CX AI, Cloud PBX / VoIP, UC Software.
-- "Private Placements": growth/venture rounds, minority investments, debt financings, refinancings.
+
+## Page placement
+- On the page: M&A, mergers, take-privates, majority stakes, asset purchases and restructurings that change control.
+- Slack and report only: venture / growth rounds, minority investments, debt, refinancings, "Reported" sale processes.
 
 ## Page rules
 DEALS entry example:
 {date:"2026-11-05", target:"Level AI", acquirer:"Five9", ev:325.0, rev:20.0, ev_rev:16.3, ebitda:null, ev_ebitda:null, vertical:"CCaaS / CX AI", categories:["CCaaS","CX AI"], desc:"...", url:"https://...", included:false},
+vertical labels: "UCaaS", "CCaaS", "UCaaS (Europe)", "CCaaS / CX AI", "UCaaS / Cloud PBX (Europe)", "UC Software". Outliers like AI-native targets (Level AI, Cognigy) get included:false.
 categories (only these four): "CCaaS" if the vertical mentions CCaaS, CC, contact center or WEM; "UCaaS" if it mentions UCaaS, UC, cloud PBX or unified communications; "CX AI" if it mentions CX AI; "Europe" for European targets.
-Methodology line format: "Last updated: <Month D, YYYY>".
+Methodology line format: "Last updated: <Month D, YYYY>" (keep any time suffix already on the page).
 Hub card stat line: "<N> private deals · <X.X>x median EV/Rev · <Y.Y>x median EV/EBITDA".

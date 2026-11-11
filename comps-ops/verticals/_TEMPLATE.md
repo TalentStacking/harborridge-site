@@ -1,7 +1,6 @@
 # Vertical: <Name>
 
 - Vertical name (for commit message): <Name>
-- Sheet: "<Sheet title>", spreadsheet ID <id>
 - Page: comparables/<slug>.html (URL /comparables/<slug>)
 - Slack channel: #<channel> (<channel id>)
 
@@ -19,9 +18,10 @@ NOT a fit: <...>
 ## Slack post (web-search only)
 <format, or "none">
 
-## Sheet placement
-- "M&A Comps": <...>
-- "Private Placements": <...>
+
+## Page placement
+- On the page: <deal types>
+- Report only: <deal types>
 
 ## Page rules
 DEALS entry example: <copy one entry from the page>

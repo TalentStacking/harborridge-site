@@ -396,6 +396,8 @@
       <input type="text" class="search-input" placeholder="Search company..." id="public-search">
       <span class="result-count" id="public-result-count">9 companies</span>
       <span class="as-of" id="public-as-of">As of Jun 10, 2026</span>
+      <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps">↻ Refresh</button>
+      <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
       <a class="csv-link" href="#" id="public-csv">⬇ Download CSV</a>
     </div>
 
@@ -421,10 +423,10 @@
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> Two groups of publicly traded companies most relevant to compliance buyers: global TICC majors (SGS, Eurofins, Bureau Veritas, Intertek) and government IT and managed services firms (Leidos, CACI, Parsons, SAIC, Kratos).</p>
-      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of June 10, 2026. Kratos (99.3x EV / EBITDA) is shown in the table but excluded from the averages and medians as an outlier.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of June 10, 2026. Click Refresh to pull current share prices and market caps from Finnhub for the US-listed companies (Leidos, CACI, Parsons, SAIC, Kratos); enterprise value is then recalculated using net debt from the latest filing, and EV / Rev and EV / EBITDA are recomputed against the same LTM financials. The four European TICC companies are not covered by the live feed and stay at the saved figures. Kratos (99.3x EV / EBITDA) is shown in the table but excluded from the averages and medians as an outlier.</p>
       <p><strong>Rule of 40.</strong> Revenue growth plus EBITDA margin.</p>
-      <p><strong>Sources.</strong> Capital IQ, company filings, and Harbor Ridge Capital research (HRC FedRAMP 20x whitepaper, Q2 2026).</p>
-      <div class="updated" id="public-updated">Figures as of June 10, 2026.</div>
+      <p><strong>Sources.</strong> Finnhub (live prices), Capital IQ, company filings, and Harbor Ridge Capital research (HRC FedRAMP 20x whitepaper, Q2 2026).</p>
+      <div class="updated" id="public-updated">Figures as of June 10, 2026. Net debt for live refresh from the latest quarterly filings (through Oct 2, 2026).</div>
     </div>
 
   </div>
@@ -523,16 +525,20 @@ const DEALS = [
 // ============ PUBLIC COMPS ============
 // Source: Capital IQ / HRC research (HRC FedRAMP 20x whitepaper, Q2 2026). US$ millions, as of Jun 10, 2026.
 // growth = revenue growth YoY (%); margin = EBITDA margin (%); r40 = growth + margin. included:false = shown but excluded from averages.
+// live:true = US-listed; Refresh pulls price and market cap from /api/quotes?set=compliance (Finnhub) and recomputes
+// EV = market cap + net_debt, holding LTM rev and EBITDA (implied from the Jun 10 multiples) constant.
+// net_debt ($M, latest filing): LDOS debt $6.0B less cash $630M, Oct 2, 2026; CACI Sep 30, 2026; PSN Sep 30, 2026; SAIC approx., 3.0x net leverage, Jul 31, 2026; KTOS net cash, Sep 27, 2026.
+// Non-US TICC names (SGS, Eurofins, Bureau Veritas, Intertek) are not on Finnhub's free plan and stay at the saved figures.
 const PUBLIC = [
-  {name:"SGS",            ticker:"SGSN",  segment:"TICC",                       ev:25645, ev_rev:3.1, ev_ebitda:14.5, growth:2.2,  margin:21.2, included:true},
-  {name:"Eurofins",       ticker:"ERF",   segment:"TICC",                       ev:18577, ev_rev:2.3, ev_ebitda:11.5, growth:5.0,  margin:19.6, included:true},
-  {name:"Bureau Veritas", ticker:"BVI",   segment:"TICC",                       ev:14994, ev_rev:2.1, ev_ebitda:10.6, growth:3.6,  margin:19.3, included:true},
-  {name:"Intertek Group", ticker:"ITRK",  segment:"TICC",                       ev:13144, ev_rev:2.9, ev_ebitda:13.5, growth:1.1,  margin:21.6, included:true},
-  {name:"Leidos",         ticker:"LDOS",  segment:"Gov IT & Managed Services",  ev:22075, ev_rev:1.3, ev_ebitda:9.3,  growth:2.3,  margin:13.6, included:true},
-  {name:"CACI",           ticker:"CACI",  segment:"Gov IT & Managed Services",  ev:17057, ev_rev:1.9, ev_ebitda:15.8, growth:9.6,  margin:11.8, included:true},
-  {name:"Parsons",        ticker:"PSN",   segment:"Gov IT & Managed Services",  ev:7757,  ev_rev:1.2, ev_ebitda:14.5, growth:-6.9, margin:8.5,  included:true},
-  {name:"SAIC",           ticker:"SAIC",  segment:"Gov IT & Managed Services",  ev:7389,  ev_rev:1.0, ev_ebitda:10.1, growth:-2.9, margin:10.0, included:true},
-  {name:"Kratos",         ticker:"KTOS",  segment:"Gov IT & Managed Services",  ev:9258,  ev_rev:6.5, ev_ebitda:99.3, growth:21.8, margin:6.6,  included:false},
+  {name:"SGS",            ticker:"SGSN",  segment:"TICC",                       ev:25645, ev_rev:3.1, ev_ebitda:14.5, growth:2.2,  margin:21.2, live:false, included:true},
+  {name:"Eurofins",       ticker:"ERF",   segment:"TICC",                       ev:18577, ev_rev:2.3, ev_ebitda:11.5, growth:5.0,  margin:19.6, live:false, included:true},
+  {name:"Bureau Veritas", ticker:"BVI",   segment:"TICC",                       ev:14994, ev_rev:2.1, ev_ebitda:10.6, growth:3.6,  margin:19.3, live:false, included:true},
+  {name:"Intertek Group", ticker:"ITRK",  segment:"TICC",                       ev:13144, ev_rev:2.9, ev_ebitda:13.5, growth:1.1,  margin:21.6, live:false, included:true},
+  {name:"Leidos",         ticker:"LDOS",  segment:"Gov IT & Managed Services",  ev:22075, ev_rev:1.3, ev_ebitda:9.3,  growth:2.3,  margin:13.6, rev:16981, ebitda:2374, net_debt:5370, live:true, included:true},
+  {name:"CACI",           ticker:"CACI",  segment:"Gov IT & Managed Services",  ev:17057, ev_rev:1.9, ev_ebitda:15.8, growth:9.6,  margin:11.8, rev:8977, ebitda:1080, net_debt:4560, live:true, included:true},
+  {name:"Parsons",        ticker:"PSN",   segment:"Gov IT & Managed Services",  ev:7757,  ev_rev:1.2, ev_ebitda:14.5, growth:-6.9, margin:8.5,  rev:6464, ebitda:535, net_debt:1060, live:true, included:true},
+  {name:"SAIC",           ticker:"SAIC",  segment:"Gov IT & Managed Services",  ev:7389,  ev_rev:1.0, ev_ebitda:10.1, growth:-2.9, margin:10.0, rev:7389, ebitda:732, net_debt:2250, live:true, included:true},
+  {name:"Kratos",         ticker:"KTOS",  segment:"Gov IT & Managed Services",  ev:9258,  ev_rev:6.5, ev_ebitda:99.3, growth:21.8, margin:6.6,  rev:1424, ebitda:93, net_debt:-1380, live:true, included:false},
 ];
 PUBLIC.forEach(c => { c.r40 = Math.round(c.growth + c.margin); });
 
@@ -679,6 +685,46 @@ function renderPublic() {
   setText("public-result-count", rows.length + " compan" + (rows.length === 1 ? "y" : "ies"));
 }
 document.getElementById("public-search").addEventListener("input", renderPublic);
+
+// ============ PUBLIC COMPS: LIVE REFRESH ============
+// Pulls current price and market cap for the live:true (US-listed) names from /api/quotes?set=compliance.
+function fmtAsOfET(d) {
+  const date = d.toLocaleDateString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric", year: "numeric" });
+  const time = d.toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" });
+  return "As of " + date + " · " + time + " ET";
+}
+async function refreshPublic() {
+  const btn = document.getElementById("public-refresh");
+  const msg = document.getElementById("public-refresh-msg");
+  btn.disabled = true; btn.textContent = "↻ Refreshing…"; msg.textContent = "";
+  try {
+    const res = await fetch("/api/quotes?set=compliance", { headers: { "Accept": "application/json" } });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.quotes) throw new Error(data.error || "Live data unavailable");
+    const live = PUBLIC.filter(c => c.live);
+    let updated = 0;
+    live.forEach(c => {
+      const q = data.quotes[c.ticker];
+      if (!q) return;
+      c.price = q.price;
+      c.mcap = Math.round(q.mcap);
+      c.ev = Math.round(q.mcap + c.net_debt);
+      c.ev_rev = round1(c.ev / c.rev);
+      c.ev_ebitda = round1(c.ev / c.ebitda);
+      updated++;
+    });
+    renderPublic();
+    computeHeadline();
+    document.getElementById("public-as-of").textContent = fmtAsOfET(new Date(data.asOf)) + " (US-listed; TICC as of Jun 10)";
+    const missing = live.length - updated;
+    if (missing) msg.textContent = missing + " ticker" + (missing === 1 ? "" : "s") + " not updated";
+  } catch (err) {
+    msg.textContent = "Couldn't refresh right now. Showing last saved figures.";
+  } finally {
+    btn.disabled = false; btn.textContent = "↻ Refresh";
+  }
+}
+document.getElementById("public-refresh").addEventListener("click", refreshPublic);
 
 // ============ CSV DOWNLOAD ============
 

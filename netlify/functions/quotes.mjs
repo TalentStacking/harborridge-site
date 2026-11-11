@@ -1,5 +1,5 @@
 // Netlify Function: live price + market cap for the public comps tickers.
-// GET /api/quotes  →  { asOf, quotes: { TICKER: { price, mcap } }, errors: { TICKER: message } }
+// GET /api/quotes[?set=ccaas|compliance]  →  { asOf, quotes: { TICKER: { price, mcap } }, errors: { TICKER: message } }
 //
 // Requires the FINNHUB_API_KEY environment variable (set in Netlify → Site configuration →
 // Environment variables). The key never reaches the browser.
@@ -8,11 +8,16 @@
 
 import { fetchTicker } from "../lib/finnhub.mjs";
 
-// Only these tickers can be requested — keeps the endpoint from being used as an open proxy.
-const TICKERS = ["FIVN", "RNG", "NICE", "ZM", "EGHT"];
+// Only these ticker sets can be requested, which keeps the endpoint from being used as an open proxy.
+// Finnhub's free plan covers US listings only, so non-US comps (SGS, Eurofins, Bureau Veritas, Intertek) are not live.
+const SETS = {
+  ccaas: ["FIVN", "RNG", "NICE", "ZM", "EGHT"],
+  compliance: ["LDOS", "CACI", "PSN", "SAIC", "KTOS"],
+};
 
 function json(body, status, cacheSeconds) {
   const headers = {
+    "Netlify-Vary": "query=set",
     "Content-Type": "application/json; charset=utf-8",
     "Cache-Control": "public, max-age=0, must-revalidate",
   };
@@ -22,7 +27,10 @@ function json(body, status, cacheSeconds) {
   return new Response(JSON.stringify(body), { status, headers });
 }
 
-export default async () => {
+export default async (req) => {
+  const set = (req && new URL(req.url).searchParams.get("set")) || "ccaas";
+  const TICKERS = SETS[set];
+  if (!TICKERS) return json({ error: "Unknown ticker set." }, 400, 0);
   const key = process.env.FINNHUB_API_KEY;
   if (!key) return json({ error: "Live data is not configured." }, 503, 0);
 

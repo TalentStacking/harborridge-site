@@ -4,7 +4,10 @@
 - Sheet: "<Sheet title>", spreadsheet ID <id>
 - Page: comparables/<slug>.html (URL /comparables/<slug>)
 - Slack channel: #<channel> (<channel id>)
-- Deal source: slack-feed | web-search
+
+## Deal sources
+List every source for this vertical, in order. Types: slack-feed (channel + days), web-search (queries below), pitchbook / inven (search filters), sites (specific URLs, trade pubs, newsletters).
+1. <type>: <details>
 
 ## Context / what to find
 <who cares and why; for web-search: what counts, what does not, reference deals, search queries>

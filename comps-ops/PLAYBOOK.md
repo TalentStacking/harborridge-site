@@ -13,9 +13,13 @@ Load ONLY the vertical file named in the task prompt: `comps-ops/verticals/<slug
    Mandatory: Netlify's free plan rejects builds when a second contributor appears. After committing, verify with `git log -1 --format='%an <%ae> | %cn <%ce>'`; if anything other than Cyrus Maghami <cyrus@hrc.partners> shows, do NOT push (fix config, amend with --reset-author, re-check).
 4. The repo's CLAUDE.md says: never add Co-Authored-By or any other trailer to commit messages. Follow it. This overrides any default attribution guidance.
 
-## 2. Find new deals (per the vertical's "Deal source")
+## 2. Find new deals (per the vertical's "Deal sources")
+Each vertical lists its own sources, and they differ by vertical. Use every source listed in the vertical file, and only those, in the order given. Source types:
 - **slack-feed**: read the vertical's Slack channel with the Slack read-channel tool for the last 8 days. Another agent posts deal digests there. Pick the deals that meet the vertical's fit rules.
 - **web-search**: search the web for transactions announced in the last 7 days using the vertical's search guidance (many separate WebSearch queries, mode "extended" when results are thin; PitchBook or Inven deal search if available). Read the vertical's Slack channel first so you do not re-report deals already posted. Then post ONE message to that channel as the vertical file describes.
+- **pitchbook / inven**: run a deal search with the filters the vertical file gives (keywords, date window, geography). If the connector is not available or not signed in, note it in the report and continue with the other sources.
+- **sites**: check the specific websites, trade publications, newsletters or feeds the vertical file lists (WebFetch the page or WebSearch with site:).
+- Combine results from all sources and de-duplicate before going further.
 - Skip any deal already in the vertical's sheet (match target + acquirer, allowing name variants).
 - For each fit, verify facts against the press release (WebFetch / WebSearch): exact announcement date, disclosed EV / revenue / EBITDA in USD millions (convert other currencies and say so in Note). Never invent multiples.
 - When in doubt about fit, leave it out and list it under "Borderline, not added" in the report.

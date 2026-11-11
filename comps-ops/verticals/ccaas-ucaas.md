@@ -4,7 +4,11 @@
 - Sheet: "CCaaS / UCaaS Transaction Comps", spreadsheet ID 1xiHe3sHdSTC1yUIH1YDVJOSKI0X1pv_J-U-_0rE7GzU
 - Page: comparables/ccaas-ucaas.html (URL /comparables/ccaas-ucaas)
 - Slack channel: #ccaas-ucaas-transactions (C0CFP3K22JW)
-- Deal source: web-search
+
+## Deal sources
+1. web-search: the queries under "What to find" below
+2. pitchbook / inven: deal search for UCaaS / CCaaS / unified communications / contact center software deals in the last 7 days
+3. sites: prnewswire.com, businesswire.com, globenewswire.com, newsfilecorp.com, investegate.co.uk (RNS)
 
 ## Context
 Cyrus Maghami (Harbor Ridge Capital) advises Broadvoice (UCaaS/CCaaS provider owned by Teutonic Holdings) on a capital raise, restructuring and M&A. Broadvoice has a UCaaS business (B-Hive, mostly US) and a CCaaS business (GoContact) whose majority is in Europe (Iberia, plus LatAm BPO customers). European UCaaS and CCaaS deals are especially relevant, even small ones.

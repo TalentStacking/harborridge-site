@@ -4,7 +4,9 @@
 - Sheet: "IT / Cyber Compliance Transaction Comps", spreadsheet ID 1eUiNFE9yr5pgkmDIGhX0q1TK_vCFTjrSB38G1iTDyLo (M&A Comps sheetId 752110344, Private Placements sheetId 62602865)
 - Page: comparables/it-cyber-compliance.html (URL /comparables/it-cyber-compliance)
 - Slack channel: #cyber-and-compliance-deals (C0B6NKBMGB1)
-- Deal source: slack-feed (a separate deal agent posts "Cyber & Compliance Deal Digest" and "PitchBook M&A" alerts; do not post to this channel)
+
+## Deal sources
+1. slack-feed: #cyber-and-compliance-deals, last 8 days. A separate deal agent posts "Cyber & Compliance Deal Digest" and "PitchBook M&A" alerts there. Do not post to this channel.
 
 ## Fit rules
 FIT if the target is mainly in IT or cyber compliance: compliance audit and assessment firms (3PAO, C3PAO, CMMC RPO, SOC / ISO / HITRUST / PCI / IRAP / FedRAMP assessors), compliance and GRC software, GRC-as-a-service and cyber compliance advisory, CMMC / FedRAMP specialists, TICC certification platforms, and offensive security bought by a compliance player (e.g. A-LIGN / Pathfynder). Include growth or minority investments into such firms (say so in Note, as with Insight Assurance / Marlin Equity).

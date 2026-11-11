@@ -394,7 +394,7 @@
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search company..." id="public-search">
-      <span class="result-count" id="public-result-count">5 companies</span>
+      <span class="result-count" id="public-result-count">6 companies</span>
       <span class="as-of" id="public-as-of">As of Jun 10, 2026</span>
       <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps">↻ Refresh</button>
       <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
@@ -422,7 +422,7 @@
 
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
-      <p><strong>Universe.</strong> US-listed government IT and managed services firms most relevant to CMMC and FedRAMP buyers (Leidos, CACI, Parsons, SAIC, Kratos).</p>
+      <p><strong>Universe.</strong> US-listed companies most relevant to compliance buyers: UL Solutions (testing, inspection and certification) and government IT and managed services firms active in CMMC and FedRAMP (Leidos, CACI, Parsons, SAIC, Kratos). UL Solutions figures are LTM through Sep 30, 2026 and exclude the Eurofins E&amp;E business acquired Oct 1, 2026.</p>
       <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of June 10, 2026. Click Refresh to pull current share prices and market caps from Finnhub; enterprise value is then recalculated using net debt from the latest filing, and EV / Rev and EV / EBITDA are recomputed against the same LTM financials. Kratos (99.3x EV / EBITDA) is shown in the table but excluded from the averages and medians as an outlier.</p>
       <p><strong>Rule of 40.</strong> Revenue growth plus EBITDA margin.</p>
       <p><strong>Sources.</strong> Finnhub (live prices), Capital IQ, company filings, and Harbor Ridge Capital research (HRC FedRAMP 20x whitepaper, Q2 2026).</p>
@@ -527,8 +527,11 @@ const DEALS = [
 // growth = revenue growth YoY (%); margin = EBITDA margin (%); r40 = growth + margin. included:false = shown but excluded from averages.
 // live:true = US-listed; Refresh pulls price and market cap from /api/quotes?set=compliance (Finnhub) and recomputes
 // EV = market cap + net_debt, holding LTM rev and EBITDA (implied from the Jun 10 multiples) constant.
+// ULS: LTM Q4'25-Q3'26 rev $3,186M and adj. EBITDA $868M from company releases; net_debt = debt $766M less cash $1,016M at Sep 30, 2026
+// (cash was raised for the Eurofins E&E deal that closed Oct 1, 2026; E&E not yet in LTM figures); growth = 9M 2026 YoY.
 // net_debt ($M, latest filing): LDOS debt $6.0B less cash $630M, Oct 2, 2026; CACI Sep 30, 2026; PSN Sep 30, 2026; SAIC approx., 3.0x net leverage, Jul 31, 2026; KTOS net cash, Sep 27, 2026.
 const PUBLIC = [
+  {name:"UL Solutions",   ticker:"ULS",   segment:"TICC",                       ev:14920, ev_rev:4.7, ev_ebitda:17.2, growth:5.9,  margin:27.2, rev:3186, ebitda:868, net_debt:-250, live:true, included:true},
   {name:"Leidos",         ticker:"LDOS",  segment:"Gov IT & Managed Services",  ev:22075, ev_rev:1.3, ev_ebitda:9.3,  growth:2.3,  margin:13.6, rev:16981, ebitda:2374, net_debt:5370, live:true, included:true},
   {name:"CACI",           ticker:"CACI",  segment:"Gov IT & Managed Services",  ev:17057, ev_rev:1.9, ev_ebitda:15.8, growth:9.6,  margin:11.8, rev:8977, ebitda:1080, net_debt:4560, live:true, included:true},
   {name:"Parsons",        ticker:"PSN",   segment:"Gov IT & Managed Services",  ev:7757,  ev_rev:1.2, ev_ebitda:14.5, growth:-6.9, margin:8.5,  rev:6464, ebitda:535, net_debt:1060, live:true, included:true},

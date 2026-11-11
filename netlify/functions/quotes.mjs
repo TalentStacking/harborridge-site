@@ -11,7 +11,7 @@ import { fetchTicker } from "../lib/finnhub.mjs";
 // Only these ticker sets can be requested, which keeps the endpoint from being used as an open proxy.
 const SETS = {
   ccaas: ["FIVN", "RNG", "NICE", "ZM", "EGHT"],
-  compliance: ["LDOS", "CACI", "PSN", "SAIC", "KTOS"],
+  compliance: ["ULS", "LDOS", "CACI", "PSN", "SAIC", "KTOS"],
 };
 
 function json(body, status, cacheSeconds) {

@@ -9,7 +9,6 @@
 import { fetchTicker } from "../lib/finnhub.mjs";
 
 // Only these ticker sets can be requested, which keeps the endpoint from being used as an open proxy.
-// Finnhub's free plan covers US listings only, so non-US comps (SGS, Eurofins, Bureau Veritas, Intertek) are not live.
 const SETS = {
   ccaas: ["FIVN", "RNG", "NICE", "ZM", "EGHT"],
   compliance: ["LDOS", "CACI", "PSN", "SAIC", "KTOS"],

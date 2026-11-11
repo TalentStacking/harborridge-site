@@ -16,3 +16,16 @@
   to = "/#team"
   status = 301
   force = true
+
+# Internal automation docs and project notes: not part of the public site
+[[redirects]]
+  from = "/comps-ops/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404.html"
+  status = 404
+  force = true

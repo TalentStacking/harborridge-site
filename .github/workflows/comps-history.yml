@@ -1,0 +1,22 @@
+name: comps-history
+on:
+  push:
+    paths: ["comps-ops/history/request.txt"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python comps-ops/history/fetch_history.py
+      - name: Commit results
+        run: |
+          git config user.name "Cyrus Maghami"
+          git config user.email "cyrus@hrc.partners"
+          git add comps-ops/history/raw.json
+          GIT_COMMITTER_NAME="Cyrus Maghami" GIT_COMMITTER_EMAIL="cyrus@hrc.partners" git commit -m "Comps: public comps history data" || echo "nothing to commit"
+          git push

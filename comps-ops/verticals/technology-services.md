@@ -18,10 +18,12 @@ NOT a fit: software or SaaS product companies, AI model or chip companies, pure 
 
 ## Page rules
 DEALS entry example:
-{date:"2026-09-16", target:"Climb", acquirer:"RLH Equity Partners", buyer_type:"Private equity", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"Data & AI Consulting (Databricks)", categories:["AI Services", "Data & Analytics"], desc:"Growth investment in a Dallas-based, Databricks-native data and AI consultancy.", url:"https://...", included:true},
+{date:"2026-09-16", target:"Climb", acquirer:"RLH Equity Partners", buyer_type:"Private equity", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"Data & AI Consulting (Databricks)", categories:["AI Services", "Data & Analytics"], desc:"Growth investment in a Dallas-based, Databricks-native data and AI consultancy. Rationale: backs data and AI delivery growth.", url:"https://...", included:true},
+desc: one short description, then " Rationale: " and one sentence on why the buyer did the deal. Never mention Clearsight (or any other source) anywhere on the page.
 buyer_type (only these four): "Strategic", "Private equity", "PE-backed strategic" (add-on by a sponsor-owned platform; name the sponsor in acquirer, e.g. "Argano (Trinity Hunt Partners)"), "AI lab" (OpenAI Deployment Co, Ode).
 ev: only if reported (US$M); otherwise null. Leave rev, ev_rev, ebitda, ev_ebitda null unless disclosed.
 categories (only these six): "AI Services", "Data & Analytics", "Cloud & SaaS Platforms", "Digital Engineering", "IT Consulting & MSP", "International" (target outside the US).
 Write "&amp;" for "&" inside acquirer names (e.g. "Ode (Anthropic, Blackstone, H&amp;F)").
+If the page methodology "Deal terms." paragraph lists example disclosed values, add a new disclosed deal there only if it is among the largest.
 Methodology line format: "Last updated: <Month D, YYYY>, 5:00 PM PT".
 Hub card stat line: "<N> private deals · 6 public comps · <X.X>x median public EV/EBITDA" (keep the public numbers unless the quarterly task changed them).

@@ -145,6 +145,17 @@
   .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
   .trend svg .val { font-size: 11px; font-weight: 600; }
   .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+  /* EV / EBITDA history chart */
+  .trend { background: white; border: 1px solid var(--card-border); margin-top: 20px; padding: 22px 24px 16px; }
+  .trend-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .trend-title { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-deep); font-weight: 600; }
+  .trend-legend { display: flex; gap: 18px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); }
+  .trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .trend-legend i { display: inline-block; width: 18px; height: 2px; }
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .trend svg .val { font-size: 11px; font-weight: 600; }
+  .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
   .refresh-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); background: white; border: 1px solid var(--card-border); padding: 6px 10px; cursor: pointer; }
   .refresh-btn:hover { border-color: var(--brass); }
   .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
@@ -420,12 +431,22 @@
       </table>
     </div>
 
+    <div class="trend" id="trend">
+      <div class="trend-head">
+        <div class="trend-title">EV / LTM EBITDA over time</div>
+        <div class="trend-legend"><span><i style="background:#c9a66b"></i>Average</span><span><i style="background:#0c3b2e"></i>Median</span></div>
+      </div>
+      <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Average and median EV to LTM EBITDA by quarter for the public comps"></svg>
+      <div class="trend-note">Quarter-end values for UL Solutions, Leidos, CACI, Parsons and SAIC (Kratos excluded as an outlier, as in the averages above), using LTM EBITDA and net debt as of each quarter-end (latest fiscal quarter ended on or before each date). The final point is live and updates with Refresh.</div>
+    </div>
+
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> US-listed companies most relevant to compliance buyers: UL Solutions (testing, inspection and certification) and government IT and managed services firms active in CMMC and FedRAMP (Leidos, CACI, Parsons, SAIC, Kratos). UL Solutions figures are LTM through Sep 30, 2026 and exclude the Eurofins E&amp;E business acquired Oct 1, 2026.</p>
       <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of June 10, 2026. Click Refresh to pull current share prices and market caps from Finnhub; enterprise value is then recalculated using net debt from the latest filing, and EV / Rev and EV / EBITDA are recomputed against the same LTM financials. Kratos (99.3x EV / EBITDA) is shown in the table but excluded from the averages and medians as an outlier.</p>
       <p><strong>Rule of 40.</strong> Revenue growth plus EBITDA margin.</p>
-      <p><strong>Sources.</strong> Finnhub (live prices), Capital IQ, company filings, and Harbor Ridge Capital research (HRC FedRAMP 20x whitepaper, Q2 2026).</p>
+      <p><strong>EV / EBITDA over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, and net debt (total debt less cash) and LTM operating income from SEC filings for the latest fiscal quarter ended on or before that date. To keep the table's EBITDA definitions, each company's LTM EBITDA is rolled back from the table figure by the change in reported LTM operating income. Kratos is excluded. The final point is today's live value.</p>
+      <p><strong>Sources.</strong> Finnhub (live prices), Capital IQ, company filings, and Harbor Ridge Capital research (HRC FedRAMP 20x whitepaper, Q2 2026). Historical closing prices from public market data; SEC EDGAR filings.</p>
       <div class="updated" id="public-updated">Figures as of June 10, 2026. Net debt for live refresh from the latest quarterly filings (through Oct 2, 2026).</div>
     </div>
 
@@ -691,6 +712,53 @@ function fmtAsOfET(d) {
   const time = d.toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" });
   return "As of " + date + " · " + time + " ET";
 }
+// ============ EV / EBITDA HISTORY CHART ============
+// Quarter-end average and median EV / LTM EBITDA for TREND_TICKERS.
+// Each point: quarter-end close x diluted weighted-average shares + net debt (debt less cash at the latest
+// fiscal quarter-end on or before that date), divided by LTM EBITDA. LTM EBITDA = table EBITDA rolled back by the
+// change in LTM GAAP operating income (SEC XBRL). Data pull: comps-ops/history (raw.json). Add a point each quarter.
+const TREND_TICKERS = ["ULS", "LDOS", "CACI", "PSN", "SAIC"];
+const EV_EBITDA_HISTORY = [
+  {date:"2024-12-31", label:"Q4 '24", avg:13.46, med:13.90},
+  {date:"2025-03-31", label:"Q1 '25", avg:12.02, med:12.00},
+  {date:"2025-06-30", label:"Q2 '25", avg:13.94, med:13.70},
+  {date:"2025-09-30", label:"Q3 '25", avg:14.02, med:14.90},
+  {date:"2025-12-31", label:"Q4 '25", avg:13.62, med:11.30},
+  {date:"2026-03-31", label:"Q1 '26", avg:13.68, med:11.20},
+  {date:"2026-06-30", label:"Q2 '26", avg:13.78, med:12.70},
+  {date:"2026-09-30", label:"Q3 '26", avg:12.30, med:10.70},
+];
+
+function renderTrend() {
+  const svg = document.getElementById("trend-svg");
+  if (!svg || !PUBLIC.length) return;
+  const nowVals = PUBLIC.filter(c => TREND_TICKERS.includes(c.ticker)).map(c => c.ev / c.ebitda);
+  const pts = EV_EBITDA_HISTORY.concat([{ label: "Now", avg: avgOf(nowVals), med: medOf(nowVals), live: true }]);
+  const W = 760, H = 260, L = 40, R = 44, T = 16, B = 30;
+  const all = pts.flatMap(p => [p.avg, p.med]);
+  const lo = Math.max(0, Math.floor(Math.min(...all)) - 1), hi = Math.ceil(Math.max(...all)) + 1;
+  const x = i => L + i * (W - L - R) / (pts.length - 1);
+  const y = v => T + (hi - v) * (H - T - B) / (hi - lo);
+  let g = "";
+  for (let v = lo; v <= hi; v += (hi - lo > 8 ? 2 : 1)) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}x</text>`;
+  }
+  pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle"${p.live ? ' style="font-weight:600;fill:#0c3b2e"' : ''}>${p.label}</text>`; });
+  const line = (key, color) => {
+    const d = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p[key]).toFixed(1)).join(" ");
+    let s = `<path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    pts.forEach((p, i) => { s += `<circle cx="${x(i)}" cy="${y(p[key])}" r="${p.live ? 4 : 3}" fill="${p.live ? color : 'white'}" stroke="${color}" stroke-width="2"><title>${p.label}: ${round1(p[key]).toFixed(1)}x ${key === "avg" ? "average" : "median"}</title></circle>`; });
+    const last = pts[pts.length - 1];
+    let ly = y(last[key]);
+    const gap = y(last.avg) - y(last.med);
+    if (Math.abs(gap) < 13) ly += (key === "avg" ? 1 : -1) * (gap >= 0 ? 1 : -1) * (13 - Math.abs(gap)) / 2;
+    s += `<text class="val" x="${x(pts.length - 1) + 8}" y="${ly + 4}" style="fill:${color}">${round1(last[key]).toFixed(1)}x</text>`;
+    return s;
+  };
+  svg.innerHTML = g + line("avg", "#c9a66b") + line("med", "#0c3b2e");
+}
+
 async function refreshPublic() {
   const btn = document.getElementById("public-refresh");
   const msg = document.getElementById("public-refresh-msg");
@@ -713,6 +781,7 @@ async function refreshPublic() {
     });
     renderPublic();
     computeHeadline();
+    renderTrend();
     document.getElementById("public-as-of").textContent = fmtAsOfET(new Date(data.asOf));
     const missing = live.length - updated;
     if (missing) msg.textContent = missing + " ticker" + (missing === 1 ? "" : "s") + " not updated";
@@ -844,6 +913,7 @@ computeHeadline();
 computeSubCards();
 renderPrivate();
 renderPublic();
+renderTrend();
 </script>
 <script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/subscribe.js" defer></script>

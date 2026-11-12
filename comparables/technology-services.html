@@ -145,6 +145,17 @@
   .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
   .trend svg .val { font-size: 11px; font-weight: 600; }
   .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+  /* EV / EBITDA history chart */
+  .trend { background: white; border: 1px solid var(--card-border); margin-top: 20px; padding: 22px 24px 16px; }
+  .trend-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .trend-title { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-deep); font-weight: 600; }
+  .trend-legend { display: flex; gap: 18px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); }
+  .trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .trend-legend i { display: inline-block; width: 18px; height: 2px; }
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .trend svg .val { font-size: 11px; font-weight: 600; }
+  .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
   .refresh-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); background: white; border: 1px solid var(--card-border); padding: 6px 10px; cursor: pointer; }
   .refresh-btn:hover { border-color: var(--brass); }
   .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
@@ -417,12 +428,22 @@
       </table>
     </div>
 
+    <div class="trend" id="trend">
+      <div class="trend-head">
+        <div class="trend-title">EV / LTM EBITDA over time</div>
+        <div class="trend-legend"><span><i style="background:#c9a66b"></i>Average</span><span><i style="background:#0c3b2e"></i>Median</span></div>
+      </div>
+      <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Average and median EV to LTM EBITDA by quarter for the public comps"></svg>
+      <div class="trend-note">Quarter-end values for Accenture, Cognizant, Genpact and EPAM, the US dollar reporters with quarterly SEC filings, using LTM EBITDA and net debt as of each quarter-end (latest fiscal quarter ended on or before each date). The final point is live for the same four names and updates with Refresh.</div>
+    </div>
+
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> US-listed technology services companies, combining digital engineering and large IT and BPO services firms into one set: Accenture, CGI, Cognizant, Genpact, Wipro, CI&amp;T, Endava, EPAM, Globant and Grid Dynamics.</p>
       <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, from Capital IQ as of September 30, 2026. Growth and margin are 2026 consensus estimates. Click Refresh to pull current share prices and market caps from Finnhub for the six names that report in US dollars (Accenture, Cognizant, Genpact, EPAM, Globant, Grid Dynamics); their EV is recalculated using net debt implied at September 30, and EV / Rev and EV / EBITDA are recomputed against the same LTM financials. CGI, Wipro, CI&amp;T and Endava report in other currencies and stay at September 30 values.</p>
       <p><strong>Rule of 40.</strong> 2026E revenue growth plus 2026E EBITDA margin.</p>
-      <p><strong>Sources.</strong> Capital IQ, company filings, Finnhub (live prices), and Harbor Ridge Capital research.</p>
+      <p><strong>EV / EBITDA over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, and net debt (total debt less cash and short-term investments) and LTM operating income from SEC filings for the latest fiscal quarter ended on or before that date, for Accenture, Cognizant, Genpact and EPAM. To keep the table's EBITDA definitions, each company's LTM EBITDA is rolled back from the table figure by the change in reported LTM operating income. CGI, Wipro, CI&amp;T and Endava (non-US dollar reporters), Globant (no quarterly SEC financials) and Grid Dynamics (near-zero operating income makes the roll-back unreliable) are left out of the chart. The final point is today's live value.</p>
+      <p><strong>Sources.</strong> Capital IQ, company filings, Finnhub (live prices), and Harbor Ridge Capital research. Historical closing prices from public market data; SEC EDGAR filings.</p>
       <div class="updated" id="public-updated">Figures as of September 30, 2026. Live refresh covers US dollar reporting names only.</div>
     </div>
 
@@ -681,6 +702,53 @@ function fmtAsOfET(d) {
   const time = d.toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" });
   return "As of " + date + " · " + time + " ET";
 }
+// ============ EV / EBITDA HISTORY CHART ============
+// Quarter-end average and median EV / LTM EBITDA for TREND_TICKERS.
+// Each point: quarter-end close x diluted weighted-average shares + net debt (debt less cash at the latest
+// fiscal quarter-end on or before that date), divided by LTM EBITDA. LTM EBITDA = table EBITDA rolled back by the
+// change in LTM GAAP operating income (SEC XBRL). Data pull: comps-ops/history (raw.json). Add a point each quarter.
+const TREND_TICKERS = ["ACN", "CTSH", "G", "EPAM"];
+const EV_EBITDA_HISTORY = [
+  {date:"2024-12-31", label:"Q4 '24", avg:13.90, med:13.90},
+  {date:"2025-03-31", label:"Q1 '25", avg:12.40, med:12.15},
+  {date:"2025-06-30", label:"Q2 '25", avg:11.80, med:11.60},
+  {date:"2025-09-30", label:"Q3 '25", avg:9.97, med:10.15},
+  {date:"2025-12-31", label:"Q4 '25", avg:11.72, med:11.35},
+  {date:"2026-03-31", label:"Q1 '26", avg:8.50, med:8.75},
+  {date:"2026-06-30", label:"Q2 '26", avg:5.22, med:5.05},
+  {date:"2026-09-30", label:"Q3 '26", avg:6.83, med:6.70},
+];
+
+function renderTrend() {
+  const svg = document.getElementById("trend-svg");
+  if (!svg || !PUBLIC.length) return;
+  const nowVals = PUBLIC.filter(c => TREND_TICKERS.includes(c.ticker)).map(c => c.ev / c.ebitda);
+  const pts = EV_EBITDA_HISTORY.concat([{ label: "Now", avg: avgOf(nowVals), med: medOf(nowVals), live: true }]);
+  const W = 760, H = 260, L = 40, R = 44, T = 16, B = 30;
+  const all = pts.flatMap(p => [p.avg, p.med]);
+  const lo = Math.max(0, Math.floor(Math.min(...all)) - 1), hi = Math.ceil(Math.max(...all)) + 1;
+  const x = i => L + i * (W - L - R) / (pts.length - 1);
+  const y = v => T + (hi - v) * (H - T - B) / (hi - lo);
+  let g = "";
+  for (let v = lo; v <= hi; v += (hi - lo > 8 ? 2 : 1)) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}x</text>`;
+  }
+  pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle"${p.live ? ' style="font-weight:600;fill:#0c3b2e"' : ''}>${p.label}</text>`; });
+  const line = (key, color) => {
+    const d = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p[key]).toFixed(1)).join(" ");
+    let s = `<path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    pts.forEach((p, i) => { s += `<circle cx="${x(i)}" cy="${y(p[key])}" r="${p.live ? 4 : 3}" fill="${p.live ? color : 'white'}" stroke="${color}" stroke-width="2"><title>${p.label}: ${round1(p[key]).toFixed(1)}x ${key === "avg" ? "average" : "median"}</title></circle>`; });
+    const last = pts[pts.length - 1];
+    let ly = y(last[key]);
+    const gap = y(last.avg) - y(last.med);
+    if (Math.abs(gap) < 13) ly += (key === "avg" ? 1 : -1) * (gap >= 0 ? 1 : -1) * (13 - Math.abs(gap)) / 2;
+    s += `<text class="val" x="${x(pts.length - 1) + 8}" y="${ly + 4}" style="fill:${color}">${round1(last[key]).toFixed(1)}x</text>`;
+    return s;
+  };
+  svg.innerHTML = g + line("avg", "#c9a66b") + line("med", "#0c3b2e");
+}
+
 async function refreshPublic() {
   const btn = document.getElementById("public-refresh");
   const msg = document.getElementById("public-refresh-msg");
@@ -703,6 +771,7 @@ async function refreshPublic() {
     });
     renderPublic();
     computeHeadline();
+    renderTrend();
     document.getElementById("public-as-of").textContent = fmtAsOfET(new Date(data.asOf));
     const missing = live.length - updated;
     if (missing) msg.textContent = missing + " ticker" + (missing === 1 ? "" : "s") + " not updated";
@@ -836,6 +905,7 @@ computeHeadline();
 computeSubCards();
 renderPrivate();
 renderPublic();
+renderTrend();
 </script>
 <script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/subscribe.js" defer></script>

@@ -261,7 +261,7 @@
   <a href="/comparables" class="back-link">← Back to Comparables</a>
   <div class="eyebrow">Comparables · Updated Nov 2026</div>
   <h1>Technology Services <em>Comparables</em></h1>
-  <div class="subhead">Emerging tech services, including AI, cloud and SaaS. Private M&amp;A in AI implementation, data and analytics, platform partners (Databricks, Snowflake, Salesforce, SAP, Oracle, Google Cloud, Microsoft), and digital engineering, plus public comps in digital tech and IT services.</div>
+  <div class="subhead">Emerging tech services, including AI, cloud and SaaS. Private M&amp;A in AI implementation, data and analytics, platform partners (Databricks, Snowflake, Salesforce, SAP, Oracle, Google Cloud, Microsoft), and digital engineering, plus US-listed public comps in tech services.</div>
   <div class="meta">
     <span id="meta-count">33 private transactions</span>
     <span>$ in millions</span>
@@ -281,7 +281,7 @@
   <!-- Private / Public toggle -->
   <div class="mode-toggle">
     <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">33</span></button>
-    <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">22</span></button>
+    <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">10</span></button>
   </div>
 
   <!-- ====================== PRIVATE VIEW ====================== -->
@@ -392,7 +392,7 @@
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search company..." id="public-search">
-      <span class="result-count" id="public-result-count">22 companies</span>
+      <span class="result-count" id="public-result-count">10 companies</span>
       <span class="as-of" id="public-as-of">As of Sep 30, 2026</span>
       <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps for US-listed names">↻ Refresh</button>
       <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
@@ -405,7 +405,6 @@
         <thead>
           <tr>
             <th>Company</th>
-            <th>Segment</th>
             <th class="num">EV</th>
             <th class="num">EV / Rev</th>
             <th class="num">EV / EBITDA</th>
@@ -420,11 +419,11 @@
 
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
-      <p><strong>Universe.</strong> The Digital Technology Services and IT &amp; BPO Services peer groups from Clearsight Advisors' Digital, AI and Cloud Update (Q3 2026): 13 digital engineering firms and 9 large IT and BPO services firms, US, European and Indian listed.</p>
-      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, from Capital IQ as of September 30, 2026. Growth and margin are 2026 consensus estimates (Datamatics not available). Click Refresh to pull current share prices and market caps from Finnhub for the six US-listed, US dollar reporting names (Accenture, Cognizant, Genpact, EPAM, Globant, Grid Dynamics); their EV is recalculated using net debt implied at September 30, and EV / Rev and EV / EBITDA are recomputed against the same LTM financials. All other names stay at September 30 values.</p>
+      <p><strong>Universe.</strong> US-listed technology services companies from Clearsight Advisors' Digital, AI and Cloud Update (Q3 2026), combining its Digital Technology Services and IT &amp; BPO Services peer groups into one set: Accenture, CGI, Cognizant, Genpact, Wipro, CI&amp;T, Endava, EPAM, Globant and Grid Dynamics.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, from Capital IQ as of September 30, 2026. Growth and margin are 2026 consensus estimates. Click Refresh to pull current share prices and market caps from Finnhub for the six names that report in US dollars (Accenture, Cognizant, Genpact, EPAM, Globant, Grid Dynamics); their EV is recalculated using net debt implied at September 30, and EV / Rev and EV / EBITDA are recomputed against the same LTM financials. CGI, Wipro, CI&amp;T and Endava report in other currencies and stay at September 30 values.</p>
       <p><strong>Rule of 40.</strong> 2026E revenue growth plus 2026E EBITDA margin.</p>
       <p><strong>Sources.</strong> Clearsight Advisors (Digital, AI and Cloud Update, Q3 2026), Capital IQ, Finnhub (live prices), and Harbor Ridge Capital research.</p>
-      <div class="updated" id="public-updated">Figures as of September 30, 2026. Live refresh covers US-listed, US dollar reporting names only.</div>
+      <div class="updated" id="public-updated">Figures as of September 30, 2026. Live refresh covers US dollar reporting names only.</div>
     </div>
 
   </div>
@@ -520,31 +519,19 @@ const DEALS = [
 // growth = revenue growth YoY (%); margin = EBITDA margin (%); r40 = growth + margin. included:false = shown but excluded from averages.
 // live:true = US-listed; Refresh pulls price and market cap from /api/quotes?set=techservices (Finnhub) and recomputes
 // EV = market cap + net_debt, holding LTM rev and EBITDA (implied from the Jun 10 multiples) constant.
-// Clearsight Advisors Digital, AI and Cloud Update Q3 2026 (Capital IQ, as of Sep 30, 2026). $M. growth = 2026E revenue growth; margin = 2026E EBITDA margin.
+// US-listed names from the Clearsight Advisors Digital, AI and Cloud Update Q3 2026 (Capital IQ, as of Sep 30, 2026). $M. growth = 2026E revenue growth; margin = 2026E EBITDA margin.
 // rev and ebitda are implied LTM figures (EV / multiple); net_debt = EV - market cap. live:true = US-listed, USD-reporting names refreshed from Finnhub.
 const PUBLIC = [
-  {name:"Accenture", ticker:"ACN", segment:"IT &amp; BPO Services", ev:112046, ev_rev:1.5, ev_ebitda:8.0, growth:4.9, margin:19.5, rev:74697, ebitda:14006, net_debt:-166, live:true, included:true},
-  {name:"Capgemini", ticker:"CAP.PA", segment:"IT &amp; BPO Services", ev:29131, ev_rev:1.1, ev_ebitda:8.3, growth:4.6, margin:15.6, rev:26483, ebitda:3510, net_debt:9007, live:false, included:true},
-  {name:"CGI", ticker:"GIB", segment:"IT &amp; BPO Services", ev:16675, ev_rev:1.4, ev_ebitda:8.1, growth:-0.6, margin:20.2, rev:11911, ebitda:2059, net_debt:2741, live:false, included:true},
-  {name:"Cognizant", ticker:"CTSH", segment:"IT &amp; BPO Services", ev:26917, ev_rev:1.2, ev_ebitda:6.7, growth:5.2, margin:18.6, rev:22431, ebitda:4017, net_debt:1043, live:true, included:true},
-  {name:"Datamatics", ticker:"DATAMATICS.NS", segment:"IT &amp; BPO Services", ev:460, ev_rev:2.1, ev_ebitda:10.7, growth:null, margin:null, rev:219, ebitda:43, net_debt:-37, live:false, included:true},
-  {name:"Genpact", ticker:"G", segment:"IT &amp; BPO Services", ev:6360, ev_rev:1.2, ev_ebitda:7.2, growth:7.0, margin:18.7, rev:5300, ebitda:883, net_debt:894, live:true, included:true},
-  {name:"HCLTech", ticker:"HCLTECH.NS", segment:"IT &amp; BPO Services", ev:32700, ev_rev:2.2, ev_ebitda:11.7, growth:1.1, margin:20.6, rev:14864, ebitda:2795, net_debt:-2011, live:false, included:true},
-  {name:"Tech Mahindra", ticker:"TECHM.NS", segment:"IT &amp; BPO Services", ev:13499, ev_rev:2.2, ev_ebitda:13.8, growth:6.7, margin:17.6, rev:6136, ebitda:978, net_debt:-581, live:false, included:true},
-  {name:"Wipro", ticker:"WIT", segment:"IT &amp; BPO Services", ev:14558, ev_rev:1.4, ev_ebitda:7.9, growth:1.1, margin:19.5, rev:10399, ebitda:1843, net_debt:-1784, live:false, included:true},
-  {name:"Birlasoft", ticker:"BSOFT.NS", segment:"Digital Tech Services", ev:552, ev_rev:1.0, ev_ebitda:5.9, growth:-2.4, margin:16.3, rev:552, ebitda:94, net_debt:-240, live:false, included:true},
-  {name:"CI&amp;T", ticker:"CINT", segment:"Digital Tech Services", ev:483, ev_rev:0.9, ev_ebitda:6.7, growth:16.6, margin:16.3, rev:537, ebitda:72, net_debt:90, live:false, included:true},
-  {name:"Coforge", ticker:"COFORGE.NS", segment:"Digital Tech Services", ev:8150, ev_rev:4.2, ev_ebitda:21.4, growth:39.8, margin:20.3, rev:1940, ebitda:381, net_debt:69, live:false, included:true},
-  {name:"Endava", ticker:"DAVA", segment:"Digital Tech Services", ev:353, ev_rev:0.4, ev_ebitda:8.9, growth:-3.7, margin:10.7, rev:882, ebitda:40, net_debt:258, live:false, included:true},
-  {name:"EPAM Systems", ticker:"EPAM", segment:"Digital Tech Services", ev:4953, ev_rev:0.9, ev_ebitda:6.6, growth:3.7, margin:16.8, rev:5503, ebitda:750, net_debt:-637, live:true, included:true},
-  {name:"Globant", ticker:"GLOB", segment:"Digital Tech Services", ev:1908, ev_rev:0.8, ev_ebitda:4.9, growth:-0.3, margin:19.9, rev:2385, ebitda:389, net_debt:410, live:true, included:true},
-  {name:"Grid Dynamics", ticker:"GDYN", segment:"Digital Tech Services", ev:363, ev_rev:0.9, ev_ebitda:13.8, growth:6.4, margin:14.0, rev:403, ebitda:26, net_debt:-276, live:true, included:true},
-  {name:"Happiest Minds", ticker:"HAPPSTMNDS.NS", segment:"Digital Tech Services", ev:465, ev_rev:1.8, ev_ebitda:11.3, growth:6.3, margin:18.1, rev:258, ebitda:41, net_debt:-22, live:false, included:true},
-  {name:"Hexaware", ticker:"HEXT.NS", segment:"Digital Tech Services", ev:3061, ev_rev:2.0, ev_ebitda:12.4, growth:7.6, margin:15.8, rev:1530, ebitda:247, net_debt:-80, live:false, included:true},
-  {name:"Mastek", ticker:"MASTEK.NS", segment:"Digital Tech Services", ev:457, ev_rev:1.1, ev_ebitda:7.1, growth:2.0, margin:15.6, rev:415, ebitda:64, net_debt:-48, live:false, included:true},
-  {name:"Mphasis", ticker:"MPHASIS.NS", segment:"Digital Tech Services", ev:4240, ev_rev:2.4, ev_ebitda:14.2, growth:8.4, margin:18.5, rev:1767, ebitda:299, net_debt:-58, live:false, included:true},
-  {name:"Persistent Systems", ticker:"PERSISTENT.NS", segment:"Digital Tech Services", ev:8207, ev_rev:4.9, ev_ebitda:27.8, growth:18.7, margin:18.0, rev:1675, ebitda:295, net_debt:-10, live:false, included:true},
-  {name:"Zensar", ticker:"ZENSARTECH.NS", segment:"Digital Tech Services", ev:746, ev_rev:1.2, ev_ebitda:8.0, growth:1.7, margin:15.0, rev:622, ebitda:93, net_debt:-257, live:false, included:true},
+  {name:"Accenture", ticker:"ACN", segment:"Tech Services", ev:112046, ev_rev:1.5, ev_ebitda:8.0, growth:4.9, margin:19.5, rev:74697, ebitda:14006, net_debt:-166, live:true, included:true},
+  {name:"CGI", ticker:"GIB", segment:"Tech Services", ev:16675, ev_rev:1.4, ev_ebitda:8.1, growth:-0.6, margin:20.2, rev:11911, ebitda:2059, net_debt:2741, live:false, included:true},
+  {name:"Cognizant", ticker:"CTSH", segment:"Tech Services", ev:26917, ev_rev:1.2, ev_ebitda:6.7, growth:5.2, margin:18.6, rev:22431, ebitda:4017, net_debt:1043, live:true, included:true},
+  {name:"Genpact", ticker:"G", segment:"Tech Services", ev:6360, ev_rev:1.2, ev_ebitda:7.2, growth:7.0, margin:18.7, rev:5300, ebitda:883, net_debt:894, live:true, included:true},
+  {name:"Wipro", ticker:"WIT", segment:"Tech Services", ev:14558, ev_rev:1.4, ev_ebitda:7.9, growth:1.1, margin:19.5, rev:10399, ebitda:1843, net_debt:-1784, live:false, included:true},
+  {name:"CI&amp;T", ticker:"CINT", segment:"Tech Services", ev:483, ev_rev:0.9, ev_ebitda:6.7, growth:16.6, margin:16.3, rev:537, ebitda:72, net_debt:90, live:false, included:true},
+  {name:"Endava", ticker:"DAVA", segment:"Tech Services", ev:353, ev_rev:0.4, ev_ebitda:8.9, growth:-3.7, margin:10.7, rev:882, ebitda:40, net_debt:258, live:false, included:true},
+  {name:"EPAM Systems", ticker:"EPAM", segment:"Tech Services", ev:4953, ev_rev:0.9, ev_ebitda:6.6, growth:3.7, margin:16.8, rev:5503, ebitda:750, net_debt:-637, live:true, included:true},
+  {name:"Globant", ticker:"GLOB", segment:"Tech Services", ev:1908, ev_rev:0.8, ev_ebitda:4.9, growth:-0.3, margin:19.9, rev:2385, ebitda:389, net_debt:410, live:true, included:true},
+  {name:"Grid Dynamics", ticker:"GDYN", segment:"Tech Services", ev:363, ev_rev:0.9, ev_ebitda:13.8, growth:6.4, margin:14.0, rev:403, ebitda:26, net_debt:-276, live:true, included:true},
 ];
 PUBLIC.forEach(c => { c.r40 = (c.growth === null || c.margin === null) ? null : Math.round(c.growth + c.margin); });
 
@@ -667,14 +654,13 @@ function renderPrivate() {
 function renderPublic() {
   const tbody = document.getElementById("public-tbody");
   const q = (document.getElementById("public-search").value || "").toLowerCase();
-  const rows = PUBLIC.filter(c => !q || c.name.toLowerCase().includes(q) || c.ticker.toLowerCase().includes(q) || c.segment.toLowerCase().includes(q));
+  const rows = PUBLIC.filter(c => !q || c.name.toLowerCase().includes(q) || c.ticker.toLowerCase().includes(q));
   tbody.innerHTML = rows.map(c => {
     const r40Class = c.r40 === null ? '' : (c.r40 >= 40 ? 'r40-pos' : (c.r40 < 20 ? 'r40-neg' : ''));
     const excl = c.included ? '' : '<span class="excluded-tag">Excl.</span>';
     return `
       <tr class="${c.included ? '' : 'excluded'}">
         <td class="ticker">${c.name}${excl}<div class="company-name">${c.ticker}</div></td>
-        <td>${c.segment}</td>
         <td class="num">${fmtMoney(c.ev)}</td>
         <td class="num multiple">${fmtMult(c.ev_rev)}</td>
         <td class="num multiple">${fmtMult(c.ev_ebitda)}</td>
@@ -752,8 +738,8 @@ document.getElementById("csv-dl").addEventListener("click", e => {
 
 document.getElementById("public-csv").addEventListener("click", e => {
   e.preventDefault();
-  const header = ["Company","Ticker","Segment","EV ($M)","EV/Rev","EV/EBITDA","2026E Growth %","2026E EBITDA Margin %","Rule of 40","Live refresh"];
-  const rows = [header, ...PUBLIC.map(c => [c.name.replace(/&amp;/g, "&"), c.ticker, c.segment.replace(/&amp;/g, "&"), c.ev, c.ev_rev, c.ev_ebitda, c.growth, c.margin, c.r40, c.live ? "Yes" : "No"])];
+  const header = ["Company","Ticker","EV ($M)","EV/Rev","EV/EBITDA","2026E Growth %","2026E EBITDA Margin %","Rule of 40","Live refresh"];
+  const rows = [header, ...PUBLIC.map(c => [c.name.replace(/&amp;/g, "&"), c.ticker, c.ev, c.ev_rev, c.ev_ebitda, c.growth, c.margin, c.r40, c.live ? "Yes" : "No"])];
   downloadCSV(rows, "hrc-technology-services-public-comps.csv");
 });
 

@@ -1,5 +1,5 @@
 // Netlify Function: live price + market cap for the public comps tickers.
-// GET /api/quotes[?set=ccaas|compliance]  →  { asOf, quotes: { TICKER: { price, mcap } }, errors: { TICKER: message } }
+// GET /api/quotes[?set=ccaas|compliance|techservices]  →  { asOf, quotes: { TICKER: { price, mcap } }, errors: { TICKER: message } }
 //
 // Requires the FINNHUB_API_KEY environment variable (set in Netlify → Site configuration →
 // Environment variables). The key never reaches the browser.
@@ -12,6 +12,7 @@ import { fetchTicker } from "../lib/finnhub.mjs";
 const SETS = {
   ccaas: ["FIVN", "RNG", "NICE", "ZM", "EGHT"],
   compliance: ["ULS", "LDOS", "CACI", "PSN", "SAIC", "KTOS"],
+  techservices: ["ACN", "CTSH", "G", "EPAM", "GLOB", "GDYN"],
 };
 
 function json(body, status, cacheSeconds) {

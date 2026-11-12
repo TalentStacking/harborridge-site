@@ -340,7 +340,6 @@
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search target or acquirer..." id="search">
       <span class="result-count" id="result-count">Showing 38 of 38</span>
-      <a class="csv-link" href="#" id="csv-dl">⬇ Download CSV</a>
     </div>
 
     <!-- Table -->
@@ -808,13 +807,6 @@ function downloadCSV(rows, filename) {
   a.download = filename;
   a.click();
 }
-
-document.getElementById("csv-dl").addEventListener("click", e => {
-  e.preventDefault();
-  const header = ["Date","Target","Acquirer","Vertical","EV ($M)","LTM Rev ($M)","EV/Rev","LTM EBITDA ($M)","EV/EBITDA","Included","Rationale","Source URL"];
-  const rows = [header, ...DEALS.map(d => [d.date, d.target, d.acquirer, d.vertical, d.ev, d.rev, d.ev_rev, d.ebitda, d.ev_ebitda, d.included ? "Yes" : "No", d.desc, d.url])];
-  downloadCSV(rows, "hrc-it-cyber-compliance-private-comps.csv");
-});
 
 document.getElementById("public-csv").addEventListener("click", e => {
   e.preventDefault();

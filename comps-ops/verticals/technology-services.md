@@ -2,7 +2,7 @@
 
 - Vertical name (for commit message): Technology Services
 - Page: comparables/technology-services.html (URL /comparables/technology-services)
-- Slack channel: #ai-services-deals (C0C1KBVSF24)
+- Slack channel: #tech-services-deals (C0C1KBVSF24)
 
 ## Deal sources
 1. web-search: last 7 days. Queries to run (each separately): "acquires AI consultancy", "acquires data and AI consulting", "AI services Series A", "AI implementation raises", "GenAI consultancy acquired", "agentic AI services acquired", "Databricks partner acquired", "Snowflake partner acquired", "Salesforce partner acquisition", "ServiceNow partner acquisition", "SAP partner acquisition", "Oracle cloud consultancy acquired", "Google Cloud partner investment", "Microsoft partner growth investment", "Palantir partner acquired", "digital engineering acquisition", "IT consulting acquisition", "managed IT services acquired".

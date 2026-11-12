@@ -24,4 +24,4 @@ ev: only if reported (US$M); otherwise null. Leave rev, ev_rev, ebitda, ev_ebitd
 categories (only these six): "AI Services", "Data & Analytics", "Cloud & SaaS Platforms", "Digital Engineering", "IT Consulting & MSP", "International" (target outside the US).
 Write "&amp;" for "&" inside acquirer names (e.g. "Ode (Anthropic, Blackstone, H&amp;F)").
 Methodology line format: "Last updated: <Month D, YYYY>, 5:00 PM PT".
-Hub card stat line: "<N> private deals · 10 public comps · <X.X>x median public EV/EBITDA" (keep the public numbers unless the quarterly task changed them).
+Hub card stat line: "<N> private deals · 6 public comps · <X.X>x median public EV/EBITDA" (keep the public numbers unless the quarterly task changed them).

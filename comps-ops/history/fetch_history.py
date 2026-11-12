@@ -18,15 +18,18 @@ def get(url, tries=3):
 D = lambda s: dt.date.fromisoformat(s)
 
 def facts_for(gaap, names):
-    out = []
+    """Union of all candidate concepts; for the same period the earlier concept in `names` wins."""
+    out, seen = [], set()
     for n in names:
         f = gaap.get(n)
         if not f: continue
         for unit, arr in f["units"].items():
             for x in arr:
-                if x.get("form") not in ("10-Q","10-K","10-Q/A","10-K/A","20-F","6-K","40-F"): continue
+                if x.get("form") not in ("10-Q","10-K","10-Q/A","10-K/A"): continue
+                k = (x.get("start"), x["end"])
+                if k in seen and not any(o["c"] == n and (o["start"], o["end"]) == k for o in out): continue
+                seen.add(k)
                 out.append({"c": n, "start": x.get("start"), "end": x["end"], "val": x["val"], "filed": x.get("filed",""), "unit": unit})
-        if out: return out
     return out
 
 def dedupe(fs):
@@ -90,12 +93,14 @@ def main():
         rec = {"cik": cik.get(tk), "quarters": {}, "log": []}
         out["companies"][tk] = rec
         try:
-            gaap = get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik[tk]}.json")["facts"].get("us-gaap", {})
+            allf = get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik[tk]}.json")["facts"]
+            gaap = allf.get("us-gaap", {})
+            dei = allf.get("dei", {})
             time.sleep(0.3)
         except Exception as e:
             rec["log"].append(f"facts error {e}"); continue
         op = facts_for(gaap, ["OperatingIncomeLoss"])
-        da = facts_for(gaap, ["DepreciationDepletionAndAmortization","DepreciationAmortizationAndAccretionNet","DepreciationAndAmortization","DepreciationAmortizationAndOther","CostOfGoodsAndServicesSoldDepreciationAndAmortization"])
+        da = facts_for(gaap, ["DepreciationDepletionAndAmortization","DepreciationAmortizationAndAccretionNet","DepreciationAndAmortization","DepreciationAmortizationAndOther","Depreciation","AmortizationOfIntangibleAssets","DepreciationAndAmortizationExcludingAmortizationOfIntangibleAssets"])
         rev = facts_for(gaap, ["Revenues","RevenueFromContractWithCustomerExcludingAssessedTax","RevenueFromContractWithCustomerIncludingAssessedTax","SalesRevenueNet"])
         ltd = facts_for(gaap, ["LongTermDebt","LongTermDebtAndCapitalLeaseObligations"])
         ltdn = facts_for(gaap, ["LongTermDebtNoncurrent","LongTermDebtAndCapitalLeaseObligationsNoncurrent"])
@@ -104,17 +109,17 @@ def main():
         cash = facts_for(gaap, ["CashAndCashEquivalentsAtCarryingValue","CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"])
         sti = facts_for(gaap, ["ShortTermInvestments","MarketableSecuritiesCurrent","AvailableForSaleSecuritiesDebtSecuritiesCurrent"])
         sh = facts_for(gaap, ["WeightedAverageNumberOfDilutedSharesOutstanding","WeightedAverageNumberOfSharesOutstandingBasic"])
-        rec["concepts"] = {k: (v[0]["c"] if v else None) for k, v in dict(op=op, da=da, rev=rev, ltd=ltd, ltdn=ltdn, ltdc=ltdc, stb=stb, cash=cash, sti=sti, sh=sh).items()}
+        rec["concepts"] = {k: sorted({x["c"] for x in v}) for k, v in dict(op=op, da=da, rev=rev, ltd=ltd, ltdn=ltdn, ltdc=ltdc, stb=stb, cash=cash, sti=sti, sh=sh).items()}
         for q in QENDS:
             fe = fiscal_end_for(op, q)
             row = {"fiscal_end": fe}
             if fe:
                 o, om = ltm(op, fe); a, am = ltm(da, fe); r, rm = ltm(rev, fe)
-                debt = instant(ltd, fe)
-                if debt is None:
-                    debt = (instant(ltdn, fe) or 0) + (instant(ltdc, fe) or 0)
+                debt = max(instant(ltd, fe) or 0, (instant(ltdn, fe) or 0) + (instant(ltdc, fe) or 0))
                 debt += instant(stb, fe) or 0
                 c = (instant(cash, fe) or 0) + (instant(sti, fe) or 0)
+                so = [x for x in dei.get("EntityCommonStockSharesOutstanding", {}).get("units", {}).get("shares", []) if x.get("form") in ("10-Q","10-K") and 0 <= (D(x["end"]) - D(fe)).days <= 120]
+                row["shares_out"] = min(so, key=lambda x: x["end"])["val"] if so else None
                 row.update(op_ltm=o, op_m=om, da_ltm=a, da_m=am, rev_ltm=r, debt=debt, cash=c, shares=shares_q(sh, fe))
             try:
                 row["price"] = price_on(tk, q)

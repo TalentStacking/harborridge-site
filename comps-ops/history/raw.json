@@ -1,0 +1,1597 @@
+{
+ "generated": "2026-11-12T01:03:11.973830Z",
+ "companies": {
+  "ULS": {
+   "cik": "0001901440",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-31",
+     "op_ltm": 462000000,
+     "op_m": "FY",
+     "da_ltm": 172000000,
+     "da_m": "FY",
+     "rev_ltm": 2870000000,
+     "debt": 742000000,
+     "cash": 298000000,
+     "shares": null,
+     "price": [
+      "2024-12-31",
+      49.880001068115234
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "op_ltm": 480000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 176000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 2905000000,
+     "debt": 653000000,
+     "cash": 267000000,
+     "shares": 203000000,
+     "price": [
+      "2025-03-31",
+      56.400001525878906
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "op_ltm": 493000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 181000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 2951000000,
+     "debt": 608000000,
+     "cash": 272000000,
+     "shares": 203000000,
+     "price": [
+      "2025-06-30",
+      72.86000061035156
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "op_ltm": 519000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 184000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 3003000000,
+     "debt": 544000000,
+     "cash": 255000000,
+     "shares": 203000000,
+     "price": [
+      "2025-09-30",
+      70.86000061035156
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-31",
+     "op_ltm": 522000000,
+     "op_m": "FY",
+     "da_ltm": 188000000,
+     "da_m": "FY",
+     "rev_ltm": 3053000000,
+     "debt": 491000000,
+     "cash": 295000000,
+     "shares": null,
+     "price": [
+      "2025-12-31",
+      78.86000061035156
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "op_ltm": 551000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 190000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 3106000000,
+     "debt": 357000000,
+     "cash": 258000000,
+     "shares": 204000000,
+     "price": [
+      "2026-03-31",
+      85.70999908447266
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "op_ltm": 562000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 190000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 3146000000,
+     "debt": 301000000,
+     "cash": 434000000,
+     "shares": 204000000,
+     "price": [
+      "2026-06-30",
+      101.86000061035156
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "op_ltm": 568000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 193000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 3186000000,
+     "debt": 764000000,
+     "cash": 1016000000,
+     "shares": 204000000,
+     "price": [
+      "2026-09-30",
+      65.62000274658203
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": "LongTermDebtCurrent",
+    "stb": null,
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": null,
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "LDOS": {
+   "cik": "0001336920",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-09-27",
+     "op_ltm": 1767000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 294000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 16277000000,
+     "debt": 592000000,
+     "cash": 1097000000,
+     "shares": 136000000,
+     "price": [
+      "2024-12-31",
+      144.05999755859375
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-01-03",
+     "op_ltm": 1827000000,
+     "op_m": "FY",
+     "da_ltm": 290000000,
+     "da_m": "FY",
+     "rev_ltm": 16662000000,
+     "debt": 618000000,
+     "cash": 849000000,
+     "shares": null,
+     "price": [
+      "2025-03-31",
+      134.94000244140625
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-04-04",
+     "op_ltm": 1942000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 290000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 16932000000,
+     "debt": 119000000,
+     "cash": 842000000,
+     "shares": 131000000,
+     "price": [
+      "2025-06-30",
+      157.75999450683594
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-07-04",
+     "op_ltm": 2038000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 291000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 17053000000,
+     "debt": 119000000,
+     "cash": 930000000,
+     "shares": 130000000,
+     "price": [
+      "2025-09-30",
+      188.9600067138672
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-10-03",
+     "op_ltm": 2057000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 294000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 17332000000,
+     "debt": 19000000,
+     "cash": 974000000,
+     "shares": 130000000,
+     "price": [
+      "2025-12-31",
+      180.39999389648438
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-01-02",
+     "op_ltm": 2109000000,
+     "op_m": "FY",
+     "da_ltm": 290000000,
+     "da_m": "FY",
+     "rev_ltm": 17174000000,
+     "debt": 20000000,
+     "cash": 1108000000,
+     "shares": null,
+     "price": [
+      "2026-03-31",
+      155.52000427246094
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-04-03",
+     "op_ltm": 2087000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 293000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 17329000000,
+     "debt": 20000000,
+     "cash": 457000000,
+     "shares": 128000000,
+     "price": [
+      "2026-06-30",
+      102.97000122070312
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-07-03",
+     "op_ltm": 2030000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 302000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 17634000000,
+     "debt": 22000000,
+     "cash": 748000000,
+     "shares": 126000000,
+     "price": [
+      "2026-09-30",
+      121.83000183105469
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "Revenues",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": "LongTermDebtAndCapitalLeaseObligationsCurrent",
+    "stb": "ShortTermBorrowings",
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": null,
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "CACI": {
+   "cik": "0000016058",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-31",
+     "op_ltm": 740193000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 3058500000,
+     "cash": 175707000,
+     "shares": 22534000,
+     "price": [
+      "2024-12-31",
+      404.05999755859375
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "op_ltm": 755258000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 3112156000,
+     "cash": 223897000,
+     "shares": 22383000,
+     "price": [
+      "2025-03-31",
+      366.9200134277344
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "op_ltm": 764185000,
+     "op_m": "FY",
+     "da_ltm": 70500000,
+     "da_m": "FY",
+     "rev_ltm": null,
+     "debt": 2917940000,
+     "cash": 106181000,
+     "shares": null,
+     "price": [
+      "2025-06-30",
+      476.70001220703125
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "op_ltm": 796619000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 2777451000,
+     "cash": 133020000,
+     "shares": 22166000,
+     "price": [
+      "2025-09-30",
+      498.7799987792969
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-31",
+     "op_ltm": 821790000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 2961389000,
+     "cash": 422976000,
+     "shares": 22145000,
+     "price": [
+      "2025-12-31",
+      532.8099975585938
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "op_ltm": 854298000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 5180577000,
+     "cash": 157996000,
+     "shares": 22165000,
+     "price": [
+      "2026-03-31",
+      543.8699951171875
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "op_ltm": 919815000,
+     "op_m": "FY",
+     "da_ltm": 77600000,
+     "da_m": "FY",
+     "rev_ltm": null,
+     "debt": 4901509000,
+     "cash": 191756000,
+     "shares": null,
+     "price": [
+      "2026-06-30",
+      463.260009765625
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "op_ltm": 955068000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 4836063000,
+     "cash": 279389000,
+     "shares": 22316000,
+     "price": [
+      "2026-09-30",
+      609.1099853515625
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "Revenues",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": "LongTermDebtCurrent",
+    "stb": null,
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": null,
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "PSN": {
+   "cik": "0000275880",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-31",
+     "op_ltm": 428066000,
+     "op_m": "FY",
+     "da_ltm": 99251000,
+     "da_m": "FY",
+     "rev_ltm": 6750576000,
+     "debt": 1247501000,
+     "cash": 453548000,
+     "shares": null,
+     "price": [
+      "2024-12-31",
+      92.25
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "op_ltm": 435455000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 102123000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 6769260000,
+     "debt": 1220123000,
+     "cash": 269745000,
+     "shares": 111026000,
+     "price": [
+      "2025-03-31",
+      59.209999084472656
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "op_ltm": 419694000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 106275000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 6683116000,
+     "debt": 1320503000,
+     "cash": 411327000,
+     "shares": 110102000,
+     "price": [
+      "2025-06-30",
+      71.7699966430664
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "op_ltm": 412661000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 111582000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 6494748000,
+     "debt": 1236700000,
+     "cash": 422554000,
+     "shares": 109078000,
+     "price": [
+      "2025-09-30",
+      82.91999816894531
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-31",
+     "op_ltm": 418074000,
+     "op_m": "FY",
+     "da_ltm": 116486000,
+     "da_m": "FY",
+     "rev_ltm": 6364245000,
+     "debt": 1237816000,
+     "cash": 466388000,
+     "shares": null,
+     "price": [
+      "2025-12-31",
+      61.79999923706055
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "op_ltm": 404515000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 125009000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 6301061000,
+     "debt": 1512921000,
+     "cash": 283921000,
+     "shares": 108392000,
+     "price": [
+      "2026-03-31",
+      54.16999816894531
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "op_ltm": 310149000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 133054000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 6292605000,
+     "debt": 1474048000,
+     "cash": 266044000,
+     "shares": 107682000,
+     "price": [
+      "2026-06-30",
+      52.38999938964844
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "op_ltm": 306013000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 137323000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 6321405000,
+     "debt": 1357164000,
+     "cash": 296954000,
+     "shares": 106755000,
+     "price": [
+      "2026-09-30",
+      40.970001220703125
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationAndAmortization",
+    "rev": "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": "LongTermDebtCurrent",
+    "stb": "ShortTermBorrowings",
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": null,
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "SAIC": {
+   "cik": "0001571123",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-11-01",
+     "op_ltm": 504000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 7378000000,
+     "debt": 2159000000,
+     "cash": 46000000,
+     "shares": 49800000,
+     "price": [
+      "2024-12-31",
+      111.77999877929688
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-01-31",
+     "op_ltm": 563000000,
+     "op_m": "FY",
+     "da_ltm": 25000000,
+     "da_m": "FY",
+     "rev_ltm": 7479000000,
+     "debt": 2220000000,
+     "cash": 56000000,
+     "shares": null,
+     "price": [
+      "2025-03-31",
+      112.2699966430664
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-05-02",
+     "op_ltm": 553000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 7509000000,
+     "debt": 2281000000,
+     "cash": 47000000,
+     "shares": 47800000,
+     "price": [
+      "2025-06-30",
+      112.61000061035156
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-08-01",
+     "op_ltm": 558000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 7460000000,
+     "debt": 2292000000,
+     "cash": 48000000,
+     "shares": 46800000,
+     "price": [
+      "2025-09-30",
+      99.37000274658203
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-10-31",
+     "op_ltm": 526000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 7350000000,
+     "debt": 2487000000,
+     "cash": 45000000,
+     "shares": 46100000,
+     "price": [
+      "2025-12-31",
+      100.66000366210938
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-01-30",
+     "op_ltm": 521000000,
+     "op_m": "FY",
+     "da_ltm": 30000000,
+     "da_m": "FY",
+     "rev_ltm": 7262000000,
+     "debt": 2487000000,
+     "cash": 182000000,
+     "shares": null,
+     "price": [
+      "2026-03-31",
+      94.91999816894531
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-05-01",
+     "op_ltm": 579000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 7291000000,
+     "debt": 2486000000,
+     "cash": 109000000,
+     "shares": 44000000,
+     "price": [
+      "2026-06-30",
+      110.41000366210938
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-07-31",
+     "op_ltm": 592000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 7402000000,
+     "debt": 2485000000,
+     "cash": 126000000,
+     "shares": 42800000,
+     "price": [
+      "2026-09-30",
+      127.55999755859375
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "Revenues",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": "LongTermDebtCurrent",
+    "stb": null,
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": null,
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "KTOS": {
+   "cik": "0001069258",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-29",
+     "op_ltm": 29000000,
+     "op_m": "FY",
+     "da_ltm": 40300000,
+     "da_m": "FY",
+     "rev_ltm": null,
+     "debt": 174600000,
+     "cash": 329300000,
+     "shares": null,
+     "price": [
+      "2024-12-31",
+      26.3799991607666
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-30",
+     "op_ltm": 28600000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 41400000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": null,
+     "debt": 172200000,
+     "cash": 263700000,
+     "shares": 156200000,
+     "price": [
+      "2025-03-31",
+      29.690000534057617
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-29",
+     "op_ltm": 19800000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 42800000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": null,
+     "debt": 169800000,
+     "cash": 783600000,
+     "shares": 157400000,
+     "price": [
+      "2025-06-30",
+      46.45000076293945
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-28",
+     "op_ltm": 20400000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 44400000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 565900000,
+     "shares": 172900000,
+     "price": [
+      "2025-09-30",
+      91.37000274658203
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-28",
+     "op_ltm": 25600000,
+     "op_m": "FY",
+     "da_ltm": 47100000,
+     "da_m": "FY",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 560600000,
+     "shares": null,
+     "price": [
+      "2025-12-31",
+      75.91000366210938
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-29",
+     "op_ltm": 23700000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 53500000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 1464300000,
+     "shares": 179400000,
+     "price": [
+      "2026-03-31",
+      70.51000213623047
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-28",
+     "op_ltm": 18400000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 63800000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 1437600000,
+     "shares": 190100000,
+     "price": [
+      "2026-06-30",
+      49.86000061035156
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-27",
+     "op_ltm": 6400000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 76900000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 1404300000,
+     "shares": 188800000,
+     "price": [
+      "2026-09-30",
+      42.689998626708984
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "Revenues",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": "LongTermDebtCurrent",
+    "stb": null,
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": null,
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "ACN": {
+   "cik": "0001467373",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-11-30",
+     "op_ltm": 9979437000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 66361706000,
+     "debt": 5138906000,
+     "cash": 8311205000,
+     "shares": 634656410,
+     "price": [
+      "2024-12-31",
+      351.7900085449219
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-02-28",
+     "op_ltm": 10177724000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 67221493000,
+     "debt": 5142062000,
+     "cash": 8495500000,
+     "shares": 634211978,
+     "price": [
+      "2025-03-31",
+      312.0400085449219
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-05-31",
+     "op_ltm": 10529641000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 68482536000,
+     "debt": 5135528000,
+     "cash": 9637395000,
+     "shares": 630457461,
+     "price": [
+      "2025-06-30",
+      298.8900146484375
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-08-31",
+     "op_ltm": 10225664000,
+     "op_m": "FY",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 69672977000,
+     "debt": 5134132000,
+     "cash": 11484674000,
+     "shares": 629418129,
+     "price": [
+      "2025-09-30",
+      246.60000610351562
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-11-30",
+     "op_ltm": 10150885000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 70725557000,
+     "debt": 5130892000,
+     "cash": 9655311000,
+     "shares": 626043040,
+     "price": [
+      "2025-12-31",
+      268.29998779296875
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-02-28",
+     "op_ltm": 10399718000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 72110322000,
+     "debt": 5129903000,
+     "cash": 9405596000,
+     "shares": 622640891,
+     "price": [
+      "2026-03-31",
+      198.2899932861328
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-05-31",
+     "op_ltm": 10592234000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 73100594000,
+     "debt": 5128861000,
+     "cash": 10171567000,
+     "shares": 615593409,
+     "price": [
+      "2026-06-30",
+      124.44000244140625
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-08-31",
+     "op_ltm": 11405960000,
+     "op_m": "FY",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": 74183445000,
+     "debt": 10098399000,
+     "cash": 12837769000,
+     "shares": 605283767,
+     "price": [
+      "2026-09-30",
+      183.3699951171875
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "Revenues",
+    "ltd": "LongTermDebtAndCapitalLeaseObligations",
+    "ltdn": null,
+    "ltdc": "DebtCurrent",
+    "stb": "CommercialPaper",
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": "ShortTermInvestments",
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "CTSH": {
+   "cik": "0001058290",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-31",
+     "op_ltm": 2892000000,
+     "op_m": "FY",
+     "da_ltm": 542000000,
+     "da_m": "FY",
+     "rev_ltm": 19736000000,
+     "debt": 908000000,
+     "cash": 2243000000,
+     "shares": null,
+     "price": [
+      "2024-12-31",
+      76.9000015258789
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "op_ltm": 3050000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 545000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 20091000000,
+     "debt": 600000000,
+     "cash": 1992000000,
+     "shares": 495000000,
+     "price": [
+      "2025-03-31",
+      76.5
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "op_ltm": 3159000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 551000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 20486000000,
+     "debt": 592000000,
+     "cash": 1808000000,
+     "shares": 492000000,
+     "price": [
+      "2025-06-30",
+      78.02999877929688
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "op_ltm": 3287000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 553000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 20857000000,
+     "debt": 584000000,
+     "cash": 2354000000,
+     "shares": 487000000,
+     "price": [
+      "2025-09-30",
+      67.06999969482422
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-31",
+     "op_ltm": 3389000000,
+     "op_m": "FY",
+     "da_ltm": 550000000,
+     "da_m": "FY",
+     "rev_ltm": 21108000000,
+     "debt": 576000000,
+     "cash": 1914000000,
+     "shares": null,
+     "price": [
+      "2025-12-31",
+      83.0
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "op_ltm": 3379000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 555000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 21406000000,
+     "debt": 568000000,
+     "cash": 1517000000,
+     "shares": 477000000,
+     "price": [
+      "2026-03-31",
+      61.349998474121094
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "op_ltm": 3436000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 559000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 21642000000,
+     "debt": 1560000000,
+     "cash": 1051000000,
+     "shares": 466000000,
+     "price": [
+      "2026-06-30",
+      38.72999954223633
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "op_ltm": 3442000000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 573000000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 21891000000,
+     "debt": 1552000000,
+     "cash": 1552000000,
+     "shares": 450000000,
+     "price": [
+      "2026-09-30",
+      57.439998626708984
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "Revenues",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": "DebtCurrent",
+    "stb": "ShortTermBorrowings",
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": "ShortTermInvestments",
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "G": {
+   "cik": "0001398659",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-31",
+     "op_ltm": 702061000,
+     "op_m": "FY",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 1221440000,
+     "cash": 671605000,
+     "shares": null,
+     "price": [
+      "2024-12-31",
+      42.95000076293945
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "op_ltm": 725777000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 1215262000,
+     "cash": 561615000,
+     "shares": 178435142,
+     "price": [
+      "2025-03-31",
+      50.380001068115234
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "op_ltm": 734928000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 1294087000,
+     "cash": 663260000,
+     "shares": 177052346,
+     "price": [
+      "2025-06-30",
+      44.0099983215332
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "op_ltm": 744920000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 1202917000,
+     "cash": 740763000,
+     "shares": 176104577,
+     "price": [
+      "2025-09-30",
+      41.88999938964844
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-31",
+     "op_ltm": 750207000,
+     "op_m": "FY",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 1542301000,
+     "cash": 1203836000,
+     "shares": null,
+     "price": [
+      "2025-12-31",
+      46.779998779296875
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "op_ltm": 765088000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 1536343000,
+     "cash": 928079000,
+     "shares": 172845179,
+     "price": [
+      "2026-03-31",
+      37.25
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "op_ltm": 778628000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 1180257000,
+     "cash": 517387000,
+     "shares": 170425796,
+     "price": [
+      "2026-06-30",
+      27.5
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "op_ltm": 797965000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 1174160000,
+     "cash": 499053000,
+     "shares": 169627481,
+     "price": [
+      "2026-09-30",
+      32.529998779296875
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": null,
+    "rev": "Revenues",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": "LongTermDebtCurrent",
+    "stb": "ShortTermBorrowings",
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": "ShortTermInvestments",
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "EPAM": {
+   "cik": "0001352010",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-31",
+     "op_ltm": 544584000,
+     "op_m": "FY",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 25194000,
+     "cash": 1287957000,
+     "shares": null,
+     "price": [
+      "2024-12-31",
+      233.82000732421875
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "op_ltm": 533382000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 25059000,
+     "cash": 1173639000,
+     "shares": 57262000,
+     "price": [
+      "2025-03-31",
+      168.83999633789062
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "op_ltm": 539297000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 25038000,
+     "cash": 1041344000,
+     "shares": 56536000,
+     "price": [
+      "2025-06-30",
+      176.82000732421875
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "op_ltm": 507261000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 25036000,
+     "cash": 1239136000,
+     "shares": 55817000,
+     "price": [
+      "2025-09-30",
+      150.7899932861328
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-31",
+     "op_ltm": 520003000,
+     "op_m": "FY",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 25034000,
+     "cash": 1296077000,
+     "shares": null,
+     "price": [
+      "2025-12-31",
+      204.8800048828125
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "op_ltm": 537441000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 165000000,
+     "cash": 1036959000,
+     "shares": 54183000,
+     "price": [
+      "2026-03-31",
+      135.39999389648438
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "op_ltm": 563187000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 25000000,
+     "cash": 789397000,
+     "shares": 52267000,
+     "price": [
+      "2026-06-30",
+      79.3499984741211
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "op_ltm": 594172000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 25000000,
+     "cash": 965173000,
+     "shares": 51469000,
+     "price": [
+      "2026-09-30",
+      108.36000061035156
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "Revenues",
+    "ltd": "LongTermDebt",
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": null,
+    "stb": "ShortTermBorrowings",
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": "ShortTermInvestments",
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  },
+  "GLOB": {
+   "cik": "0001557860",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": null,
+     "price": [
+      "2024-12-31",
+      214.4199981689453
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": null,
+     "price": [
+      "2025-03-31",
+      117.72000122070312
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": null,
+     "price": [
+      "2025-06-30",
+      90.83999633789062
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": null,
+     "price": [
+      "2025-09-30",
+      57.380001068115234
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": null,
+     "price": [
+      "2025-12-31",
+      65.37000274658203
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": null,
+     "price": [
+      "2026-03-31",
+      46.11000061035156
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": null,
+     "price": [
+      "2026-06-30",
+      28.940000534057617
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": null,
+     "price": [
+      "2026-09-30",
+      34.70000076293945
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": null,
+    "da": null,
+    "rev": null,
+    "ltd": null,
+    "ltdn": null,
+    "ltdc": null,
+    "stb": null,
+    "cash": null,
+    "sti": null,
+    "sh": null
+   }
+  },
+  "GDYN": {
+   "cik": "0001743725",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-31",
+     "op_ltm": -2105000,
+     "op_m": "FY",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 334655000,
+     "shares": null,
+     "price": [
+      "2024-12-31",
+      22.239999771118164
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "op_ltm": 1400000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 325547000,
+     "shares": 87786000,
+     "price": [
+      "2025-03-31",
+      15.649999618530273
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "op_ltm": 1237000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 336752000,
+     "shares": 86447000,
+     "price": [
+      "2025-06-30",
+      11.550000190734863
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "op_ltm": -1140000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 338553000,
+     "shares": 85839000,
+     "price": [
+      "2025-09-30",
+      7.710000038146973
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-31",
+     "op_ltm": -1895000,
+     "op_m": "FY",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 342058000,
+     "shares": null,
+     "price": [
+      "2025-12-31",
+      9.029999732971191
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "op_ltm": -3539000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 327468000,
+     "shares": 84680000,
+     "price": [
+      "2026-03-31",
+      5.699999809265137
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "op_ltm": -2140000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 298429000,
+     "shares": 83024000,
+     "price": [
+      "2026-06-30",
+      5.679999828338623
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "op_ltm": 7238000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": null,
+     "da_m": "no ytd",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 304287000,
+     "shares": 81894000,
+     "price": [
+      "2026-09-30",
+      7.880000114440918
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": "OperatingIncomeLoss",
+    "da": "DepreciationDepletionAndAmortization",
+    "rev": "Revenues",
+    "ltd": null,
+    "ltdn": "LongTermDebtNoncurrent",
+    "ltdc": null,
+    "stb": null,
+    "cash": "CashAndCashEquivalentsAtCarryingValue",
+    "sti": null,
+    "sh": "WeightedAverageNumberOfDilutedSharesOutstanding"
+   }
+  }
+ }
+}

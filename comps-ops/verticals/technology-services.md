@@ -9,6 +9,7 @@
 2. sites: Clearsight Advisors quarterly Digital, AI and Cloud Update (clearsightadvisors.com) when a new one is published; Accenture newsroom; consulting.us M&A news.
 
 ## Fit rules
+US TARGETS ONLY: the target must be headquartered in the United States (the buyer can be anywhere). Skip any deal whose target is based outside the US, and list it in the report as "Non-US, not added".
 FIT if the target is mainly a services firm in emerging tech: AI implementation / forward-deployed engineering, data and analytics consultancies, cloud and SaaS platform partners (Databricks, Snowflake, Salesforce, SAP, Oracle, Google Cloud, Microsoft, Palantir, ServiceNow, Workday), digital and product engineering, and technology-enabled IT consulting or managed IT. Include growth or minority investments into such firms (say so in desc, as with Climb / RLH).
 NOT a fit: software or SaaS product companies, AI model or chip companies, pure staffing, BPO / contact center (that is CCaaS & UCaaS), cyber and compliance firms (that is IT & Cyber Compliance), venture rounds into startups.
 
@@ -23,9 +24,9 @@ desc: one short description, then " Rationale: " and one sentence on why the buy
 buyer_type (only these four): "Strategic", "Private equity", "PE-backed strategic" (add-on by a sponsor-owned platform; name the sponsor in acquirer, e.g. "Argano (Trinity Hunt Partners)"), "AI lab" (OpenAI Deployment Co, Ode).
 ev: only if reported (US$M); otherwise null. Use the upfront or initial enterprise value; put earnouts and the headline "up to" figure in desc. Use enterprise value (equity value plus net debt) when the buyer gives both.
 Valuation data: for every deal with a reported value, look hard for the target's revenue and EBITDA before leaving them null: the acquirer's press release, investor presentation or FAQ, earnings call, SEC 8-K / 10-Q / 10-K acquisition note, stock exchange filings for non-US listed buyers (India, France, Germany, Japan, etc., including local-language releases), and reputable trade coverage. Fill rev / ebitda (US$M, trailing; forward only if that is all that is disclosed, and say "multiples on 2026E" in desc), then ev_rev = ev / rev and ev_ebitda = ev / ebitda (1 decimal). Put the revenue and EBITDA facts in desc. Never use third-party database estimates (ZoomInfo, RocketReach, "estimated revenue").
-Outliers: if ev_rev is above 10x or ev_ebitda above 30x, keep the numbers but add mult_excl:true and say in desc "Revenue multiple shown but excluded from medians as an outlier." (Faculty is the example.)
+Outliers: if ev_rev is above 10x or ev_ebitda above 30x, keep the numbers but add mult_excl:true and say in desc "Revenue multiple shown but excluded from medians as an outlier." 
 Also re-check older deals on the page that have ev but null rev when new disclosures appear (e.g. the acquirer's next quarterly filing).
-categories (only these six): "AI Services", "Data & Analytics", "Cloud & SaaS Platforms", "Digital Engineering", "IT Consulting & MSP", "International" (target outside the US).
+categories (only these five): "AI Services", "Data & Analytics", "Cloud & SaaS Platforms", "Digital Engineering", "IT Consulting & MSP".
 Write "&amp;" for "&" inside acquirer names (e.g. "Ode (Anthropic, Blackstone, H&amp;F)").
 If the page methodology "Deal terms." paragraph lists example disclosed values, add a new disclosed deal there only if it is among the largest.
 Methodology line format: "Last updated: <Month D, YYYY>, 5:00 PM PT".

@@ -20,6 +20,7 @@ Each vertical lists its own sources, and they differ by vertical. Use every sour
 - **pitchbook / inven**: run a deal search with the filters the vertical file gives (keywords, date window, geography). If the connector is not available or not signed in, note it in the report and continue with the other sources.
 - **sites**: check the specific websites, trade publications, newsletters or feeds the vertical file lists (WebFetch the page or WebSearch with site:).
 - Combine results from all sources and de-duplicate before going further.
+- If the vertical file has a "Zoho enrichment" section, do it for the deals in the Slack post, exactly as written there. Otherwise make no Zoho writes.
 - Skip any deal already on the vertical's page (DEALS array) or, for web-search verticals, already posted in its Slack channel.
 - For each fit, verify facts against the press release (WebFetch / WebSearch): exact announcement date, disclosed EV / revenue / EBITDA in USD millions (convert other currencies and say so in Note). Never invent multiples.
 - When in doubt about fit, leave it out and list it under "Borderline, not added" in the report.

@@ -314,25 +314,18 @@
         <div class="stat-label">Median EV / Revenue</div>
         <div class="stat-num" id="priv-med-rev">7.4x</div>
         <div class="stat-desc" id="priv-med-rev-desc">42 deals with disclosed multiples</div>
+        <div class="stat-spark" id="spark-med-rev"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / EBITDA</div>
         <div class="stat-num" id="priv-med-ebitda">12.5x</div>
         <div class="stat-desc" id="priv-med-ebitda-desc">2 deals with disclosed EBITDA</div>
+        <div class="stat-spark" id="spark-med-ebitda"></div>
       </div>
     </div>
 
     <!-- Sub-vertical mini-cards -->
     <div class="sub-cards" id="sub-cards"></div>
-
-    <div class="trend" id="priv-trend" style="margin-bottom:36px">
-      <div class="trend-head">
-        <div class="trend-title">Private deal EV / Revenue by quarter announced</div>
-        <div class="trend-legend"><span><i style="background:#c9a66b"></i>Average</span><span><i style="background:#0c3b2e"></i>Median</span></div>
-      </div>
-      <svg id="priv-trend-svg" viewBox="0 0 760 260" role="img" aria-label="Average and median EV to revenue of private software deals by quarter announced"></svg>
-      <div class="trend-note" id="priv-trend-note">Average and median EV / Revenue of the deals in the table, grouped by the quarter they were announced. Updates as deals are added.</div>
-    </div>
 
     <!-- Filters -->
     <div class="filters">
@@ -987,51 +980,40 @@ function computeHeadline() {
 }
 
 
-// ============ PRIVATE DEALS: EV / REVENUE BY QUARTER ============
-function renderPrivTrend() {
-  const svg = document.getElementById("priv-trend-svg");
-  if (!svg) return;
-  const byQ = {};
-  DEALS.filter(d => d.included && d.ev_rev != null).forEach(d => {
-    const [y, m] = d.date.split("-").map(Number);
-    const k = y + "-Q" + (Math.floor((m - 1) / 3) + 1);
-    (byQ[k] = byQ[k] || []).push(d.ev_rev);
-  });
-  const pts = Object.keys(byQ).sort().map(k => ({ label: k.slice(5) + " '" + k.slice(2, 4), avg: avgOf(byQ[k]), med: medOf(byQ[k]), n: byQ[k].length }));
-  if (pts.length < 2) return;
-  const W = 760, H = 260, L = 40, R = 44, T = 16, B = 30;
-  const all = pts.flatMap(p => [p.avg, p.med]);
-  const lo = 0, hi = Math.ceil(Math.max(...all)) + 1;
-  const step = hi > 20 ? 5 : (hi > 10 ? 2 : 1);
-  const x = i => L + i * (W - L - R) / (pts.length - 1);
-  const y = v => T + (hi - v) * (H - T - B) / (hi - lo);
-  let g = "";
-  for (let v = lo; v <= hi; v += step) {
-    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e8e2d4" stroke-width="1"/>`;
-    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}x</text>`;
+
+// ============ STAT SPARKLINES (computed from DEALS) ============
+// Trailing 12-month average or median of a deal multiple at each of the last 6 calendar quarter-ends.
+function dealSpark(id, key, agg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const now = new Date();
+  let y = now.getFullYear(), q = Math.floor(now.getMonth() / 3);
+  const ends = [];
+  for (let i = 0; i < 6; i++) {
+    ends.unshift(new Date(Date.UTC(y, q * 3 + 3, 0)));
+    q--; if (q < 0) { q = 3; y--; }
   }
-  pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle">${p.label}</text>`; });
-  const line = (key, color) => {
-    const d = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p[key]).toFixed(1)).join(" ");
-    let s = `<path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;
-    pts.forEach((p, i) => { s += `<circle cx="${x(i)}" cy="${y(p[key])}" r="3" fill="white" stroke="${color}" stroke-width="2"><title>${p.label}: ${round1(p[key]).toFixed(1)}x ${key === "avg" ? "average" : "median"} (${p.n} deal${p.n === 1 ? "" : "s"})</title></circle>`; });
-    const last = pts[pts.length - 1];
-    let ly = y(last[key]);
-    const gap = y(last.avg) - y(last.med);
-    if (Math.abs(gap) < 13) ly += (key === "avg" ? 1 : -1) * (gap >= 0 ? 1 : -1) * (13 - Math.abs(gap)) / 2;
-    s += `<text class="val" x="${x(pts.length - 1) + 8}" y="${ly + 4}" style="fill:${color}">${round1(last[key]).toFixed(1)}x</text>`;
-    return s;
-  };
-  svg.innerHTML = g + line("avg", "#c9a66b") + line("med", "#0c3b2e");
+  const rows = DEALS.filter(d => d.included && !d.mult_excl && d[key] != null);
+  const vals = ends.map(e => {
+    const start = new Date(Date.UTC(e.getUTCFullYear() - 1, e.getUTCMonth(), e.getUTCDate()));
+    const v = rows.filter(d => { const t = new Date(d.date + "T00:00:00Z"); return t > start && t <= e; }).map(d => d[key]);
+    return v.length ? (agg === "avg" ? avgOf(v) : medOf(v)) : null;
+  });
+  const pts = vals.filter(v => v !== null);
+  if (pts.length < 2) { el.innerHTML = ""; return; }
+  sparkline(id, pts, "#c9a66b");
 }
 
 // Initial render
-renderPrivTrend();
 computeHeadline();
 computeSubCards();
 renderPrivate();
 renderPublic();
 renderTrend();
+
+// Sparklines under the multiples (trailing 12 months at each quarter-end)
+dealSpark("spark-med-rev", "ev_rev", "med");
+dealSpark("spark-med-ebitda", "ev_ebitda", "med");
 </script>
 <script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/subscribe.js" defer></script>

@@ -304,11 +304,13 @@
         <div class="stat-label">Avg EV / LTM EBITDA</div>
         <div class="stat-num" id="priv-avg-ebitda">18.8x</div>
         <div class="stat-desc">Across disclosed deals</div>
+        <div class="stat-spark" id="spark-avg-ebitda"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / LTM EBITDA</div>
         <div class="stat-num" id="priv-med-ebitda">18.2x</div>
         <div class="stat-desc">Distribution midpoint</div>
+        <div class="stat-spark" id="spark-med-ebitda"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Transactions Tracked</div>
@@ -901,12 +903,39 @@ function computeHeadline() {
   }
 }
 
+// ============ STAT SPARKLINES (computed from DEALS) ============
+// Trailing 12-month average or median of a deal multiple at each of the last 6 calendar quarter-ends.
+function dealSpark(id, key, agg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const now = new Date();
+  let y = now.getFullYear(), q = Math.floor(now.getMonth() / 3);
+  const ends = [];
+  for (let i = 0; i < 6; i++) {
+    ends.unshift(new Date(Date.UTC(y, q * 3 + 3, 0)));
+    q--; if (q < 0) { q = 3; y--; }
+  }
+  const rows = DEALS.filter(d => d.included && !d.mult_excl && d[key] != null);
+  const vals = ends.map(e => {
+    const start = new Date(Date.UTC(e.getUTCFullYear() - 1, e.getUTCMonth(), e.getUTCDate()));
+    const v = rows.filter(d => { const t = new Date(d.date + "T00:00:00Z"); return t > start && t <= e; }).map(d => d[key]);
+    return v.length ? (agg === "avg" ? avgOf(v) : medOf(v)) : null;
+  });
+  const pts = vals.filter(v => v !== null);
+  if (pts.length < 2) { el.innerHTML = ""; return; }
+  sparkline(id, pts, "#c9a66b");
+}
+
 // Initial render
 computeHeadline();
 computeSubCards();
 renderPrivate();
 renderPublic();
 renderTrend();
+
+// Sparklines under the multiples (trailing 12 months at each quarter-end)
+dealSpark("spark-avg-ebitda", "ev_ebitda", "avg");
+dealSpark("spark-med-ebitda", "ev_ebitda", "med");
 </script>
 <script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/subscribe.js" defer></script>

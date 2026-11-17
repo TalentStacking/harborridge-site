@@ -312,8 +312,8 @@
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / Revenue</div>
-        <div class="stat-num" id="priv-med-rev">6.5x</div>
-        <div class="stat-desc" id="priv-med-rev-desc">19 deals, excluding outliers</div>
+        <div class="stat-num" id="priv-med-rev">7.2x</div>
+        <div class="stat-desc" id="priv-med-rev-desc">22 deals with disclosed multiples</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / EBITDA</div>
@@ -366,7 +366,7 @@
     <div class="methodology">
       <div class="method-label">Methodology</div>
       <p><strong>Universe.</strong> Private M&amp;A transactions and take-privates of US-based software companies announced in 2026, limited to deals where an enterprise value multiple of revenue, recurring revenue or EBITDA was disclosed or can be derived from disclosed figures. Deals without valuation data are not included.</p>
-      <p><strong>Multiples.</strong> Enterprise value divided by trailing revenue (EV / Rev) and EBITDA (EV / EBITDA). Where a deal was reported on annual recurring revenue or on current-year or next-year estimates, the basis is noted in the rationale. Medians exclude deals flagged as outliers, which remain visible in the table.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by trailing revenue (EV / Rev) and EBITDA (EV / EBITDA). Where a deal was reported on annual recurring revenue or on current-year or next-year estimates, the basis is noted in the rationale. All deals in the table are included in the medians.</p>
       <p><strong>Dates.</strong> Where only the month of a transaction is known, the date is shown as the first of that month.</p>
       <p><strong>Buyer type.</strong> Strategic: corporate acquirers. Private equity: sponsor take-privates and platform investments. PE-backed strategic: acquisitions by sponsor-owned companies.</p>
       <div class="updated">Last updated: November 17, 2026</div>
@@ -381,8 +381,8 @@
     <div class="stats">
       <div class="stat">
         <div class="stat-label">Median EV / LTM Revenue</div>
-        <div class="stat-num" id="pub-med-rev">6.6x</div>
-        <div class="stat-desc" id="pub-constituents">Public market, 24 constituents</div>
+        <div class="stat-num" id="pub-med-rev">6.7x</div>
+        <div class="stat-desc" id="pub-constituents">Public market, 25 constituents</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / LTM EBITDA</div>
@@ -391,12 +391,12 @@
       </div>
       <div class="stat">
         <div class="stat-label">Avg Rule of 40</div>
-        <div class="stat-num" id="pub-avg-r40">34</div>
+        <div class="stat-num" id="pub-avg-r40">33</div>
         <div class="stat-desc">Revenue growth + EBITDA margin</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median YoY Growth</div>
-        <div class="stat-num" id="pub-med-growth">19.6%</div>
+        <div class="stat-num" id="pub-med-growth">20.5%</div>
         <div class="stat-desc">LTM revenue growth</div>
       </div>
     </div>
@@ -450,7 +450,7 @@
 
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
-      <p><strong>Universe.</strong> US-listed software companies covered by our live price feed, grouped into five segments: Enterprise Applications (Salesforce, ServiceNow, Workday, Adobe, Atlassian), Infrastructure &amp; Data (Snowflake, Datadog, MongoDB, Dynatrace, GitLab), Cybersecurity (CrowdStrike, Zscaler, Okta, Qualys, Rubrik), Vertical Software (Veeva, AppFolio, Procore, ServiceTitan, Waystar) and SMB Software (HubSpot, Shopify, Paycom, Paylocity, Klaviyo). Contact center and communications software is covered on the CCaaS &amp; UCaaS page. CrowdStrike is shown but excluded from averages as an outlier.</p>
+      <p><strong>Universe.</strong> US-listed software companies covered by our live price feed, grouped into five segments: Enterprise Applications (Salesforce, ServiceNow, Workday, Adobe, Atlassian), Infrastructure &amp; Data (Snowflake, Datadog, MongoDB, Dynatrace, GitLab), Cybersecurity (CrowdStrike, Zscaler, Okta, Qualys, Rubrik), Vertical Software (Veeva, AppFolio, Procore, ServiceTitan, Waystar) and SMB Software (HubSpot, Shopify, Paycom, Paylocity, Klaviyo). Contact center and communications software is covered on the CCaaS &amp; UCaaS page.</p>
       <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 17, 2026. Click Refresh to pull current share prices and market caps for all 25 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x.</p>
       <p><strong>Growth and Rule of 40.</strong> Growth is LTM revenue growth year over year. Rule of 40 is growth plus LTM EBITDA margin.</p>
       <div class="updated" id="public-updated">Figures as of November 17, 2026. Refresh updates all 25 companies.</div>
@@ -518,13 +518,13 @@ const DEALS = [
   {date:"2026-08-04", target:"Airtable", acquirer:"Bending Spoons", buyer_type:"Strategic", ev:1285.0, rev:480, ev_rev:2.7, ebitda:null, ev_ebitda:null, vertical:"No-Code Database &amp; App Platform", categories:["Enterprise Applications"], desc:"About $480M of ARR growing about 20%, with roughly $965M of net cash (equity value about $2.25B). Multiple on ARR. Rationale: low-multiple acquisition of a well-known collaboration platform, consistent with the buyer's restructure-and-hold model.", url:"https://www.saastr.com/airtable-just-sold-for-2-25b-at-2-7x-arr-it-raised-1-4b-and-was-once-worth-11-7b/", included:true},
   {date:"2026-07-23", target:"ArisGlobal", acquirer:"Dassault Systèmes", buyer_type:"Strategic", ev:2000.0, rev:null, ev_rev:11.4, ebitda:null, ev_ebitda:null, vertical:"Life Sciences Safety &amp; Compliance", categories:["Vertical Software"], desc:"About $1.8B cash at closing plus up to $200M tied to AI revenue milestones. About 11.4x 2026E revenue. Rationale: Dassault extends its life sciences platform into regulatory, safety and compliance workflows.", url:null, included:true},
   {date:"2026-07-22", target:"Domo (assets)", acquirer:"Progress Software", buyer_type:"Strategic", ev:400.0, rev:null, ev_rev:0.8, ebitda:null, ev_ebitda:null, vertical:"Cloud BI &amp; Analytics", categories:["Infrastructure & Data"], desc:"Purchase of most of Domo's assets. About 0.8x estimated fiscal 2027 revenue. Rationale: Progress adds a BI and analytics platform at a distressed multiple to expand its AI infrastructure portfolio.", url:"https://www.sec.gov/Archives/edgar/data/0000876167/000087616726000110/exhibit991-q32026earningsr.htm", included:true},
-  {date:"2026-06-18", target:"Dragos", acquirer:"Accenture", buyer_type:"Strategic", ev:3200.0, rev:null, ev_rev:27.0, ebitda:null, ev_ebitda:null, vertical:"OT &amp; Industrial Cybersecurity", categories:["Cybersecurity"], desc:"Majority stake at a $3.2B enterprise value, about 27x LTM revenue. Shown but excluded from medians as an outlier. Rationale: Accenture builds an OT security franchise for industrial and critical-infrastructure clients.", url:null, included:true, mult_excl:true},
+  {date:"2026-06-18", target:"Dragos", acquirer:"Accenture", buyer_type:"Strategic", ev:3200.0, rev:null, ev_rev:27.0, ebitda:null, ev_ebitda:null, vertical:"OT &amp; Industrial Cybersecurity", categories:["Cybersecurity"], desc:"Majority stake at a $3.2B enterprise value, about 27x LTM revenue. Rationale: Accenture builds an OT security franchise for industrial and critical-infrastructure clients.", url:null, included:true},
   {date:"2026-06-16", target:"Simulations Plus", acquirer:"Altaris", buyer_type:"Private equity", ev:333.0, rev:null, ev_rev:4.0, ebitda:null, ev_ebitda:null, vertical:"Drug Development Simulation Software", categories:["Vertical Software"], desc:"Take-private at $18.50 per share. About 4.0x revenue (4.6x fiscal 2026E). Rationale: healthcare-focused sponsor acquires a modeling and simulation franchise used across pharma R&amp;D.", url:null, included:true},
   {date:"2026-06-15", target:"Fin (formerly Intercom)", acquirer:"Salesforce", buyer_type:"Strategic", ev:3600.0, rev:null, ev_rev:9.5, ebitda:null, ev_ebitda:null, vertical:"AI Customer Service Platform", categories:["Enterprise Applications"], desc:"About 9.5x LTM revenue. Rationale: Salesforce adds an AI-agent-first customer service platform to strengthen Agentforce in service.", url:null, included:true},
-  {date:"2026-06-01", target:"Cursor (Anysphere)", acquirer:"SpaceX", buyer_type:"Strategic", ev:60000.0, rev:null, ev_rev:23.1, ebitda:null, ev_ebitda:null, vertical:"AI Coding Platform", categories:["Infrastructure & Data"], desc:"About 23x implied ARR. Multiple on ARR; shown but excluded from medians as an outlier. Rationale: buyer secures a leading AI coding assistant as AI developer tools consolidate.", url:null, included:true, mult_excl:true},
+  {date:"2026-06-01", target:"Cursor (Anysphere)", acquirer:"SpaceX", buyer_type:"Strategic", ev:60000.0, rev:null, ev_rev:23.1, ebitda:null, ev_ebitda:null, vertical:"AI Coding Platform", categories:["Infrastructure & Data"], desc:"About 23x implied ARR. Multiple on ARR. Rationale: buyer secures a leading AI coding assistant as AI developer tools consolidate.", url:null, included:true},
   {date:"2026-06-01", target:"Phosphorus", acquirer:"Dragos", buyer_type:"Strategic", ev:180.0, rev:null, ev_rev:18.0, ebitda:null, ev_ebitda:null, vertical:"IoT &amp; OT Device Security", categories:["Cybersecurity"], desc:"About 18x LTM revenue. Rationale: Dragos adds automated discovery and remediation for unmanaged IoT and OT devices.", url:null, included:true},
   {date:"2026-06-01", target:"Strata Identity", acquirer:"Rubrik", buyer_type:"Strategic", ev:60.0, rev:null, ev_rev:7.5, ebitda:null, ev_ebitda:null, vertical:"Identity Orchestration", categories:["Cybersecurity"], desc:"About 7.5x LTM revenue. Rationale: Rubrik extends identity resilience into multi-cloud identity orchestration and AI agent identity.", url:null, included:true},
-  {date:"2026-05-28", target:"MaintainX", acquirer:"Autodesk", buyer_type:"Strategic", ev:3575.0, rev:null, ev_rev:26.5, ebitda:null, ev_ebitda:null, vertical:"Maintenance &amp; Asset Management", categories:["Vertical Software"], desc:"All-cash deal, about 26.5x expected 2026 ARR of over $135M. Multiple on ARR; shown but excluded from medians as an outlier. Rationale: Autodesk extends from design and build into operations and maintenance for industrial customers.", url:null, included:true, mult_excl:true},
+  {date:"2026-05-28", target:"MaintainX", acquirer:"Autodesk", buyer_type:"Strategic", ev:3575.0, rev:null, ev_rev:26.5, ebitda:null, ev_ebitda:null, vertical:"Maintenance &amp; Asset Management", categories:["Vertical Software"], desc:"All-cash deal, about 26.5x expected 2026 ARR of over $135M. Multiple on ARR. Rationale: Autodesk extends from design and build into operations and maintenance for industrial customers.", url:null, included:true},
   {date:"2026-05-17", target:"LiveRamp", acquirer:"Publicis Groupe", buyer_type:"Strategic", ev:2552.0, rev:null, ev_rev:2.5, ebitda:null, ev_ebitda:null, vertical:"Marketing Data Collaboration", categories:["Infrastructure & Data"], desc:"Take-private at $38.50 per share. About 2.5x estimated fiscal 2027 revenue. Rationale: Publicis adds an identity and data collaboration network to its data and commerce platform.", url:null, included:true},
   {date:"2026-04-13", target:"HCSS", acquirer:"Nemetschek", buyer_type:"Strategic", ev:2400.0, rev:215, ev_rev:11.2, ebitda:null, ev_ebitda:20.0, vertical:"Heavy Civil Construction Software", categories:["Vertical Software"], desc:"Acquired from Thoma Bravo, which retains a 28% stake in Nemetschek's Build segment. About 11.2x LTM revenue and slightly above 20x 2025 EBITDA. Rationale: Nemetschek expands into infrastructure and heavy civil contractor software in North America.", url:"https://www.nemetschek.com/en/news-media/ngroup-to-acquire-hcss", included:true},
   {date:"2026-03-01", target:"Reltio", acquirer:"SAP", buyer_type:"Strategic", ev:1100.0, rev:null, ev_rev:6.5, ebitda:null, ev_ebitda:null, vertical:"Master Data Management", categories:["Infrastructure & Data"], desc:"About 6.5x LTM revenue. Rationale: SAP adds cloud master data management to unify customer and business data for AI.", url:null, included:true},
@@ -549,7 +549,7 @@ const PUBLIC = [
   {name:"MongoDB", ticker:"MDB", segment:"Infrastructure &amp; Data", ev:21700, ev_rev:7.8, ev_ebitda:null, growth:30.5, margin:0.5, rev:2782, ebitda:14, net_debt:-2400, live:true, included:true},
   {name:"Dynatrace", ticker:"DT", segment:"Infrastructure &amp; Data", ev:11800, ev_rev:5.4, ev_ebitda:37.5, growth:17.4, margin:14.4, rev:2185, ebitda:315, net_debt:-500, live:true, included:true},
   {name:"GitLab", ticker:"GTLB", segment:"Infrastructure &amp; Data", ev:6200, ev_rev:5.9, ev_ebitda:null, growth:21.3, margin:-5.6, rev:1051, ebitda:-59, net_debt:-1300, live:true, included:true},
-  {name:"CrowdStrike", ticker:"CRWD", segment:"Cybersecurity", ev:218700, ev_rev:40.5, ev_ebitda:null, growth:25.8, margin:2.0, rev:5400, ebitda:108, net_debt:-4200, live:true, included:false},
+  {name:"CrowdStrike", ticker:"CRWD", segment:"Cybersecurity", ev:218700, ev_rev:40.5, ev_ebitda:null, growth:25.8, margin:2.0, rev:5400, ebitda:108, net_debt:-4200, live:true, included:true},
   {name:"Zscaler", ticker:"ZS", segment:"Cybersecurity", ev:28500, ev_rev:8.5, ev_ebitda:null, growth:24.9, margin:1.3, rev:3353, ebitda:44, net_debt:-1600, live:true, included:true},
   {name:"Okta", ticker:"OKTA", segment:"Cybersecurity", ev:27800, ev_rev:9.0, ev_ebitda:86.6, growth:10.6, margin:10.4, rev:3089, ebitda:321, net_debt:-2200, live:true, included:true},
   {name:"Qualys", ticker:"QLYS", segment:"Cybersecurity", ev:5600, ev_rev:7.8, ev_ebitda:21.5, growth:10.7, margin:36.2, rev:718, ebitda:260, net_debt:-500, live:true, included:true},
@@ -876,7 +876,7 @@ function computeHeadline() {
   const mr = DEALS.filter(d => d.included && !d.mult_excl && d.ev_rev != null).map(d => d.ev_rev);
   const me = DEALS.filter(d => d.included && !d.mult_excl && d.ev_ebitda != null).map(d => d.ev_ebitda);
   setText("priv-med-rev", mr.length ? round1(medOf(mr)).toFixed(1) + "x" : "n/a");
-  setText("priv-med-rev-desc", mr.length + " deals, excluding outliers");
+  setText("priv-med-rev-desc", mr.length + " deals with disclosed multiples");
   setText("priv-med-ebitda", me.length ? round1(medOf(me)).toFixed(1) + "x" : "n/a");
   setText("priv-med-ebitda-desc", me.length + " deal" + (me.length === 1 ? "" : "s") + " with disclosed EBITDA");
   setText("private-count", n);

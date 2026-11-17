@@ -26,9 +26,9 @@ DEALS entry example:
 desc: one short description that states the multiple's basis when it is not trailing revenue (ARR, current-year or next-year estimate), then " Rationale: " and one sentence on why the buyer did the deal. Never mention any data source (report, bank, newsletter or database) anywhere on the page.
 buyer_type (only these three): "Strategic", "Private equity", "PE-backed strategic" (acquisition by a sponsor-owned company; name the sponsor in acquirer, e.g. "Proofpoint (Thoma Bravo)").
 ev: enterprise value in US$M (equity value plus net debt when both are given). rev / ebitda: the figure the multiple is based on, if disclosed; otherwise null with ev_rev / ev_ebitda filled from the stated multiple.
-Outliers: if ev_rev is above 20x or ev_ebitda above 40x, keep the numbers but add mult_excl:true and say in desc "shown but excluded from medians as an outlier."
+No outlier exclusions: every deal with a multiple counts in the medians (per Cy, Nov 2026). Do not add mult_excl.
 categories (only these five, one per deal): "Enterprise Applications", "Infrastructure & Data", "Cybersecurity", "Vertical Software", "SMB Software".
 Dates: announcement date; if only the month is known, use the first of that month.
 Write "&amp;" for "&" inside vertical, acquirer and desc text.
 Methodology line format: "Last updated: <Month D, YYYY>".
-Hub card stat line: "<N> private deals · 25 public comps · <X.X>x median private EV/Rev" (median over included deals without mult_excl that have ev_rev).
+Hub card stat line: "<N> private deals · 25 public comps · <X.X>x median private EV/Rev" (median over all deals with ev_rev).

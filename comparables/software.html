@@ -43,7 +43,7 @@
     "url": "https://www.harborridgecap.com"
   },
   "license": "https://www.harborridgecap.com/terms",
-  "temporalCoverage": "2026-01/..",
+  "temporalCoverage": "2025-01/..",
   "variableMeasured": ["Enterprise Value", "EV/Revenue", "EV/EBITDA", "Rule of 40"],
   "distribution": [{
     "@type": "DataDownload",
@@ -274,7 +274,7 @@
   <h1>Software <em>Comparables</em></h1>
   <div class="subhead">Private M&amp;A multiples and public market comps for software companies, across enterprise applications, infrastructure and data, cybersecurity, vertical software, and SMB software.</div>
   <div class="meta">
-    <span id="meta-count">22 private transactions</span>
+    <span id="meta-count">43 private transactions</span>
     <span>$ in millions</span>
     <span id="meta-updated">Private: updated Mondays · Public: as of Nov 17, 2026</span>
   </div>
@@ -291,7 +291,7 @@
 
   <!-- Private / Public toggle -->
   <div class="mode-toggle">
-    <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">22</span></button>
+    <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">43</span></button>
     <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">25</span></button>
   </div>
 
@@ -302,22 +302,22 @@
     <div class="stats">
       <div class="stat">
         <div class="stat-label">Transactions Tracked</div>
-        <div class="stat-num" id="priv-n">22</div>
-        <div class="stat-desc">2026, US targets with disclosed multiples</div>
+        <div class="stat-num" id="priv-n">43</div>
+        <div class="stat-desc">Since 2025, US targets with disclosed multiples</div>
       </div>
       <div class="stat">
         <div class="stat-label">PE &amp; PE-Backed Buyers</div>
-        <div class="stat-num" id="priv-pe">6</div>
+        <div class="stat-num" id="priv-pe">17</div>
         <div class="stat-desc" id="priv-pe-desc">Sponsors and their platforms</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / Revenue</div>
-        <div class="stat-num" id="priv-med-rev">7.2x</div>
-        <div class="stat-desc" id="priv-med-rev-desc">22 deals with disclosed multiples</div>
+        <div class="stat-num" id="priv-med-rev">7.4x</div>
+        <div class="stat-desc" id="priv-med-rev-desc">42 deals with disclosed multiples</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / EBITDA</div>
-        <div class="stat-num" id="priv-med-ebitda">16.3x</div>
+        <div class="stat-num" id="priv-med-ebitda">12.5x</div>
         <div class="stat-desc" id="priv-med-ebitda-desc">2 deals with disclosed EBITDA</div>
       </div>
     </div>
@@ -328,7 +328,7 @@
     <!-- Filters -->
     <div class="filters">
       <span class="filter-label">Segment</span>
-      <button class="chip active" data-filter="all">All <span class="count">22</span></button>
+      <button class="chip active" data-filter="all">All <span class="count">43</span></button>
       <button class="chip" data-filter="Enterprise Applications">Enterprise Applications <span class="count">0</span></button>
       <button class="chip" data-filter="Infrastructure &amp; Data">Infrastructure &amp; Data <span class="count">0</span></button>
       <button class="chip" data-filter="Cybersecurity">Cybersecurity <span class="count">0</span></button>
@@ -338,7 +338,7 @@
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search target, acquirer, or focus..." id="search">
-      <span class="result-count" id="result-count">Showing 22 of 22</span>
+      <span class="result-count" id="result-count">Showing 43 of 43</span>
     </div>
 
     <!-- Table -->
@@ -365,7 +365,7 @@
     <!-- Methodology -->
     <div class="methodology">
       <div class="method-label">Methodology</div>
-      <p><strong>Universe.</strong> Private M&amp;A transactions and take-privates of US-based software companies announced in 2026, limited to deals where an enterprise value multiple of revenue, recurring revenue or EBITDA was disclosed or can be derived from disclosed figures. Deals without valuation data are not included.</p>
+      <p><strong>Universe.</strong> Private M&amp;A transactions and take-privates of US-based software companies announced in 2025 and 2026, limited to deals where an enterprise value multiple of revenue, recurring revenue or EBITDA was disclosed or can be derived from disclosed figures. Deals without valuation data are not included.</p>
       <p><strong>Multiples.</strong> Enterprise value divided by trailing revenue (EV / Rev) and EBITDA (EV / EBITDA). Where a deal was reported on annual recurring revenue or on current-year or next-year estimates, the basis is noted in the rationale. All deals in the table are included in the medians.</p>
       <p><strong>Dates.</strong> Where only the month of a transaction is known, the date is shown as the first of that month.</p>
       <p><strong>Buyer type.</strong> Strategic: corporate acquirers. Private equity: sponsor take-privates and platform investments. PE-backed strategic: acquisitions by sponsor-owned companies.</p>
@@ -541,6 +541,27 @@ const DEALS = [
   {date:"2026-03-01", target:"Ookla", acquirer:"Accenture", buyer_type:"Strategic", ev:1200.0, rev:null, ev_rev:5.2, ebitda:null, ev_ebitda:null, vertical:"Network Intelligence Data", categories:["Infrastructure & Data"], desc:"About 5.2x LTM revenue. Rationale: Accenture acquires network performance data and analytics used by telecom operators and enterprises.", url:null, included:true},
   {date:"2026-01-06", target:"OneStream", acquirer:"Hg (with General Atlantic and Tidemark)", buyer_type:"Private equity", ev:5800.0, rev:null, ev_rev:10.2, ebitda:null, ev_ebitda:null, vertical:"Finance Performance Management", categories:["Enterprise Applications"], desc:"Take-private at $24.00 per share, a 31% premium; $6.4B equity value. About 10.2x LTM revenue. Rationale: sponsor take-private of a CFO-office platform 17 months after IPO, to invest in AI behind private ownership.", url:"https://hgcapital.com/insights/onestream-to-be-acquired-by-hg/", included:true},
   {date:"2026-01-01", target:"strongDM", acquirer:"Delinea (TPG)", buyer_type:"PE-backed strategic", ev:150.0, rev:null, ev_rev:5.0, ebitda:null, ev_ebitda:null, vertical:"Privileged Access Management", categories:["Cybersecurity"], desc:"About 5.0x LTM revenue. Rationale: Delinea adds just-in-time infrastructure access to its privileged access platform.", url:null, included:true},
+  {date:"2025-12-21", target:"Clearwater Analytics", acquirer:"Permira and Warburg Pincus", buyer_type:"Private equity", ev:8400.0, rev:null, ev_rev:11.5, ebitda:null, ev_ebitda:null, vertical:"Investment Accounting &amp; Reporting SaaS", categories:["Vertical Software"], desc:"Take-private at a 47% premium, about 11.5x revenue on $731M of 2025 revenue. Rationale: sponsors back a cloud investment accounting platform consolidating front-to-back office software for asset managers and insurers.", url:null, included:true},
+  {date:"2025-12-01", target:"Confluent", acquirer:"IBM", buyer_type:"Strategic", ev:11100.0, rev:null, ev_rev:10.0, ebitda:null, ev_ebitda:null, vertical:"Data Streaming Platform", categories:["Infrastructure & Data"], desc:"All-cash deal at $31.00 per share, about 10x LTM revenue. Rationale: IBM adds real-time data streaming to feed enterprise AI and its hybrid cloud software portfolio.", url:null, included:true},
+  {date:"2025-12-01", target:"Armis", acquirer:"ServiceNow", buyer_type:"Strategic", ev:7800.0, rev:null, ev_rev:22.8, ebitda:null, ev_ebitda:null, vertical:"Asset Visibility &amp; Exposure Management", categories:["Cybersecurity"], desc:"About 22.8x LTM revenue. Rationale: ServiceNow adds cyber exposure management to tie asset security into its IT and security workflows.", url:null, included:true},
+  {date:"2025-11-01", target:"Chronosphere", acquirer:"Palo Alto Networks", buyer_type:"Strategic", ev:3400.0, rev:null, ev_rev:20.9, ebitda:null, ev_ebitda:null, vertical:"Cloud Observability Platform", categories:["Infrastructure & Data"], desc:"About 20.9x LTM revenue. Rationale: Palo Alto extends its security data platform into AI-scale observability.", url:null, included:true},
+  {date:"2025-10-29", target:"Jamf", acquirer:"Francisco Partners", buyer_type:"Private equity", ev:2200.0, rev:null, ev_rev:3.3, ebitda:null, ev_ebitda:null, vertical:"Apple Device Management &amp; Security", categories:["Infrastructure & Data"], desc:"Take-private at $13.05 per share, a 50% premium. About 3.3x LTM revenue of $666M (3.1x ARR). Rationale: sponsor takes private a scaled, slower-growth device management platform at a low multiple.", url:null, included:true},
+  {date:"2025-10-01", target:"Clario", acquirer:"Thermo Fisher Scientific", buyer_type:"Strategic", ev:9000.0, rev:null, ev_rev:7.5, ebitda:null, ev_ebitda:null, vertical:"Clinical Trial Data &amp; Endpoint Technology", categories:["Vertical Software"], desc:"About 7.5x LTM revenue. Rationale: Thermo Fisher adds clinical trial endpoint data software to its pharma services offering.", url:null, included:true},
+  {date:"2025-08-01", target:"Dayforce", acquirer:"Thoma Bravo", buyer_type:"Private equity", ev:12700.0, rev:null, ev_rev:6.9, ebitda:null, ev_ebitda:null, vertical:"Human Capital Management", categories:["Enterprise Applications"], desc:"Take-private at about a 32% premium. About 6.9x LTM revenue. Rationale: Thoma Bravo's largest take-private, buying a scaled HCM and payroll platform below its historical multiple.", url:null, included:true},
+  {date:"2025-08-01", target:"MeridianLink", acquirer:"Centerbridge Partners", buyer_type:"Private equity", ev:2000.0, rev:null, ev_rev:6.3, ebitda:null, ev_ebitda:null, vertical:"Lending &amp; Account Opening Software", categories:["Vertical Software"], desc:"Take-private, about 6.3x LTM revenue of $320M. Rationale: sponsor acquires a mission-critical lending platform for banks and credit unions.", url:null, included:true},
+  {date:"2025-07-01", target:"NEOGOV", acquirer:"EQT", buyer_type:"Private equity", ev:3000.0, rev:null, ev_rev:13.6, ebitda:null, ev_ebitda:null, vertical:"Public Sector HR &amp; Workforce Software", categories:["Vertical Software"], desc:"About 13.6x LTM revenue. Rationale: EQT buys a leading government HR and workforce platform with high retention.", url:null, included:true},
+  {date:"2025-07-01", target:"Olo", acquirer:"Thoma Bravo", buyer_type:"Private equity", ev:2000.0, rev:null, ev_rev:6.7, ebitda:null, ev_ebitda:null, vertical:"Restaurant Ordering Platform", categories:["Vertical Software"], desc:"Take-private at a 65% premium, about 6.7x LTM revenue of $299M. Rationale: sponsor adds a restaurant digital ordering and payments platform serving 750+ brands.", url:null, included:true},
+  {date:"2025-06-01", target:"Melio", acquirer:"Xero", buyer_type:"Strategic", ev:2500.0, rev:null, ev_rev:16.4, ebitda:null, ev_ebitda:null, vertical:"SMB Accounts Payable &amp; Payments", categories:["SMB Software"], desc:"About 16.4x LTM revenue. Rationale: Xero adds US small business bill pay to accelerate its US expansion.", url:null, included:true},
+  {date:"2025-06-01", target:"Couchbase", acquirer:"Haveli Investments", buyer_type:"Private equity", ev:1500.0, rev:null, ev_rev:7.2, ebitda:null, ev_ebitda:null, vertical:"NoSQL Database", categories:["Infrastructure & Data"], desc:"Take-private, about 7.2x LTM revenue of $210M. Rationale: sponsor acquires a sub-scale public database vendor to invest privately.", url:null, included:true},
+  {date:"2025-05-27", target:"Informatica", acquirer:"Salesforce", buyer_type:"Strategic", ev:8900.0, rev:null, ev_rev:5.3, ebitda:null, ev_ebitda:null, vertical:"Data Management &amp; Integration", categories:["Infrastructure & Data"], desc:"All-cash deal, about 5.3x LTM revenue. Rationale: Salesforce adds data integration, governance and catalog to ground its AI agents in trusted data.", url:null, included:true},
+  {date:"2025-05-01", target:"E2open", acquirer:"WiseTech Global", buyer_type:"Strategic", ev:2200.0, rev:null, ev_rev:3.7, ebitda:null, ev_ebitda:null, vertical:"Supply Chain Software", categories:["Vertical Software"], desc:"About 3.7x LTM revenue. Rationale: WiseTech consolidates supply chain and trade software into its logistics platform.", url:null, included:true},
+  {date:"2025-05-01", target:"AvidXchange", acquirer:"TPG (with Corpay)", buyer_type:"Private equity", ev:2200.0, rev:null, ev_rev:5.0, ebitda:null, ev_ebitda:null, vertical:"AP Automation &amp; Payments", categories:["SMB Software"], desc:"Take-private, about 5.0x LTM revenue of $439M; Corpay takes a 33% minority stake. Rationale: sponsor and strategic partner back a mid-market AP automation leader.", url:null, included:true},
+  {date:"2025-03-01", target:"Dun &amp; Bradstreet", acquirer:"Clearlake Capital", buyer_type:"Private equity", ev:7700.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:9.9, vertical:"Business Data &amp; Analytics", categories:["Infrastructure & Data"], desc:"Take-private at $7.7B enterprise value ($4.1B equity). About 9.9x LTM EBITDA. Rationale: sponsor acquires a deleveraged business data franchise with steady cash flow.", url:null, included:true},
+  {date:"2025-03-01", target:"ModMed", acquirer:"Clearlake Capital", buyer_type:"Private equity", ev:5300.0, rev:null, ev_rev:10.6, ebitda:null, ev_ebitda:null, vertical:"Specialty Healthcare EHR &amp; Practice Management", categories:["Vertical Software"], desc:"About 10.6x revenue. Rationale: sponsor buys a specialty-specific healthcare software platform with embedded payments.", url:null, included:true},
+  {date:"2025-03-18", target:"Wiz", acquirer:"Google", buyer_type:"Strategic", ev:32000.0, rev:null, ev_rev:30.0, ebitda:null, ev_ebitda:null, vertical:"Cloud Security Platform", categories:["Cybersecurity"], desc:"All-cash deal, roughly 30x ARR. Multiple on ARR. Rationale: Google buys the leading cloud security platform to strengthen Google Cloud.", url:null, included:true},
+  {date:"2025-02-01", target:"SolarWinds", acquirer:"Turn/River Capital", buyer_type:"Private equity", ev:4400.0, rev:null, ev_rev:5.6, ebitda:null, ev_ebitda:null, vertical:"IT Observability &amp; Management", categories:["Infrastructure & Data"], desc:"Take-private, about 5.6x LTM revenue of $784M. Rationale: sponsor acquires a cash-generative IT management franchise at a discount.", url:null, included:true},
+  {date:"2025-01-07", target:"Paycor", acquirer:"Paychex", buyer_type:"Strategic", ev:4100.0, rev:null, ev_rev:5.5, ebitda:null, ev_ebitda:null, vertical:"SMB &amp; Mid-Market HCM", categories:["SMB Software"], desc:"All-cash deal at $22.50 per share, about 5.5x LTM revenue of $746M. Rationale: Paychex moves upmarket with a modern mid-market HCM and payroll platform.", url:null, included:true},
+  {date:"2025-01-01", target:"Enfusion", acquirer:"Clearwater Analytics", buyer_type:"Strategic", ev:1500.0, rev:null, ev_rev:7.7, ebitda:null, ev_ebitda:null, vertical:"Investment Management Software", categories:["Vertical Software"], desc:"About 7.7x LTM revenue of $195M. Rationale: Clearwater adds front-office portfolio and order management to its accounting platform.", url:null, included:true},
 ];
 
 // ============ PUBLIC COMPS ============

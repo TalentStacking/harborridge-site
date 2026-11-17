@@ -12,6 +12,7 @@
 
 ## Fit rules
 US TARGETS ONLY: the target must be headquartered in the United States (the buyer can be anywhere). Skip any deal whose target is based outside the US, and list it in the report as "Non-US, not added".
+SCOPE: deals announced 2025 onward.
 MULTIPLES REQUIRED: add a deal ONLY if an EV / revenue (or EV / ARR) or EV / EBITDA multiple was disclosed, or can be computed from a disclosed enterprise value and a disclosed revenue, ARR or EBITDA figure. Deals without valuation data are NOT added; list them in the report as "No multiple, not added".
 FIT if the target is mainly a software product company: enterprise applications, infrastructure and data software, cybersecurity software, vertical software, or SMB software.
 NOT a fit: IT services and consulting (that is Technology Services), CCaaS / UCaaS / CX software (that is CCaaS & UCaaS), compliance audit firms and GRC services (that is IT & Cyber Compliance), hardware, semiconductors, AI model labs, fintech lenders and payment processors, consumer apps, venture rounds.

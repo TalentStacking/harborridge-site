@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>Software Comparables — Harbor Ridge Capital</title>
+<meta name="description" content="Private M&amp;A transactions with disclosed multiples and segmented public market comps in software: enterprise applications, infrastructure and data, cybersecurity, vertical software, and SMB software. Updated weekly.">
+<meta name="author" content="Harbor Ridge Capital">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.harborridgecap.com/comparables/software">
+
+<!-- ===== Open Graph ===== -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.harborridgecap.com/comparables/software">
+<meta property="og:site_name" content="Harbor Ridge Capital">
+<meta property="og:title" content="Software Comparables — Harbor Ridge Capital">
+<meta property="og:description" content="Private M&amp;A transactions with disclosed multiples and segmented public market comps in software: enterprise applications, infrastructure and data, cybersecurity, vertical software, and SMB software. Updated weekly.">
+<meta property="og:image" content="https://www.harborridgecap.com/assets/img/og-image.png">
+<meta property="og:locale" content="en_US">
+
+<!-- ===== Twitter Card ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Software Comparables — Harbor Ridge Capital">
+<meta name="twitter:description" content="Private M&amp;A transactions with disclosed multiples and segmented public market comps in software: enterprise applications, infrastructure and data, cybersecurity, vertical software, and SMB software. Updated weekly.">
+<meta name="twitter:image" content="https://www.harborridgecap.com/assets/img/og-image.png">
+
+<!-- ===== Favicon ===== -->
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+<!-- ===== Dataset Schema ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Software Transaction Comparables",
+  "description": "Private M&A transactions with disclosed valuation multiples and public market comps in software, segmented by enterprise applications, infrastructure and data, cybersecurity, vertical software, and SMB software.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Harbor Ridge Capital",
+    "url": "https://www.harborridgecap.com"
+  },
+  "license": "https://www.harborridgecap.com/terms",
+  "temporalCoverage": "2026-01/..",
+  "variableMeasured": ["Enterprise Value", "EV/Revenue", "EV/EBITDA", "Rule of 40"],
+  "distribution": [{
+    "@type": "DataDownload",
+    "encodingFormat": "CSV",
+    "contentUrl": "https://www.harborridgecap.com/comparables/software"
+  }]
+}
+</script>
+
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ3RTRZWR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FEQ3RTRZWR');
+</script>
+
+<!-- ===== Fonts & styles ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="alternate" type="application/rss+xml" title="Harbor Ridge Capital Insights" href="/rss.xml">
+<!-- Page-specific styles (inline for phase 1; extract to shared file when more verticals are added) -->
+<style>
+  .comps-page {
+    --green-deep: #0c3b2e;
+    --green-line: #1e5a48;
+    --brass: #c9a66b;
+    --brass-dim: #b89456;
+    --cream: #f7f3eb;
+    --off-white: #fbf9f4;
+    --ink: #1a2a25;
+    --ink-soft: #4a5a55;
+    --card-border: #e8e2d4;
+    --row-alt: #f4f0e6;
+  }
+  .comps-page { background: var(--off-white); font-family: 'IBM Plex Serif', Georgia, serif; color: var(--ink); font-size: 16px; line-height: normal; }
+  .comps-page a { transition: none; }
+  .page { padding: 48px 0 80px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  .back-link { display: inline-block; color: var(--ink-soft); text-decoration: none; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; letter-spacing: 0.05em; margin-bottom: 24px; }
+  .eyebrow { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 14px; }
+  .comps-page h1 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 42px; line-height: 1.15; color: var(--green-deep); margin-bottom: 14px; letter-spacing: -0.01em; }
+  .comps-page h1 em { font-style: italic; color: var(--brass); }
+  .subhead { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 20px; line-height: 1.4; color: var(--ink-soft); margin-bottom: 20px; }
+  .meta { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; color: var(--ink-soft); margin-bottom: 36px; letter-spacing: 0.02em; }
+  .meta span + span::before { content: " · "; opacity: 0.5; }
+
+  /* Private/Public toggle */
+  .mode-toggle { display: inline-flex; background: var(--cream); border: 1px solid var(--card-border); padding: 4px; margin-bottom: 28px; }
+  .mode-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 22px; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; transition: all 0.2s; }
+  .mode-btn.active { background: var(--green-deep); color: var(--cream); }
+  .mode-btn .count { margin-left: 8px; opacity: 0.6; font-size: 11px; }
+  .mode-btn.active .count { color: var(--brass); opacity: 1; }
+
+  /* Hero stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: var(--green-deep); padding: 4px; margin-bottom: 20px; }
+  .stat { background: var(--green-deep); color: var(--cream); padding: 28px 24px 24px; text-align: center; position: relative; }
+  .stat-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 12px; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1; font-weight: 500; color: var(--brass); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .stat-desc { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--cream); opacity: 0.8; line-height: 1.3; min-height: 2.6em; }
+  .stat-spark { margin-top: 12px; display: flex; justify-content: center; }
+  .stat-spark svg { display: block; }
+
+  /* Sub-vertical mini-cards (auto-fit so count can vary) */
+  .sub-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 36px; }
+  .sub-card { background: white; border: 1px solid var(--card-border); border-top: 3px solid var(--brass); padding: 18px 20px; }
+  .sub-card .sc-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; margin-bottom: 8px; }
+  .sub-card .sc-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: var(--green-deep); line-height: 1.1; }
+  .sub-card .sc-sub { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: var(--ink-soft); margin-top: 4px; letter-spacing: 0.02em; }
+  .sub-card.insufficient { opacity: 0.45; }
+  .sub-card.insufficient .sc-val { font-size: 16px; font-style: italic; font-family: 'IBM Plex Serif', serif; }
+
+  /* Filter chips */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; align-items: center; }
+  .filter-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-right: 8px; }
+  .chip { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.03em; padding: 7px 14px; border: 1px solid var(--card-border); background: white; color: var(--ink-soft); cursor: pointer; border-radius: 2px; transition: all 0.15s; }
+  .chip:hover { border-color: var(--brass); color: var(--green-deep); }
+  .chip.active { background: var(--green-deep); color: var(--cream); border-color: var(--green-deep); }
+  .chip.active .count { color: var(--brass); }
+  .chip .count { margin-left: 6px; font-size: 11px; color: var(--ink-soft); font-weight: 400; }
+
+  .search-row { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
+  .search-input { flex: 1; max-width: 340px; padding: 10px 14px; border: 1px solid var(--card-border); font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; background: white; color: var(--ink); }
+  .search-input:focus { outline: none; border-color: var(--brass); }
+  .result-count { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.02em; }
+  .as-of { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.04em; opacity: 0.8; padding-left: 12px; border-left: 1px solid var(--card-border); }
+  /* EV / EBITDA history chart */
+  .trend { background: white; border: 1px solid var(--card-border); margin-top: 20px; padding: 22px 24px 16px; }
+  .trend-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .trend-title { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-deep); font-weight: 600; }
+  .trend-legend { display: flex; gap: 18px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); }
+  .trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .trend-legend i { display: inline-block; width: 18px; height: 2px; }
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .trend svg .val { font-size: 11px; font-weight: 600; }
+  .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+  /* EV / EBITDA history chart */
+  .trend { background: white; border: 1px solid var(--card-border); margin-top: 20px; padding: 22px 24px 16px; }
+  .trend-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .trend-title { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-deep); font-weight: 600; }
+  .trend-legend { display: flex; gap: 18px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); }
+  .trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .trend-legend i { display: inline-block; width: 18px; height: 2px; }
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .trend svg .val { font-size: 11px; font-weight: 600; }
+  .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+  .refresh-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); background: white; border: 1px solid var(--card-border); padding: 6px 10px; cursor: pointer; }
+  .refresh-btn:hover { border-color: var(--brass); }
+  .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
+  .refresh-msg { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: #a84444; }
+  .csv-link { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brass); text-decoration: none; font-weight: 600; margin-left: auto; padding: 8px 12px; border: 1px solid var(--card-border); }
+  .csv-link:hover { background: var(--cream); border-color: var(--brass); }
+
+  /* Table */
+  .table-wrap { background: white; border: 1px solid var(--card-border); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-family: 'IBM Plex Serif', serif; font-size: 13px; }
+  /* All body cells share one font family and size; tabular figures keep numbers aligned */
+  td { font-family: 'IBM Plex Serif', serif; font-size: 13px; font-variant-numeric: tabular-nums; }
+  /* Extra breathing room: Date → Target, and EV/EBITDA → Rationale */
+  #comps-table th:nth-child(2), #comps-table td:nth-child(2) { padding-left: 28px; }
+  #comps-table th:nth-child(9), #comps-table td:nth-child(9) { padding-left: 36px; }
+  thead { background: var(--green-deep); }
+  th { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brass); font-weight: 600; text-align: left; padding: 14px 12px; border-bottom: 2px solid var(--brass); white-space: nowrap; cursor: pointer; user-select: none; }
+  th.num { text-align: right; }
+  th:hover { color: var(--cream); }
+  th .sort-ind { opacity: 0.4; margin-left: 4px; font-size: 9px; }
+  th.sorted .sort-ind { opacity: 1; color: var(--cream); }
+  tbody tr { border-bottom: 1px solid var(--card-border); transition: background 0.1s; }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:hover { background: var(--cream); }
+  td { padding: 14px 12px; vertical-align: top; color: var(--ink); }
+  td.num { text-align: right; }
+  td.num.multiple { color: var(--green-deep); font-weight: 500; }
+  td.date { color: var(--ink-soft); white-space: nowrap; }
+  td.target { font-weight: 500; color: var(--green-deep); min-width: 140px; }
+  td.acquirer { color: var(--ink); min-width: 140px; }
+  td.desc { line-height: 1.5; color: var(--ink-soft); max-width: 360px; }
+  td.link { text-align: center; width: 40px; }
+  td.link a { color: var(--brass); text-decoration: none; font-size: 15px; display: inline-block; line-height: 1; }
+  td.link a:hover { color: var(--green-deep); }
+  td .excluded-tag { display: inline-block; font-family: 'IBM Plex Sans', sans-serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); background: var(--card-border); padding: 2px 6px; margin-left: 6px; font-weight: 500; }
+  tr.excluded td.target { color: var(--ink-soft); }
+  tr.excluded td.num { color: var(--ink-soft); }
+  .na { color: var(--ink-soft); opacity: 0.5; }
+
+  /* Ticker row (public comps) */
+  td.ticker { font-weight: 500; color: var(--green-deep); min-width: 80px; }
+  td.ticker .company-name { font-size: 13px; color: var(--ink-soft); font-weight: 400; margin-top: 3px; letter-spacing: 0; }
+  .r40-pos { color: var(--green-deep); font-weight: 500; }
+  .r40-neg { color: #a84444; }
+
+  /* Public comps placeholder */
+  .placeholder { padding: 48px; text-align: center; background: var(--cream); border: 1px dashed var(--brass); }
+  .placeholder h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--green-deep); margin-bottom: 10px; font-weight: 500; }
+  .placeholder p { font-family: 'IBM Plex Serif', serif; font-style: italic; color: var(--ink-soft); font-size: 14px; max-width: 600px; margin: 0 auto 8px; line-height: 1.6; }
+  .placeholder .public-preview { margin-top: 32px; text-align: left; opacity: 0.85; }
+
+  /* Methodology footer */
+  .methodology { margin-top: 40px; padding: 28px 32px; background: var(--cream); border-left: 3px solid var(--brass); }
+  .method-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 14px; }
+  .methodology p { font-family: 'IBM Plex Serif', serif; font-size: 14px; line-height: 1.7; color: var(--ink); margin-bottom: 14px; }
+  .methodology p:last-child { margin-bottom: 0; }
+  .methodology strong { color: var(--green-deep); font-weight: 600; }
+  .updated { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.03em; margin-top: 20px; text-align: right; }
+
+  /* CTA block at the bottom */
+  .cta-block { background: var(--green-deep); color: var(--cream); padding: 40px 48px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .cta-block-text { flex: 1 1 400px; }
+  .cta-block-eyebrow { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 8px; }
+  .cta-block h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: var(--cream); margin-bottom: 8px; }
+  .cta-block p { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 14px; color: var(--cream); opacity: 0.85; }
+  .cta-btn { background: var(--brass); color: var(--green-deep); padding: 14px 28px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+  .cta-btn:hover { background: var(--cream); }
+
+  .hidden { display: none !important; }
+
+  /* Weekly digest sign-up (compact) */
+  .meta { margin-bottom: 22px; }
+  .digest-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; background: var(--cream); border: 1px solid var(--card-border); border-left: 3px solid var(--brass); padding: 12px 16px; margin-bottom: 32px; max-width: 640px; }
+  .di-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); white-space: nowrap; }
+  .di-row { display: flex; flex: 1; min-width: 240px; }
+  .di-row input { flex: 1; min-width: 0; font-family: 'IBM Plex Serif', Georgia, serif; font-size: 14px; padding: 9px 12px; border: 1px solid var(--card-border); border-right: none; background: white; color: var(--ink); border-radius: 0; }
+  .di-row input:focus { outline: 2px solid var(--brass); outline-offset: 1px; }
+  .di-row button { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 9px 18px; background: var(--brass); color: var(--green-deep); border: 1px solid var(--brass); cursor: pointer; border-radius: 0; }
+  .di-row button:hover { background: #d7b77f; }
+  .di-row button:disabled { opacity: 0.7; cursor: default; }
+  .di-msg { flex-basis: 100%; font-size: 13px; line-height: 1.5; margin: 0; }
+  .di-msg:empty { display: none; }
+  .di-msg.is-ok { color: var(--green-deep); }
+  .di-msg.is-err { color: #9b3b22; }
+  .di-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+  @media (max-width: 900px) {
+    .comps-page h1 { font-size: 32px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .sub-cards { grid-template-columns: repeat(2, 1fr); }
+    .stat-num { font-size: 36px; }
+    td.desc, #comps-table th:nth-child(9) { display: none; }
+    .cta-block { flex-direction: column; align-items: flex-start; padding: 28px; }
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="/index.html" class="nav-logo">Harbor Ridge Capital</a>
+  <div class="nav-links">
+    <a href="/index.html#services">Services</a>
+    <a href="/index.html#focus">Focus</a>
+    <a href="/index.html#transactions">Transactions</a>
+    <a href="/index.html#insights">Insights</a>
+    <a href="/comparables">Comparables</a>
+    <a href="/index.html#contact">Contact</a>
+  </div>
+</nav>
+<main class="comps-page">
+<div class="page">
+<div class="wrap">
+
+
+  <a href="/comparables" class="back-link">← Back to Comparables</a>
+  <div class="eyebrow">Comparables · Updated Nov 2026</div>
+  <h1>Software <em>Comparables</em></h1>
+  <div class="subhead">Private M&amp;A multiples and public market comps for software companies, across enterprise applications, infrastructure and data, cybersecurity, vertical software, and SMB software.</div>
+  <div class="meta">
+    <span id="meta-count">22 private transactions</span>
+    <span>$ in millions</span>
+    <span id="meta-updated">Private: updated Mondays · Public: as of Nov 17, 2026</span>
+  </div>
+
+  <form class="digest-inline" data-subscribe novalidate>
+    <label class="di-label" for="digest-email">Get weekly updates</label>
+    <div class="di-row">
+      <input type="email" id="digest-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+      <button type="submit">Subscribe</button>
+    </div>
+    <input type="text" name="website" class="di-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="di-msg" data-subscribe-msg role="status" aria-live="polite"></p>
+  </form>
+
+  <!-- Private / Public toggle -->
+  <div class="mode-toggle">
+    <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">22</span></button>
+    <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">25</span></button>
+  </div>
+
+  <!-- ====================== PRIVATE VIEW ====================== -->
+  <div id="view-private">
+
+    <!-- Hero stats -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Transactions Tracked</div>
+        <div class="stat-num" id="priv-n">22</div>
+        <div class="stat-desc">2026, US targets with disclosed multiples</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">PE &amp; PE-Backed Buyers</div>
+        <div class="stat-num" id="priv-pe">6</div>
+        <div class="stat-desc" id="priv-pe-desc">Sponsors and their platforms</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Median EV / Revenue</div>
+        <div class="stat-num" id="priv-med-rev">6.5x</div>
+        <div class="stat-desc" id="priv-med-rev-desc">19 deals, excluding outliers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Median EV / EBITDA</div>
+        <div class="stat-num" id="priv-med-ebitda">16.3x</div>
+        <div class="stat-desc" id="priv-med-ebitda-desc">2 deals with disclosed EBITDA</div>
+      </div>
+    </div>
+
+    <!-- Sub-vertical mini-cards -->
+    <div class="sub-cards" id="sub-cards"></div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <span class="filter-label">Segment</span>
+      <button class="chip active" data-filter="all">All <span class="count">22</span></button>
+      <button class="chip" data-filter="Enterprise Applications">Enterprise Applications <span class="count">0</span></button>
+      <button class="chip" data-filter="Infrastructure &amp; Data">Infrastructure &amp; Data <span class="count">0</span></button>
+      <button class="chip" data-filter="Cybersecurity">Cybersecurity <span class="count">0</span></button>
+      <button class="chip" data-filter="Vertical Software">Vertical Software <span class="count">0</span></button>
+      <button class="chip" data-filter="SMB Software">SMB Software <span class="count">0</span></button>
+    </div>
+
+    <div class="search-row">
+      <input type="text" class="search-input" placeholder="Search target, acquirer, or focus..." id="search">
+      <span class="result-count" id="result-count">Showing 22 of 22</span>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table id="comps-table">
+        <thead>
+          <tr>
+            <th data-sort="date" class="sorted">Date <span class="sort-ind">↓</span></th>
+            <th data-sort="target">Target <span class="sort-ind">⇅</span></th>
+            <th data-sort="acquirer">Acquirer <span class="sort-ind">⇅</span></th>
+            <th data-sort="buyer_type">Buyer Type <span class="sort-ind">⇅</span></th>
+            <th data-sort="vertical">Focus <span class="sort-ind">⇅</span></th>
+            <th data-sort="ev" class="num">EV <span class="sort-ind">⇅</span></th>
+            <th data-sort="ev_rev" class="num">EV / Rev <span class="sort-ind">⇅</span></th>
+            <th data-sort="ev_ebitda" class="num">EV / EBITDA <span class="sort-ind">⇅</span></th>
+            <th>Rationale</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- Methodology -->
+    <div class="methodology">
+      <div class="method-label">Methodology</div>
+      <p><strong>Universe.</strong> Private M&amp;A transactions and take-privates of US-based software companies announced in 2026, limited to deals where an enterprise value multiple of revenue, recurring revenue or EBITDA was disclosed or can be derived from disclosed figures. Deals without valuation data are not included.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by trailing revenue (EV / Rev) and EBITDA (EV / EBITDA). Where a deal was reported on annual recurring revenue or on current-year or next-year estimates, the basis is noted in the rationale. Medians exclude deals flagged as outliers, which remain visible in the table.</p>
+      <p><strong>Dates.</strong> Where only the month of a transaction is known, the date is shown as the first of that month.</p>
+      <p><strong>Buyer type.</strong> Strategic: corporate acquirers. Private equity: sponsor take-privates and platform investments. PE-backed strategic: acquisitions by sponsor-owned companies.</p>
+      <div class="updated">Last updated: November 17, 2026</div>
+    </div>
+
+  </div>
+
+  <!-- ====================== PUBLIC VIEW ====================== -->
+  <div id="view-public" class="hidden">
+
+    <!-- Hero stats (revenue focused) -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Median EV / LTM Revenue</div>
+        <div class="stat-num" id="pub-med-rev">6.6x</div>
+        <div class="stat-desc" id="pub-constituents">Public market, 24 constituents</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Median EV / LTM EBITDA</div>
+        <div class="stat-num" id="pub-med-ebitda">31.0x</div>
+        <div class="stat-desc" id="pub-ebitda-desc">Companies with meaningful EBITDA</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Avg Rule of 40</div>
+        <div class="stat-num" id="pub-avg-r40">34</div>
+        <div class="stat-desc">Revenue growth + EBITDA margin</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Median YoY Growth</div>
+        <div class="stat-num" id="pub-med-growth">19.6%</div>
+        <div class="stat-desc">LTM revenue growth</div>
+      </div>
+    </div>
+
+    <div class="filters" id="public-filters">
+      <span class="filter-label">Segment</span>
+      <button class="chip active" data-pfilter="all">All</button>
+      <button class="chip" data-pfilter="Enterprise Applications">Enterprise Applications</button>
+      <button class="chip" data-pfilter="Infrastructure &amp; Data">Infrastructure &amp; Data</button>
+      <button class="chip" data-pfilter="Cybersecurity">Cybersecurity</button>
+      <button class="chip" data-pfilter="Vertical Software">Vertical Software</button>
+      <button class="chip" data-pfilter="SMB Software">SMB Software</button>
+    </div>
+
+    <div class="search-row">
+      <input type="text" class="search-input" placeholder="Search company..." id="public-search">
+      <span class="result-count" id="public-result-count">25 companies</span>
+      <span class="as-of" id="public-as-of">As of Nov 17, 2026</span>
+      <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps for US-listed names">↻ Refresh</button>
+      <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
+      <a class="csv-link" href="#" id="public-csv">⬇ Download CSV</a>
+    </div>
+
+    <!-- Public comps table -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Segment</th>
+            <th class="num">EV</th>
+            <th class="num">EV / Rev</th>
+            <th class="num">EV / EBITDA</th>
+            <th class="num">Growth YoY</th>
+            <th class="num">EBITDA Margin</th>
+            <th class="num">Rule of 40</th>
+          </tr>
+        </thead>
+        <tbody id="public-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="trend" id="trend">
+      <div class="trend-head">
+        <div class="trend-title">Median EV / LTM Revenue by segment</div>
+        <div class="trend-legend"><span><i style="background:#0c3b2e"></i>Segment median</span><span><i style="background:#c9a66b"></i>All software</span></div>
+      </div>
+      <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Median EV to LTM revenue by software segment"></svg>
+      <div class="trend-note">Medians of the included companies in each segment. Updates with Refresh.</div>
+    </div>
+
+    <div class="methodology">
+      <div class="method-label">Public Comps Methodology</div>
+      <p><strong>Universe.</strong> US-listed software companies covered by our live price feed, grouped into five segments: Enterprise Applications (Salesforce, ServiceNow, Workday, Adobe, Atlassian), Infrastructure &amp; Data (Snowflake, Datadog, MongoDB, Dynatrace, GitLab), Cybersecurity (CrowdStrike, Zscaler, Okta, Qualys, Rubrik), Vertical Software (Veeva, AppFolio, Procore, ServiceTitan, Waystar) and SMB Software (HubSpot, Shopify, Paycom, Paylocity, Klaviyo). Contact center and communications software is covered on the CCaaS &amp; UCaaS page. CrowdStrike is shown but excluded from averages as an outlier.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 17, 2026. Click Refresh to pull current share prices and market caps for all 25 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x.</p>
+      <p><strong>Growth and Rule of 40.</strong> Growth is LTM revenue growth year over year. Rule of 40 is growth plus LTM EBITDA margin.</p>
+      <div class="updated" id="public-updated">Figures as of November 17, 2026. Refresh updates all 25 companies.</div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-block-text">
+      <div class="cta-block-eyebrow">Work with Us</div>
+      <h3>Advising founders and sponsors in software.</h3>
+      <p>Sell-side, buy-side, and growth capital mandates for founder-owned software companies, from vertical SaaS to infrastructure and security.</p>
+    </div>
+    <a href="/#contact" class="cta-btn">Contact HRC →</a>
+  </div>
+
+
+</div>
+</div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Harbor Ridge Capital</div>
+        <p class="footer-tagline">M&amp;A advisory for founder-owned software, cybersecurity, and tech-enabled services companies.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Site</h5>
+        <ul>
+          <li><a href="/index.html#services">Services</a></li>
+          <li><a href="/index.html#focus">Focus</a></li>
+          <li><a href="/index.html#transactions">Transactions</a></li>
+          <li><a href="/index.html#insights">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/harbor-ridge-capital-llc/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-compliance">
+      Securities products and investment banking services are offered through <a href="http://www.basecuritiesllc.com/" target="_blank" rel="noopener">BA Securities, LLC</a>. Member <a href="http://www.finra.org/" target="_blank" rel="noopener">FINRA</a> / <a href="http://www.sipc.org/" target="_blank" rel="noopener">SIPC</a>. Harbor Ridge Capital and BA Securities, LLC are separate, unaffiliated entities. Past performance, awards, or testimonials are not indicative of future results. No guarantee of future performance or success is implied.
+      <div class="footer-bottom">
+        <span>&copy; 2026 Harbor Ridge Capital. All rights reserved.</span>
+        <span>Los Angeles, California</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============ PRIVATE DATA ============
+const DEALS = [
+  {date:"2026-10-20", target:"Braze", acquirer:"Salesforce", buyer_type:"Strategic", ev:5660.0, rev:834, ev_rev:6.8, ebitda:null, ev_ebitda:null, vertical:"Customer Engagement Platform", categories:["Enterprise Applications"], desc:"Take-private at $47.50 per share, a 58% premium. Multiple on trailing twelve-month revenue of $834M, growing 27%. Rationale: Salesforce adds a real-time, mobile-first engagement engine that its Marketing Cloud lacked.", url:"https://www.sec.gov/Archives/edgar/data/0001108524/000119312526425881/d516983dex991.htm", included:true},
+  {date:"2026-10-15", target:"Varonis", acquirer:"Proofpoint (Thoma Bravo)", buyer_type:"PE-backed strategic", ev:6300.0, rev:null, ev_rev:8.4, ebitda:null, ev_ebitda:null, vertical:"Data &amp; AI Security", categories:["Cybersecurity"], desc:"Take-private at $49.75 per share. Valued at 8.4x LTM revenue and about 53x LTM free cash flow. Rationale: combines email and human-risk security with data security to protect AI agents' access to enterprise data.", url:"https://www.sec.gov/Archives/edgar/data/0001361113/000121390026109904/ea030861001ex99-1.htm", included:true},
+  {date:"2026-10-15", target:"CCC Intelligent Solutions", acquirer:"GTCR and Elliott", buyer_type:"Private equity", ev:6100.0, rev:null, ev_rev:5.3, ebitda:null, ev_ebitda:12.5, vertical:"Insurance Claims &amp; Repair SaaS", categories:["Vertical Software"], desc:"Take-private at $7.75 per share, a 44% premium to the undisturbed price. About 5.3x 2026E revenue and 12.5x 2026E EBITDA. Rationale: sponsors back a deeply embedded claims and repair network as AI reshapes insurance workflows.", url:"https://www.sec.gov/Archives/edgar/data/0001818201/000119312526422320/d140608dex991.htm", included:true},
+  {date:"2026-10-05", target:"PTC", acquirer:"Schneider Electric", buyer_type:"Strategic", ev:23700.0, rev:2720, ev_rev:8.7, ebitda:null, ev_ebitda:null, vertical:"Industrial Design &amp; PLM Software", categories:["Vertical Software"], desc:"All-cash deal at $205 per share, a 42% premium. EV / Rev on fiscal 2026 revenue guidance midpoint; buyer cites about 21x 2027E adjusted EBITA. Rationale: Schneider pairs product design and lifecycle data with AVEVA's operations software to build an industrial AI platform.", url:null, included:true},
+  {date:"2026-09-10", target:"Miro", acquirer:"Bending Spoons", buyer_type:"Strategic", ev:1355.0, rev:600, ev_rev:2.3, ebitda:null, ev_ebitda:null, vertical:"Visual Collaboration", categories:["Enterprise Applications"], desc:"About $600M of ARR, roughly $435M of net cash. Multiple on ARR. Rationale: Bending Spoons adds a scaled, profitable collaboration platform at a deep discount to its 2022 private valuation.", url:null, included:true},
+  {date:"2026-08-18", target:"Weave Communications", acquirer:"Francisco Partners", buyer_type:"Private equity", ev:650.0, rev:null, ev_rev:2.1, ebitda:null, ev_ebitda:null, vertical:"Patient Engagement &amp; Payments (SMB)", categories:["SMB Software"], desc:"Take-private at $7.40 per share, a 34% premium. Rationale: sponsor buys a sub-scale public SMB healthcare communications platform at a low revenue multiple.", url:null, included:true},
+  {date:"2026-08-04", target:"Airtable", acquirer:"Bending Spoons", buyer_type:"Strategic", ev:1285.0, rev:480, ev_rev:2.7, ebitda:null, ev_ebitda:null, vertical:"No-Code Database &amp; App Platform", categories:["Enterprise Applications"], desc:"About $480M of ARR growing about 20%, with roughly $965M of net cash (equity value about $2.25B). Multiple on ARR. Rationale: low-multiple acquisition of a well-known collaboration platform, consistent with the buyer's restructure-and-hold model.", url:"https://www.saastr.com/airtable-just-sold-for-2-25b-at-2-7x-arr-it-raised-1-4b-and-was-once-worth-11-7b/", included:true},
+  {date:"2026-07-23", target:"ArisGlobal", acquirer:"Dassault Systèmes", buyer_type:"Strategic", ev:2000.0, rev:null, ev_rev:11.4, ebitda:null, ev_ebitda:null, vertical:"Life Sciences Safety &amp; Compliance", categories:["Vertical Software"], desc:"About $1.8B cash at closing plus up to $200M tied to AI revenue milestones. About 11.4x 2026E revenue. Rationale: Dassault extends its life sciences platform into regulatory, safety and compliance workflows.", url:null, included:true},
+  {date:"2026-07-22", target:"Domo (assets)", acquirer:"Progress Software", buyer_type:"Strategic", ev:400.0, rev:null, ev_rev:0.8, ebitda:null, ev_ebitda:null, vertical:"Cloud BI &amp; Analytics", categories:["Infrastructure & Data"], desc:"Purchase of most of Domo's assets. About 0.8x estimated fiscal 2027 revenue. Rationale: Progress adds a BI and analytics platform at a distressed multiple to expand its AI infrastructure portfolio.", url:"https://www.sec.gov/Archives/edgar/data/0000876167/000087616726000110/exhibit991-q32026earningsr.htm", included:true},
+  {date:"2026-06-18", target:"Dragos", acquirer:"Accenture", buyer_type:"Strategic", ev:3200.0, rev:null, ev_rev:27.0, ebitda:null, ev_ebitda:null, vertical:"OT &amp; Industrial Cybersecurity", categories:["Cybersecurity"], desc:"Majority stake at a $3.2B enterprise value, about 27x LTM revenue. Shown but excluded from medians as an outlier. Rationale: Accenture builds an OT security franchise for industrial and critical-infrastructure clients.", url:null, included:true, mult_excl:true},
+  {date:"2026-06-16", target:"Simulations Plus", acquirer:"Altaris", buyer_type:"Private equity", ev:333.0, rev:null, ev_rev:4.0, ebitda:null, ev_ebitda:null, vertical:"Drug Development Simulation Software", categories:["Vertical Software"], desc:"Take-private at $18.50 per share. About 4.0x revenue (4.6x fiscal 2026E). Rationale: healthcare-focused sponsor acquires a modeling and simulation franchise used across pharma R&amp;D.", url:null, included:true},
+  {date:"2026-06-15", target:"Fin (formerly Intercom)", acquirer:"Salesforce", buyer_type:"Strategic", ev:3600.0, rev:null, ev_rev:9.5, ebitda:null, ev_ebitda:null, vertical:"AI Customer Service Platform", categories:["Enterprise Applications"], desc:"About 9.5x LTM revenue. Rationale: Salesforce adds an AI-agent-first customer service platform to strengthen Agentforce in service.", url:null, included:true},
+  {date:"2026-06-01", target:"Cursor (Anysphere)", acquirer:"SpaceX", buyer_type:"Strategic", ev:60000.0, rev:null, ev_rev:23.1, ebitda:null, ev_ebitda:null, vertical:"AI Coding Platform", categories:["Infrastructure & Data"], desc:"About 23x implied ARR. Multiple on ARR; shown but excluded from medians as an outlier. Rationale: buyer secures a leading AI coding assistant as AI developer tools consolidate.", url:null, included:true, mult_excl:true},
+  {date:"2026-06-01", target:"Phosphorus", acquirer:"Dragos", buyer_type:"Strategic", ev:180.0, rev:null, ev_rev:18.0, ebitda:null, ev_ebitda:null, vertical:"IoT &amp; OT Device Security", categories:["Cybersecurity"], desc:"About 18x LTM revenue. Rationale: Dragos adds automated discovery and remediation for unmanaged IoT and OT devices.", url:null, included:true},
+  {date:"2026-06-01", target:"Strata Identity", acquirer:"Rubrik", buyer_type:"Strategic", ev:60.0, rev:null, ev_rev:7.5, ebitda:null, ev_ebitda:null, vertical:"Identity Orchestration", categories:["Cybersecurity"], desc:"About 7.5x LTM revenue. Rationale: Rubrik extends identity resilience into multi-cloud identity orchestration and AI agent identity.", url:null, included:true},
+  {date:"2026-05-28", target:"MaintainX", acquirer:"Autodesk", buyer_type:"Strategic", ev:3575.0, rev:null, ev_rev:26.5, ebitda:null, ev_ebitda:null, vertical:"Maintenance &amp; Asset Management", categories:["Vertical Software"], desc:"All-cash deal, about 26.5x expected 2026 ARR of over $135M. Multiple on ARR; shown but excluded from medians as an outlier. Rationale: Autodesk extends from design and build into operations and maintenance for industrial customers.", url:null, included:true, mult_excl:true},
+  {date:"2026-05-17", target:"LiveRamp", acquirer:"Publicis Groupe", buyer_type:"Strategic", ev:2552.0, rev:null, ev_rev:2.5, ebitda:null, ev_ebitda:null, vertical:"Marketing Data Collaboration", categories:["Infrastructure & Data"], desc:"Take-private at $38.50 per share. About 2.5x estimated fiscal 2027 revenue. Rationale: Publicis adds an identity and data collaboration network to its data and commerce platform.", url:null, included:true},
+  {date:"2026-04-13", target:"HCSS", acquirer:"Nemetschek", buyer_type:"Strategic", ev:2400.0, rev:215, ev_rev:11.2, ebitda:null, ev_ebitda:20.0, vertical:"Heavy Civil Construction Software", categories:["Vertical Software"], desc:"Acquired from Thoma Bravo, which retains a 28% stake in Nemetschek's Build segment. About 11.2x LTM revenue and slightly above 20x 2025 EBITDA. Rationale: Nemetschek expands into infrastructure and heavy civil contractor software in North America.", url:"https://www.nemetschek.com/en/news-media/ngroup-to-acquire-hcss", included:true},
+  {date:"2026-03-01", target:"Reltio", acquirer:"SAP", buyer_type:"Strategic", ev:1100.0, rev:null, ev_rev:6.5, ebitda:null, ev_ebitda:null, vertical:"Master Data Management", categories:["Infrastructure & Data"], desc:"About 6.5x LTM revenue. Rationale: SAP adds cloud master data management to unify customer and business data for AI.", url:null, included:true},
+  {date:"2026-03-01", target:"Ookla", acquirer:"Accenture", buyer_type:"Strategic", ev:1200.0, rev:null, ev_rev:5.2, ebitda:null, ev_ebitda:null, vertical:"Network Intelligence Data", categories:["Infrastructure & Data"], desc:"About 5.2x LTM revenue. Rationale: Accenture acquires network performance data and analytics used by telecom operators and enterprises.", url:null, included:true},
+  {date:"2026-01-06", target:"OneStream", acquirer:"Hg (with General Atlantic and Tidemark)", buyer_type:"Private equity", ev:5800.0, rev:null, ev_rev:10.2, ebitda:null, ev_ebitda:null, vertical:"Finance Performance Management", categories:["Enterprise Applications"], desc:"Take-private at $24.00 per share, a 31% premium; $6.4B equity value. About 10.2x LTM revenue. Rationale: sponsor take-private of a CFO-office platform 17 months after IPO, to invest in AI behind private ownership.", url:"https://hgcapital.com/insights/onestream-to-be-acquired-by-hg/", included:true},
+  {date:"2026-01-01", target:"strongDM", acquirer:"Delinea (TPG)", buyer_type:"PE-backed strategic", ev:150.0, rev:null, ev_rev:5.0, ebitda:null, ev_ebitda:null, vertical:"Privileged Access Management", categories:["Cybersecurity"], desc:"About 5.0x LTM revenue. Rationale: Delinea adds just-in-time infrastructure access to its privileged access platform.", url:null, included:true},
+];
+
+// ============ PUBLIC COMPS ============
+// US-listed software companies, five segments. US$ millions, as of Nov 17, 2026.
+// growth = LTM revenue growth YoY (%); margin = LTM EBITDA margin (%); r40 = growth + margin. included:false = shown but excluded from averages.
+// rev = EV / EV-Rev multiple; ebitda = rev x margin; net_debt = EV - market cap. ev_ebitda null = n/m (negative EBITDA or above 100x).
+// live:true: Refresh pulls price and market cap from /api/quotes?set=software and recomputes EV = market cap + net_debt.
+const PUBLIC = [
+  {name:"Salesforce", ticker:"CRM", segment:"Enterprise Applications", ev:190800, ev_rev:4.3, ev_ebitda:14.6, growth:10.8, margin:29.4, rev:44372, ebitda:13045, net_debt:30900, live:true, included:true},
+  {name:"ServiceNow", ticker:"NOW", segment:"Enterprise Applications", ev:100000, ev_rev:6.5, ev_ebitda:31.0, growth:20.5, margin:21.0, rev:15385, ebitda:3231, net_debt:3800, live:true, included:true},
+  {name:"Workday", ticker:"WDAY", segment:"Enterprise Applications", ev:44800, ev_rev:4.4, ev_ebitda:28.2, growth:12.8, margin:15.6, rev:10182, ebitda:1588, net_debt:300, live:true, included:true},
+  {name:"Adobe", ticker:"ADBE", segment:"Enterprise Applications", ev:93000, ev_rev:3.6, ev_ebitda:9.4, growth:12.9, margin:38.2, rev:25833, ebitda:9868, net_debt:1100, live:true, included:true},
+  {name:"Atlassian", ticker:"TEAM", segment:"Enterprise Applications", ev:35600, ev_rev:5.2, ev_ebitda:52.5, growth:23.7, margin:9.9, rev:6846, ebitda:678, net_debt:100, live:true, included:true},
+  {name:"Snowflake", ticker:"SNOW", segment:"Infrastructure &amp; Data", ev:95300, ev_rev:17.5, ev_ebitda:null, growth:35.1, margin:-19.1, rev:5446, ebitda:-1040, net_debt:500, live:true, included:true},
+  {name:"Datadog", ticker:"DDOG", segment:"Infrastructure &amp; Data", ev:55100, ev_rev:12.9, ev_ebitda:null, growth:35.2, margin:4.0, rev:4271, ebitda:171, net_debt:-3900, live:true, included:true},
+  {name:"MongoDB", ticker:"MDB", segment:"Infrastructure &amp; Data", ev:21700, ev_rev:7.8, ev_ebitda:null, growth:30.5, margin:0.5, rev:2782, ebitda:14, net_debt:-2400, live:true, included:true},
+  {name:"Dynatrace", ticker:"DT", segment:"Infrastructure &amp; Data", ev:11800, ev_rev:5.4, ev_ebitda:37.5, growth:17.4, margin:14.4, rev:2185, ebitda:315, net_debt:-500, live:true, included:true},
+  {name:"GitLab", ticker:"GTLB", segment:"Infrastructure &amp; Data", ev:6200, ev_rev:5.9, ev_ebitda:null, growth:21.3, margin:-5.6, rev:1051, ebitda:-59, net_debt:-1300, live:true, included:true},
+  {name:"CrowdStrike", ticker:"CRWD", segment:"Cybersecurity", ev:218700, ev_rev:40.5, ev_ebitda:null, growth:25.8, margin:2.0, rev:5400, ebitda:108, net_debt:-4200, live:true, included:false},
+  {name:"Zscaler", ticker:"ZS", segment:"Cybersecurity", ev:28500, ev_rev:8.5, ev_ebitda:null, growth:24.9, margin:1.3, rev:3353, ebitda:44, net_debt:-1600, live:true, included:true},
+  {name:"Okta", ticker:"OKTA", segment:"Cybersecurity", ev:27800, ev_rev:9.0, ev_ebitda:86.6, growth:10.6, margin:10.4, rev:3089, ebitda:321, net_debt:-2200, live:true, included:true},
+  {name:"Qualys", ticker:"QLYS", segment:"Cybersecurity", ev:5600, ev_rev:7.8, ev_ebitda:21.5, growth:10.7, margin:36.2, rev:718, ebitda:260, net_debt:-500, live:true, included:true},
+  {name:"Rubrik", ticker:"RBRK", segment:"Cybersecurity", ev:20000, ev_rev:12.9, ev_ebitda:null, growth:37.9, margin:-17.1, rev:1550, ebitda:-265, net_debt:-600, live:true, included:true},
+  {name:"Veeva Systems", ticker:"VEEV", segment:"Vertical Software", ev:40300, ev_rev:11.6, ev_ebitda:37.3, growth:17.6, margin:31.1, rev:3474, ebitda:1080, net_debt:-7000, live:true, included:true},
+  {name:"AppFolio", ticker:"APPF", segment:"Vertical Software", ev:7300, ev_rev:6.7, ev_ebitda:33.6, growth:18.6, margin:19.9, rev:1090, ebitda:217, net_debt:-300, live:true, included:true},
+  {name:"Procore", ticker:"PCOR", segment:"Vertical Software", ev:11700, ev_rev:7.8, ev_ebitda:null, growth:18.7, margin:6.9, rev:1500, ebitda:104, net_debt:400, live:true, included:true},
+  {name:"ServiceTitan", ticker:"TTAN", segment:"Vertical Software", ev:7400, ev_rev:6.9, ev_ebitda:null, growth:20.9, margin:-7.0, rev:1072, ebitda:-75, net_debt:-400, live:true, included:true},
+  {name:"Waystar", ticker:"WAY", segment:"Vertical Software", ev:6600, ev_rev:5.2, ev_ebitda:14.9, growth:21.2, margin:35.0, rev:1269, ebitda:444, net_debt:1200, live:true, included:true},
+  {name:"HubSpot", ticker:"HUBS", segment:"SMB Software", ev:9700, ev_rev:2.7, ev_ebitda:43.5, growth:17.1, margin:6.2, rev:3593, ebitda:223, net_debt:-1100, live:true, included:true},
+  {name:"Shopify", ticker:"SHOP", segment:"SMB Software", ev:179200, ev_rev:12.7, ev_ebitda:69.4, growth:31.6, margin:18.3, rev:14110, ebitda:2582, net_debt:-4600, live:true, included:true},
+  {name:"Paycom", ticker:"PAYC", segment:"SMB Software", ev:11900, ev_rev:5.4, ev_ebitda:14.2, growth:10.2, margin:38.1, rev:2204, ebitda:840, net_debt:600, live:true, included:true},
+  {name:"Paylocity", ticker:"PCTY", segment:"SMB Software", ev:9300, ev_rev:5.1, ev_ebitda:21.1, growth:10.7, margin:24.1, rev:1824, ebitda:440, net_debt:0, live:true, included:true},
+  {name:"Klaviyo", ticker:"KVYO", segment:"SMB Software", ev:5700, ev_rev:3.9, ev_ebitda:null, growth:24.6, margin:-0.2, rev:1462, ebitda:-3, net_debt:-600, live:true, included:true},
+];
+PUBLIC.forEach(c => { c.r40 = (c.growth === null || c.margin === null) ? null : Math.round(c.growth + c.margin); });
+
+// ============ STATE ============
+let activeFilter = "all";
+let sortKey = "date";
+let sortDir = -1;
+let searchQuery = "";
+
+// ============ HELPERS ============
+function fmtMoney(v) {
+  if (v === null || v === undefined) return '<span class="na">—</span>';
+  if (v >= 1000) return "$" + (v/1000).toFixed(v >= 10000 ? 1 : 2) + "B";
+  return "$" + v.toFixed(1) + "M";
+}
+function fmtMult(v) {
+  if (v === null || v === undefined) return '<span class="na">—</span>';
+  return v.toFixed(1) + "x";
+}
+function fmtPct(v) {
+  if (v === null || v === undefined) return '<span class="na">—</span>';
+  return v.toFixed(1) + "%";
+}
+function fmtDate(d) {
+  const [y,m,day] = d.split("-");
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return months[parseInt(m)-1] + " " + parseInt(day) + ", " + y;
+}
+
+function matchesFilter(deal) {
+  if (activeFilter === "all") return true;
+  return deal.categories.includes(activeFilter);
+}
+function matchesSearch(deal) {
+  if (!searchQuery) return true;
+  const q = searchQuery.toLowerCase();
+  return deal.target.toLowerCase().includes(q) || deal.acquirer.toLowerCase().includes(q) || deal.vertical.toLowerCase().includes(q);
+}
+
+function sortDeals(rows) {
+  return [...rows].sort((a,b) => {
+    let av = a[sortKey], bv = b[sortKey];
+    if (av === null || av === undefined) av = sortDir === 1 ? Infinity : -Infinity;
+    if (bv === null || bv === undefined) bv = sortDir === 1 ? Infinity : -Infinity;
+    if (typeof av === "string") return sortDir * av.localeCompare(bv);
+    return sortDir * (av - bv);
+  });
+}
+
+// ============ SPARKLINES ============
+// Monthly rolling median EV/Rev and EV/EBITDA over 2022-2026
+function sparkline(id, data, color) {
+  const w = 110, h = 28, pad = 2;
+  const min = Math.min(...data), max = Math.max(...data);
+  const range = max - min || 1;
+  const pts = data.map((v, i) => {
+    const x = pad + (i / (data.length - 1)) * (w - pad*2);
+    const y = h - pad - ((v - min) / range) * (h - pad*2);
+    return x.toFixed(1) + "," + y.toFixed(1);
+  }).join(" ");
+  const last = data[data.length - 1];
+  const lastX = pad + (w - pad*2);
+  const lastY = h - pad - ((last - min) / range) * (h - pad*2);
+  const svg = `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+    <polyline fill="none" stroke="${color}" stroke-width="1.2" points="${pts}"/>
+    <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="2.2" fill="${color}"/>
+  </svg>`;
+  document.getElementById(id).innerHTML = svg;
+}
+
+// ============ SUB-VERTICAL CARDS ============
+function computeSubCards() {
+  const buckets = [
+    {key:"Enterprise Applications", label:"Enterprise Applications"},
+    {key:"Infrastructure & Data", label:"Infrastructure &amp; Data"},
+    {key:"Cybersecurity", label:"Cybersecurity"},
+    {key:"Vertical Software", label:"Vertical Software"},
+    {key:"SMB Software", label:"SMB Software"},
+  ];
+  const html = buckets.map(b => {
+    const rows = DEALS.filter(d => d.included && d.categories.includes(b.key));
+    if (rows.length < 3) return "";
+    const m = rows.filter(d => !d.mult_excl && d.ev_rev != null).map(d => d.ev_rev);
+    return `<div class="sub-card">
+      <div class="sc-label">${b.label}</div>
+      <div class="sc-val">${m.length ? round1(medOf(m)).toFixed(1) + "x" : "n/a"} <span style="font-size:13px;color:var(--ink-soft);font-family:'IBM Plex Sans',sans-serif;font-weight:400;">median EV / Rev</span></div>
+      <div class="sc-sub">${rows.length} deal${rows.length===1?'':'s'}</div>
+    </div>`;
+  }).filter(Boolean).slice(0, 4).join("");
+  document.getElementById("sub-cards").innerHTML = html;
+}
+
+// ============ RENDER PRIVATE ============
+function renderPrivate() {
+  const filtered = DEALS.filter(d => matchesFilter(d) && matchesSearch(d));
+  const sorted = sortDeals(filtered);
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = sorted.map(d => {
+    const linkCell = d.url ? `<a href="${d.url}" target="_blank" rel="noopener" title="Press release">↗</a>` : '';
+    const excluded = d.included ? '' : `<span class="excluded-tag">Excl.</span>`;
+    return `
+      <tr class="${d.included ? '' : 'excluded'}">
+        <td class="date">${fmtDate(d.date)}</td>
+        <td class="target">${d.target}${excluded}</td>
+        <td class="acquirer">${d.acquirer}</td>
+        <td>${d.buyer_type}</td>
+        <td>${d.vertical}</td>
+        <td class="num">${fmtMoney(d.ev)}</td>
+        <td class="num multiple">${fmtMult(d.ev_rev)}</td>
+        <td class="num multiple">${fmtMult(d.ev_ebitda)}</td>
+        <td class="desc">${d.desc}</td>
+        <td class="link">${linkCell}</td>
+      </tr>
+    `;
+  }).join("");
+  document.getElementById("result-count").textContent = `Showing ${sorted.length} of ${DEALS.length}`;
+}
+
+// ============ RENDER PUBLIC ============
+function renderPublic() {
+  const tbody = document.getElementById("public-tbody");
+  const q = (document.getElementById("public-search").value || "").toLowerCase();
+  const rows = PUBLIC.filter(c => (publicFilter === "all" || c.segment.replace(/&amp;/g, "&") === publicFilter) && (!q || c.name.toLowerCase().includes(q) || c.ticker.toLowerCase().includes(q)));
+  tbody.innerHTML = rows.map(c => {
+    const r40Class = c.r40 === null ? '' : (c.r40 >= 40 ? 'r40-pos' : (c.r40 < 20 ? 'r40-neg' : ''));
+    const excl = c.included ? '' : '<span class="excluded-tag">Excl.</span>';
+    return `
+      <tr class="${c.included ? '' : 'excluded'}">
+        <td class="ticker">${c.name}${excl}<div class="company-name">${c.ticker}</div></td>
+        <td>${c.segment}</td>
+        <td class="num">${fmtMoney(c.ev)}</td>
+        <td class="num multiple">${fmtMult(c.ev_rev)}</td>
+        <td class="num multiple">${c.ev_ebitda == null ? '<span class="na">n/m</span>' : fmtMult(c.ev_ebitda)}</td>
+        <td class="num">${fmtPct(c.growth)}</td>
+        <td class="num">${fmtPct(c.margin)}</td>
+        <td class="num ${r40Class}" style="font-weight:500;">${c.r40 === null ? '<span class="na">—</span>' : c.r40}</td>
+      </tr>
+    `;
+  }).join("");
+  setText("public-result-count", rows.length + " compan" + (rows.length === 1 ? "y" : "ies"));
+}
+let publicFilter = "all";
+document.getElementById("public-search").addEventListener("input", renderPublic);
+document.querySelectorAll("#public-filters .chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll("#public-filters .chip").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    publicFilter = chip.dataset.pfilter;
+    renderPublic();
+  });
+});
+
+// ============ PUBLIC COMPS: LIVE REFRESH ============
+// Pulls current price and market cap for the live:true (US-listed) names from /api/quotes?set=software.
+function fmtAsOfET(d) {
+  const date = d.toLocaleDateString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric", year: "numeric" });
+  const time = d.toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" });
+  return "As of " + date + " · " + time + " ET";
+}
+// ============ MEDIAN EV / REVENUE BY SEGMENT ============
+const SEGMENTS = ["Enterprise Applications", "Infrastructure &amp; Data", "Cybersecurity", "Vertical Software", "SMB Software"];
+function renderTrend() {
+  const svg = document.getElementById("trend-svg");
+  if (!svg || !PUBLIC.length) return;
+  const inc = PUBLIC.filter(c => c.included);
+  const bars = SEGMENTS.map(s => ({ label: s.replace(/&amp;/g, "&"), v: medOf(inc.filter(c => c.segment === s).map(c => c.ev_rev)) }));
+  const all = medOf(inc.map(c => c.ev_rev));
+  const W = 760, H = 260, L = 40, R = 20, T = 20, B = 40;
+  const hi = Math.ceil(Math.max(all, ...bars.map(b => b.v)) + 1);
+  const y = v => T + (hi - v) * (H - T - B) / hi;
+  const slot = (W - L - R) / bars.length, bw = slot * 0.5;
+  let g = "";
+  for (let v = 0; v <= hi; v += (hi > 12 ? 4 : 2)) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}x</text>`;
+  }
+  bars.forEach((b, i) => {
+    const x = L + i * slot + (slot - bw) / 2;
+    g += `<rect x="${x}" y="${y(b.v)}" width="${bw}" height="${y(0) - y(b.v)}" fill="#0c3b2e"><title>${b.label}: ${round1(b.v).toFixed(1)}x</title></rect>`;
+    g += `<text class="val" x="${x + bw / 2}" y="${y(b.v) - 6}" text-anchor="middle" style="fill:#0c3b2e">${round1(b.v).toFixed(1)}x</text>`;
+    g += `<text x="${x + bw / 2}" y="${H - 14}" text-anchor="middle">${b.label}</text>`;
+  });
+  g += `<line x1="${L}" x2="${W - R}" y1="${y(all)}" y2="${y(all)}" stroke="#c9a66b" stroke-width="2" stroke-dasharray="6 4"><title>All software: ${round1(all).toFixed(1)}x</title></line>`;
+  svg.innerHTML = g;
+}
+
+async function refreshPublic() {
+  const btn = document.getElementById("public-refresh");
+  const msg = document.getElementById("public-refresh-msg");
+  btn.disabled = true; btn.textContent = "↻ Refreshing…"; msg.textContent = "";
+  try {
+    const res = await fetch("/api/quotes?set=software", { headers: { "Accept": "application/json" } });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.quotes) throw new Error(data.error || "Live data unavailable");
+    const live = PUBLIC.filter(c => c.live);
+    let updated = 0;
+    live.forEach(c => {
+      const q = data.quotes[c.ticker];
+      if (!q) return;
+      c.price = q.price;
+      c.mcap = Math.round(q.mcap);
+      c.ev = Math.round(q.mcap + c.net_debt);
+      c.ev_rev = round1(c.ev / c.rev);
+      c.ev_ebitda = (c.ebitda > 0 && c.ev / c.ebitda <= 100) ? round1(c.ev / c.ebitda) : null;
+      updated++;
+    });
+    renderPublic();
+    computeHeadline();
+    renderTrend();
+    document.getElementById("public-as-of").textContent = fmtAsOfET(new Date(data.asOf));
+    const missing = live.length - updated;
+    if (missing) msg.textContent = missing + " ticker" + (missing === 1 ? "" : "s") + " not updated";
+  } catch (err) {
+    msg.textContent = "Couldn't refresh right now. Showing last saved figures.";
+  } finally {
+    btn.disabled = false; btn.textContent = "↻ Refresh";
+  }
+}
+document.getElementById("public-refresh").addEventListener("click", refreshPublic);
+
+// ============ CSV DOWNLOAD ============
+
+function downloadCSV(rows, filename) {
+  const csv = rows.map(r => r.map(v => {
+    if (v === null || v === undefined) return "";
+    const s = String(v);
+    return s.includes(",") || s.includes('"') ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }).join(",")).join("\n");
+  const blob = new Blob([csv], {type:"text/csv"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+}
+
+document.getElementById("public-csv").addEventListener("click", e => {
+  e.preventDefault();
+  const header = ["Company","Ticker","Segment","EV ($M)","EV/Rev","EV/EBITDA","Growth YoY %","EBITDA Margin %","Rule of 40","Included"];
+  const rows = [header, ...PUBLIC.map(c => [c.name.replace(/&amp;/g, "&"), c.ticker, c.segment.replace(/&amp;/g, "&"), c.ev, c.ev_rev, c.ev_ebitda, c.growth, c.margin, c.r40, c.included ? "Yes" : "No"])];
+  downloadCSV(rows, "hrc-software-public-comps.csv");
+});
+
+// ============ FILTERS ============
+document.querySelectorAll("#view-private .chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll("#view-private .chip").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    activeFilter = chip.dataset.filter;
+    renderPrivate();
+  });
+});
+
+// Search
+document.getElementById("search").addEventListener("input", e => {
+  searchQuery = e.target.value;
+  renderPrivate();
+});
+
+// Sort
+document.querySelectorAll("th[data-sort]").forEach(th => {
+  th.addEventListener("click", () => {
+    const k = th.dataset.sort;
+    if (k === sortKey) { sortDir *= -1; }
+    else { sortKey = k; sortDir = (k === "date" || k.startsWith("ev")) ? -1 : 1; }
+    document.querySelectorAll("th[data-sort]").forEach(t => {
+      t.classList.remove("sorted");
+      const ind = t.querySelector(".sort-ind");
+      if (ind) ind.textContent = "⇅";
+    });
+    th.classList.add("sorted");
+    const ind = th.querySelector(".sort-ind");
+    if (ind) ind.textContent = sortDir === 1 ? "↑" : "↓";
+    renderPrivate();
+  });
+});
+
+// Mode toggle
+document.querySelectorAll(".mode-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".mode-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const mode = btn.dataset.mode;
+    document.getElementById("view-private").classList.toggle("hidden", mode !== "private");
+    document.getElementById("view-public").classList.toggle("hidden", mode !== "public");
+    history.replaceState(null, "", "#" + mode);
+  });
+});
+
+// URL hash handling
+if (location.hash === "#public") {
+  document.querySelector('[data-mode="public"]').click();
+}
+
+// ============ HEADLINE STATS & COUNTS (computed from DEALS / PUBLIC) ============
+// Everything below is derived from the data arrays, so adding or editing a deal
+// only requires changing DEALS (or PUBLIC). Static HTML values are fallbacks.
+function round1(v) { return Math.round(v * 10 + 1e-9) / 10; }
+function avgOf(a) { return a.reduce((x, y) => x + y, 0) / a.length; }
+function medOf(a) { const s = [...a].sort((x, y) => x - y), n = s.length; return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2; }
+function setText(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
+function computeHeadline() {
+  const n = DEALS.length;
+  const pe = DEALS.filter(d => d.buyer_type === "Private equity" || d.buyer_type === "PE-backed strategic").length;
+  const lab = DEALS.filter(d => d.buyer_type === "AI lab").length;
+  const disc = DEALS.filter(d => d.ev !== null && d.ev !== undefined).length;
+  setText("meta-count", n + " private transaction" + (n === 1 ? "" : "s"));
+  setText("priv-n", String(n));
+  setText("priv-pe", String(pe));
+  setText("priv-pe-desc", Math.round(pe / n * 100) + "% of deals tracked");
+  const mr = DEALS.filter(d => d.included && !d.mult_excl && d.ev_rev != null).map(d => d.ev_rev);
+  const me = DEALS.filter(d => d.included && !d.mult_excl && d.ev_ebitda != null).map(d => d.ev_ebitda);
+  setText("priv-med-rev", mr.length ? round1(medOf(mr)).toFixed(1) + "x" : "n/a");
+  setText("priv-med-rev-desc", mr.length + " deals, excluding outliers");
+  setText("priv-med-ebitda", me.length ? round1(medOf(me)).toFixed(1) + "x" : "n/a");
+  setText("priv-med-ebitda-desc", me.length + " deal" + (me.length === 1 ? "" : "s") + " with disclosed EBITDA");
+  setText("private-count", n);
+  document.querySelectorAll("#view-private .chip").forEach(chip => {
+    const f = chip.dataset.filter;
+    const c = f === "all" ? n : DEALS.filter(d => d.categories.includes(f)).length;
+    const span = chip.querySelector(".count"); if (span) span.textContent = c;
+  });
+  const p = PUBLIC.length;
+  const pinc = PUBLIC.filter(c => c.included);
+  const pr40 = pinc.filter(c => c.r40 !== null);
+  setText("public-count", p);
+  setText("pub-constituents", "Public market, " + pinc.length + " constituents");
+  if (pinc.length) {
+    const pe = pinc.filter(c => c.ev_ebitda != null).map(c => c.ev_ebitda);
+    setText("pub-med-rev", round1(medOf(pinc.map(c => c.ev_rev))).toFixed(1) + "x");
+    setText("pub-med-ebitda", pe.length ? round1(medOf(pe)).toFixed(1) + "x" : "n/a");
+    setText("pub-ebitda-desc", pe.length + " companies with meaningful EBITDA");
+    setText("pub-avg-r40", String(Math.round(avgOf(pr40.map(c => c.growth + c.margin)) + 1e-9)));
+    setText("pub-med-growth", round1(medOf(pr40.map(c => c.growth))).toFixed(1) + "%");
+  }
+}
+
+// Initial render
+computeHeadline();
+computeSubCards();
+renderPrivate();
+renderPublic();
+renderTrend();
+</script>
+<script src="/assets/js/nav.js" defer></script>
+<script src="/assets/js/subscribe.js" defer></script>
+</body>
+</html>

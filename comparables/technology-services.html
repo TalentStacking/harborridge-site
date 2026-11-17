@@ -164,6 +164,17 @@
   .csv-link:hover { background: var(--cream); border-color: var(--brass); }
 
   /* Table */
+
+  /* Segment stats */
+  #comps-table tfoot td { background: var(--cream, #f7f3ea); font-weight: 600; border-top: 2px solid var(--card-border); }
+  #comps-table tfoot td.lbl { color: var(--green-deep); letter-spacing: 0.04em; text-transform: uppercase; font-size: 11px; }
+  .seg-summary { margin-top: 18px; }
+  .seg-summary .ss-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .seg-summary table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--card-border); font-size: 13px; }
+  .seg-summary th, .seg-summary td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--card-border); }
+  .seg-summary th:first-child, .seg-summary td:first-child { text-align: left; }
+  .seg-summary th { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--cream); }
+  .seg-summary tr.all td { font-weight: 600; background: var(--cream, #f7f3ea); }
   .table-wrap { background: white; border: 1px solid var(--card-border); overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-family: 'IBM Plex Serif', serif; font-size: 13px; }
   /* All body cells share one font family and size; tabular figures keep numbers aligned */
@@ -361,8 +372,11 @@
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
+        <tfoot id="tfoot"></tfoot>
       </table>
     </div>
+    <div class="seg-summary" id="seg-summary"></div>
+
 
     <!-- Methodology -->
     <div class="methodology">
@@ -719,6 +733,7 @@ function renderPrivate() {
     `;
   }).join("");
   document.getElementById("result-count").textContent = `Showing ${sorted.length} of ${DEALS.length}`;
+  renderPrivateStats(sorted);
 }
 
 // ============ RENDER PUBLIC ============
@@ -970,7 +985,34 @@ function dealSpark(id, key, agg) {
   sparkline(id, pts, "#c9a66b");
 }
 
+
+// ============ SEGMENT STATS (median and mean) ============
+function multStats(rows, key) {
+  const v = rows.filter(d => d.included && !d.mult_excl && d[key] != null).map(d => d[key]);
+  if (!v.length) return { med: null, mean: null, n: 0 };
+  return { med: medOf(v), mean: v.reduce((a, b) => a + b, 0) / v.length, n: v.length };
+}
+function fmtStat(x) { return x == null ? "n/a" : round1(x).toFixed(1) + "x"; }
+function renderPrivateStats(rows) {
+  const r = multStats(rows, "ev_rev"), e = multStats(rows, "ev_ebitda");
+  document.getElementById("tfoot").innerHTML = `
+    <tr><td class="lbl" colspan="6">Median (${rows.filter(d=>d.included).length} deal${rows.filter(d=>d.included).length===1?"":"s"})</td><td class="num">${fmtStat(r.med)}</td><td class="num">${fmtStat(e.med)}</td><td colspan="2"></td></tr>
+    <tr><td class="lbl" colspan="6">Mean</td><td class="num">${fmtStat(r.mean)}</td><td class="num">${fmtStat(e.mean)}</td><td colspan="2"></td></tr>`;
+}
+function renderSegSummary() {
+  const segs = [...document.querySelectorAll("#view-private .chip[data-filter]")].map(c => c.dataset.filter).filter(f => f !== "all" && f !== "Europe");
+  const line = (label, rows, cls) => {
+    const r = multStats(rows, "ev_rev"), e = multStats(rows, "ev_ebitda");
+    return `<tr class="${cls||""}"><td>${label}</td><td>${rows.length}</td><td>${fmtStat(r.med)}</td><td>${fmtStat(r.mean)}</td><td>${fmtStat(e.med)}</td><td>${fmtStat(e.mean)}</td></tr>`;
+  };
+  const body = segs.map(s => line(s.replace(/&/g, "&amp;"), DEALS.filter(d => d.included && d.categories.includes(s)))).join("")
+    + line("All deals", DEALS.filter(d => d.included), "all");
+  document.getElementById("seg-summary").innerHTML = `<div class="ss-label">Private multiples by segment</div>
+    <div class="table-wrap"><table><thead><tr><th>Segment</th><th>Deals</th><th>Median EV / Rev</th><th>Mean EV / Rev</th><th>Median EV / EBITDA</th><th>Mean EV / EBITDA</th></tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
 // Initial render
+renderSegSummary();
 computeHeadline();
 computeSubCards();
 renderPrivate();

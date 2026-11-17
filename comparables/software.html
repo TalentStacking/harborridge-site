@@ -274,7 +274,7 @@
   <h1>Software <em>Comparables</em></h1>
   <div class="subhead">Private M&amp;A multiples and public market comps for software companies, across enterprise applications, infrastructure and data, cybersecurity, vertical software, and SMB software.</div>
   <div class="meta">
-    <span id="meta-count">43 private transactions</span>
+    <span id="meta-count">53 private transactions</span>
     <span>$ in millions</span>
     <span id="meta-updated">Private: updated Mondays · Public: as of Nov 17, 2026</span>
   </div>
@@ -291,7 +291,7 @@
 
   <!-- Private / Public toggle -->
   <div class="mode-toggle">
-    <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">43</span></button>
+    <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">53</span></button>
     <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">25</span></button>
   </div>
 
@@ -302,23 +302,23 @@
     <div class="stats">
       <div class="stat">
         <div class="stat-label">Transactions Tracked</div>
-        <div class="stat-num" id="priv-n">43</div>
+        <div class="stat-num" id="priv-n">53</div>
         <div class="stat-desc">Since 2025, US targets with disclosed multiples</div>
       </div>
       <div class="stat">
         <div class="stat-label">PE &amp; PE-Backed Buyers</div>
-        <div class="stat-num" id="priv-pe">17</div>
+        <div class="stat-num" id="priv-pe">21</div>
         <div class="stat-desc" id="priv-pe-desc">Sponsors and their platforms</div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / Revenue</div>
         <div class="stat-num" id="priv-med-rev">7.4x</div>
-        <div class="stat-desc" id="priv-med-rev-desc">42 deals with disclosed multiples</div>
+        <div class="stat-desc" id="priv-med-rev-desc">52 deals with disclosed multiples</div>
         <div class="stat-spark" id="spark-med-rev"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / EBITDA</div>
-        <div class="stat-num" id="priv-med-ebitda">12.5x</div>
+        <div class="stat-num" id="priv-med-ebitda">13.9x</div>
         <div class="stat-desc" id="priv-med-ebitda-desc">2 deals with disclosed EBITDA</div>
         <div class="stat-spark" id="spark-med-ebitda"></div>
       </div>
@@ -330,7 +330,7 @@
     <!-- Filters -->
     <div class="filters">
       <span class="filter-label">Segment</span>
-      <button class="chip active" data-filter="all">All <span class="count">43</span></button>
+      <button class="chip active" data-filter="all">All <span class="count">53</span></button>
       <button class="chip" data-filter="Enterprise Applications">Enterprise Applications <span class="count">0</span></button>
       <button class="chip" data-filter="Infrastructure &amp; Data">Infrastructure &amp; Data <span class="count">0</span></button>
       <button class="chip" data-filter="Cybersecurity">Cybersecurity <span class="count">0</span></button>
@@ -340,7 +340,7 @@
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search target, acquirer, or focus..." id="search">
-      <span class="result-count" id="result-count">Showing 43 of 43</span>
+      <span class="result-count" id="result-count">Showing 53 of 53</span>
     </div>
 
     <!-- Table -->
@@ -564,6 +564,16 @@ const DEALS = [
   {date:"2025-02-01", target:"SolarWinds", acquirer:"Turn/River Capital", buyer_type:"Private equity", ev:4400.0, rev:null, ev_rev:5.6, ebitda:null, ev_ebitda:null, vertical:"IT Observability &amp; Management", categories:["Infrastructure & Data"], desc:"Take-private, about 5.6x LTM revenue of $784M. Rationale: sponsor acquires a cash-generative IT management franchise at a discount.", url:null, included:true},
   {date:"2025-01-07", target:"Paycor", acquirer:"Paychex", buyer_type:"Strategic", ev:4100.0, rev:null, ev_rev:5.5, ebitda:null, ev_ebitda:null, vertical:"SMB &amp; Mid-Market HCM", categories:["SMB Software"], desc:"All-cash deal at $22.50 per share, about 5.5x LTM revenue of $746M. Rationale: Paychex moves upmarket with a modern mid-market HCM and payroll platform.", url:null, included:true},
   {date:"2025-01-01", target:"Enfusion", acquirer:"Clearwater Analytics", buyer_type:"Strategic", ev:1500.0, rev:null, ev_rev:7.7, ebitda:null, ev_ebitda:null, vertical:"Investment Management Software", categories:["Vertical Software"], desc:"About 7.7x LTM revenue of $195M. Rationale: Clearwater adds front-office portfolio and order management to its accounting platform.", url:null, included:true},
+  {date:"2025-12-01", target:"Veza", acquirer:"ServiceNow", buyer_type:"Strategic", ev:1000.0, rev:null, ev_rev:40.0, ebitda:null, ev_ebitda:null, vertical:"Identity Security", categories:["Cybersecurity"], desc:"About 40x LTM revenue. Rationale: ServiceNow adds identity access governance alongside Armis to build out its security workflows.", url:null, included:true},
+  {date:"2025-11-19", target:"Semrush", acquirer:"Adobe", buyer_type:"Strategic", ev:1900.0, rev:null, ev_rev:4.3, ebitda:null, ev_ebitda:null, vertical:"SEO &amp; AI Search Visibility", categories:["Enterprise Applications"], desc:"All-cash deal at $12.00 per share, a 74% premium. About 4.3x trailing revenue and 4.2x ARR. Rationale: Adobe adds search and generative engine optimization to its marketing platform.", url:null, included:true},
+  {date:"2025-10-01", target:"Securiti", acquirer:"Veeam (Insight Partners)", buyer_type:"PE-backed strategic", ev:1700.0, rev:null, ev_rev:23.0, ebitda:null, ev_ebitda:null, vertical:"Data Security &amp; Privacy", categories:["Cybersecurity"], desc:"About 23x LTM revenue. Rationale: Veeam pairs data backup and resilience with data security posture and privacy management.", url:null, included:true},
+  {date:"2025-10-01", target:"ThreatConnect", acquirer:"Dataminr", buyer_type:"Strategic", ev:300.0, rev:null, ev_rev:9.7, ebitda:null, ev_ebitda:null, vertical:"Threat Intelligence Platform", categories:["Cybersecurity"], desc:"About 9.7x LTM revenue. Rationale: Dataminr combines real-time external event detection with internal threat intelligence operations.", url:null, included:true},
+  {date:"2025-09-24", target:"Integral Ad Science", acquirer:"Novacap", buyer_type:"Private equity", ev:1900.0, rev:null, ev_rev:3.6, ebitda:null, ev_ebitda:15.3, vertical:"Digital Ad Verification", categories:["Enterprise Applications"], desc:"Take-private, about 3.6x LTM revenue of $530M and 15.3x EBITDA. Rationale: sponsor acquires a profitable ad measurement platform at a low multiple.", url:null, included:true},
+  {date:"2025-09-22", target:"PROS Holdings", acquirer:"Thoma Bravo", buyer_type:"Private equity", ev:1400.0, rev:null, ev_rev:4.0, ebitda:null, ev_ebitda:null, vertical:"Pricing &amp; Revenue Management", categories:["Enterprise Applications"], desc:"Take-private at $23.25 per share, a 42% premium. About 4.0x LTM revenue of $353M. Rationale: Thoma Bravo adds AI pricing and CPQ software alongside its Conga portfolio company.", url:null, included:true},
+  {date:"2025-09-01", target:"Nozomi Networks", acquirer:"Mitsubishi Electric", buyer_type:"Strategic", ev:900.0, rev:null, ev_rev:12.7, ebitda:null, ev_ebitda:null, vertical:"OT &amp; IoT Security", categories:["Cybersecurity"], desc:"About 12.7x LTM revenue. Rationale: Mitsubishi Electric adds OT security to its industrial automation business.", url:null, included:true},
+  {date:"2025-09-01", target:"Vimeo", acquirer:"Bending Spoons", buyer_type:"Strategic", ev:1077.0, rev:null, ev_rev:2.6, ebitda:null, ev_ebitda:null, vertical:"Video Hosting &amp; Streaming Platform", categories:["Enterprise Applications"], desc:"All-cash deal at $7.85 per share ($1.38B equity) with about $303M of cash. About 2.6x LTM revenue of $415M. Rationale: Bending Spoons buys a well-known video platform far below its 2021 spin-off valuation.", url:null, included:true},
+  {date:"2025-05-01", target:"Red Canary", acquirer:"Zscaler", buyer_type:"Strategic", ev:700.0, rev:null, ev_rev:5.4, ebitda:null, ev_ebitda:null, vertical:"Managed Detection &amp; Response", categories:["Cybersecurity"], desc:"About 5.4x LTM revenue. Rationale: Zscaler adds MDR and agentic security operations to its zero trust platform.", url:null, included:true},
+  {date:"2025-04-01", target:"Radiant Logic", acquirer:"Ridgeview Partners", buyer_type:"Private equity", ev:500.0, rev:null, ev_rev:10.0, ebitda:null, ev_ebitda:null, vertical:"Identity Data Management", categories:["Cybersecurity"], desc:"About 10.0x LTM revenue. Rationale: sponsor backs an identity data platform as identity becomes a core security control.", url:null, included:true},
 ];
 
 // ============ PUBLIC COMPS ============

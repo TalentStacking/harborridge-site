@@ -28,7 +28,7 @@ desc: one short description that states the multiple's basis when it is not trai
 buyer_type (only these three): "Strategic", "Private equity", "PE-backed strategic" (acquisition by a sponsor-owned company; name the sponsor in acquirer, e.g. "Proofpoint (Thoma Bravo)").
 ev: enterprise value in US$M (equity value plus net debt when both are given). rev / ebitda: the figure the multiple is based on, if disclosed; otherwise null with ev_rev / ev_ebitda filled from the stated multiple.
 No outlier exclusions: every deal with a multiple counts in the medians (per Cy, Nov 2026). Do not add mult_excl.
-categories (only these five, one per deal): "Enterprise Applications", "Infrastructure & Data", "Cybersecurity", "Vertical Software", "SMB Software".
+categories (only these five, one per deal): "Enterprise Applications", "Infrastructure & Data", "Cybersecurity", "Vertical Software", "SMB/Consumer".
 Dates: announcement date; if only the month is known, use the first of that month.
 Write "&amp;" for "&" inside vertical, acquirer and desc text.
 Methodology line format: "Last updated: <Month D, YYYY>".

@@ -441,10 +441,19 @@
 
     <div class="trend" id="trend">
       <div class="trend-head">
+        <div class="trend-title">EV / LTM Revenue over time</div>
+        <div class="trend-legend"><span><i style="background:#c9a66b"></i>Average</span><span><i style="background:#0c3b2e"></i>Median</span></div>
+      </div>
+      <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Average and median EV to LTM revenue by quarter for the public software comps"></svg>
+      <div class="trend-note">Quarter-end values for all 25 companies, using LTM revenue and net debt from SEC filings for the latest fiscal quarter ended on or before each date. The final point is live and updates with Refresh.</div>
+    </div>
+
+    <div class="trend" id="seg-trend">
+      <div class="trend-head">
         <div class="trend-title">Median EV / LTM Revenue by segment</div>
         <div class="trend-legend"><span><i style="background:#0c3b2e"></i>Segment median</span><span><i style="background:#c9a66b"></i>All software</span></div>
       </div>
-      <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Median EV to LTM revenue by software segment"></svg>
+      <svg id="seg-svg" viewBox="0 0 760 260" role="img" aria-label="Median EV to LTM revenue by software segment"></svg>
       <div class="trend-note">Medians of the included companies in each segment. Updates with Refresh.</div>
     </div>
 
@@ -452,6 +461,7 @@
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> US-listed software companies covered by our live price feed, grouped into five segments: Enterprise Applications (Salesforce, ServiceNow, Workday, Adobe, Atlassian), Infrastructure &amp; Data (Snowflake, Datadog, MongoDB, Dynatrace, GitLab), Cybersecurity (CrowdStrike, Zscaler, Okta, Qualys, Rubrik), Vertical Software (Veeva, AppFolio, Procore, ServiceTitan, Waystar) and SMB Software (HubSpot, Shopify, Paycom, Paylocity, Klaviyo). Contact center and communications software is covered on the CCaaS &amp; UCaaS page.</p>
       <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 17, 2026. Click Refresh to pull current share prices and market caps for all 25 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x.</p>
+      <p><strong>EV / Revenue over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, net debt (total debt less cash and short-term investments) and LTM revenue from SEC filings for the latest fiscal quarter ended on or before that date, for all 25 companies. The final point is today's live value.</p>
       <p><strong>Growth and Rule of 40.</strong> Growth is LTM revenue growth year over year. Rule of 40 is growth plus LTM EBITDA margin.</p>
       <div class="updated" id="public-updated">Figures as of November 17, 2026. Refresh updates all 25 companies.</div>
     </div>
@@ -723,10 +733,56 @@ function fmtAsOfET(d) {
   const time = d.toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" });
   return "As of " + date + " · " + time + " ET";
 }
+// ============ EV / REVENUE HISTORY CHART ============
+// Quarter-end average and median EV / LTM revenue for all 25 PUBLIC companies.
+// Each point: quarter-end close x diluted weighted-average shares + debt - cash (latest fiscal quarter ended on or
+// before the date), divided by LTM revenue (SEC XBRL). Data pull: comps-ops/history (raw-software.json). Add a point each quarter.
+const EV_REV_HISTORY = [
+  {date:"2024-12-31", label:"Q4 '24", avg:9.76, med:9.08},
+  {date:"2025-03-31", label:"Q1 '25", avg:8.92, med:7.83},
+  {date:"2025-06-30", label:"Q2 '25", avg:10.33, med:8.69},
+  {date:"2025-09-30", label:"Q3 '25", avg:10.51, med:8.06},
+  {date:"2025-12-31", label:"Q4 '25", avg:8.69, med:7.12},
+  {date:"2026-03-31", label:"Q1 '26", avg:5.54, med:4.76},
+  {date:"2026-06-30", label:"Q2 '26", avg:6.73, med:5.63},
+  {date:"2026-09-30", label:"Q3 '26", avg:10.05, med:7.01},
+];
+
+function renderTrend() {
+  renderSegChart();
+  const svg = document.getElementById("trend-svg");
+  if (!svg || !PUBLIC.length) return;
+  const nowVals = PUBLIC.filter(c => c.included).map(c => c.ev / c.rev);
+  const pts = EV_REV_HISTORY.concat([{ label: "Now", avg: avgOf(nowVals), med: medOf(nowVals), live: true }]);
+  const W = 760, H = 260, L = 40, R = 44, T = 16, B = 30;
+  const all = pts.flatMap(p => [p.avg, p.med]);
+  const lo = Math.max(0, Math.floor(Math.min(...all)) - 1), hi = Math.ceil(Math.max(...all)) + 1;
+  const x = i => L + i * (W - L - R) / (pts.length - 1);
+  const y = v => T + (hi - v) * (H - T - B) / (hi - lo);
+  let g = "";
+  for (let v = lo; v <= hi; v += (hi - lo > 8 ? 2 : 1)) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}x</text>`;
+  }
+  pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle"${p.live ? ' style="font-weight:600;fill:#0c3b2e"' : ''}>${p.label}</text>`; });
+  const line = (key, color) => {
+    const d = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p[key]).toFixed(1)).join(" ");
+    let s = `<path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    pts.forEach((p, i) => { s += `<circle cx="${x(i)}" cy="${y(p[key])}" r="${p.live ? 4 : 3}" fill="${p.live ? color : 'white'}" stroke="${color}" stroke-width="2"><title>${p.label}: ${round1(p[key]).toFixed(1)}x ${key === "avg" ? "average" : "median"}</title></circle>`; });
+    const last = pts[pts.length - 1];
+    let ly = y(last[key]);
+    const gap = y(last.avg) - y(last.med);
+    if (Math.abs(gap) < 13) ly += (key === "avg" ? 1 : -1) * (gap >= 0 ? 1 : -1) * (13 - Math.abs(gap)) / 2;
+    s += `<text class="val" x="${x(pts.length - 1) + 8}" y="${ly + 4}" style="fill:${color}">${round1(last[key]).toFixed(1)}x</text>`;
+    return s;
+  };
+  svg.innerHTML = g + line("avg", "#c9a66b") + line("med", "#0c3b2e");
+}
+
 // ============ MEDIAN EV / REVENUE BY SEGMENT ============
 const SEGMENTS = ["Enterprise Applications", "Infrastructure &amp; Data", "Cybersecurity", "Vertical Software", "SMB Software"];
-function renderTrend() {
-  const svg = document.getElementById("trend-svg");
+function renderSegChart() {
+  const svg = document.getElementById("seg-svg");
   if (!svg || !PUBLIC.length) return;
   const inc = PUBLIC.filter(c => c.included);
   const bars = SEGMENTS.map(s => ({ label: s.replace(/&amp;/g, "&"), v: medOf(inc.filter(c => c.segment === s).map(c => c.ev_rev)) }));

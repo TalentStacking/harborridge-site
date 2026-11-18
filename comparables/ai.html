@@ -471,7 +471,7 @@
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> US-listed AI-native companies covered by our live price feed, grouped into two segments: AI Infrastructure &amp; Neoclouds (CoreWeave, Nebius, IREN, Cerebras) and AI Platforms &amp; Applications (Palantir, C3.ai, BigBear.ai, SoundHound AI, Tempus AI). Software companies adding AI features are covered on the Software page.</p>
-      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 18, 2026. Click Refresh to pull current share prices and market caps for all 9 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x. Nebius and IREN use company-reported adjusted EBITDA; Cerebras EBITDA is not meaningful.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 18, 2026. Click Refresh to pull current share prices and market caps for all 9 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x. CoreWeave, Nebius and IREN use company-reported adjusted EBITDA; Cerebras EBITDA is not meaningful.</p>
       <p><strong>EV / Revenue over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, net debt (total debt less cash and short-term investments) and LTM revenue from SEC filings for the latest fiscal quarter ended on or before that date, for each company from its first quarter with comparable data (CoreWeave from Q1 2025 after its IPO, IREN from Q2 2025, Nebius from Q3 2025, Cerebras from Q2 2026 after its IPO); Nebius and Cerebras figures come from company earnings releases. The final point is today's live value.</p>
       <p><strong>Growth and Rule of 40.</strong> Growth is LTM revenue growth year over year. Rule of 40 is growth plus LTM EBITDA margin.</p>
       <div class="updated" id="public-updated">Figures as of November 18, 2026. Refresh updates all 9 companies.</div>
@@ -584,13 +584,14 @@ const DEALS = [
 
 // ============ PUBLIC COMPS ============
 // US-listed AI companies, two segments. US$ millions, as of Nov 18, 2026 (NBIS, IREN, CBRS added Nov 18 at Nov 17 closes; IREN market cap approximate).
+// CRWV: LTM adjusted EBITDA = 898 (Q4 25) + 1,157 + 1,510 + 2,256 (Q1-Q3 26) = 5,821, per company releases.
 // NBIS: LTM to Sep 30 2026, adjusted EBITDA, net debt = 14,191 debt - 7,426 cash. IREN: LTM to Sep 30 2026 (FY Jun), adjusted EBITDA, net debt = 9,897 debt - 3,522 cash - 2,256 restricted cash.
 // CBRS: LTM to Sep 30 2026 revenue; growth = 9M YoY; EBITDA not meaningful (core adjusted EBITDA near zero), net cash incl. 4,286 investments.
 // growth = LTM revenue growth YoY (%); margin = LTM EBITDA margin (%); r40 = growth + margin. included:false = shown but excluded from averages.
 // rev = EV / EV-Rev multiple; ebitda = rev x margin; net_debt = EV - market cap. ev_ebitda null = n/m (negative EBITDA or above 100x).
 // live:true: Refresh pulls price and market cap from /api/quotes?set=ai and recomputes EV = market cap + net_debt.
 const PUBLIC = [
-  {name:"CoreWeave", ticker:"CRWV", segment:"AI Infrastructure &amp; Neoclouds", ev:69300, ev_rev:7.0, ev_ebitda:13.4, growth:129.6, margin:52.3, rev:9886, ebitda:5174, net_debt:42700, live:true, included:true},
+  {name:"CoreWeave", ticker:"CRWV", segment:"AI Infrastructure &amp; Neoclouds", ev:69300, ev_rev:7.0, ev_ebitda:11.9, growth:129.6, margin:58.9, rev:9886, ebitda:5821, net_debt:42700, live:true, included:true},
   {name:"Nebius", ticker:"NBIS", segment:"AI Infrastructure &amp; Neoclouds", ev:37800, ev_rev:17.3, ev_ebitda:44.7, growth:549.2, margin:38.7, rev:2190, ebitda:847, net_debt:6800, live:true, included:true},
   {name:"IREN", ticker:"IREN", segment:"AI Infrastructure &amp; Neoclouds", ev:13000, ev_rev:18.7, ev_ebitda:59.2, growth:1.0, margin:31.7, rev:695, ebitda:220, net_debt:4119, live:true, included:true},
   {name:"Cerebras", ticker:"CBRS", segment:"AI Infrastructure &amp; Neoclouds", ev:18800, ev_rev:24.8, ev_ebitda:null, growth:72.6, margin:null, rev:756, ebitda:null, net_debt:-6500, live:true, included:true},

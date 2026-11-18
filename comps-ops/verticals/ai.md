@@ -12,13 +12,13 @@
 ## Fit rules
 US TARGETS ONLY: the target must be headquartered in the United States (the buyer can be anywhere). Skip any deal whose target is based outside the US, and list it in the report as "Non-US, not added".
 SCOPE: deals announced 2025 onward.
-PRICE REQUIRED (AI page only): add a deal if a deal value was disclosed or credibly reported. If revenue, ARR or EBITDA is also disclosed, fill the multiple. If not, set rev, ev_rev, ebitda, ev_ebitda to null and say "Revenue not disclosed, so no multiple." in the desc; the page shows it with no multiple and leaves it out of the medians. Deals with no price at all are not added; list them in the report as "No price, not added".
+PRICE NOT REQUIRED (AI page only): add every control acquisition of a US AI-native company, with or without a disclosed price. If a price was disclosed or credibly reported, fill ev; if revenue, ARR or EBITDA is also disclosed, fill the multiple, otherwise set rev, ev_rev, ebitda, ev_ebitda to null and say "Revenue not disclosed, so no multiple." If no price, set ev to null too and start the desc with "Terms not disclosed." The page shows these without a value and leaves them out of the medians. NOT added: licensing-plus-hiring deals and minority stakes (report only), and dev tools that are not AI-native (e.g. JavaScript runtimes, SDK generators, Python linters, git storage).
 FIT if the target is an AI-native company whose core product is AI: AI applications and agents (AI customer service, AI assistants, AI research and analytics), AI model platforms and routing, AI developer tools (AI coding), AI infrastructure and MLOps software.
 NOT a fit: software companies that merely add AI features (that is Software), AI services and consulting firms (that is Technology Services), chips and hardware, data centers and GPU clouds, venture rounds and minority stakes.
 
 ## Page placement
-- On the page: control acquisitions and take-privates with a disclosed or reported price (with or without a multiple).
-- Report only: everything else (minority stakes, venture rounds, deals with no price).
+- On the page: all control acquisitions and take-privates of US AI-native companies, priced or not.
+- Report only: minority stakes, venture rounds, licensing-plus-hiring (acqui-hire) deals, talks not yet signed.
 
 ## Page rules
 DEALS entry example:

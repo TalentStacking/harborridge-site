@@ -418,13 +418,13 @@
     <div class="filters" id="public-filters">
       <span class="filter-label">Segment</span>
       <button class="chip active" data-pfilter="all">All</button>
-      <button class="chip" data-pfilter="AI Platforms &amp; Infrastructure">AI Platforms &amp; Infrastructure</button>
-      <button class="chip" data-pfilter="AI Applications">AI Applications</button>
+      <button class="chip" data-pfilter="AI Infrastructure &amp; Neoclouds">AI Infrastructure &amp; Neoclouds</button>
+      <button class="chip" data-pfilter="AI Platforms &amp; Applications">AI Platforms &amp; Applications</button>
     </div>
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search company..." id="public-search">
-      <span class="result-count" id="public-result-count">7 companies</span>
+      <span class="result-count" id="public-result-count">9 companies</span>
       <span class="as-of" id="public-as-of">As of Nov 18, 2026</span>
       <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps for US-listed names">↻ Refresh</button>
       <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
@@ -456,7 +456,7 @@
         <div class="trend-legend"><span><i style="background:#c9a66b"></i>Average</span><span><i style="background:#0c3b2e"></i>Median</span></div>
       </div>
       <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Average and median EV to LTM revenue by quarter for the public AI comps"></svg>
-      <div class="trend-note">Quarter-end values for all 7 companies (CoreWeave from Q1 2025, after its IPO), using LTM revenue and net debt from SEC filings for the latest fiscal quarter ended on or before each date. The final point is live and updates with Refresh.</div>
+      <div class="trend-note">Quarter-end values using LTM revenue and net debt for the latest fiscal quarter ended on or before each date. Each company is included from its first quarter with comparable data: CoreWeave Q1 2025 (IPO), IREN Q2 2025, Nebius Q3 2025, Cerebras Q2 2026 (IPO). The final point is live and updates with Refresh.</div>
     </div>
 
     <div class="trend" id="seg-trend">
@@ -470,11 +470,11 @@
 
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
-      <p><strong>Universe.</strong> US-listed AI-native companies covered by our live price feed, grouped into two segments: AI Platforms &amp; Infrastructure (Palantir, CoreWeave, C3.ai, BigBear.ai) and AI Applications (UiPath, SoundHound AI, Tempus AI). Software companies adding AI features are covered on the Software page.</p>
-      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 18, 2026. Click Refresh to pull current share prices and market caps for all 7 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x.</p>
-      <p><strong>EV / Revenue over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, net debt (total debt less cash and short-term investments) and LTM revenue from SEC filings for the latest fiscal quarter ended on or before that date, for all 7 companies (CoreWeave from Q1 2025, after its IPO). The final point is today's live value.</p>
+      <p><strong>Universe.</strong> US-listed AI-native companies covered by our live price feed, grouped into two segments: AI Infrastructure &amp; Neoclouds (CoreWeave, Nebius, IREN, Cerebras) and AI Platforms &amp; Applications (Palantir, C3.ai, BigBear.ai, SoundHound AI, Tempus AI). Software companies adding AI features are covered on the Software page.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 18, 2026. Click Refresh to pull current share prices and market caps for all 9 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x. Nebius and IREN use company-reported adjusted EBITDA; Cerebras EBITDA is not meaningful.</p>
+      <p><strong>EV / Revenue over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, net debt (total debt less cash and short-term investments) and LTM revenue from SEC filings for the latest fiscal quarter ended on or before that date, for each company from its first quarter with comparable data (CoreWeave from Q1 2025 after its IPO, IREN from Q2 2025, Nebius from Q3 2025, Cerebras from Q2 2026 after its IPO); Nebius and Cerebras figures come from company earnings releases. The final point is today's live value.</p>
       <p><strong>Growth and Rule of 40.</strong> Growth is LTM revenue growth year over year. Rule of 40 is growth plus LTM EBITDA margin.</p>
-      <div class="updated" id="public-updated">Figures as of November 18, 2026. Refresh updates all 7 companies.</div>
+      <div class="updated" id="public-updated">Figures as of November 18, 2026. Refresh updates all 9 companies.</div>
     </div>
 
   </div>
@@ -583,18 +583,22 @@ const DEALS = [
 ];
 
 // ============ PUBLIC COMPS ============
-// US-listed AI companies, two segments. US$ millions, as of Nov 18, 2026.
+// US-listed AI companies, two segments. US$ millions, as of Nov 18, 2026 (NBIS, IREN, CBRS added Nov 18 at Nov 17 closes; IREN market cap approximate).
+// NBIS: LTM to Sep 30 2026, adjusted EBITDA, net debt = 14,191 debt - 7,426 cash. IREN: LTM to Sep 30 2026 (FY Jun), adjusted EBITDA, net debt = 9,897 debt - 3,522 cash - 2,256 restricted cash.
+// CBRS: LTM to Sep 30 2026 revenue; growth = 9M YoY; EBITDA not meaningful (core adjusted EBITDA near zero), net cash incl. 4,286 investments.
 // growth = LTM revenue growth YoY (%); margin = LTM EBITDA margin (%); r40 = growth + margin. included:false = shown but excluded from averages.
 // rev = EV / EV-Rev multiple; ebitda = rev x margin; net_debt = EV - market cap. ev_ebitda null = n/m (negative EBITDA or above 100x).
 // live:true: Refresh pulls price and market cap from /api/quotes?set=ai and recomputes EV = market cap + net_debt.
 const PUBLIC = [
-  {name:"Palantir", ticker:"PLTR", segment:"AI Platforms &amp; Infrastructure", ev:363600, ev_rev:49.9, ev_ebitda:null, growth:87.1, margin:46.0, rev:7288, ebitda:3355, net_debt:-10600, live:true, included:true},
-  {name:"CoreWeave", ticker:"CRWV", segment:"AI Platforms &amp; Infrastructure", ev:69300, ev_rev:7.0, ev_ebitda:13.4, growth:129.6, margin:52.3, rev:9886, ebitda:5174, net_debt:42700, live:true, included:true},
-  {name:"C3.ai", ticker:"AI", segment:"AI Platforms &amp; Infrastructure", ev:949, ev_rev:4.1, ev_ebitda:null, growth:-37.5, margin:-197.3, rev:232, ebitda:-458, net_debt:-651, live:true, included:true},
-  {name:"BigBear.ai", ticker:"BBAI", segment:"AI Platforms &amp; Infrastructure", ev:796, ev_rev:5.6, ev_ebitda:null, growth:-1.5, margin:-146.8, rev:142, ebitda:-209, net_debt:-60, live:true, included:true},
-  {name:"UiPath", ticker:"PATH", segment:"AI Applications", ev:4900, ev_rev:2.9, ev_ebitda:27.6, growth:15.0, margin:10.4, rev:1721, ebitda:179, net_debt:-1300, live:true, included:true},
-  {name:"SoundHound AI", ticker:"SOUN", segment:"AI Applications", ev:1300, ev_rev:5.7, ev_ebitda:null, growth:50.7, margin:-26.0, rev:224, ebitda:-58, net_debt:-208, live:true, included:true},
-  {name:"Tempus AI", ticker:"TEM", segment:"AI Applications", ev:12400, ev_rev:8.2, ev_ebitda:null, growth:36.6, margin:-16.5, rev:1509, ebitda:-249, net_debt:756, live:true, included:true},
+  {name:"CoreWeave", ticker:"CRWV", segment:"AI Infrastructure &amp; Neoclouds", ev:69300, ev_rev:7.0, ev_ebitda:13.4, growth:129.6, margin:52.3, rev:9886, ebitda:5174, net_debt:42700, live:true, included:true},
+  {name:"Nebius", ticker:"NBIS", segment:"AI Infrastructure &amp; Neoclouds", ev:37800, ev_rev:17.3, ev_ebitda:44.7, growth:549.2, margin:38.7, rev:2190, ebitda:847, net_debt:6800, live:true, included:true},
+  {name:"IREN", ticker:"IREN", segment:"AI Infrastructure &amp; Neoclouds", ev:13000, ev_rev:18.7, ev_ebitda:59.2, growth:1.0, margin:31.7, rev:695, ebitda:220, net_debt:4119, live:true, included:true},
+  {name:"Cerebras", ticker:"CBRS", segment:"AI Infrastructure &amp; Neoclouds", ev:18800, ev_rev:24.8, ev_ebitda:null, growth:72.6, margin:null, rev:756, ebitda:null, net_debt:-6500, live:true, included:true},
+  {name:"Palantir", ticker:"PLTR", segment:"AI Platforms &amp; Applications", ev:363600, ev_rev:49.9, ev_ebitda:null, growth:87.1, margin:46.0, rev:7288, ebitda:3355, net_debt:-10600, live:true, included:true},
+  {name:"C3.ai", ticker:"AI", segment:"AI Platforms &amp; Applications", ev:949, ev_rev:4.1, ev_ebitda:null, growth:-37.5, margin:-197.3, rev:232, ebitda:-458, net_debt:-651, live:true, included:true},
+  {name:"BigBear.ai", ticker:"BBAI", segment:"AI Platforms &amp; Applications", ev:796, ev_rev:5.6, ev_ebitda:null, growth:-1.5, margin:-146.8, rev:142, ebitda:-209, net_debt:-60, live:true, included:true},
+  {name:"SoundHound AI", ticker:"SOUN", segment:"AI Platforms &amp; Applications", ev:1300, ev_rev:5.7, ev_ebitda:null, growth:50.7, margin:-26.0, rev:224, ebitda:-58, net_debt:-208, live:true, included:true},
+  {name:"Tempus AI", ticker:"TEM", segment:"AI Platforms &amp; Applications", ev:12400, ev_rev:8.2, ev_ebitda:null, growth:36.6, margin:-16.5, rev:1509, ebitda:-249, net_debt:756, live:true, included:true},
 ];
 PUBLIC.forEach(c => { c.r40 = (c.growth === null || c.margin === null) ? null : Math.round(c.growth + c.margin); });
 
@@ -758,14 +762,14 @@ function fmtAsOfET(d) {
 // Each point: quarter-end close x diluted weighted-average shares + debt - cash (latest fiscal quarter ended on or
 // before the date), divided by LTM revenue (SEC XBRL). Data pull: comps-ops/history (raw-ai.json). Add a point each quarter.
 const EV_REV_HISTORY = [
-  {date:"2024-12-31", label:"Q4 '24", avg:31.97, med:9.63},
-  {date:"2025-03-31", label:"Q1 '25", avg:18.21, med:6.15},
-  {date:"2025-06-30", label:"Q2 '25", avg:27.32, med:12.57},
-  {date:"2025-09-30", label:"Q3 '25", avg:31.35, med:17.82},
-  {date:"2025-12-31", label:"Q4 '25", avg:24.41, med:10.50},
-  {date:"2026-03-31", label:"Q1 '26", avg:17.00, med:10.18},
-  {date:"2026-06-30", label:"Q2 '26", avg:13.98, med:11.12},
-  {date:"2026-09-30", label:"Q3 '26", avg:15.96, med:9.25},
+  {date:"2024-12-31", label:"Q4 '24", avg:37.59, med:10.60},
+  {date:"2025-03-31", label:"Q1 '25", avg:20.78, med:8.38},
+  {date:"2025-06-30", label:"Q2 '25", avg:27.81, med:12.57},
+  {date:"2025-09-30", label:"Q3 '25", avg:40.19, med:21.60},
+  {date:"2025-12-31", label:"Q4 '25", avg:27.80, med:17.90},
+  {date:"2026-03-31", label:"Q1 '26", avg:20.31, med:13.65},
+  {date:"2026-06-30", label:"Q2 '26", avg:26.83, med:13.21},
+  {date:"2026-09-30", label:"Q3 '26", avg:24.81, med:11.31},
 ];
 
 function renderTrend() {
@@ -800,7 +804,7 @@ function renderTrend() {
 }
 
 // ============ MEDIAN EV / REVENUE BY SEGMENT ============
-const SEGMENTS = ["AI Platforms &amp; Infrastructure", "AI Applications"];
+const SEGMENTS = ["AI Infrastructure &amp; Neoclouds", "AI Platforms &amp; Applications"];
 function renderSegChart() {
   const svg = document.getElementById("seg-svg");
   if (!svg || !PUBLIC.length) return;

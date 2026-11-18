@@ -102,32 +102,25 @@
   .hub-method p:last-child { margin-bottom: 0; }
   .hub-method strong { color: var(--green-deep); font-weight: 600; }
 
-  /* Weekly digest sign-up */
-  .digest-signup { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; background: var(--green-deep); color: var(--cream); border-top: 3px solid var(--brass); padding: 36px 40px; margin-bottom: 40px; }
-  .digest-signup .ds-eyebrow { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 12px; }
-  .digest-signup h2 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 28px; line-height: 1.2; color: #fff; margin: 0 0 12px; letter-spacing: -0.01em; }
-  .digest-signup .ds-copy p { font-family: 'IBM Plex Serif', Georgia, serif; font-size: 15px; line-height: 1.65; color: var(--cream); opacity: 0.88; margin: 0; }
-  .ds-row { display: flex; gap: 0; }
-  .ds-row input { flex: 1; min-width: 0; font-family: 'IBM Plex Serif', Georgia, serif; font-size: 15px; padding: 14px 16px; border: 1px solid var(--brass); border-right: none; background: var(--off-white); color: var(--ink); border-radius: 0; }
-  .ds-row input:focus { outline: 2px solid var(--brass); outline-offset: 2px; }
-  .ds-row button { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 14px 24px; background: var(--brass); color: var(--green-deep); border: 1px solid var(--brass); cursor: pointer; border-radius: 0; }
-  .ds-row button:hover { background: #d7b77f; }
-  .ds-row button:disabled { opacity: 0.7; cursor: default; }
-  .ds-msg { font-size: 14px; line-height: 1.5; margin: 10px 0 0; min-height: 0; }
-  .ds-msg:empty { display: none; }
-  .ds-msg.is-ok { color: var(--brass); }
-  .ds-msg.is-err { color: #f2c4b3; }
-  .ds-note { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.02em; color: var(--cream); opacity: 0.7; margin: 12px 0 0; }
-  .ds-note a { color: var(--brass); }
-  .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .ds-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  /* Weekly digest sign-up (compact) */
+  .digest-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; background: var(--cream); border: 1px solid var(--card-border); border-left: 3px solid var(--brass); padding: 12px 16px; margin-bottom: 32px; max-width: 640px; }
+  .di-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); white-space: nowrap; }
+  .di-row { display: flex; flex: 1; min-width: 240px; }
+  .di-row input { flex: 1; min-width: 0; font-family: 'IBM Plex Serif', Georgia, serif; font-size: 14px; padding: 9px 12px; border: 1px solid var(--card-border); border-right: none; background: white; color: var(--ink); border-radius: 0; }
+  .di-row input:focus { outline: 2px solid var(--brass); outline-offset: 1px; }
+  .di-row button { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 9px 18px; background: var(--brass); color: var(--green-deep); border: 1px solid var(--brass); cursor: pointer; border-radius: 0; }
+  .di-row button:hover { background: #d7b77f; }
+  .di-row button:disabled { opacity: 0.7; cursor: default; }
+  .di-msg { flex-basis: 100%; font-size: 13px; line-height: 1.5; margin: 0; }
+  .di-msg:empty { display: none; }
+  .di-msg.is-ok { color: var(--green-deep); }
+  .di-msg.is-err { color: #9b3b22; }
+  .di-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
   @media (max-width: 900px) {
     .comps-hub .wrap { padding: 0 16px; }
     .comps-hub h1 { font-size: 32px; }
     .hub-layout { grid-template-columns: 1fr; }
-    .digest-signup { grid-template-columns: 1fr; gap: 22px; padding: 28px 22px; }
-    .digest-signup h2 { font-size: 24px; }
   }
   @media (max-width: 480px) {
     .ds-row { flex-direction: column; gap: 10px; }
@@ -155,23 +148,15 @@
   <h1>Transaction <em>Comparables</em></h1>
   <div class="subhead">Private M&amp;A transactions and public market comps across the verticals we cover.</div>
 
-  <section class="digest-signup" aria-labelledby="digest-title">
-    <div class="ds-copy">
-      <div class="ds-eyebrow">Weekly Digest</div>
-      <h2 id="digest-title">Get transaction updates in your inbox weekly.</h2>
-      <p>A weekly email covering the latest private M&amp;A transactions and public market stats across the verticals we cover. Unsubscribe anytime.</p>
+  <form class="digest-inline" data-subscribe novalidate>
+    <label class="di-label" for="digest-email">Get weekly updates</label>
+    <div class="di-row">
+      <input type="email" id="digest-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+      <button type="submit">Subscribe</button>
     </div>
-    <form class="ds-form" data-subscribe novalidate>
-      <label class="ds-sr" for="digest-email">Email address</label>
-      <div class="ds-row">
-        <input type="email" id="digest-email" name="email" placeholder="you@company.com" autocomplete="email" required>
-        <button type="submit">Subscribe</button>
-      </div>
-      <input type="text" name="website" class="ds-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="ds-msg" data-subscribe-msg role="status" aria-live="polite"></p>
-      <p class="ds-note">No spam. Just research. Replies go to <a href="mailto:research@harborridgecap.com">research@harborridgecap.com</a>.</p>
-    </form>
-  </section>
+    <input type="text" name="website" class="di-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="di-msg" data-subscribe-msg role="status" aria-live="polite"></p>
+  </form>
 
   <div class="hub-layout">
     <div class="vert-grid">
@@ -195,7 +180,7 @@
       <a class="vert-card" href="/comparables/software">
         <span class="vc-tag">New · Nov 2026</span>
         <h2>Software</h2>
-        <p class="vc-desc">Enterprise applications, infrastructure and data, cybersecurity, vertical and SMB software. Private M&amp;A with disclosed multiples and segmented public comps.</p>
+        <p class="vc-desc">Enterprise applications, infrastructure and data, cybersecurity, vertical, and SMB and consumer software. Private M&amp;A with disclosed multiples and segmented public comps.</p>
         <div class="vc-stats">56 private deals · 25 public comps · 7.5x median private EV/Rev</div>
         <span class="vc-cta">View comparables →</span>
       </a>

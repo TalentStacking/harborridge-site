@@ -6,11 +6,14 @@ UA = {"User-Agent": "Harbor Ridge Capital research cyrus@hrc.partners"}
 TICKERS = ["ULS","LDOS","CACI","PSN","SAIC","KTOS","ACN","CTSH","G","EPAM","GLOB","GDYN"]
 SOFTWARE = ["CRM","NOW","WDAY","ADBE","TEAM","SNOW","DDOG","MDB","DT","GTLB","CRWD","ZS","OKTA","QLYS","RBRK",
             "VEEV","APPF","PCOR","TTAN","WAY","HUBS","SHOP","PAYC","PCTY","KVYO"]
+AI = ["PLTR","CRWV","AI","BBAI","PATH","SOUN","TEM"]
 # request.txt containing "set software" pulls the software set into raw-software.json
 REQ = open("comps-ops/history/request.txt").read()
 OUT = "comps-ops/history/raw.json"
 if "set software" in REQ:
     TICKERS, OUT = SOFTWARE, "comps-ops/history/raw-software.json"
+elif "set ai" in REQ:
+    TICKERS, OUT = AI, "comps-ops/history/raw-ai.json"
 QENDS = ["2024-12-31","2025-03-31","2025-06-30","2025-09-30","2025-12-31","2026-03-31","2026-06-30","2026-09-30"]
 
 def get(url, tries=3):

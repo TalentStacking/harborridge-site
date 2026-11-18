@@ -6,7 +6,7 @@ UA = {"User-Agent": "Harbor Ridge Capital research cyrus@hrc.partners"}
 TICKERS = ["ULS","LDOS","CACI","PSN","SAIC","KTOS","ACN","CTSH","G","EPAM","GLOB","GDYN"]
 SOFTWARE = ["CRM","NOW","WDAY","ADBE","TEAM","SNOW","DDOG","MDB","DT","GTLB","CRWD","ZS","OKTA","QLYS","RBRK",
             "VEEV","APPF","PCOR","TTAN","WAY","HUBS","SHOP","PAYC","PCTY","KVYO"]
-AI = ["PLTR","CRWV","AI","BBAI","PATH","SOUN","TEM"]
+AI = ["PLTR","CRWV","NBIS","IREN","CBRS","AI","BBAI","SOUN","TEM"]
 # request.txt containing "set software" pulls the software set into raw-software.json
 REQ = open("comps-ops/history/request.txt").read()
 OUT = "comps-ops/history/raw.json"

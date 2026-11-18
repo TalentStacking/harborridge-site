@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18T17:37:39.566430Z",
+ "generated": "2026-11-18T23:04:53.421299Z",
  "companies": {
   "PLTR": {
    "cik": "0001321655",
@@ -329,6 +329,391 @@
     ]
    }
   },
+  "NBIS": {
+   "cik": "0001513845",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": null,
+     "price": [
+      "2024-12-31",
+      27.700000762939453
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": null,
+     "price": [
+      "2025-03-31",
+      21.110000610351562
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": null,
+     "price": [
+      "2025-06-30",
+      55.33000183105469
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": null,
+     "price": [
+      "2025-09-30",
+      112.2699966430664
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": null,
+     "price": [
+      "2025-12-31",
+      83.70500183105469
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": null,
+     "price": [
+      "2026-03-31",
+      103.76000213623047
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": null,
+     "price": [
+      "2026-06-30",
+      276.1700134277344
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": null,
+     "price": [
+      "2026-09-30",
+      235.8800048828125
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": [],
+    "da": [],
+    "rev": [],
+    "ltd": [],
+    "ltdn": [],
+    "ltdc": [],
+    "stb": [],
+    "cash": [],
+    "sti": [],
+    "sh": []
+   }
+  },
+  "IREN": {
+   "cik": "0001878848",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": "2024-12-31",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 427273000,
+     "shares": 210470186,
+     "price": [
+      "2024-12-31",
+      9.819999694824219
+     ]
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 184333000,
+     "shares": 218659835,
+     "price": [
+      "2025-03-31",
+      6.090000152587891
+     ]
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "shares_out": null,
+     "op_ltm": 17327000,
+     "op_m": "FY",
+     "da_ltm": 181136000,
+     "da_m": "FY",
+     "rev_ltm": 501023000,
+     "debt": 962765000,
+     "cash": 564526000,
+     "shares": null,
+     "price": [
+      "2025-06-30",
+      14.569999694824219
+     ]
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "shares_out": 283465490,
+     "op_ltm": -11587000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 232205000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 688259000,
+     "debt": 0,
+     "cash": 1032263000,
+     "shares": 361680593,
+     "price": [
+      "2025-09-30",
+      46.93000030517578
+     ]
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-12-31",
+     "shares_out": 332280383,
+     "op_ltm": -145705000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 295530000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 757102000,
+     "debt": 0,
+     "cash": 3260589000,
+     "shares": 298027356,
+     "price": [
+      "2025-12-31",
+      37.77000045776367
+     ]
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "shares_out": 357378674,
+     "op_ltm": -408443000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 369464000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 757074000,
+     "debt": 0,
+     "cash": 2213274000,
+     "shares": 333734176,
+     "price": [
+      "2026-03-31",
+      34.279998779296875
+     ]
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "shares_out": null,
+     "op_ltm": -1046714000,
+     "op_m": "FY",
+     "da_ltm": 417729000,
+     "da_m": "FY",
+     "rev_ltm": 707007000,
+     "debt": 7593000000,
+     "cash": 5896000000,
+     "shares": null,
+     "price": [
+      "2026-06-30",
+      45.72999954223633
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "shares_out": null,
+     "op_ltm": -1156714000,
+     "op_m": "ytd+fy-ytd",
+     "da_ltm": 480729000,
+     "da_m": "ytd+fy-ytd",
+     "rev_ltm": 695007000,
+     "debt": 9897000000,
+     "cash": 3522000000,
+     "shares": 398557846,
+     "price": [
+      "2026-09-30",
+      40.880001068115234
+     ]
+    }
+   },
+   "log": [],
+   "concepts": {
+    "op": [
+     "OperatingIncomeLoss"
+    ],
+    "da": [
+     "DepreciationDepletionAndAmortization"
+    ],
+    "rev": [
+     "RevenueFromContractWithCustomerExcludingAssessedTax",
+     "Revenues"
+    ],
+    "ltd": [
+     "LongTermDebt"
+    ],
+    "ltdn": [
+     "LongTermDebtNoncurrent"
+    ],
+    "ltdc": [
+     "LongTermDebtCurrent"
+    ],
+    "stb": [],
+    "cash": [
+     "CashAndCashEquivalentsAtCarryingValue",
+     "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    ],
+    "sti": [
+     "ShortTermInvestments"
+    ],
+    "sh": [
+     "WeightedAverageNumberOfDilutedSharesOutstanding"
+    ]
+   }
+  },
+  "CBRS": {
+   "cik": "0002021728",
+   "quarters": {
+    "2024-12-31": {
+     "fiscal_end": null,
+     "price": null
+    },
+    "2025-03-31": {
+     "fiscal_end": "2025-03-31",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 472014000,
+     "shares": 52003000,
+     "price": null
+    },
+    "2025-06-30": {
+     "fiscal_end": "2025-06-30",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 376886000,
+     "shares": 161822000,
+     "price": null
+    },
+    "2025-09-30": {
+     "fiscal_end": "2025-09-30",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 1334134000,
+     "shares": 53983000,
+     "price": null
+    },
+    "2025-12-31": {
+     "fiscal_end": "2025-09-30",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 0,
+     "cash": 1334134000,
+     "shares": 53983000,
+     "price": null
+    },
+    "2026-03-31": {
+     "fiscal_end": "2026-03-31",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 982923000,
+     "cash": 2231621000,
+     "shares": 62806000,
+     "price": null
+    },
+    "2026-06-30": {
+     "fiscal_end": "2026-06-30",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 918244000,
+     "cash": 7921547000,
+     "shares": 150968000,
+     "price": [
+      "2026-06-30",
+      221.0
+     ]
+    },
+    "2026-09-30": {
+     "fiscal_end": "2026-09-30",
+     "shares_out": null,
+     "op_ltm": null,
+     "op_m": "no prior",
+     "da_ltm": null,
+     "da_m": "no prior",
+     "rev_ltm": null,
+     "debt": 829082000,
+     "cash": 7360778000,
+     "shares": 238885000,
+     "price": [
+      "2026-09-30",
+      177.64999389648438
+     ]
+    }
+   },
+   "log": [
+    "price 2024-12-31: HTTP Error 400: Bad Request",
+    "price 2025-03-31: HTTP Error 400: Bad Request",
+    "price 2025-06-30: HTTP Error 400: Bad Request",
+    "price 2025-09-30: HTTP Error 400: Bad Request",
+    "price 2025-12-31: HTTP Error 400: Bad Request",
+    "price 2026-03-31: HTTP Error 400: Bad Request"
+   ],
+   "concepts": {
+    "op": [
+     "OperatingIncomeLoss"
+    ],
+    "da": [
+     "Depreciation",
+     "DepreciationDepletionAndAmortization"
+    ],
+    "rev": [
+     "RevenueFromContractWithCustomerExcludingAssessedTax"
+    ],
+    "ltd": [],
+    "ltdn": [
+     "LongTermDebtNoncurrent"
+    ],
+    "ltdc": [
+     "DebtCurrent",
+     "LongTermDebtCurrent"
+    ],
+    "stb": [],
+    "cash": [
+     "CashAndCashEquivalentsAtCarryingValue",
+     "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
+    ],
+    "sti": [
+     "AvailableForSaleSecuritiesDebtSecuritiesCurrent"
+    ],
+    "sh": [
+     "WeightedAverageNumberOfDilutedSharesOutstanding"
+    ]
+   }
+  },
   "AI": {
    "cik": "0001577526",
    "quarters": {
@@ -649,166 +1034,6 @@
      "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
     ],
     "sti": [],
-    "sh": [
-     "WeightedAverageNumberOfDilutedSharesOutstanding"
-    ]
-   }
-  },
-  "PATH": {
-   "cik": "0001734722",
-   "quarters": {
-    "2024-12-31": {
-     "fiscal_end": "2024-10-31",
-     "shares_out": null,
-     "op_ltm": -181083000,
-     "op_m": "ytd+fy-ytd",
-     "da_ltm": 20059000,
-     "da_m": "ytd+fy-ytd",
-     "rev_ltm": 1411271000,
-     "debt": 0,
-     "cash": 1569041000,
-     "shares": 551036000,
-     "price": [
-      "2024-12-31",
-      12.710000038146973
-     ]
-    },
-    "2025-03-31": {
-     "fiscal_end": "2025-01-31",
-     "shares_out": null,
-     "op_ltm": -162569000,
-     "op_m": "FY",
-     "da_ltm": 17232000,
-     "da_m": "FY",
-     "rev_ltm": 1429664000,
-     "debt": 0,
-     "cash": 1629518000,
-     "shares": null,
-     "price": [
-      "2025-03-31",
-      10.300000190734863
-     ]
-    },
-    "2025-06-30": {
-     "fiscal_end": "2025-04-30",
-     "shares_out": null,
-     "op_ltm": -129516000,
-     "op_m": "ytd+fy-ytd",
-     "da_ltm": 15583000,
-     "da_m": "ytd+fy-ytd",
-     "rev_ltm": 1451176000,
-     "debt": 0,
-     "cash": 1555033000,
-     "shares": 548451000,
-     "price": [
-      "2025-06-30",
-      12.800000190734863
-     ]
-    },
-    "2025-09-30": {
-     "fiscal_end": "2025-07-31",
-     "shares_out": null,
-     "op_ltm": -46352000,
-     "op_m": "ytd+fy-ytd",
-     "da_ltm": 15232000,
-     "da_m": "ytd+fy-ytd",
-     "rev_ltm": 1496651000,
-     "debt": 0,
-     "cash": 1447487000,
-     "shares": 542865000,
-     "price": [
-      "2025-09-30",
-      13.380000114440918
-     ]
-    },
-    "2025-12-31": {
-     "fiscal_end": "2025-10-31",
-     "shares_out": null,
-     "op_ltm": 10083000,
-     "op_m": "ytd+fy-ytd",
-     "da_ltm": 15211000,
-     "da_m": "ytd+fy-ytd",
-     "rev_ltm": 1553111000,
-     "debt": 0,
-     "cash": 1398186000,
-     "shares": 539018000,
-     "price": [
-      "2025-12-31",
-      16.389999389648438
-     ]
-    },
-    "2026-03-31": {
-     "fiscal_end": "2026-01-31",
-     "shares_out": null,
-     "op_ltm": 56760000,
-     "op_m": "FY",
-     "da_ltm": 16969000,
-     "da_m": "FY",
-     "rev_ltm": 1610572000,
-     "debt": 0,
-     "cash": 1472486000,
-     "shares": null,
-     "price": [
-      "2026-03-31",
-      11.100000381469727
-     ]
-    },
-    "2026-06-30": {
-     "fiscal_end": "2026-04-30",
-     "shares_out": null,
-     "op_ltm": 101159000,
-     "op_m": "ytd+fy-ytd",
-     "da_ltm": 21225000,
-     "da_m": "ytd+fy-ytd",
-     "rev_ltm": 1672330000,
-     "debt": 0,
-     "cash": 1307244000,
-     "shares": 527818000,
-     "price": [
-      "2026-06-30",
-      10.869999885559082
-     ]
-    },
-    "2026-09-30": {
-     "fiscal_end": "2026-07-31",
-     "shares_out": null,
-     "op_ltm": 152948000,
-     "op_m": "ytd+fy-ytd",
-     "da_ltm": 26000000,
-     "da_m": "ytd+fy-ytd",
-     "rev_ltm": 1720858000,
-     "debt": 0,
-     "cash": 1283990000,
-     "shares": 523013000,
-     "price": [
-      "2026-09-30",
-      12.84000015258789
-     ]
-    }
-   },
-   "log": [],
-   "concepts": {
-    "op": [
-     "OperatingIncomeLoss"
-    ],
-    "da": [
-     "Depreciation",
-     "DepreciationAndAmortization"
-    ],
-    "rev": [
-     "RevenueFromContractWithCustomerExcludingAssessedTax"
-    ],
-    "ltd": [],
-    "ltdn": [],
-    "ltdc": [],
-    "stb": [],
-    "cash": [
-     "CashAndCashEquivalentsAtCarryingValue",
-     "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"
-    ],
-    "sti": [
-     "MarketableSecuritiesCurrent"
-    ],
     "sh": [
      "WeightedAverageNumberOfDilutedSharesOutstanding"
     ]

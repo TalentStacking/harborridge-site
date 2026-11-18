@@ -15,7 +15,7 @@ US TARGETS ONLY: the target must be headquartered in the United States (the buye
 SCOPE: deals announced 2025 onward.
 MULTIPLES REQUIRED: add a deal ONLY if an EV / revenue (or EV / ARR) or EV / EBITDA multiple was disclosed, or can be computed from a disclosed enterprise value and a disclosed revenue, ARR or EBITDA figure. Deals without valuation data are NOT added; list them in the report as "No multiple, not added".
 FIT if the target is mainly a software product company: enterprise applications, infrastructure and data software, cybersecurity software, vertical software, or SMB software.
-NOT a fit: IT services and consulting (that is Technology Services), CCaaS / UCaaS / CX software (that is CCaaS & UCaaS), compliance audit firms and GRC services (that is IT & Cyber Compliance), hardware, semiconductors, AI model labs, fintech lenders and payment processors, consumer apps, venture rounds.
+NOT a fit: IT services and consulting (that is Technology Services), CCaaS / UCaaS / CX software (that is CCaaS & UCaaS), compliance audit firms and GRC services (that is IT & Cyber Compliance), AI-native companies whose core product is AI (that is the AI page, comparables/ai.html), hardware, semiconductors, AI model labs, fintech lenders and payment processors, consumer apps, venture rounds.
 
 ## Page placement
 - On the page: control acquisitions and take-privates with a disclosed or computable multiple.
@@ -28,7 +28,7 @@ desc: one short description that states the multiple's basis when it is not trai
 buyer_type (only these three): "Strategic", "Private equity", "PE-backed strategic" (acquisition by a sponsor-owned company; name the sponsor in acquirer, e.g. "Proofpoint (Thoma Bravo)").
 ev: enterprise value in US$M (equity value plus net debt when both are given). rev / ebitda: the figure the multiple is based on, if disclosed; otherwise null with ev_rev / ev_ebitda filled from the stated multiple.
 No outlier exclusions: every deal with a multiple counts in the medians (per Cy, Nov 2026). Do not add mult_excl.
-categories (only these six, one per deal): "Enterprise Applications", "Infrastructure & Data", "Cybersecurity", "Vertical Software", "SMB/Consumer", "AI" (AI-native companies whose core product is AI: AI coding, model platforms and routing, AI agents, AI customer service).
+categories (only these five, one per deal): "Enterprise Applications", "Infrastructure & Data", "Cybersecurity", "Vertical Software", "SMB/Consumer".
 Dates: announcement date; if only the month is known, use the first of that month.
 Write "&amp;" for "&" inside vertical, acquirer and desc text.
 Methodology line format: "Last updated: <Month D, YYYY>".

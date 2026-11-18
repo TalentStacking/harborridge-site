@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO ===== -->
+<title>AI Comparables — Harbor Ridge Capital</title>
+<meta name="description" content="Private M&amp;A transactions with disclosed multiples and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
+<meta name="author" content="Harbor Ridge Capital">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.harborridgecap.com/comparables/ai">
+
+<!-- ===== Open Graph ===== -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.harborridgecap.com/comparables/ai">
+<meta property="og:site_name" content="Harbor Ridge Capital">
+<meta property="og:title" content="AI Comparables — Harbor Ridge Capital">
+<meta property="og:description" content="Private M&amp;A transactions with disclosed multiples and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
+<meta property="og:image" content="https://www.harborridgecap.com/assets/img/og-image.png">
+<meta property="og:locale" content="en_US">
+
+<!-- ===== Twitter Card ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Comparables — Harbor Ridge Capital">
+<meta name="twitter:description" content="Private M&amp;A transactions with disclosed multiples and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
+<meta name="twitter:image" content="https://www.harborridgecap.com/assets/img/og-image.png">
+
+<!-- ===== Favicon ===== -->
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+<!-- ===== Dataset Schema ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "AI Transaction Comparables",
+  "description": "Private M&A transactions with disclosed valuation multiples and public market comps for AI-native companies.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Harbor Ridge Capital",
+    "url": "https://www.harborridgecap.com"
+  },
+  "license": "https://www.harborridgecap.com/terms",
+  "temporalCoverage": "2025-01/..",
+  "variableMeasured": ["Enterprise Value", "EV/Revenue", "EV/EBITDA", "Rule of 40"],
+  "distribution": [{
+    "@type": "DataDownload",
+    "encodingFormat": "CSV",
+    "contentUrl": "https://www.harborridgecap.com/comparables/ai"
+  }]
+}
+</script>
+
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEQ3RTRZWR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FEQ3RTRZWR');
+</script>
+
+<!-- ===== Fonts & styles ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="alternate" type="application/rss+xml" title="Harbor Ridge Capital Insights" href="/rss.xml">
+<!-- Page-specific styles (inline for phase 1; extract to shared file when more verticals are added) -->
+<style>
+  .comps-page {
+    --green-deep: #0c3b2e;
+    --green-line: #1e5a48;
+    --brass: #c9a66b;
+    --brass-dim: #b89456;
+    --cream: #f7f3eb;
+    --off-white: #fbf9f4;
+    --ink: #1a2a25;
+    --ink-soft: #4a5a55;
+    --card-border: #e8e2d4;
+    --row-alt: #f4f0e6;
+  }
+  .comps-page { background: var(--off-white); font-family: 'IBM Plex Serif', Georgia, serif; color: var(--ink); font-size: 16px; line-height: normal; }
+  .comps-page a { transition: none; }
+  .page { padding: 48px 0 80px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  .back-link { display: inline-block; color: var(--ink-soft); text-decoration: none; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; letter-spacing: 0.05em; margin-bottom: 24px; }
+  .eyebrow { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 14px; }
+  .comps-page h1 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 42px; line-height: 1.15; color: var(--green-deep); margin-bottom: 14px; letter-spacing: -0.01em; }
+  .comps-page h1 em { font-style: italic; color: var(--brass); }
+  .subhead { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 20px; line-height: 1.4; color: var(--ink-soft); margin-bottom: 20px; }
+  .meta { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; color: var(--ink-soft); margin-bottom: 36px; letter-spacing: 0.02em; }
+  .meta span + span::before { content: " · "; opacity: 0.5; }
+
+  /* Private/Public toggle */
+  .mode-toggle { display: inline-flex; background: var(--cream); border: 1px solid var(--card-border); padding: 4px; margin-bottom: 28px; }
+  .mode-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 22px; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; transition: all 0.2s; }
+  .mode-btn.active { background: var(--green-deep); color: var(--cream); }
+  .mode-btn .count { margin-left: 8px; opacity: 0.6; font-size: 11px; }
+  .mode-btn.active .count { color: var(--brass); opacity: 1; }
+
+  /* Hero stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; background: var(--green-deep); padding: 4px; margin-bottom: 20px; }
+  .stat { background: var(--green-deep); color: var(--cream); padding: 28px 24px 24px; text-align: center; position: relative; }
+  .stat-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 12px; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1; font-weight: 500; color: var(--brass); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .stat-desc { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--cream); opacity: 0.8; line-height: 1.3; min-height: 2.6em; }
+  .stat-spark { margin-top: 12px; display: flex; justify-content: center; }
+  .stat-spark svg { display: block; }
+
+  /* Sub-vertical mini-cards (auto-fit so count can vary) */
+  .sub-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 36px; }
+  .sub-card { background: white; border: 1px solid var(--card-border); border-top: 3px solid var(--brass); padding: 18px 20px; }
+  .sub-card .sc-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; margin-bottom: 8px; }
+  .sub-card .sc-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: var(--green-deep); line-height: 1.1; }
+  .sub-card .sc-sub { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: var(--ink-soft); margin-top: 4px; letter-spacing: 0.02em; }
+  .sub-card.insufficient { opacity: 0.45; }
+  .sub-card.insufficient .sc-val { font-size: 16px; font-style: italic; font-family: 'IBM Plex Serif', serif; }
+
+  /* Filter chips */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; align-items: center; }
+  .filter-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-right: 8px; }
+  .chip { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.03em; padding: 7px 14px; border: 1px solid var(--card-border); background: white; color: var(--ink-soft); cursor: pointer; border-radius: 2px; transition: all 0.15s; }
+  .chip:hover { border-color: var(--brass); color: var(--green-deep); }
+  .chip.active { background: var(--green-deep); color: var(--cream); border-color: var(--green-deep); }
+  .chip.active .count { color: var(--brass); }
+  .chip .count { margin-left: 6px; font-size: 11px; color: var(--ink-soft); font-weight: 400; }
+
+  .search-row { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
+  .search-input { flex: 1; max-width: 340px; padding: 10px 14px; border: 1px solid var(--card-border); font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; background: white; color: var(--ink); }
+  .search-input:focus { outline: none; border-color: var(--brass); }
+  .result-count { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.02em; }
+  .as-of { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.04em; opacity: 0.8; padding-left: 12px; border-left: 1px solid var(--card-border); }
+  /* EV / EBITDA history chart */
+  .trend { background: white; border: 1px solid var(--card-border); margin-top: 20px; padding: 22px 24px 16px; }
+  .trend-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .trend-title { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-deep); font-weight: 600; }
+  .trend-legend { display: flex; gap: 18px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); }
+  .trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .trend-legend i { display: inline-block; width: 18px; height: 2px; }
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .trend svg .val { font-size: 11px; font-weight: 600; }
+  .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+  /* EV / EBITDA history chart */
+  .trend { background: white; border: 1px solid var(--card-border); margin-top: 20px; padding: 22px 24px 16px; }
+  .trend-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .trend-title { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-deep); font-weight: 600; }
+  .trend-legend { display: flex; gap: 18px; font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); }
+  .trend-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .trend-legend i { display: inline-block; width: 18px; height: 2px; }
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
+  .trend svg .val { font-size: 11px; font-weight: 600; }
+  .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+  .refresh-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); background: white; border: 1px solid var(--card-border); padding: 6px 10px; cursor: pointer; }
+  .refresh-btn:hover { border-color: var(--brass); }
+  .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
+  .refresh-msg { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: #a84444; }
+  .csv-link { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brass); text-decoration: none; font-weight: 600; margin-left: auto; padding: 8px 12px; border: 1px solid var(--card-border); }
+  .csv-link:hover { background: var(--cream); border-color: var(--brass); }
+
+  /* Table */
+
+  /* Segment stats */
+  #comps-table tfoot td { background: var(--cream, #f7f3ea); font-weight: 600; border-top: 2px solid var(--card-border); }
+  #comps-table tfoot td.lbl { color: var(--green-deep); letter-spacing: 0.04em; text-transform: uppercase; font-size: 11px; }
+  .seg-summary { margin-top: 18px; }
+  .seg-summary .ss-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .seg-summary table { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--card-border); font-size: 13px; }
+  .seg-summary th, .seg-summary td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--card-border); }
+  .seg-summary th:first-child, .seg-summary td:first-child { text-align: left; }
+  .seg-summary th { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--cream); }
+  .seg-summary tr.all td { font-weight: 600; background: var(--cream, #f7f3ea); }
+  .table-wrap { background: white; border: 1px solid var(--card-border); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-family: 'IBM Plex Serif', serif; font-size: 13px; }
+  /* All body cells share one font family and size; tabular figures keep numbers aligned */
+  td { font-family: 'IBM Plex Serif', serif; font-size: 13px; font-variant-numeric: tabular-nums; }
+  /* Extra breathing room: Date → Target, and EV/EBITDA → Rationale */
+  #comps-table th:nth-child(2), #comps-table td:nth-child(2) { padding-left: 28px; }
+  #comps-table th:nth-child(9), #comps-table td:nth-child(9) { padding-left: 36px; }
+  thead { background: var(--green-deep); }
+  th { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brass); font-weight: 600; text-align: left; padding: 14px 12px; border-bottom: 2px solid var(--brass); white-space: nowrap; cursor: pointer; user-select: none; }
+  th.num { text-align: right; }
+  th:hover { color: var(--cream); }
+  th .sort-ind { opacity: 0.4; margin-left: 4px; font-size: 9px; }
+  th.sorted .sort-ind { opacity: 1; color: var(--cream); }
+  tbody tr { border-bottom: 1px solid var(--card-border); transition: background 0.1s; }
+  tbody tr:nth-child(even) { background: var(--row-alt); }
+  tbody tr:hover { background: var(--cream); }
+  td { padding: 14px 12px; vertical-align: top; color: var(--ink); }
+  td.num { text-align: right; }
+  td.num.multiple { color: var(--green-deep); font-weight: 500; }
+  td.date { color: var(--ink-soft); white-space: nowrap; }
+  td.target { font-weight: 500; color: var(--green-deep); min-width: 140px; }
+  td.acquirer { color: var(--ink); min-width: 140px; }
+  td.desc { line-height: 1.5; color: var(--ink-soft); max-width: 360px; }
+  td.link { text-align: center; width: 40px; }
+  td.link a { color: var(--brass); text-decoration: none; font-size: 15px; display: inline-block; line-height: 1; }
+  td.link a:hover { color: var(--green-deep); }
+  td .excluded-tag { display: inline-block; font-family: 'IBM Plex Sans', sans-serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); background: var(--card-border); padding: 2px 6px; margin-left: 6px; font-weight: 500; }
+  tr.excluded td.target { color: var(--ink-soft); }
+  tr.excluded td.num { color: var(--ink-soft); }
+  .na { color: var(--ink-soft); opacity: 0.5; }
+
+  /* Ticker row (public comps) */
+  td.ticker { font-weight: 500; color: var(--green-deep); min-width: 80px; }
+  td.ticker .company-name { font-size: 13px; color: var(--ink-soft); font-weight: 400; margin-top: 3px; letter-spacing: 0; }
+  .r40-pos { color: var(--green-deep); font-weight: 500; }
+  .r40-neg { color: #a84444; }
+
+  /* Public comps placeholder */
+  .placeholder { padding: 48px; text-align: center; background: var(--cream); border: 1px dashed var(--brass); }
+  .placeholder h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--green-deep); margin-bottom: 10px; font-weight: 500; }
+  .placeholder p { font-family: 'IBM Plex Serif', serif; font-style: italic; color: var(--ink-soft); font-size: 14px; max-width: 600px; margin: 0 auto 8px; line-height: 1.6; }
+  .placeholder .public-preview { margin-top: 32px; text-align: left; opacity: 0.85; }
+
+  /* Methodology footer */
+  .methodology { margin-top: 40px; padding: 28px 32px; background: var(--cream); border-left: 3px solid var(--brass); }
+  .method-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 14px; }
+  .methodology p { font-family: 'IBM Plex Serif', serif; font-size: 14px; line-height: 1.7; color: var(--ink); margin-bottom: 14px; }
+  .methodology p:last-child { margin-bottom: 0; }
+  .methodology strong { color: var(--green-deep); font-weight: 600; }
+  .updated { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.03em; margin-top: 20px; text-align: right; }
+
+  /* CTA block at the bottom */
+  .cta-block { background: var(--green-deep); color: var(--cream); padding: 40px 48px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .cta-block-text { flex: 1 1 400px; }
+  .cta-block-eyebrow { font-family: 'IBM Plex Sans', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin-bottom: 8px; }
+  .cta-block h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: var(--cream); margin-bottom: 8px; }
+  .cta-block p { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 14px; color: var(--cream); opacity: 0.85; }
+  .cta-btn { background: var(--brass); color: var(--green-deep); padding: 14px 28px; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+  .cta-btn:hover { background: var(--cream); }
+
+  .hidden { display: none !important; }
+
+  /* Weekly digest sign-up (compact) */
+  .meta { margin-bottom: 22px; }
+  .digest-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; background: var(--cream); border: 1px solid var(--card-border); border-left: 3px solid var(--brass); padding: 12px 16px; margin-bottom: 32px; max-width: 640px; }
+  .di-label { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); white-space: nowrap; }
+  .di-row { display: flex; flex: 1; min-width: 240px; }
+  .di-row input { flex: 1; min-width: 0; font-family: 'IBM Plex Serif', Georgia, serif; font-size: 14px; padding: 9px 12px; border: 1px solid var(--card-border); border-right: none; background: white; color: var(--ink); border-radius: 0; }
+  .di-row input:focus { outline: 2px solid var(--brass); outline-offset: 1px; }
+  .di-row button { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 9px 18px; background: var(--brass); color: var(--green-deep); border: 1px solid var(--brass); cursor: pointer; border-radius: 0; }
+  .di-row button:hover { background: #d7b77f; }
+  .di-row button:disabled { opacity: 0.7; cursor: default; }
+  .di-msg { flex-basis: 100%; font-size: 13px; line-height: 1.5; margin: 0; }
+  .di-msg:empty { display: none; }
+  .di-msg.is-ok { color: var(--green-deep); }
+  .di-msg.is-err { color: #9b3b22; }
+  .di-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+  @media (max-width: 900px) {
+    .comps-page h1 { font-size: 32px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .sub-cards { grid-template-columns: repeat(2, 1fr); }
+    .stat-num { font-size: 36px; }
+    td.desc, #comps-table th:nth-child(9) { display: none; }
+    .cta-block { flex-direction: column; align-items: flex-start; padding: 28px; }
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="/index.html" class="nav-logo">Harbor Ridge Capital</a>
+  <div class="nav-links">
+    <a href="/index.html#services">Services</a>
+    <a href="/index.html#focus">Focus</a>
+    <a href="/index.html#transactions">Transactions</a>
+    <a href="/index.html#insights">Insights</a>
+    <a href="/comparables">Comparables</a>
+    <a href="/index.html#contact">Contact</a>
+  </div>
+</nav>
+<main class="comps-page">
+<div class="page">
+<div class="wrap">
+
+
+  <a href="/comparables" class="back-link">← Back to Comparables</a>
+  <div class="eyebrow">Comparables · Updated Nov 2026</div>
+  <h1>AI <em>Comparables</em></h1>
+  <div class="subhead">Private M&amp;A multiples and public market comps for AI-native companies, from AI applications and agents to model platforms, AI infrastructure and developer tools.</div>
+  <div class="meta">
+    <span id="meta-count">8 private transactions</span>
+    <span>$ in millions</span>
+    <span id="meta-updated">Private: updated Mondays · Public: as of Nov 18, 2026</span>
+  </div>
+
+  <form class="digest-inline" data-subscribe novalidate>
+    <label class="di-label" for="digest-email">Get weekly updates</label>
+    <div class="di-row">
+      <input type="email" id="digest-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+      <button type="submit">Subscribe</button>
+    </div>
+    <input type="text" name="website" class="di-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="di-msg" data-subscribe-msg role="status" aria-live="polite"></p>
+  </form>
+
+  <!-- Private / Public toggle -->
+  <div class="mode-toggle">
+    <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">8</span></button>
+    <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">7</span></button>
+  </div>
+
+  <!-- ====================== PRIVATE VIEW ====================== -->
+  <div id="view-private">
+
+    <!-- Hero stats -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Transactions Tracked</div>
+        <div class="stat-num" id="priv-n">53</div>
+        <div class="stat-desc">Since 2025, US targets with disclosed multiples</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">PE &amp; PE-Backed Buyers</div>
+        <div class="stat-num" id="priv-pe">21</div>
+        <div class="stat-desc" id="priv-pe-desc">Sponsors and their platforms</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Median EV / Revenue</div>
+        <div class="stat-num" id="priv-med-rev">7.4x</div>
+        <div class="stat-desc" id="priv-med-rev-desc">52 deals with disclosed multiples</div>
+        <div class="stat-spark" id="spark-med-rev"></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Median EV / EBITDA</div>
+        <div class="stat-num" id="priv-med-ebitda">13.9x</div>
+        <div class="stat-desc" id="priv-med-ebitda-desc">2 deals with disclosed EBITDA</div>
+        <div class="stat-spark" id="spark-med-ebitda"></div>
+      </div>
+    </div>
+
+    <!-- Sub-vertical mini-cards -->
+    <div class="sub-cards" id="sub-cards"></div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <span class="filter-label">Segment</span>
+      <button class="chip active" data-filter="all">All <span class="count">8</span></button>
+      <button class="chip" data-filter="AI Applications">AI Applications <span class="count">0</span></button>
+      <button class="chip" data-filter="AI Infrastructure &amp; Developer Tools">AI Infrastructure &amp; Developer Tools <span class="count">0</span></button>
+    </div>
+
+    <div class="search-row">
+      <input type="text" class="search-input" placeholder="Search target, acquirer, or focus..." id="search">
+      <span class="result-count" id="result-count">Showing 53 of 53</span>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table id="comps-table">
+        <thead>
+          <tr>
+            <th data-sort="date" class="sorted">Date <span class="sort-ind">↓</span></th>
+            <th data-sort="target">Target <span class="sort-ind">⇅</span></th>
+            <th data-sort="acquirer">Acquirer <span class="sort-ind">⇅</span></th>
+            <th data-sort="buyer_type">Buyer Type <span class="sort-ind">⇅</span></th>
+            <th data-sort="vertical">Focus <span class="sort-ind">⇅</span></th>
+            <th data-sort="ev" class="num">EV <span class="sort-ind">⇅</span></th>
+            <th data-sort="ev_rev" class="num">EV / Rev <span class="sort-ind">⇅</span></th>
+            <th data-sort="ev_ebitda" class="num">EV / EBITDA <span class="sort-ind">⇅</span></th>
+            <th>Rationale</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+        <tfoot id="tfoot"></tfoot>
+      </table>
+    </div>
+    <div class="seg-summary" id="seg-summary"></div>
+
+
+    <!-- Methodology -->
+    <div class="methodology">
+      <div class="method-label">Methodology</div>
+      <p><strong>Universe.</strong> Private M&amp;A transactions of US-based AI-native companies (AI applications and agents, model platforms, AI infrastructure and developer tools) announced in 2025 and 2026, limited to deals where an enterprise value multiple of revenue, recurring revenue or EBITDA was disclosed or can be derived from disclosed figures. Deals without valuation data are not included.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by trailing revenue (EV / Rev) and EBITDA (EV / EBITDA). Where a deal was reported on annual recurring revenue or on current-year or next-year estimates, the basis is noted in the rationale. All deals in the table are included in the medians.</p>
+      <p><strong>Dates.</strong> Where only the month of a transaction is known, the date is shown as the first of that month.</p>
+      <p><strong>Buyer type.</strong> Strategic: corporate acquirers. Private equity: sponsor take-privates and platform investments. PE-backed strategic: acquisitions by sponsor-owned companies.</p>
+      <div class="updated">Last updated: November 18, 2026</div>
+    </div>
+
+  </div>
+
+  <!-- ====================== PUBLIC VIEW ====================== -->
+  <div id="view-public" class="hidden">
+
+    <!-- Hero stats (revenue focused) -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Median EV / LTM Revenue</div>
+        <div class="stat-num" id="pub-med-rev">6.7x</div>
+        <div class="stat-desc" id="pub-constituents">Public market, 7 constituents</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Median EV / LTM EBITDA</div>
+        <div class="stat-num" id="pub-med-ebitda">31.0x</div>
+        <div class="stat-desc" id="pub-ebitda-desc">Companies with meaningful EBITDA</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Avg Rule of 40</div>
+        <div class="stat-num" id="pub-avg-r40">33</div>
+        <div class="stat-desc">Revenue growth + EBITDA margin</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Median YoY Growth</div>
+        <div class="stat-num" id="pub-med-growth">20.5%</div>
+        <div class="stat-desc">LTM revenue growth</div>
+      </div>
+    </div>
+
+    <div class="filters" id="public-filters">
+      <span class="filter-label">Segment</span>
+      <button class="chip active" data-pfilter="all">All</button>
+      <button class="chip" data-pfilter="AI Platforms &amp; Infrastructure">AI Platforms &amp; Infrastructure</button>
+      <button class="chip" data-pfilter="AI Applications">AI Applications</button>
+    </div>
+
+    <div class="search-row">
+      <input type="text" class="search-input" placeholder="Search company..." id="public-search">
+      <span class="result-count" id="public-result-count">7 companies</span>
+      <span class="as-of" id="public-as-of">As of Nov 18, 2026</span>
+      <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps for US-listed names">↻ Refresh</button>
+      <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
+      <a class="csv-link" href="#" id="public-csv">⬇ Download CSV</a>
+    </div>
+
+    <!-- Public comps table -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Segment</th>
+            <th class="num">EV</th>
+            <th class="num">EV / Rev</th>
+            <th class="num">EV / EBITDA</th>
+            <th class="num">Growth YoY</th>
+            <th class="num">EBITDA Margin</th>
+            <th class="num">Rule of 40</th>
+          </tr>
+        </thead>
+        <tbody id="public-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="trend" id="trend">
+      <div class="trend-head">
+        <div class="trend-title">EV / LTM Revenue over time</div>
+        <div class="trend-legend"><span><i style="background:#c9a66b"></i>Average</span><span><i style="background:#0c3b2e"></i>Median</span></div>
+      </div>
+      <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Average and median EV to LTM revenue by quarter for the public AI comps"></svg>
+      <div class="trend-note">Quarter-end values for all 7 companies (CoreWeave from Q1 2025, after its IPO), using LTM revenue and net debt from SEC filings for the latest fiscal quarter ended on or before each date. The final point is live and updates with Refresh.</div>
+    </div>
+
+    <div class="trend" id="seg-trend">
+      <div class="trend-head">
+        <div class="trend-title">Median EV / LTM Revenue by segment</div>
+        <div class="trend-legend"><span><i style="background:#0c3b2e"></i>Segment median</span><span><i style="background:#c9a66b"></i>All AI</span></div>
+      </div>
+      <svg id="seg-svg" viewBox="0 0 760 260" role="img" aria-label="Median EV to LTM revenue by AI segment"></svg>
+      <div class="trend-note">Medians of the included companies in each segment. Updates with Refresh.</div>
+    </div>
+
+    <div class="methodology">
+      <div class="method-label">Public Comps Methodology</div>
+      <p><strong>Universe.</strong> US-listed AI-native companies covered by our live price feed, grouped into two segments: AI Platforms &amp; Infrastructure (Palantir, CoreWeave, C3.ai, BigBear.ai) and AI Applications (UiPath, SoundHound AI, Tempus AI). Software companies adding AI features are covered on the Software page.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 18, 2026. Click Refresh to pull current share prices and market caps for all 7 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x.</p>
+      <p><strong>EV / Revenue over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, net debt (total debt less cash and short-term investments) and LTM revenue from SEC filings for the latest fiscal quarter ended on or before that date, for all 7 companies (CoreWeave from Q1 2025, after its IPO). The final point is today's live value.</p>
+      <p><strong>Growth and Rule of 40.</strong> Growth is LTM revenue growth year over year. Rule of 40 is growth plus LTM EBITDA margin.</p>
+      <div class="updated" id="public-updated">Figures as of November 18, 2026. Refresh updates all 7 companies.</div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-block-text">
+      <div class="cta-block-eyebrow">Work with Us</div>
+      <h3>Advising founders and investors in AI.</h3>
+      <p>Sell-side, buy-side, and growth capital mandates for AI-native companies, from AI applications and agents to infrastructure.</p>
+    </div>
+    <a href="/#contact" class="cta-btn">Contact HRC →</a>
+  </div>
+
+
+</div>
+</div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Harbor Ridge Capital</div>
+        <p class="footer-tagline">M&amp;A advisory for founder-owned software, cybersecurity, and tech-enabled services companies.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Site</h5>
+        <ul>
+          <li><a href="/index.html#services">Services</a></li>
+          <li><a href="/index.html#focus">Focus</a></li>
+          <li><a href="/index.html#transactions">Transactions</a></li>
+          <li><a href="/index.html#insights">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/harbor-ridge-capital-llc/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="/index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-compliance">
+      Securities products and investment banking services are offered through <a href="http://www.basecuritiesllc.com/" target="_blank" rel="noopener">BA Securities, LLC</a>. Member <a href="http://www.finra.org/" target="_blank" rel="noopener">FINRA</a> / <a href="http://www.sipc.org/" target="_blank" rel="noopener">SIPC</a>. Harbor Ridge Capital and BA Securities, LLC are separate, unaffiliated entities. Past performance, awards, or testimonials are not indicative of future results. No guarantee of future performance or success is implied.
+      <div class="footer-bottom">
+        <span>&copy; 2026 Harbor Ridge Capital. All rights reserved.</span>
+        <span>Los Angeles, California</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============ PRIVATE DATA ============
+const DEALS = [
+  {date:"2026-11-05", target:"Level AI", acquirer:"Five9", buyer_type:"Strategic", ev:325.0, rev:20, ev_rev:16.3, ebitda:null, ev_ebitda:null, vertical:"Contact Center AI", categories:["AI Applications"], desc:"All-cash deal for about $325M. Multiple on roughly $20M of ARR as of October 31, growing about 50%. Rationale: Five9 gets AI-native CX apps it can sell to enterprises still on-premises or on other contact center platforms.", url:"https://www.sec.gov/Archives/edgar/data/0001288847/000128884726000141/projectlanderpressreleas.htm", included:true},
+  {date:"2026-11-02", target:"Cresta", acquirer:"Salesforce", buyer_type:"Strategic", ev:2700.0, rev:100, ev_rev:27.0, ebitda:null, ev_ebitda:null, vertical:"Contact Center AI", categories:["AI Applications"], desc:"Price not disclosed by Salesforce; reported at about $2.7B. Multiple on company-reported ARR of about $100M. Rationale: Salesforce adds voice agents and real-time agent coaching to Service Cloud.", url:"https://www.salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-cresta/", included:true},
+  {date:"2026-09-30", target:"Listen Labs", acquirer:"Salesforce", buyer_type:"Strategic", ev:2000.0, rev:30, ev_rev:66.7, ebitda:null, ev_ebitda:null, vertical:"AI Customer Research", categories:["AI Applications"], desc:"Price not disclosed; reported at about $2B, four times its $500M Series B valuation eight months earlier. Multiple on annualized revenue of about $30M. Rationale: Salesforce adds AI agents that run and synthesize customer interviews at scale.", url:"https://techstrong.ai/agentic-ai/salesforce-acquires-ai-research-startup-listen-labs-in-2-billion-deal", included:true},
+  {date:"2026-08-27", target:"Hugging Face", acquirer:"NVIDIA", buyer_type:"Strategic", ev:12930.0, rev:150, ev_rev:86.2, ebitda:null, ev_ebitda:null, vertical:"Open-Source AI Model Platform", categories:["AI Infrastructure & Developer Tools"], desc:"About $12.9B headline value including up to $1B of employee retention equity. Multiple on reported annualized revenue of about $150M. Rationale: NVIDIA takes control of the main hub for open-source models and datasets to anchor its open-model strategy.", url:"https://www.adweek.com/dealroom/nvidia-confirms-purchase-of-hugging-face-for-nearly-13-billion/", included:true},
+  {date:"2026-08-19", target:"OpenRouter", acquirer:"Stripe", buyer_type:"Strategic", ev:7500.0, rev:140, ev_rev:53.6, ebitda:null, ev_ebitda:null, vertical:"AI Model Routing &amp; Billing", categories:["AI Infrastructure & Developer Tools"], desc:"Price not disclosed; reported at about $7.5B, mostly in stock. Multiple on reported annualized revenue of about $140M as of July 2026. Rationale: Stripe adds the routing and metering layer between apps and AI models to its billing stack.", url:"https://siliconangle.com/2026/08/19/stripe-buys-ai-model-router-openrouter-in-reported-7-5b-deal/", included:true},
+  {date:"2026-06-16", target:"Cursor (Anysphere)", acquirer:"SpaceX", buyer_type:"Strategic", ev:60000.0, rev:null, ev_rev:23.1, ebitda:null, ev_ebitda:null, vertical:"AI Coding Platform", categories:["AI Infrastructure & Developer Tools"], desc:"About 23x implied ARR. Multiple on ARR. Rationale: buyer secures a leading AI coding assistant as AI developer tools consolidate.", url:"https://pulse2.com/spacex-to-acquire-cursor-in-stock-deal-valuing-ai-coding-startup-at-60-billion/", included:true},
+  {date:"2026-06-15", target:"Fin (formerly Intercom)", acquirer:"Salesforce", buyer_type:"Strategic", ev:3600.0, rev:null, ev_rev:9.5, ebitda:null, ev_ebitda:null, vertical:"AI Customer Service Platform", categories:["AI Applications"], desc:"About 9.5x LTM revenue. Rationale: Salesforce adds an AI-agent-first customer service platform to strengthen Agentforce in service.", url:"https://www.salesforce.com/news/press-releases/2026/06/15/salesforce-signs-definitive-agreement-to-acquire-fin", included:true},
+  {date:"2025-03-10", target:"Moveworks", acquirer:"ServiceNow", buyer_type:"Strategic", ev:2850.0, rev:100, ev_rev:28.5, ebitda:null, ev_ebitda:null, vertical:"Enterprise AI Assistants &amp; Agents", categories:["AI Applications"], desc:"$2.85B in cash and stock. Multiple on annual recurring revenue of just over $100M. Rationale: ServiceNow adds an AI assistant and enterprise search front end across IT, HR and finance workflows.", url:"https://fortune.com/2025/03/10/servicenow-buys-ai-agent-company-moveworks-for-2-85-billion/", included:true},
+];
+
+// ============ PUBLIC COMPS ============
+// US-listed AI companies, two segments. US$ millions, as of Nov 18, 2026.
+// growth = LTM revenue growth YoY (%); margin = LTM EBITDA margin (%); r40 = growth + margin. included:false = shown but excluded from averages.
+// rev = EV / EV-Rev multiple; ebitda = rev x margin; net_debt = EV - market cap. ev_ebitda null = n/m (negative EBITDA or above 100x).
+// live:true: Refresh pulls price and market cap from /api/quotes?set=ai and recomputes EV = market cap + net_debt.
+const PUBLIC = [
+  {name:"Palantir", ticker:"PLTR", segment:"AI Platforms &amp; Infrastructure", ev:363600, ev_rev:49.9, ev_ebitda:null, growth:87.1, margin:46.0, rev:7288, ebitda:3355, net_debt:-10600, live:true, included:true},
+  {name:"CoreWeave", ticker:"CRWV", segment:"AI Platforms &amp; Infrastructure", ev:69300, ev_rev:7.0, ev_ebitda:13.4, growth:129.6, margin:52.3, rev:9886, ebitda:5174, net_debt:42700, live:true, included:true},
+  {name:"C3.ai", ticker:"AI", segment:"AI Platforms &amp; Infrastructure", ev:949, ev_rev:4.1, ev_ebitda:null, growth:-37.5, margin:-197.3, rev:232, ebitda:-458, net_debt:-651, live:true, included:true},
+  {name:"BigBear.ai", ticker:"BBAI", segment:"AI Platforms &amp; Infrastructure", ev:796, ev_rev:5.6, ev_ebitda:null, growth:-1.5, margin:-146.8, rev:142, ebitda:-209, net_debt:-60, live:true, included:true},
+  {name:"UiPath", ticker:"PATH", segment:"AI Applications", ev:4900, ev_rev:2.9, ev_ebitda:27.6, growth:15.0, margin:10.4, rev:1721, ebitda:179, net_debt:-1300, live:true, included:true},
+  {name:"SoundHound AI", ticker:"SOUN", segment:"AI Applications", ev:1300, ev_rev:5.7, ev_ebitda:null, growth:50.7, margin:-26.0, rev:224, ebitda:-58, net_debt:-208, live:true, included:true},
+  {name:"Tempus AI", ticker:"TEM", segment:"AI Applications", ev:12400, ev_rev:8.2, ev_ebitda:null, growth:36.6, margin:-16.5, rev:1509, ebitda:-249, net_debt:756, live:true, included:true},
+];
+PUBLIC.forEach(c => { c.r40 = (c.growth === null || c.margin === null) ? null : Math.round(c.growth + c.margin); });
+
+// ============ STATE ============
+let activeFilter = "all";
+let sortKey = "date";
+let sortDir = -1;
+let searchQuery = "";
+
+// ============ HELPERS ============
+function fmtMoney(v) {
+  if (v === null || v === undefined) return '<span class="na">—</span>';
+  if (v >= 1000) return "$" + (v/1000).toFixed(v >= 10000 ? 1 : 2) + "B";
+  return "$" + v.toFixed(1) + "M";
+}
+function fmtMult(v) {
+  if (v === null || v === undefined) return '<span class="na">—</span>';
+  return v.toFixed(1) + "x";
+}
+function fmtPct(v) {
+  if (v === null || v === undefined) return '<span class="na">—</span>';
+  return v.toFixed(1) + "%";
+}
+function fmtDate(d) {
+  const [y,m,day] = d.split("-");
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return months[parseInt(m)-1] + " " + parseInt(day) + ", " + y;
+}
+
+function matchesFilter(deal) {
+  if (activeFilter === "all") return true;
+  return deal.categories.includes(activeFilter);
+}
+function matchesSearch(deal) {
+  if (!searchQuery) return true;
+  const q = searchQuery.toLowerCase();
+  return deal.target.toLowerCase().includes(q) || deal.acquirer.toLowerCase().includes(q) || deal.vertical.toLowerCase().includes(q);
+}
+
+function sortDeals(rows) {
+  return [...rows].sort((a,b) => {
+    let av = a[sortKey], bv = b[sortKey];
+    if (av === null || av === undefined) av = sortDir === 1 ? Infinity : -Infinity;
+    if (bv === null || bv === undefined) bv = sortDir === 1 ? Infinity : -Infinity;
+    if (typeof av === "string") return sortDir * av.localeCompare(bv);
+    return sortDir * (av - bv);
+  });
+}
+
+// ============ SPARKLINES ============
+// Monthly rolling median EV/Rev and EV/EBITDA over 2022-2026
+function sparkline(id, data, color) {
+  const w = 110, h = 28, pad = 2;
+  const min = Math.min(...data), max = Math.max(...data);
+  const range = max - min || 1;
+  const pts = data.map((v, i) => {
+    const x = pad + (i / (data.length - 1)) * (w - pad*2);
+    const y = h - pad - ((v - min) / range) * (h - pad*2);
+    return x.toFixed(1) + "," + y.toFixed(1);
+  }).join(" ");
+  const last = data[data.length - 1];
+  const lastX = pad + (w - pad*2);
+  const lastY = h - pad - ((last - min) / range) * (h - pad*2);
+  const svg = `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+    <polyline fill="none" stroke="${color}" stroke-width="1.2" points="${pts}"/>
+    <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="2.2" fill="${color}"/>
+  </svg>`;
+  document.getElementById(id).innerHTML = svg;
+}
+
+// ============ SUB-VERTICAL CARDS ============
+function computeSubCards() {
+  const buckets = [
+    {key:"AI Applications", label:"AI Applications"},
+    {key:"AI Infrastructure & Developer Tools", label:"AI Infrastructure &amp; Developer Tools"},
+  ];
+  const html = buckets.map(b => {
+    const rows = DEALS.filter(d => d.included && d.categories.includes(b.key));
+    if (rows.length < 3) return "";
+    const m = rows.filter(d => !d.mult_excl && d.ev_rev != null).map(d => d.ev_rev);
+    return `<div class="sub-card">
+      <div class="sc-label">${b.label}</div>
+      <div class="sc-val">${m.length ? round1(medOf(m)).toFixed(1) + "x" : "n/a"} <span style="font-size:13px;color:var(--ink-soft);font-family:'IBM Plex Sans',sans-serif;font-weight:400;">median EV / Rev</span></div>
+      <div class="sc-sub">${rows.length} deal${rows.length===1?'':'s'}</div>
+    </div>`;
+  }).filter(Boolean).slice(0, 4).join("");
+  document.getElementById("sub-cards").innerHTML = html;
+}
+
+// ============ RENDER PRIVATE ============
+function renderPrivate() {
+  const filtered = DEALS.filter(d => matchesFilter(d) && matchesSearch(d));
+  const sorted = sortDeals(filtered);
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = sorted.map(d => {
+    const linkCell = d.url ? `<a href="${d.url}" target="_blank" rel="noopener" title="Press release">↗</a>` : '';
+    const excluded = d.included ? '' : `<span class="excluded-tag">Excl.</span>`;
+    return `
+      <tr class="${d.included ? '' : 'excluded'}">
+        <td class="date">${fmtDate(d.date)}</td>
+        <td class="target">${d.target}${excluded}</td>
+        <td class="acquirer">${d.acquirer}</td>
+        <td>${d.buyer_type}</td>
+        <td>${d.vertical}</td>
+        <td class="num">${fmtMoney(d.ev)}</td>
+        <td class="num multiple">${fmtMult(d.ev_rev)}</td>
+        <td class="num multiple">${fmtMult(d.ev_ebitda)}</td>
+        <td class="desc">${d.desc}</td>
+        <td class="link">${linkCell}</td>
+      </tr>
+    `;
+  }).join("");
+  document.getElementById("result-count").textContent = `Showing ${sorted.length} of ${DEALS.length}`;
+  renderPrivateStats(sorted);
+}
+
+// ============ RENDER PUBLIC ============
+function renderPublic() {
+  const tbody = document.getElementById("public-tbody");
+  const q = (document.getElementById("public-search").value || "").toLowerCase();
+  const rows = PUBLIC.filter(c => (publicFilter === "all" || c.segment.replace(/&amp;/g, "&") === publicFilter) && (!q || c.name.toLowerCase().includes(q) || c.ticker.toLowerCase().includes(q)));
+  tbody.innerHTML = rows.map(c => {
+    const r40Class = c.r40 === null ? '' : (c.r40 >= 40 ? 'r40-pos' : (c.r40 < 20 ? 'r40-neg' : ''));
+    const excl = c.included ? '' : '<span class="excluded-tag">Excl.</span>';
+    return `
+      <tr class="${c.included ? '' : 'excluded'}">
+        <td class="ticker">${c.name}${excl}<div class="company-name">${c.ticker}</div></td>
+        <td>${c.segment}</td>
+        <td class="num">${fmtMoney(c.ev)}</td>
+        <td class="num multiple">${fmtMult(c.ev_rev)}</td>
+        <td class="num multiple">${c.ev_ebitda == null ? '<span class="na">n/m</span>' : fmtMult(c.ev_ebitda)}</td>
+        <td class="num">${fmtPct(c.growth)}</td>
+        <td class="num">${fmtPct(c.margin)}</td>
+        <td class="num ${r40Class}" style="font-weight:500;">${c.r40 === null ? '<span class="na">—</span>' : c.r40}</td>
+      </tr>
+    `;
+  }).join("");
+  setText("public-result-count", rows.length + " compan" + (rows.length === 1 ? "y" : "ies"));
+}
+let publicFilter = "all";
+document.getElementById("public-search").addEventListener("input", renderPublic);
+document.querySelectorAll("#public-filters .chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll("#public-filters .chip").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    publicFilter = chip.dataset.pfilter;
+    renderPublic();
+  });
+});
+
+// ============ PUBLIC COMPS: LIVE REFRESH ============
+// Pulls current price and market cap for the live:true (US-listed) names from /api/quotes?set=ai.
+function fmtAsOfET(d) {
+  const date = d.toLocaleDateString("en-US", { timeZone: "America/New_York", month: "short", day: "numeric", year: "numeric" });
+  const time = d.toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" });
+  return "As of " + date + " · " + time + " ET";
+}
+// ============ EV / REVENUE HISTORY CHART ============
+// Quarter-end average and median EV / LTM revenue for the PUBLIC companies (CoreWeave from Q1 2025, after its IPO).
+// Each point: quarter-end close x diluted weighted-average shares + debt - cash (latest fiscal quarter ended on or
+// before the date), divided by LTM revenue (SEC XBRL). Data pull: comps-ops/history (raw-ai.json). Add a point each quarter.
+const EV_REV_HISTORY = [
+  {date:"2024-12-31", label:"Q4 '24", avg:31.97, med:9.63},
+  {date:"2025-03-31", label:"Q1 '25", avg:18.21, med:6.15},
+  {date:"2025-06-30", label:"Q2 '25", avg:27.32, med:12.57},
+  {date:"2025-09-30", label:"Q3 '25", avg:31.35, med:17.82},
+  {date:"2025-12-31", label:"Q4 '25", avg:24.41, med:10.50},
+  {date:"2026-03-31", label:"Q1 '26", avg:17.00, med:10.18},
+  {date:"2026-06-30", label:"Q2 '26", avg:13.98, med:11.12},
+  {date:"2026-09-30", label:"Q3 '26", avg:15.96, med:9.25},
+];
+
+function renderTrend() {
+  renderSegChart();
+  const svg = document.getElementById("trend-svg");
+  if (!svg || !PUBLIC.length) return;
+  const nowVals = PUBLIC.filter(c => c.included).map(c => c.ev / c.rev);
+  const pts = EV_REV_HISTORY.concat([{ label: "Now", avg: avgOf(nowVals), med: medOf(nowVals), live: true }]);
+  const W = 760, H = 260, L = 40, R = 44, T = 16, B = 30;
+  const all = pts.flatMap(p => [p.avg, p.med]);
+  const lo = Math.max(0, Math.floor(Math.min(...all)) - 1), hi = Math.ceil(Math.max(...all)) + 1;
+  const x = i => L + i * (W - L - R) / (pts.length - 1);
+  const y = v => T + (hi - v) * (H - T - B) / (hi - lo);
+  let g = "";
+  for (let v = lo; v <= hi; v += (hi - lo > 8 ? 2 : 1)) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}x</text>`;
+  }
+  pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle"${p.live ? ' style="font-weight:600;fill:#0c3b2e"' : ''}>${p.label}</text>`; });
+  const line = (key, color) => {
+    const d = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p[key]).toFixed(1)).join(" ");
+    let s = `<path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    pts.forEach((p, i) => { s += `<circle cx="${x(i)}" cy="${y(p[key])}" r="${p.live ? 4 : 3}" fill="${p.live ? color : 'white'}" stroke="${color}" stroke-width="2"><title>${p.label}: ${round1(p[key]).toFixed(1)}x ${key === "avg" ? "average" : "median"}</title></circle>`; });
+    const last = pts[pts.length - 1];
+    let ly = y(last[key]);
+    const gap = y(last.avg) - y(last.med);
+    if (Math.abs(gap) < 13) ly += (key === "avg" ? 1 : -1) * (gap >= 0 ? 1 : -1) * (13 - Math.abs(gap)) / 2;
+    s += `<text class="val" x="${x(pts.length - 1) + 8}" y="${ly + 4}" style="fill:${color}">${round1(last[key]).toFixed(1)}x</text>`;
+    return s;
+  };
+  svg.innerHTML = g + line("avg", "#c9a66b") + line("med", "#0c3b2e");
+}
+
+// ============ MEDIAN EV / REVENUE BY SEGMENT ============
+const SEGMENTS = ["AI Platforms &amp; Infrastructure", "AI Applications"];
+function renderSegChart() {
+  const svg = document.getElementById("seg-svg");
+  if (!svg || !PUBLIC.length) return;
+  const inc = PUBLIC.filter(c => c.included);
+  const bars = SEGMENTS.map(s => ({ label: s.replace(/&amp;/g, "&"), v: medOf(inc.filter(c => c.segment === s).map(c => c.ev_rev)) }));
+  const all = medOf(inc.map(c => c.ev_rev));
+  const W = 760, H = 260, L = 40, R = 20, T = 20, B = 40;
+  const hi = Math.ceil(Math.max(all, ...bars.map(b => b.v)) + 1);
+  const y = v => T + (hi - v) * (H - T - B) / hi;
+  const slot = (W - L - R) / bars.length, bw = slot * 0.5;
+  let g = "";
+  for (let v = 0; v <= hi; v += (hi > 12 ? 4 : 2)) {
+    g += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}x</text>`;
+  }
+  bars.forEach((b, i) => {
+    const x = L + i * slot + (slot - bw) / 2;
+    g += `<rect x="${x}" y="${y(b.v)}" width="${bw}" height="${y(0) - y(b.v)}" fill="#0c3b2e"><title>${b.label}: ${round1(b.v).toFixed(1)}x</title></rect>`;
+    g += `<text class="val" x="${x + bw / 2}" y="${y(b.v) - 6}" text-anchor="middle" style="fill:#0c3b2e">${round1(b.v).toFixed(1)}x</text>`;
+    g += `<text x="${x + bw / 2}" y="${H - 14}" text-anchor="middle">${b.label}</text>`;
+  });
+  g += `<line x1="${L}" x2="${W - R}" y1="${y(all)}" y2="${y(all)}" stroke="#c9a66b" stroke-width="2" stroke-dasharray="6 4"><title>All AI: ${round1(all).toFixed(1)}x</title></line>`;
+  svg.innerHTML = g;
+}
+
+async function refreshPublic() {
+  const btn = document.getElementById("public-refresh");
+  const msg = document.getElementById("public-refresh-msg");
+  btn.disabled = true; btn.textContent = "↻ Refreshing…"; msg.textContent = "";
+  try {
+    const res = await fetch("/api/quotes?set=ai", { headers: { "Accept": "application/json" } });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.quotes) throw new Error(data.error || "Live data unavailable");
+    const live = PUBLIC.filter(c => c.live);
+    let updated = 0;
+    live.forEach(c => {
+      const q = data.quotes[c.ticker];
+      if (!q) return;
+      c.price = q.price;
+      c.mcap = Math.round(q.mcap);
+      c.ev = Math.round(q.mcap + c.net_debt);
+      c.ev_rev = round1(c.ev / c.rev);
+      c.ev_ebitda = (c.ebitda > 0 && c.ev / c.ebitda <= 100) ? round1(c.ev / c.ebitda) : null;
+      updated++;
+    });
+    renderPublic();
+    computeHeadline();
+    renderTrend();
+    document.getElementById("public-as-of").textContent = fmtAsOfET(new Date(data.asOf));
+    const missing = live.length - updated;
+    if (missing) msg.textContent = missing + " ticker" + (missing === 1 ? "" : "s") + " not updated";
+  } catch (err) {
+    msg.textContent = "Couldn't refresh right now. Showing last saved figures.";
+  } finally {
+    btn.disabled = false; btn.textContent = "↻ Refresh";
+  }
+}
+document.getElementById("public-refresh").addEventListener("click", refreshPublic);
+
+// ============ CSV DOWNLOAD ============
+
+function downloadCSV(rows, filename) {
+  const csv = rows.map(r => r.map(v => {
+    if (v === null || v === undefined) return "";
+    const s = String(v);
+    return s.includes(",") || s.includes('"') ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }).join(",")).join("\n");
+  const blob = new Blob([csv], {type:"text/csv"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+}
+
+document.getElementById("public-csv").addEventListener("click", e => {
+  e.preventDefault();
+  const header = ["Company","Ticker","Segment","EV ($M)","EV/Rev","EV/EBITDA","Growth YoY %","EBITDA Margin %","Rule of 40","Included"];
+  const rows = [header, ...PUBLIC.map(c => [c.name.replace(/&amp;/g, "&"), c.ticker, c.segment.replace(/&amp;/g, "&"), c.ev, c.ev_rev, c.ev_ebitda, c.growth, c.margin, c.r40, c.included ? "Yes" : "No"])];
+  downloadCSV(rows, "hrc-ai-public-comps.csv");
+});
+
+// ============ FILTERS ============
+document.querySelectorAll("#view-private .chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll("#view-private .chip").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    activeFilter = chip.dataset.filter;
+    renderPrivate();
+  });
+});
+
+// Search
+document.getElementById("search").addEventListener("input", e => {
+  searchQuery = e.target.value;
+  renderPrivate();
+});
+
+// Sort
+document.querySelectorAll("th[data-sort]").forEach(th => {
+  th.addEventListener("click", () => {
+    const k = th.dataset.sort;
+    if (k === sortKey) { sortDir *= -1; }
+    else { sortKey = k; sortDir = (k === "date" || k.startsWith("ev")) ? -1 : 1; }
+    document.querySelectorAll("th[data-sort]").forEach(t => {
+      t.classList.remove("sorted");
+      const ind = t.querySelector(".sort-ind");
+      if (ind) ind.textContent = "⇅";
+    });
+    th.classList.add("sorted");
+    const ind = th.querySelector(".sort-ind");
+    if (ind) ind.textContent = sortDir === 1 ? "↑" : "↓";
+    renderPrivate();
+  });
+});
+
+// Mode toggle
+document.querySelectorAll(".mode-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".mode-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const mode = btn.dataset.mode;
+    document.getElementById("view-private").classList.toggle("hidden", mode !== "private");
+    document.getElementById("view-public").classList.toggle("hidden", mode !== "public");
+    history.replaceState(null, "", "#" + mode);
+  });
+});
+
+// URL hash handling
+if (location.hash === "#public") {
+  document.querySelector('[data-mode="public"]').click();
+}
+
+// ============ HEADLINE STATS & COUNTS (computed from DEALS / PUBLIC) ============
+// Everything below is derived from the data arrays, so adding or editing a deal
+// only requires changing DEALS (or PUBLIC). Static HTML values are fallbacks.
+function round1(v) { return Math.round(v * 10 + 1e-9) / 10; }
+function avgOf(a) { return a.reduce((x, y) => x + y, 0) / a.length; }
+function medOf(a) { const s = [...a].sort((x, y) => x - y), n = s.length; return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2; }
+function setText(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
+function computeHeadline() {
+  const n = DEALS.length;
+  const pe = DEALS.filter(d => d.buyer_type === "Private equity" || d.buyer_type === "PE-backed strategic").length;
+  const lab = DEALS.filter(d => d.buyer_type === "AI lab").length;
+  const disc = DEALS.filter(d => d.ev !== null && d.ev !== undefined).length;
+  setText("meta-count", n + " private transaction" + (n === 1 ? "" : "s"));
+  setText("priv-n", String(n));
+  setText("priv-pe", String(pe));
+  setText("priv-pe-desc", Math.round(pe / n * 100) + "% of deals tracked");
+  const mr = DEALS.filter(d => d.included && !d.mult_excl && d.ev_rev != null).map(d => d.ev_rev);
+  const me = DEALS.filter(d => d.included && !d.mult_excl && d.ev_ebitda != null).map(d => d.ev_ebitda);
+  setText("priv-med-rev", mr.length ? round1(medOf(mr)).toFixed(1) + "x" : "n/a");
+  setText("priv-med-rev-desc", mr.length + " deals with disclosed multiples");
+  setText("priv-med-ebitda", me.length ? round1(medOf(me)).toFixed(1) + "x" : "n/a");
+  setText("priv-med-ebitda-desc", me.length + " deal" + (me.length === 1 ? "" : "s") + " with disclosed EBITDA");
+  setText("private-count", n);
+  document.querySelectorAll("#view-private .chip").forEach(chip => {
+    const f = chip.dataset.filter;
+    const c = f === "all" ? n : DEALS.filter(d => d.categories.includes(f)).length;
+    const span = chip.querySelector(".count"); if (span) span.textContent = c;
+  });
+  const p = PUBLIC.length;
+  const pinc = PUBLIC.filter(c => c.included);
+  const pr40 = pinc.filter(c => c.r40 !== null);
+  setText("public-count", p);
+  setText("pub-constituents", "Public market, " + pinc.length + " constituents");
+  if (pinc.length) {
+    const pe = pinc.filter(c => c.ev_ebitda != null).map(c => c.ev_ebitda);
+    setText("pub-med-rev", round1(medOf(pinc.map(c => c.ev_rev))).toFixed(1) + "x");
+    setText("pub-med-ebitda", pe.length ? round1(medOf(pe)).toFixed(1) + "x" : "n/a");
+    setText("pub-ebitda-desc", pe.length + " companies with meaningful EBITDA");
+    setText("pub-avg-r40", String(Math.round(avgOf(pr40.map(c => c.growth + c.margin)) + 1e-9)));
+    setText("pub-med-growth", round1(medOf(pr40.map(c => c.growth))).toFixed(1) + "%");
+  }
+}
+
+
+
+// ============ STAT SPARKLINES (computed from DEALS) ============
+// Trailing 12-month average or median of a deal multiple at each of the last 6 calendar quarter-ends.
+function dealSpark(id, key, agg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const now = new Date();
+  let y = now.getFullYear(), q = Math.floor(now.getMonth() / 3);
+  const ends = [];
+  for (let i = 0; i < 6; i++) {
+    ends.unshift(new Date(Date.UTC(y, q * 3 + 3, 0)));
+    q--; if (q < 0) { q = 3; y--; }
+  }
+  const rows = DEALS.filter(d => d.included && !d.mult_excl && d[key] != null);
+  const vals = ends.map(e => {
+    const start = new Date(Date.UTC(e.getUTCFullYear() - 1, e.getUTCMonth(), e.getUTCDate()));
+    const v = rows.filter(d => { const t = new Date(d.date + "T00:00:00Z"); return t > start && t <= e; }).map(d => d[key]);
+    return v.length ? (agg === "avg" ? avgOf(v) : medOf(v)) : null;
+  });
+  const pts = vals.filter(v => v !== null);
+  if (pts.length < 2) { el.innerHTML = ""; return; }
+  sparkline(id, pts, "#c9a66b");
+}
+
+
+// ============ SEGMENT STATS (median and mean) ============
+function multStats(rows, key) {
+  const v = rows.filter(d => d.included && !d.mult_excl && d[key] != null).map(d => d[key]);
+  if (!v.length) return { med: null, mean: null, n: 0 };
+  return { med: medOf(v), mean: v.reduce((a, b) => a + b, 0) / v.length, n: v.length };
+}
+function fmtStat(x) { return x == null ? "n/a" : round1(x).toFixed(1) + "x"; }
+function renderPrivateStats(rows) {
+  const r = multStats(rows, "ev_rev"), e = multStats(rows, "ev_ebitda");
+  document.getElementById("tfoot").innerHTML = `
+    <tr><td class="lbl" colspan="6">Median (${rows.filter(d=>d.included).length} deal${rows.filter(d=>d.included).length===1?"":"s"})</td><td class="num">${fmtStat(r.med)}</td><td class="num">${fmtStat(e.med)}</td><td colspan="2"></td></tr>
+    <tr><td class="lbl" colspan="6">Mean</td><td class="num">${fmtStat(r.mean)}</td><td class="num">${fmtStat(e.mean)}</td><td colspan="2"></td></tr>`;
+}
+function renderSegSummary() {
+  const segs = [...document.querySelectorAll("#view-private .chip[data-filter]")].map(c => c.dataset.filter).filter(f => f !== "all" && f !== "Europe");
+  const line = (label, rows, cls) => {
+    const r = multStats(rows, "ev_rev"), e = multStats(rows, "ev_ebitda");
+    return `<tr class="${cls||""}"><td>${label}</td><td>${rows.length}</td><td>${fmtStat(r.med)}</td><td>${fmtStat(r.mean)}</td><td>${fmtStat(e.med)}</td><td>${fmtStat(e.mean)}</td></tr>`;
+  };
+  const body = segs.map(s => line(s.replace(/&/g, "&amp;"), DEALS.filter(d => d.included && d.categories.includes(s)))).join("")
+    + line("All deals", DEALS.filter(d => d.included), "all");
+  document.getElementById("seg-summary").innerHTML = `<div class="ss-label">Private multiples by segment</div>
+    <div class="table-wrap"><table><thead><tr><th>Segment</th><th>Deals</th><th>Median EV / Rev</th><th>Mean EV / Rev</th><th>Median EV / EBITDA</th><th>Mean EV / EBITDA</th></tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+// Initial render
+renderSegSummary();
+computeHeadline();
+computeSubCards();
+renderPrivate();
+renderPublic();
+renderTrend();
+
+// Sparklines under the multiples (trailing 12 months at each quarter-end)
+dealSpark("spark-med-rev", "ev_rev", "med");
+dealSpark("spark-med-ebitda", "ev_ebitda", "med");
+</script>
+<script src="/assets/js/nav.js" defer></script>
+<script src="/assets/js/subscribe.js" defer></script>
+</body>
+</html>

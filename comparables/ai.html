@@ -471,7 +471,7 @@
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> US-listed AI-native companies covered by our live price feed, grouped into two segments: AI Infrastructure &amp; Neoclouds (CoreWeave, Nebius, IREN, Cerebras) and AI Platforms &amp; Applications (Palantir, C3.ai, BigBear.ai, SoundHound AI, Tempus AI). Software companies adding AI features are covered on the Software page.</p>
-      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 18, 2026. Click Refresh to pull current share prices and market caps for all 9 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x. CoreWeave, Nebius and IREN use company-reported adjusted EBITDA; Cerebras EBITDA is not meaningful.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 18, 2026. Click Refresh to pull current share prices and market caps for all 9 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x. EBITDA is company-reported adjusted EBITDA for all companies except C3.ai, which reports non-GAAP operating loss instead; Cerebras EBITDA is not meaningful.</p>
       <p><strong>EV / Revenue over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, net debt (total debt less cash and short-term investments) and LTM revenue from SEC filings for the latest fiscal quarter ended on or before that date, for each company from its first quarter with comparable data (CoreWeave from Q1 2025 after its IPO, IREN from Q2 2025, Nebius from Q3 2025, Cerebras from Q2 2026 after its IPO); Nebius and Cerebras figures come from company earnings releases. The final point is today's live value.</p>
       <p><strong>Growth and Rule of 40.</strong> Growth is LTM revenue growth year over year. Rule of 40 is growth plus LTM EBITDA margin.</p>
       <div class="updated" id="public-updated">Figures as of November 18, 2026. Refresh updates all 9 companies.</div>
@@ -584,6 +584,8 @@ const DEALS = [
 
 // ============ PUBLIC COMPS ============
 // US-listed AI companies, two segments. US$ millions, as of Nov 18, 2026 (NBIS, IREN, CBRS added Nov 18 at Nov 17 closes; IREN market cap approximate).
+// PLTR, TEM, SOUN, BBAI: LTM to Sep 30 2026 company-reported adjusted EBITDA (PLTR 805+990+1,203+1,434; TEM 13-3+8+26; SOUN -7-27-10-21; BBAI -10-10-12-9).
+// AI (C3.ai): LTM to Jul 31 2026 non-GAAP operating loss (-42-63-54-36); company does not report adjusted EBITDA.
 // CRWV: LTM adjusted EBITDA = 898 (Q4 25) + 1,157 + 1,510 + 2,256 (Q1-Q3 26) = 5,821, per company releases.
 // NBIS: LTM to Sep 30 2026, adjusted EBITDA, net debt = 14,191 debt - 7,426 cash. IREN: LTM to Sep 30 2026 (FY Jun), adjusted EBITDA, net debt = 9,897 debt - 3,522 cash - 2,256 restricted cash.
 // CBRS: LTM to Sep 30 2026 revenue; growth = 9M YoY; EBITDA not meaningful (core adjusted EBITDA near zero), net cash incl. 4,286 investments.
@@ -595,11 +597,11 @@ const PUBLIC = [
   {name:"Nebius", ticker:"NBIS", segment:"AI Infrastructure &amp; Neoclouds", ev:37800, ev_rev:17.3, ev_ebitda:44.7, growth:549.2, margin:38.7, rev:2190, ebitda:847, net_debt:6800, live:true, included:true},
   {name:"IREN", ticker:"IREN", segment:"AI Infrastructure &amp; Neoclouds", ev:13000, ev_rev:18.7, ev_ebitda:59.2, growth:1.0, margin:31.7, rev:695, ebitda:220, net_debt:4119, live:true, included:true},
   {name:"Cerebras", ticker:"CBRS", segment:"AI Infrastructure &amp; Neoclouds", ev:18800, ev_rev:24.8, ev_ebitda:null, growth:72.6, margin:null, rev:756, ebitda:null, net_debt:-6500, live:true, included:true},
-  {name:"Palantir", ticker:"PLTR", segment:"AI Platforms &amp; Applications", ev:363600, ev_rev:49.9, ev_ebitda:null, growth:87.1, margin:46.0, rev:7288, ebitda:3355, net_debt:-10600, live:true, included:true},
-  {name:"C3.ai", ticker:"AI", segment:"AI Platforms &amp; Applications", ev:949, ev_rev:4.1, ev_ebitda:null, growth:-37.5, margin:-197.3, rev:232, ebitda:-458, net_debt:-651, live:true, included:true},
-  {name:"BigBear.ai", ticker:"BBAI", segment:"AI Platforms &amp; Applications", ev:796, ev_rev:5.6, ev_ebitda:null, growth:-1.5, margin:-146.8, rev:142, ebitda:-209, net_debt:-60, live:true, included:true},
-  {name:"SoundHound AI", ticker:"SOUN", segment:"AI Platforms &amp; Applications", ev:1300, ev_rev:5.7, ev_ebitda:null, growth:50.7, margin:-26.0, rev:224, ebitda:-58, net_debt:-208, live:true, included:true},
-  {name:"Tempus AI", ticker:"TEM", segment:"AI Platforms &amp; Applications", ev:12400, ev_rev:8.2, ev_ebitda:null, growth:36.6, margin:-16.5, rev:1509, ebitda:-249, net_debt:756, live:true, included:true},
+  {name:"Palantir", ticker:"PLTR", segment:"AI Platforms &amp; Applications", ev:363600, ev_rev:49.9, ev_ebitda:82.0, growth:87.1, margin:60.8, rev:7288, ebitda:4432, net_debt:-10600, live:true, included:true},
+  {name:"C3.ai", ticker:"AI", segment:"AI Platforms &amp; Applications", ev:949, ev_rev:4.1, ev_ebitda:null, growth:-37.5, margin:-84.4, rev:232, ebitda:-196, net_debt:-651, live:true, included:true},
+  {name:"BigBear.ai", ticker:"BBAI", segment:"AI Platforms &amp; Applications", ev:796, ev_rev:5.6, ev_ebitda:null, growth:-1.5, margin:-28.8, rev:142, ebitda:-41, net_debt:-60, live:true, included:true},
+  {name:"SoundHound AI", ticker:"SOUN", segment:"AI Platforms &amp; Applications", ev:1300, ev_rev:5.7, ev_ebitda:null, growth:50.7, margin:-28.8, rev:224, ebitda:-64, net_debt:-208, live:true, included:true},
+  {name:"Tempus AI", ticker:"TEM", segment:"AI Platforms &amp; Applications", ev:12400, ev_rev:8.2, ev_ebitda:null, growth:36.6, margin:2.9, rev:1509, ebitda:44, net_debt:756, live:true, included:true},
 ];
 PUBLIC.forEach(c => { c.r40 = (c.growth === null || c.margin === null) ? null : Math.round(c.growth + c.margin); });
 

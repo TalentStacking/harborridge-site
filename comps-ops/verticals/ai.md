@@ -12,13 +12,13 @@
 ## Fit rules
 US TARGETS ONLY: the target must be headquartered in the United States (the buyer can be anywhere). Skip any deal whose target is based outside the US, and list it in the report as "Non-US, not added".
 SCOPE: deals announced 2025 onward.
-MULTIPLES REQUIRED: add a deal ONLY if an EV / revenue (or EV / ARR) or EV / EBITDA multiple was disclosed, or can be computed from a disclosed enterprise value and a disclosed revenue, ARR or EBITDA figure. Deals without valuation data are NOT added; list them in the report as "No multiple, not added".
+PRICE REQUIRED (AI page only): add a deal if a deal value was disclosed or credibly reported. If revenue, ARR or EBITDA is also disclosed, fill the multiple. If not, set rev, ev_rev, ebitda, ev_ebitda to null and say "Revenue not disclosed, so no multiple." in the desc; the page shows it with no multiple and leaves it out of the medians. Deals with no price at all are not added; list them in the report as "No price, not added".
 FIT if the target is an AI-native company whose core product is AI: AI applications and agents (AI customer service, AI assistants, AI research and analytics), AI model platforms and routing, AI developer tools (AI coding), AI infrastructure and MLOps software.
 NOT a fit: software companies that merely add AI features (that is Software), AI services and consulting firms (that is Technology Services), chips and hardware, data centers and GPU clouds, venture rounds and minority stakes.
 
 ## Page placement
-- On the page: control acquisitions and take-privates with a disclosed or computable multiple.
-- Report only: everything else (minority stakes, venture rounds, deals without multiples).
+- On the page: control acquisitions and take-privates with a disclosed or reported price (with or without a multiple).
+- Report only: everything else (minority stakes, venture rounds, deals with no price).
 
 ## Page rules
 DEALS entry example:

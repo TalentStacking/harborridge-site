@@ -6,7 +6,7 @@
 
 <!-- ===== SEO ===== -->
 <title>AI Comparables — Harbor Ridge Capital</title>
-<meta name="description" content="Private M&amp;A transactions with disclosed multiples and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
+<meta name="description" content="Private M&amp;A transactions and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
 <meta name="author" content="Harbor Ridge Capital">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://www.harborridgecap.com/comparables/ai">
@@ -16,14 +16,14 @@
 <meta property="og:url" content="https://www.harborridgecap.com/comparables/ai">
 <meta property="og:site_name" content="Harbor Ridge Capital">
 <meta property="og:title" content="AI Comparables — Harbor Ridge Capital">
-<meta property="og:description" content="Private M&amp;A transactions with disclosed multiples and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
+<meta property="og:description" content="Private M&amp;A transactions and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
 <meta property="og:image" content="https://www.harborridgecap.com/assets/img/og-image.png">
 <meta property="og:locale" content="en_US">
 
 <!-- ===== Twitter Card ===== -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Comparables — Harbor Ridge Capital">
-<meta name="twitter:description" content="Private M&amp;A transactions with disclosed multiples and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
+<meta name="twitter:description" content="Private M&amp;A transactions and public market comps for AI-native companies: AI applications and agents, AI infrastructure and developer tools. Updated weekly.">
 <meta name="twitter:image" content="https://www.harborridgecap.com/assets/img/og-image.png">
 
 <!-- ===== Favicon ===== -->
@@ -36,7 +36,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "AI Transaction Comparables",
-  "description": "Private M&A transactions with disclosed valuation multiples and public market comps for AI-native companies.",
+  "description": "Private M&A transactions and public market comps for AI-native companies.",
   "publisher": {
     "@type": "Organization",
     "name": "Harbor Ridge Capital",
@@ -314,7 +314,7 @@
       <div class="stat">
         <div class="stat-label">Transactions Tracked</div>
         <div class="stat-num" id="priv-n">53</div>
-        <div class="stat-desc">Since 2025, US targets with disclosed multiples</div>
+        <div class="stat-desc">Since 2025, US targets</div>
       </div>
       <div class="stat">
         <div class="stat-label">PE &amp; PE-Backed Buyers</div>
@@ -378,8 +378,8 @@
     <!-- Methodology -->
     <div class="methodology">
       <div class="method-label">Methodology</div>
-      <p><strong>Universe.</strong> Private M&amp;A transactions of US-based AI-native companies (AI applications and agents, model platforms, AI infrastructure and developer tools) announced in 2025 and 2026, limited to deals where an enterprise value multiple of revenue, recurring revenue or EBITDA was disclosed or can be derived from disclosed figures. Deals without valuation data are not included.</p>
-      <p><strong>Multiples.</strong> Enterprise value divided by trailing revenue (EV / Rev) and EBITDA (EV / EBITDA). Where a deal was reported on annual recurring revenue or on current-year or next-year estimates, the basis is noted in the rationale. All deals in the table are included in the medians.</p>
+      <p><strong>Universe.</strong> Private M&amp;A transactions of US-based AI-native companies (AI applications and agents, model platforms, AI infrastructure and developer tools) announced in 2025 and 2026, where a deal value was disclosed or credibly reported. Deals with a price but no disclosed revenue or EBITDA are shown without a multiple and left out of the medians and averages.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by trailing revenue (EV / Rev) and EBITDA (EV / EBITDA). Where a deal was reported on annual recurring revenue or on current-year or next-year estimates, the basis is noted in the rationale. All deals with a multiple are included in the medians.</p>
       <p><strong>Dates.</strong> Where only the month of a transaction is known, the date is shown as the first of that month.</p>
       <p><strong>Buyer type.</strong> Strategic: corporate acquirers. Private equity: sponsor take-privates and platform investments. PE-backed strategic: acquisitions by sponsor-owned companies.</p>
       <div class="updated">Last updated: November 18, 2026</div>
@@ -532,11 +532,17 @@ const DEALS = [
   {date:"2026-11-05", target:"Level AI", acquirer:"Five9", buyer_type:"Strategic", ev:325.0, rev:20, ev_rev:16.3, ebitda:null, ev_ebitda:null, vertical:"Contact Center AI", categories:["AI Applications"], desc:"All-cash deal for about $325M. Multiple on roughly $20M of ARR as of October 31, growing about 50%. Rationale: Five9 gets AI-native CX apps it can sell to enterprises still on-premises or on other contact center platforms.", url:"https://www.sec.gov/Archives/edgar/data/0001288847/000128884726000141/projectlanderpressreleas.htm", included:true},
   {date:"2026-11-02", target:"Cresta", acquirer:"Salesforce", buyer_type:"Strategic", ev:2700.0, rev:100, ev_rev:27.0, ebitda:null, ev_ebitda:null, vertical:"Contact Center AI", categories:["AI Applications"], desc:"Price not disclosed by Salesforce; reported at about $2.7B. Multiple on company-reported ARR of about $100M. Rationale: Salesforce adds voice agents and real-time agent coaching to Service Cloud.", url:"https://www.salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-cresta/", included:true},
   {date:"2026-09-30", target:"Listen Labs", acquirer:"Salesforce", buyer_type:"Strategic", ev:2000.0, rev:30, ev_rev:66.7, ebitda:null, ev_ebitda:null, vertical:"AI Customer Research", categories:["AI Applications"], desc:"Price not disclosed; reported at about $2B, four times its $500M Series B valuation eight months earlier. Multiple on annualized revenue of about $30M. Rationale: Salesforce adds AI agents that run and synthesize customer interviews at scale.", url:"https://techstrong.ai/agentic-ai/salesforce-acquires-ai-research-startup-listen-labs-in-2-billion-deal", included:true},
+  {date:"2026-09-28", target:"World Labs", acquirer:"AMD", buyer_type:"Strategic", ev:8200.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"Spatial AI Models", categories:["AI Infrastructure & Developer Tools"], desc:"All-stock deal valued at about $8.2B. Revenue not disclosed, so no multiple. Rationale: AMD adds a frontier model research team led by Fei-Fei Li to shape its AI hardware and software roadmap.", url:"https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute", included:true},
   {date:"2026-08-27", target:"Hugging Face", acquirer:"NVIDIA", buyer_type:"Strategic", ev:12930.0, rev:150, ev_rev:86.2, ebitda:null, ev_ebitda:null, vertical:"Open-Source AI Model Platform", categories:["AI Infrastructure & Developer Tools"], desc:"About $12.9B headline value including up to $1B of employee retention equity. Multiple on reported annualized revenue of about $150M. Rationale: NVIDIA takes control of the main hub for open-source models and datasets to anchor its open-model strategy.", url:"https://www.adweek.com/dealroom/nvidia-confirms-purchase-of-hugging-face-for-nearly-13-billion/", included:true},
   {date:"2026-08-19", target:"OpenRouter", acquirer:"Stripe", buyer_type:"Strategic", ev:7500.0, rev:140, ev_rev:53.6, ebitda:null, ev_ebitda:null, vertical:"AI Model Routing &amp; Billing", categories:["AI Infrastructure & Developer Tools"], desc:"Price not disclosed; reported at about $7.5B, mostly in stock. Multiple on reported annualized revenue of about $140M as of July 2026. Rationale: Stripe adds the routing and metering layer between apps and AI models to its billing stack.", url:"https://siliconangle.com/2026/08/19/stripe-buys-ai-model-router-openrouter-in-reported-7-5b-deal/", included:true},
+  {date:"2026-08-13", target:"Arize", acquirer:"Dynatrace", buyer_type:"Strategic", ev:915.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Observability &amp; Evaluation", categories:["AI Infrastructure & Developer Tools"], desc:"$915M in cash and stock, including about $815M in cash. Revenue not disclosed, so no multiple. Rationale: Dynatrace adds AI evaluation and agent observability to its monitoring platform.", url:"https://www.dynatrace.com/news/press-release/dynatrace-to-acquire-arize/", included:true},
+  {date:"2026-07-30", target:"Anyscale", acquirer:"Nscale", buyer_type:"Strategic", ev:1650.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Compute Orchestration (Ray)", categories:["AI Infrastructure & Developer Tools"], desc:"Price not disclosed; reported at about $1.65B. Revenue not disclosed, so no multiple. Rationale: Nscale moves up from GPU capacity into the software layer that runs AI training and inference workloads.", url:"https://www.nscale.com/press-releases/nscale-acquires-anyscale", included:true},
+  {date:"2026-06-24", target:"Modular", acquirer:"Qualcomm", buyer_type:"Strategic", ev:3920.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Inference Software", categories:["AI Infrastructure & Developer Tools"], desc:"All-stock deal of up to 19.2M Qualcomm shares, valued at about $3.92B. Revenue not disclosed, so no multiple. Rationale: Qualcomm gets a hardware-neutral AI software stack to compete with Nvidia CUDA in the data center.", url:"https://www.qualcomm.com/news/releases/2026/06/qualcomm-to-acquire-modular", included:true},
   {date:"2026-06-16", target:"Cursor (Anysphere)", acquirer:"SpaceX", buyer_type:"Strategic", ev:60000.0, rev:null, ev_rev:23.1, ebitda:null, ev_ebitda:null, vertical:"AI Coding Platform", categories:["AI Infrastructure & Developer Tools"], desc:"About 23x implied ARR. Multiple on ARR. Rationale: buyer secures a leading AI coding assistant as AI developer tools consolidate.", url:"https://pulse2.com/spacex-to-acquire-cursor-in-stock-deal-valuing-ai-coding-startup-at-60-billion/", included:true},
   {date:"2026-06-15", target:"Fin (formerly Intercom)", acquirer:"Salesforce", buyer_type:"Strategic", ev:3600.0, rev:null, ev_rev:9.5, ebitda:null, ev_ebitda:null, vertical:"AI Customer Service Platform", categories:["AI Applications"], desc:"About 9.5x LTM revenue. Rationale: Salesforce adds an AI-agent-first customer service platform to strengthen Agentforce in service.", url:"https://www.salesforce.com/news/press-releases/2026/06/15/salesforce-signs-definitive-agreement-to-acquire-fin", included:true},
+  {date:"2026-05-28", target:"StackAI", acquirer:"Asana", buyer_type:"Strategic", ev:75.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"No-Code AI Agent Builder", categories:["AI Applications"], desc:"About $75M per Asana filing. Revenue not disclosed, so no multiple. Rationale: Asana adds agents that run workflows across ERP, CRM and ITSM systems to its human-agent work platform.", url:"https://www.businesswire.com/news/home/20260528515345/en/", included:true},
   {date:"2025-03-10", target:"Moveworks", acquirer:"ServiceNow", buyer_type:"Strategic", ev:2850.0, rev:100, ev_rev:28.5, ebitda:null, ev_ebitda:null, vertical:"Enterprise AI Assistants &amp; Agents", categories:["AI Applications"], desc:"$2.85B in cash and stock. Multiple on annual recurring revenue of just over $100M. Rationale: ServiceNow adds an AI assistant and enterprise search front end across IT, HR and finance workflows.", url:"https://fortune.com/2025/03/10/servicenow-buys-ai-agent-company-moveworks-for-2-85-billion/", included:true},
+  {date:"2025-03-04", target:"Weights &amp; Biases", acquirer:"CoreWeave", buyer_type:"Strategic", ev:1700.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Developer Platform", categories:["AI Infrastructure & Developer Tools"], desc:"Price not disclosed; reported at about $1.7B. No current revenue disclosed, so no multiple. Rationale: CoreWeave pairs its AI cloud with the leading model training and evaluation platform.", url:"https://coreweave.com/blog/coreweave-to-acquire-weights-biases---industry-leading-ai-developer-platform-for-building-and-deploying-ai-applications", included:true}
 ];
 
 // ============ PUBLIC COMPS ============
@@ -968,7 +974,7 @@ function fmtStat(x) { return x == null ? "n/a" : round1(x).toFixed(1) + "x"; }
 function renderPrivateStats(rows) {
   const r = multStats(rows, "ev_rev"), e = multStats(rows, "ev_ebitda");
   document.getElementById("tfoot").innerHTML = `
-    <tr><td class="lbl" colspan="6">Median (${rows.filter(d=>d.included).length} deal${rows.filter(d=>d.included).length===1?"":"s"})</td><td class="num">${fmtStat(r.med)}</td><td class="num">${fmtStat(e.med)}</td><td colspan="2"></td></tr>
+    <tr><td class="lbl" colspan="6">Median (${Math.max(r.n,e.n)} deal${Math.max(r.n,e.n)===1?"":"s"} with multiples)</td><td class="num">${fmtStat(r.med)}</td><td class="num">${fmtStat(e.med)}</td><td colspan="2"></td></tr>
     <tr><td class="lbl" colspan="6">Mean</td><td class="num">${fmtStat(r.mean)}</td><td class="num">${fmtStat(e.mean)}</td><td colspan="2"></td></tr>`;
 }
 function renderSegSummary() {

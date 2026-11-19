@@ -17,7 +17,7 @@ const SETS = {
   software: ["CRM", "NOW", "WDAY", "ADBE", "TEAM", "SNOW", "DDOG", "MDB", "DT", "GTLB",
              "CRWD", "ZS", "OKTA", "QLYS", "RBRK", "VEEV", "APPF", "PCOR", "TTAN", "WAY",
              "HUBS", "SHOP", "PAYC", "PCTY", "KVYO"],
-  ai: ["PLTR", "CRWV", "NBIS", "IREN", "CBRS", "AI", "BBAI", "SOUN", "TEM"],
+  ai: ["SPCX", "ANT", "PLTR", "CRWV", "NBIS", "IREN", "CBRS", "AI", "BBAI", "SOUN", "TEM"],
 };
 
 function json(body, status, cacheSeconds) {

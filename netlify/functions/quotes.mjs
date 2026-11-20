@@ -14,7 +14,7 @@ const SETS = {
   compliance: ["ULS", "LDOS", "CACI", "PSN", "SAIC", "KTOS"],
   techservices: ["ACN", "CTSH", "G", "EPAM", "GLOB", "GDYN"],
   // 25 tickers = 50 Finnhub calls per uncached request, under the 60/minute free-tier limit.
-  software: ["CRM", "NOW", "WDAY", "ADBE", "TEAM", "SNOW", "DDOG", "MDB", "DT", "GTLB",
+  software: ["BSP", "CRM", "NOW", "WDAY", "ADBE", "TEAM", "SNOW", "DDOG", "MDB", "DT", "GTLB",
              "CRWD", "ZS", "OKTA", "QLYS", "RBRK", "VEEV", "APPF", "PCOR", "TTAN", "WAY",
              "HUBS", "SHOP", "PAYC", "PCTY", "KVYO"],
   ai: ["SPCX", "ANT", "PLTR", "CRWV", "NBIS", "IREN", "CBRS", "AI", "BBAI", "SOUN", "TEM"],

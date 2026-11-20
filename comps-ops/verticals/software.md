@@ -32,4 +32,4 @@ categories (only these five, one per deal): "Enterprise Applications", "Infrastr
 Dates: announcement date; if only the month is known, use the first of that month.
 Write "&amp;" for "&" inside vertical, acquirer and desc text.
 Methodology line format: "Last updated: <Month D, YYYY>".
-Hub card stat line: "<N> private deals · 25 public comps · <X.X>x median private EV/Rev" (median over all deals with ev_rev).
+Hub card stat line: "<N> private deals · 26 public comps · <X.X>x median private EV/Rev" (median over all deals with ev_rev).

@@ -429,7 +429,7 @@
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search company..." id="public-search">
-      <span class="result-count" id="public-result-count">25 companies</span>
+      <span class="result-count" id="public-result-count">26 companies</span>
       <span class="as-of" id="public-as-of">As of Nov 17, 2026</span>
       <button type="button" class="refresh-btn" id="public-refresh" title="Pull current prices and market caps for US-listed names">↻ Refresh</button>
       <span class="refresh-msg" id="public-refresh-msg" role="status"></span>
@@ -461,7 +461,7 @@
         <div class="trend-legend"><span><i style="background:#c9a66b"></i>Average</span><span><i style="background:#0c3b2e"></i>Median</span></div>
       </div>
       <svg id="trend-svg" viewBox="0 0 760 260" role="img" aria-label="Average and median EV to LTM revenue by quarter for the public software comps"></svg>
-      <div class="trend-note">Quarter-end values for all 25 companies, using LTM revenue and net debt from SEC filings for the latest fiscal quarter ended on or before each date. The final point is live and updates with Refresh.</div>
+      <div class="trend-note">Quarter-end values for the 25 companies listed throughout the period (Bending Spoons joins from Q4 2026), using LTM revenue and net debt from SEC filings for the latest fiscal quarter ended on or before each date. The final point is live and updates with Refresh.</div>
     </div>
 
     <div class="trend" id="seg-trend">
@@ -476,10 +476,10 @@
     <div class="methodology">
       <div class="method-label">Public Comps Methodology</div>
       <p><strong>Universe.</strong> US-listed software companies covered by our live price feed, grouped into five segments: Enterprise Applications (Salesforce, ServiceNow, Workday, Adobe, Atlassian), Infrastructure &amp; Data (Snowflake, Datadog, MongoDB, Dynatrace, GitLab), Cybersecurity (CrowdStrike, Zscaler, Okta, Qualys, Rubrik), Vertical Software (Veeva, AppFolio, Procore, ServiceTitan, Waystar) and SMB/Consumer (HubSpot, Shopify, Paycom, Paylocity, Klaviyo). Contact center and communications software is covered on the CCaaS &amp; UCaaS page.</p>
-      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 17, 2026. Click Refresh to pull current share prices and market caps for all 25 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x.</p>
+      <p><strong>Multiples.</strong> Enterprise value divided by LTM revenue and LTM EBITDA, in US$ millions, as of November 17, 2026. Click Refresh to pull current share prices and market caps for all 26 companies; EV is recalculated holding net debt constant, and the multiples are recomputed against the same LTM financials. EV / EBITDA is shown as n/m where EBITDA is negative or the multiple exceeds 100x.</p>
       <p><strong>EV / Revenue over time.</strong> Each quarterly point uses that quarter-end closing price, diluted weighted-average shares, net debt (total debt less cash and short-term investments) and LTM revenue from SEC filings for the latest fiscal quarter ended on or before that date, for all 25 companies. The final point is today's live value.</p>
       <p><strong>Growth and Rule of 40.</strong> Growth is LTM revenue growth year over year. Rule of 40 is growth plus LTM EBITDA margin.</p>
-      <div class="updated" id="public-updated">Figures as of November 17, 2026. Refresh updates all 25 companies.</div>
+      <div class="updated" id="public-updated">Figures as of November 17, 2026. Refresh updates all 26 companies.</div>
     </div>
 
   </div>
@@ -601,6 +601,7 @@ const DEALS = [
 // growth = LTM revenue growth YoY (%); margin = LTM EBITDA margin (%); r40 = growth + margin. included:false = shown but excluded from averages.
 // rev = EV / EV-Rev multiple; ebitda = rev x margin; net_debt = EV - market cap. ev_ebitda null = n/m (negative EBITDA or above 100x).
 // live:true: Refresh pulls price and market cap from /api/quotes?set=software and recomputes EV = market cap + net_debt.
+// BSP: listed Jul 1 2026 (files 6-K). LTM to Sep 30 2026: rev = FY25 1,310 + 9M26 2,086 - 9M25 917; EBITDA = adjusted operating income (FY25 613 + 9M26 1,113 - 9M25 432) + PP&E depreciation ~5; net debt = debt 4,907 - cash 1,021; mkt cap $44.40 x 640M sh. Joins the EV/Revenue history from Q4 2026.
 const PUBLIC = [
   {name:"Salesforce", ticker:"CRM", segment:"Enterprise Applications", ev:190800, ev_rev:4.3, ev_ebitda:14.6, growth:10.8, margin:29.4, rev:44372, ebitda:13045, net_debt:30900, live:true, included:true},
   {name:"ServiceNow", ticker:"NOW", segment:"Enterprise Applications", ev:100000, ev_rev:6.5, ev_ebitda:31.0, growth:20.5, margin:21.0, rev:15385, ebitda:3231, net_debt:3800, live:true, included:true},
@@ -626,6 +627,7 @@ const PUBLIC = [
   {name:"Shopify", ticker:"SHOP", segment:"SMB/Consumer", ev:179200, ev_rev:12.7, ev_ebitda:69.4, growth:31.6, margin:18.3, rev:14110, ebitda:2582, net_debt:-4600, live:true, included:true},
   {name:"Paycom", ticker:"PAYC", segment:"SMB/Consumer", ev:11900, ev_rev:5.4, ev_ebitda:14.2, growth:10.2, margin:38.1, rev:2204, ebitda:840, net_debt:600, live:true, included:true},
   {name:"Paylocity", ticker:"PCTY", segment:"SMB/Consumer", ev:9300, ev_rev:5.1, ev_ebitda:21.1, growth:10.7, margin:24.1, rev:1824, ebitda:440, net_debt:0, live:true, included:true},
+  {name:"Bending Spoons", ticker:"BSP", segment:"SMB/Consumer", ev:32300, ev_rev:13.0, ev_ebitda:24.9, growth:127.5, margin:52.4, rev:2479, ebitda:1299, net_debt:3885, live:true, included:true},
   {name:"Klaviyo", ticker:"KVYO", segment:"SMB/Consumer", ev:5700, ev_rev:3.9, ev_ebitda:null, growth:24.6, margin:-0.2, rev:1462, ebitda:-3, net_debt:-600, live:true, included:true},
 ];
 PUBLIC.forEach(c => { c.r40 = (c.growth === null || c.margin === null) ? null : Math.round(c.growth + c.margin); });

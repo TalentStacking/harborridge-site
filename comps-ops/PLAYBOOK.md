@@ -34,7 +34,7 @@ Fields (follow the entry example in the vertical file):
 - ev_rev / ev_ebitda: computed or disclosed multiple, one decimal; null if not available. Never invent numbers or multiples.
 - vertical: short label in the style of the page's existing entries.
 - categories: only the values the vertical file lists.
-- desc: one short sentence (max ~110 characters) in the house style of existing entries; mention minority / growth investment where applicable; add " Europe." for European deals.
+- desc: short and uniform (pages without a Rationale: max ~110 characters; pages with a Rationale: max ~150 characters total, about 12 words of facts plus about 12 words of rationale; never restate figures already in the table columns, since the press release link covers the detail) in the house style of existing entries; mention minority / growth investment where applicable; add " Europe." for European deals.
 - url: official press release (company newsroom, Business Wire, PR Newswire, GlobeNewswire, RNS or SEC filing); else a reputable trade article; else "".
 - included: true, unless an outlier (EV/Rev > 10x or EV/EBITDA > 30x); then false and flag it.
 Rules:

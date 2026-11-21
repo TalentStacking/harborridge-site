@@ -33,7 +33,7 @@ Fields (follow the entry example in the vertical file):
 - ev / rev / ebitda: disclosed USD millions as numbers (convert other currencies at the current rate and say so in the report), null if undisclosed. rev may be ARR if that is all that is disclosed (say so in the report).
 - ev_rev / ev_ebitda: computed or disclosed multiple, one decimal; null if not available. Never invent numbers or multiples.
 - vertical: short label in the style of the page's existing entries.
-- categories: only the values the vertical file lists.
+- categories: exactly ONE value per deal, from the values the vertical file lists. Never put the same deal in two categories; pick the best fit.
 - desc: short and uniform (pages without a Rationale: max ~110 characters; pages with a Rationale: max ~150 characters total, about 12 words of facts plus about 12 words of rationale; never restate figures already in the table columns, since the press release link covers the detail) in the house style of existing entries; mention minority / growth investment where applicable; add " Europe." for European deals.
 - url: official press release (company newsroom, Business Wire, PR Newswire, GlobeNewswire, RNS or SEC filing); else a reputable trade article; else "".
 - included: true, unless an outlier (EV/Rev > 10x or EV/EBITDA > 30x); then false and flag it.

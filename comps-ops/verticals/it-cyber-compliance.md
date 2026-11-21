@@ -38,8 +38,8 @@ NOT a fit: general MSPs / MSSPs, SOC / MDR shops, federal IT integrators and def
 
 ## Page rules
 DEALS entry example:
-{date:"2026-11-09", target:"Insight Assurance", acquirer:"Marlin Equity Partners", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"Audit / Assessment (SOC, CMMC, FedRAMP)", categories:["Audit & Assessment", "CMMC / FedRAMP"], desc:"Growth investment in a SOC, CMMC, FedRAMP and HITRUST attestation firm; its first institutional capital.", url:"https://...", included:true},
+{date:"2026-11-09", target:"Insight Assurance", acquirer:"Marlin Equity Partners", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"Audit / Assessment (SOC, CMMC, FedRAMP)", categories:["Audit & Assessment"], desc:"Growth investment in a SOC, CMMC, FedRAMP and HITRUST attestation firm; its first institutional capital.", url:"https://...", included:true},
 vertical labels: "Audit / Assessment (SOC, ISO)", "CMMC Compliance Services", "Compliance SaaS (GRC)", "GRC Services", "Cyber Services (Offensive Security)", "TICC (Europe)".
-categories (only these six): "Audit & Assessment" (assessors, auditors, attestation, certification bodies), "Compliance SaaS" (compliance / GRC software), "Cyber & GRC Services" (GRC advisory, managed compliance, cyber services), "CMMC / FedRAMP" (CMMC, FedRAMP, NIST 800-171, DoD / federal compliance), "TICC" (testing, inspection, certification and compliance roll-ups and global TIC players), "Europe".
+categories (only these six, exactly ONE per deal; per Cy Nov 21 2026, never list a deal in two categories, pick the best fit; European targets always go in "Europe"): "Audit & Assessment" (assessors, auditors, attestation, certification bodies), "Compliance SaaS" (compliance / GRC software), "Cyber & GRC Services" (GRC advisory, managed compliance, cyber services), "CMMC / FedRAMP" (CMMC, FedRAMP, NIST 800-171, DoD / federal compliance), "TICC" (testing, inspection, certification and compliance roll-ups and global TIC players), "Europe".
 Methodology line format: "Last updated: <Month D, YYYY>, 5:00 PM PT".
 Hub card stat line: "<N> private deals · <X.X>x median EV/EBITDA".

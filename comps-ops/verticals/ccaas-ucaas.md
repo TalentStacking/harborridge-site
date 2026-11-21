@@ -37,8 +37,8 @@ Search queries to run (separately): "Broadvoice", "Teutonic Holdings", "GoContac
 
 ## Page rules
 DEALS entry example:
-{date:"2026-11-05", target:"Level AI", acquirer:"Five9", ev:325.0, rev:20.0, ev_rev:16.3, ebitda:null, ev_ebitda:null, vertical:"CCaaS / CX AI", categories:["CCaaS","CX AI"], desc:"...", url:"https://...", included:false},
+{date:"2026-11-05", target:"Level AI", acquirer:"Five9", ev:325.0, rev:20.0, ev_rev:16.3, ebitda:null, ev_ebitda:null, vertical:"CCaaS / CX AI", categories:["CX AI"], desc:"...", url:"https://...", included:false},
 vertical labels: "UCaaS", "CCaaS", "UCaaS (Europe)", "CCaaS / CX AI", "UCaaS / Cloud PBX (Europe)", "UC Software". Outliers like AI-native targets (Level AI, Cognigy) get included:false.
-categories (only these four): "CCaaS" if the vertical mentions CCaaS, CC, contact center or WEM; "UCaaS" if it mentions UCaaS, UC, cloud PBX or unified communications; "CX AI" if it mentions CX AI; "Europe" for European targets.
+categories (only these four, exactly ONE per deal; per Cy Nov 21 2026, never list a deal in two categories, pick the best fit; European targets always go in "Europe"): "CCaaS" if the vertical mentions CCaaS, CC, contact center or WEM; "UCaaS" if it mentions UCaaS, UC, cloud PBX or unified communications; "CX AI" if it mentions CX AI; "Europe" for European targets.
 Methodology line format: "Last updated: <Month D, YYYY>" (keep any time suffix already on the page).
 Hub card stat line: "<N> private deals · <X.X>x median EV/Rev · <Y.Y>x median EV/EBITDA".

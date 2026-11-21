@@ -25,6 +25,6 @@ NOT a fit: <...>
 
 ## Page rules
 DEALS entry example: <copy one entry from the page>
-categories (only these): <...>
+categories (only these, exactly ONE per deal): <...>
 Methodology line format: <...>
 Hub card stat line: <...>

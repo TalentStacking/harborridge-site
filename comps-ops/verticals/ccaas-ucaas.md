@@ -6,7 +6,7 @@
 
 ## Deal sources
 1. web-search: the queries under "What to find" below
-2. pitchbook / inven: deal search for UCaaS / CCaaS / unified communications / contact center software deals in the last 7 days
+2. pitchbook / inven: deal search for UCaaS / CCaaS / unified communications / contact center software deals in the last 7 days, plus a look-back to the previous run (see "Missed deals" below)
 3. sites: prnewswire.com, businesswire.com, globenewswire.com, newsfilecorp.com, investegate.co.uk (RNS)
 
 ## Context
@@ -17,12 +17,15 @@ a. Anything involving Broadvoice or Teutonic Holdings (deal, financing, restruct
 b. Any CCaaS (contact center as a service / contact center software), UCaaS, cloud PBX / hosted VoIP / business phone, or unified communications company. UCaaS and CCaaS count equally. Any size, any geography, public or private. Extra effort on Europe.
 
 Counts: acquisitions, mergers, take-privates, majority or minority equity investments, growth/venture rounds, PE recaps, debt financings and refinancings, restructurings / recapitalizations / chapter 11 / debt-for-equity, divestitures of UC/CC business lines, SPAC deals. Signed or closed; credible reports of an active sale process may be included labeled "Reported". A telecom carrier buying a UCaaS/CCaaS software company counts (e.g. KPN / Xelion).
-Does not count: product launches, partnerships/resellers, customer wins, earnings without a deal, analyst reports, exec hires, general AI/CX funding where the company is not a UCaaS/CCaaS/UC provider (conversational AI startups only if they sell contact-center software), carriers / fiber / towers / data centers as targets, BPO / outsourced call-center operators, pure CPaaS/SMS, AV hardware, deals announced earlier than 7 days ago (unless closing or approval news happened this week, labeled "Closed" or "Update").
+Does not count: product launches, partnerships/resellers, customer wins, earnings without a deal, analyst reports, exec hires, general AI/CX funding where the company is not a UCaaS/CCaaS/UC provider (conversational AI startups only if they sell contact-center software), carriers / fiber / towers / data centers as targets, BPO / outsourced call-center operators, pure CPaaS/SMS, AV hardware, deals announced earlier than 7 days ago (unless closing or approval news happened this week, labeled "Closed" or "Update", or the deal qualifies under "Missed deals" below).
 
 Reference set (do not re-report): Sangoma / BRC Group; Intermedia / 26North; Gamma Communications / Epiris; Phone.com / Ooma; FluentStream / Ooma; Megacall / Zadarma; Starface / Gamma; OnSIP.
 Public names to watch: 8x8, RingCentral, Five9, NICE, Verint, Vonage, Zoom, Ooma, Sangoma, Gamma, Dialpad, Nextiva, Talkdesk, Genesys, Mitel, Avaya, Net2Phone/IDT, GoTo, Intermedia, Crexendo, Kaleyra, LiveVox, Enghouse, Bandwidth (only when UC-related). European players: Gamma, Zadarma, Xelion, Enreach, Wildix, Puzzel, Content Guru, Odigo, Diabolocom, Ringover, Aircall, Placetel, Starface, NFON, Destiny, Voiceflex, Babelforce, Talkwise, Vocalcom, Altitude, Sabio, Foehn.
 
 Search queries to run (separately): "Broadvoice", "Teutonic Holdings", "GoContact", "UCaaS acquisition", "UCaaS acquires", "CCaaS acquires", "contact center software acquisition", "unified communications acquired", "cloud phone system acquired", "VoIP provider acquisition", "UCaaS funding round", "contact center AI raises Series", "8x8 debt refinancing", "Avaya", "Mitel", "RingCentral acquisition", "Five9 acquisition", "Ooma acquires", "Sangoma", "Dialpad", "Nextiva", "Talkdesk", "Genesys", "UCaaS acquisition Europe", "cloud telephony acquisition UK", "contact centre software acquisition UK", "telefonía en la nube adquisición", "centralita virtual adquiere", "contact center adquisición España", "Cloud-Telefonie Übernahme", "telefonie overname", "Portugal contact center software aquisição", plus news-wire searches (prnewswire, businesswire, globenewswire, newsfilecorp, RNS / investegate).
+
+## Missed deals (look-back)
+Per Cy Nov 23 2026: also look back to the date of the previous run's Slack post (at least 14 days) for UCaaS / CCaaS deals that are on neither the page (DEALS) nor any earlier Slack post in the channel. Treat any such deal as new this week: add it to the page (if its type goes on the page) and include it in this week's Slack post, with its true announcement date. Only UCaaS / CCaaS / UC / contact center targets qualify under this rule; give priority to deals that disclose valuation data (EV, revenue, EBITDA or multiples). Example: Telia / Telavox (announced Nov 12 2026), missed on Nov 16 and added Nov 23.
 
 ## Slack post (always, one message)
 - No qualifying transactions: post exactly: no transactions

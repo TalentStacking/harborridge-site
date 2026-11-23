@@ -8,6 +8,10 @@
 1. web-search: the queries under "What to find" below, last 7 days.
 2. pitchbook / inven: Inven deal search (build_deal_search, build_columns, run_deal_search), dealType acquisition, funding_round, buyout_lbo, recapitalization, growth_expansion; deal date last 7 days; North America + Europe; two target descriptions run separately: (1) "IT security and cyber compliance company specializing in GRC, audit services, and frameworks like SOC 2, HITRUST, ISO 27001, FedRAMP, CMMC, HIPAA, including MSSPs and managed compliance services" and (2) "IT services, IT consulting, managed IT services (MSP), govtech, defense IT". Prefer Inven deal stats when present.
 3. sites: SecurityWeek M&A tracker, Cybersecurity Dive, ChannelE2E, CRN, MSSP Alert, Channel Futures, GovCon Wire, Washington Technology, Business Wire, GlobeNewswire, PR Newswire, SEC 8-K filings.
+4. buyer watchlist (per Cy Nov 23 2026): for EACH buyer below, check its own newsroom / press page (WebFetch) and run a separate WebSearch "<buyer> acquires" (and "<buyer> acquisition") for the last 7 days. Small bolt-ons by these buyers often appear only on the buyer's own site, so do not skip this step even if other sources look complete. Note in the report any buyer whose newsroom could not be read.
+   - Global TICC: SGS, Bureau Veritas, Intertek, LRQA, Kiwa, DNV, TUV SUD, TUV Rheinland, BSI, Phenna Group, Amtivo.
+   - US compliance and assessment: A-LIGN, Schellman, Coalfire, Fortreum, ControlCase, Axiom GRC / IS Partners, 360 Advanced, Insight Assurance, Prescient Security, Sensiba, Clearwater.
+   - GRC platforms: Vanta, Drata, Secureframe, Thoropass, Hyperproof, RegScale.
 Also read #cyber-and-compliance-deals for the last 8 days first: other agents post "PitchBook M&A" alerts there. Use those as extra candidates, and do not re-report deals already posted in a prior digest.
 
 ## What to find (last 7 days)

@@ -32,3 +32,5 @@ Dates: announcement date; if only the month is known, use the first of that mont
 Write "&amp;" for "&" inside vertical, acquirer and desc text.
 Methodology line format: "Last updated: <Month D, YYYY>".
 Hub card stat line: "<N> private deals · 11 public comps · <X.X>x median private EV/Rev" (median over all deals with ev_rev).
+
+Per Cy (Nov 23 2026): the Vantora (fka UP.Labs) / Silversmith growth investment sits on the AI page (AI Applications), not Technology Services. Keep it there and do not remove it.

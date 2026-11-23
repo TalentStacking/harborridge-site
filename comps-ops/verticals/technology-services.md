@@ -37,3 +37,5 @@ Write "&amp;" for "&" inside acquirer names (e.g. "Ode (Anthropic, Blackstone, H
 If the page methodology "Deal terms." paragraph lists example disclosed values, add a new disclosed deal there only if it is among the largest.
 Methodology line format: "Last updated: <Month D, YYYY>, 5:00 PM PT".
 Hub card stat line: "<N> private deals · 6 public comps · <X.X>x median public EV/EBITDA" (keep the public numbers unless the quarterly task changed them).
+
+Per Cy (Nov 23 2026): Vantora (fka UP.Labs) / Silversmith was moved to the AI page. Do not re-add it here.

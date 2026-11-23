@@ -351,7 +351,7 @@
 
     <div class="search-row">
       <input type="text" class="search-input" placeholder="Search target, acquirer, or focus..." id="search">
-      <span class="result-count" id="result-count">Showing 53 of 53</span>
+      <span class="result-count" id="result-count">Showing 60 of 60</span>
     </div>
 
     <!-- Table -->
@@ -385,7 +385,7 @@
       <p><strong>Multiples.</strong> Enterprise value divided by trailing revenue (EV / Rev) and EBITDA (EV / EBITDA). Where a deal was reported on annual recurring revenue or on current-year or next-year estimates, the basis is noted in the rationale. All deals in the table are included in the medians.</p>
       <p><strong>Dates.</strong> Where only the month of a transaction is known, the date is shown as the first of that month.</p>
       <p><strong>Buyer type.</strong> Strategic: corporate acquirers. Private equity: sponsor take-privates and platform investments. PE-backed strategic: acquisitions by sponsor-owned companies.</p>
-      <div class="updated">Last updated: November 19, 2026</div>
+      <div class="updated">Last updated: November 23, 2026</div>
     </div>
 
   </div>
@@ -535,6 +535,7 @@
 <script>
 // ============ PRIVATE DATA ============
 const DEALS = [
+  {date:"2026-11-23", target:"Zscaler", acquirer:"CrowdStrike", buyer_type:"Strategic", ev:43900.0, rev:3900, ev_rev:11.3, ebitda:null, ev_ebitda:null, vertical:"Zero Trust &amp; SASE Security", categories:["Cybersecurity"], desc:"All-stock at $260.41/share, 34% premium; multiple on ARR. Rationale: adds zero trust network security to the Falcon platform.", url:"https://www.sec.gov/Archives/edgar/data/0001535527/000110465926130785/tm2630454d1_ex99-1.htm", included:true},
   {date:"2026-11-19", target:"Mailchimp", acquirer:"Bending Spoons", buyer_type:"Strategic", ev:3680.0, rev:1256, ev_rev:2.9, ebitda:604, ev_ebitda:6.1, vertical:"Email &amp; Marketing Automation (SMB)", categories:["SMB/Consumer"], desc:"All-cash carve-out from Intuit. EBITDA multiple on segment operating income. Rationale: buys a cash-rich, flat-growth SMB brand.", url:"https://www.sec.gov/Archives/edgar/data/0002004711/000200471126000026/bsp_ex99-1.htm", included:true},
   {date:"2026-10-20", target:"Braze", acquirer:"Salesforce", buyer_type:"Strategic", ev:5660.0, rev:834, ev_rev:6.8, ebitda:null, ev_ebitda:null, vertical:"Customer Engagement Platform", categories:["Enterprise Applications"], desc:"Take-private at $47.50/share, 58% premium. Rationale: adds a real-time engagement engine Marketing Cloud lacked.", url:"https://www.sec.gov/Archives/edgar/data/0001108524/000119312526425881/d516983dex991.htm", included:true},
   {date:"2026-10-15", target:"Varonis", acquirer:"Proofpoint (Thoma Bravo)", buyer_type:"PE-backed strategic", ev:6300.0, rev:null, ev_rev:8.4, ebitda:null, ev_ebitda:null, vertical:"Data &amp; AI Security", categories:["Cybersecurity"], desc:"Take-private at $49.75/share. Rationale: adds data security to protect AI agents' access to enterprise data.", url:"https://www.sec.gov/Archives/edgar/data/0001361113/000121390026109904/ea030861001ex99-1.htm", included:true},

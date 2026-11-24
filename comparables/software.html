@@ -266,6 +266,7 @@
     .cta-block { flex-direction: column; align-items: flex-start; padding: 28px; }
   }
 .mult-note{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#mult-tip{position:fixed;z-index:1000;max-width:240px;padding:7px 10px;background:#1a2a25;color:#ffffff;opacity:1;font-family:'IBM Plex Sans',sans-serif;font-size:12px;line-height:1.35;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.2);pointer-events:none;display:none;white-space:normal;text-align:left}
 </style>
 </head>
 <body>
@@ -754,7 +755,7 @@ function renderPrivate() {
         <td>${d.vertical}</td>
         <td class="num">${fmtMoney(d.ev)}</td>
         <td class="num multiple">${fmtMult(d.ev_rev)}</td>
-        <td class="num multiple">${d.ebitda_note ? `<span class="mult-note" title="${d.ebitda_note}">${fmtMult(d.ev_ebitda)}</span>` : fmtMult(d.ev_ebitda)}</td>
+        <td class="num multiple">${d.ebitda_note ? `<span class="mult-note" tabindex="0" data-tip="${d.ebitda_note}" aria-label="${fmtMult(d.ev_ebitda)}: ${d.ebitda_note}">${fmtMult(d.ev_ebitda)}</span>` : fmtMult(d.ev_ebitda)}</td>
         <td class="desc">${d.desc}</td>
         <td class="link">${linkCell}</td>
       </tr>
@@ -1170,5 +1171,21 @@ privSpark("spark-med-ebitda", "ev_ebitda");
 </script>
 <script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/subscribe.js" defer></script>
+<script>
+(function(){
+  var tip=document.createElement('div');tip.id='mult-tip';tip.setAttribute('role','tooltip');document.body.appendChild(tip);
+  function show(el){tip.textContent=el.getAttribute('data-tip');tip.style.display='block';
+    var r=el.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight;
+    var left=Math.max(8,Math.min(r.left+r.width/2-w/2,window.innerWidth-w-8));
+    var top=r.top-h-8;if(top<8)top=r.bottom+8;tip.style.left=left+'px';tip.style.top=top+'px';}
+  function hide(){tip.style.display='none';}
+  document.addEventListener('mouseover',function(e){var el=e.target.closest&&e.target.closest('.mult-note');if(el)show(el);});
+  document.addEventListener('mouseout',function(e){if(e.target.closest&&e.target.closest('.mult-note'))hide();});
+  document.addEventListener('focusin',function(e){if(e.target.classList&&e.target.classList.contains('mult-note'))show(e.target);});
+  document.addEventListener('focusout',hide);
+  document.addEventListener('click',function(e){var el=e.target.closest&&e.target.closest('.mult-note');if(el){show(el);}else hide();});
+  window.addEventListener('scroll',hide,true);
+})();
+</script>
 </body>
 </html>

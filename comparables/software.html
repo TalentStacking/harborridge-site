@@ -265,6 +265,7 @@
     td.desc, #comps-table th:nth-child(9) { display: none; }
     .cta-block { flex-direction: column; align-items: flex-start; padding: 28px; }
   }
+.mult-note{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
 </style>
 </head>
 <body>
@@ -549,8 +550,8 @@
 // ============ PRIVATE DATA ============
 const DEALS = [
   {date:"2026-11-23", target:"Zscaler", acquirer:"CrowdStrike", buyer_type:"Strategic", ev:43900.0, rev:3900, ev_rev:11.3, ebitda:null, ev_ebitda:null, vertical:"Zero Trust &amp; SASE Security", categories:["Cybersecurity"], desc:"All-stock at $260.41/share, 34% premium; multiple on ARR. Rationale: adds zero trust network security to the Falcon platform.", url:"https://www.sec.gov/Archives/edgar/data/0001535527/000110465926130785/tm2630454d1_ex99-1.htm", included:true},
-  {date:"2026-11-19", target:"BILL", acquirer:"TPG (with Corpay)", buyer_type:"Private equity", ev:6260.0, rev:1345, ev_rev:4.7, ebitda:null, ev_ebitda:null, vertical:"SMB AP Automation &amp; Payments", categories:["SMB/Consumer"], desc:"Take-private at $63.25/share, 31% premium; Corpay takes a third. Rationale: pairs BILL's SMB payables network with Corpay's payments reach.", url:"https://investor.bill.com/news/news-details/2026/BILL-Agrees-to-be-Acquired-by-TPG-in-Partnership-with-Corpay/default.aspx", included:true},
-  {date:"2026-11-19", target:"Mailchimp", acquirer:"Bending Spoons", buyer_type:"Strategic", ev:3680.0, rev:1256, ev_rev:2.9, ebitda:604, ev_ebitda:6.1, vertical:"Email &amp; Marketing Automation (SMB)", categories:["SMB/Consumer"], desc:"All-cash carve-out from Intuit. EBITDA multiple on segment operating income. Rationale: buys a cash-rich, flat-growth SMB brand.", url:"https://www.sec.gov/Archives/edgar/data/0002004711/000200471126000026/bsp_ex99-1.htm", included:true},
+  {date:"2026-11-19", target:"BILL", acquirer:"TPG (with Corpay)", buyer_type:"Private equity", ev:5930.0, rev:1345, ev_rev:4.4, ebitda:null, ev_ebitda:null, vertical:"SMB AP Automation &amp; Payments", categories:["SMB/Consumer"], desc:"Take-private at $63.25/share, 31% premium; Corpay takes a third. Rationale: pairs BILL's SMB payables network with Corpay's payments reach.", url:"https://investor.bill.com/news/news-details/2026/BILL-Agrees-to-be-Acquired-by-TPG-in-Partnership-with-Corpay/default.aspx", included:true},
+  {date:"2026-11-19", target:"Mailchimp", acquirer:"Bending Spoons", buyer_type:"Strategic", ev:3680.0, rev:1256, ev_rev:2.9, ebitda:604, ev_ebitda:6.1, ebitda_note:"Based on segment operating income, not EBITDA", vertical:"Email &amp; Marketing Automation (SMB)", categories:["SMB/Consumer"], desc:"All-cash carve-out from Intuit. EBITDA multiple on segment operating income. Rationale: buys a cash-rich, flat-growth SMB brand.", url:"https://www.sec.gov/Archives/edgar/data/0002004711/000200471126000026/bsp_ex99-1.htm", included:true},
   {date:"2026-10-20", target:"Braze", acquirer:"Salesforce", buyer_type:"Strategic", ev:5660.0, rev:834, ev_rev:6.8, ebitda:null, ev_ebitda:null, vertical:"Customer Engagement Platform", categories:["Enterprise Applications"], desc:"Take-private at $47.50/share, 58% premium. Rationale: adds a real-time engagement engine Marketing Cloud lacked.", url:"https://www.sec.gov/Archives/edgar/data/0001108524/000119312526425881/d516983dex991.htm", included:true},
   {date:"2026-10-15", target:"Varonis", acquirer:"Proofpoint (Thoma Bravo)", buyer_type:"PE-backed strategic", ev:6300.0, rev:null, ev_rev:8.4, ebitda:null, ev_ebitda:null, vertical:"Data &amp; AI Security", categories:["Cybersecurity"], desc:"Take-private at $49.75/share. Rationale: adds data security to protect AI agents' access to enterprise data.", url:"https://www.sec.gov/Archives/edgar/data/0001361113/000121390026109904/ea030861001ex99-1.htm", included:true},
   {date:"2026-10-15", target:"CCC Intelligent Solutions", acquirer:"GTCR and Elliott", buyer_type:"Private equity", ev:6100.0, rev:null, ev_rev:5.3, ebitda:null, ev_ebitda:12.5, vertical:"Insurance Claims &amp; Repair SaaS", categories:["Vertical Software"], desc:"Take-private at $7.75/share, 44% premium. Multiples on 2026E. Rationale: backs an embedded claims and repair network.", url:"https://www.sec.gov/Archives/edgar/data/0001818201/000119312526422320/d140608dex991.htm", included:true},
@@ -753,7 +754,7 @@ function renderPrivate() {
         <td>${d.vertical}</td>
         <td class="num">${fmtMoney(d.ev)}</td>
         <td class="num multiple">${fmtMult(d.ev_rev)}</td>
-        <td class="num multiple">${fmtMult(d.ev_ebitda)}</td>
+        <td class="num multiple">${d.ebitda_note ? `<span class="mult-note" title="${d.ebitda_note}">${fmtMult(d.ev_ebitda)}</span>` : fmtMult(d.ev_ebitda)}</td>
         <td class="desc">${d.desc}</td>
         <td class="link">${linkCell}</td>
       </tr>

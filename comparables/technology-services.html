@@ -1076,18 +1076,24 @@ function renderPrivTrend() {
   }
   const W = 760, H = 280, L = 44, R = 52, T = 16, B = 30;
   const x = i => pts.length === 1 ? (L + W - R) / 2 : L + i * (W - L - R) / (pts.length - 1);
-  const axis = (key) => { const v = pts.map(p => p[key]).filter(v => v != null); const hi = Math.ceil(Math.max(...v) * 1.15); return { lo: 0, hi: Math.max(hi, 1) }; };
-  const ar = axis("rev"), ae = pts.some(p => p.ebitda != null) ? axis("ebitda") : { lo: 0, hi: 1 };
+  const NICE = [0.5, 1, 2, 2.5, 5, 10, 20, 25, 50, 100, 200];
+  const maxOf = key => Math.max(...pts.map(p => p[key]).filter(v => v != null));
+  const maxR = maxOf("rev");
+  let ticks = 5, sr = NICE[NICE.length - 1];
+  for (const s0 of NICE) { const n = Math.ceil(maxR * 1.08 / s0); if (n <= 5) { sr = s0; ticks = Math.max(n, 2); break; } }
+  const hasE = pts.some(p => p.ebitda != null);
+  const se = hasE ? (NICE.find(s0 => s0 * ticks >= maxOf("ebitda") * 1.08) || NICE[NICE.length - 1]) : 1;
+  const ar = { lo: 0, hi: sr * ticks }, ae = { lo: 0, hi: se * ticks };
+  const fmtAx = v => { const r = round1(v); return (Number.isInteger(r) ? r.toFixed(0) : r.toFixed(1)) + "x"; };
   const yr = v => T + (ar.hi - v) * (H - T - B) / (ar.hi - ar.lo);
   const ye = v => T + (ae.hi - v) * (H - T - B) / (ae.hi - ae.lo);
   let g = "";
-  const ticks = 5;
   for (let k = 0; k <= ticks; k++) {
     const yy = T + k * (H - T - B) / ticks;
     const vr = ar.hi - k * (ar.hi - ar.lo) / ticks, ve = ae.hi - k * (ae.hi - ae.lo) / ticks;
     g += `<line x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}" stroke="#e8e2d4" stroke-width="1"/>`;
-    g += `<text x="${L - 8}" y="${yy + 4}" text-anchor="end" style="fill:#0c3b2e">${round1(vr).toFixed(1)}x</text>`;
-    g += `<text x="${W - R + 8}" y="${yy + 4}" text-anchor="start" style="fill:#a8854a">${round1(ve).toFixed(1)}x</text>`;
+    g += `<text x="${L - 8}" y="${yy + 4}" text-anchor="end" style="fill:#0c3b2e">${fmtAx(vr)}</text>`;
+    g += `<text x="${W - R + 8}" y="${yy + 4}" text-anchor="start" style="fill:#a8854a">${fmtAx(ve)}</text>`;
   }
   pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle"${p.live ? ' style="font-weight:600;fill:#0c3b2e"' : ''}>${p.label}</text>`; });
   const line = (key, n, yf, color, name) => {

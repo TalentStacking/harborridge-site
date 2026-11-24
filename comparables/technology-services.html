@@ -711,7 +711,7 @@ function sortDeals(rows) {
 // Monthly rolling median EV/Rev and EV/EBITDA over 2022-2026
 function sparkline(id, data, color) {
   const w = 110, h = 28, pad = 2;
-  const min = Math.min(...data), max = Math.max(...data);
+  const min = 0, max = Math.max(...data);  // zero baseline so small moves look small
   const range = max - min || 1;
   const pts = data.map((v, i) => {
     const x = pad + (i / (data.length - 1)) * (w - pad*2);
@@ -1122,9 +1122,20 @@ renderPublic();
 renderTrend();
 renderPrivTrend();
 
-// Sparklines under the multiples (trailing 12 months at each quarter-end)
-dealSpark("spark-med-rev", "ev_rev", "med");
-dealSpark("spark-med-ebitda", "ev_ebitda", "med");
+// Sparklines: last six quarter-ends of the same cumulative median the chart shows
+function privSpark(id, key) {
+  const rows = DEALS.filter(d => d.included && !d.mult_excl && d[key] != null && d.date >= "2025-01-01");
+  const now = new Date();
+  let y = now.getFullYear(), q = Math.floor(now.getMonth() / 3);
+  const ends = [];
+  for (let i = 0; i < 6; i++) { ends.unshift(new Date(Date.UTC(y, q * 3 + 3, 0)).toISOString().slice(0, 10)); q--; if (q < 0) { q = 3; y--; } }
+  const v = ends.map(e => rows.filter(d => d.date <= e).map(d => d[key])).filter(a => a.length).map(medOf);
+  const el = document.getElementById(id);
+  if (v.length < 2) { if (el) el.innerHTML = ""; return; }
+  sparkline(id, v, "#c9a66b");
+}
+privSpark("spark-med-rev", "ev_rev");
+privSpark("spark-med-ebitda", "ev_ebitda");
 </script>
 <script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/subscribe.js" defer></script>

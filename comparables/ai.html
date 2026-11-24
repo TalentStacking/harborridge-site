@@ -156,6 +156,10 @@
   .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
   .trend svg .val { font-size: 11px; font-weight: 600; }
   .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+  .chart-jump { display: inline-flex; align-items: center; margin-left: 12px; margin-bottom: 28px; vertical-align: top; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 18px; background: white; border: 1px solid var(--card-border); color: var(--green-deep); cursor: pointer; text-decoration: none; }
+  .chart-jump:hover { border-color: var(--brass); }
+  a.stat-link { color: inherit; text-decoration: underline; text-decoration-color: rgba(201,166,107,0.6); text-underline-offset: 3px; cursor: pointer; }
+  a.stat-link:hover { color: var(--brass); }
   .refresh-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); background: white; border: 1px solid var(--card-border); padding: 6px 10px; cursor: pointer; }
   .refresh-btn:hover { border-color: var(--brass); }
   .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
@@ -304,7 +308,7 @@
   <div class="mode-toggle">
     <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">8</span></button>
     <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">7</span></button>
-  </div>
+  </div><a class="chart-jump" id="chart-jump" href="#" data-jump="priv-trend">Multiples Chart &darr;</a>
 
   <!-- ====================== PRIVATE VIEW ====================== -->
   <div id="view-private">
@@ -324,13 +328,13 @@
       <div class="stat">
         <div class="stat-label">Median EV / Revenue</div>
         <div class="stat-num" id="priv-med-rev">7.4x</div>
-        <div class="stat-desc" id="priv-med-rev-desc">52 deals with disclosed multiples</div>
+        <div class="stat-desc"><a class="stat-link" href="#" data-jump="priv-trend" id="priv-med-rev-desc">52 deals with disclosed multiples</a></div>
         <div class="stat-spark" id="spark-med-rev"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / EBITDA</div>
         <div class="stat-num" id="priv-med-ebitda">13.9x</div>
-        <div class="stat-desc" id="priv-med-ebitda-desc">2 deals with disclosed EBITDA</div>
+        <div class="stat-desc"><span id="priv-med-ebitda-desc">2 deals with disclosed EBITDA</span></div>
         <div class="stat-spark" id="spark-med-ebitda"></div>
       </div>
     </div>
@@ -374,6 +378,15 @@
       </table>
     </div>
     <div class="seg-summary" id="seg-summary"></div>
+
+    <div class="trend" id="priv-trend">
+      <div class="trend-head">
+        <div class="trend-title">Private M&amp;A Median EV / Revenue over time</div>
+        <div class="trend-legend"><span><i style="background:#0c3b2e"></i>Median EV / Revenue</span></div>
+      </div>
+      <svg id="priv-trend-svg" viewBox="0 0 760 280" role="img" aria-label="Median EV to revenue for private deals at each quarter-end"></svg>
+      <div class="trend-note" id="priv-trend-note">Cumulative median of deals announced since January 1, 2025 through each quarter-end, so the latest point matches the headline figure above. Hover a point for the deal count.</div>
+    </div>
 
 
     <!-- Methodology -->
@@ -530,7 +543,7 @@
 <script>
 // ============ PRIVATE DATA ============
 const DEALS = [
-  {date:"2026-11-18", target:"Applied Compute", acquirer:"Palo Alto Networks", buyer_type:"Strategic", ev:4500.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"Open-Model Post-Training &amp; Inference", categories:["AI Infrastructure & Developer Tools"], desc:"$4.5B all-stock. Revenue not disclosed, so no multiple. Rationale: adds secure open-weight model training and an AI research team.", url:"https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000030/ex992pressrelease_november.htm", included:true},
+  {date:"2026-11-18", target:"Applied Compute", acquirer:"Palo Alto Networks", buyer_type:"Strategic", ev:4500.0, rev:100, ev_rev:45.0, ebitda:null, ev_ebitda:null, vertical:"Open-Model Post-Training &amp; Inference", categories:["AI Infrastructure & Developer Tools"], desc:"$4.5B all-stock. Multiple on over $100M annualized revenue. Rationale: adds secure open-weight model training and an AI research team.", url:"https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000030/ex992pressrelease_november.htm", included:true},
   {date:"2026-11-16", target:"Howie", acquirer:"Google", buyer_type:"Strategic", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Scheduling Assistants", categories:["AI Applications"], desc:"Terms not disclosed. Rationale: Google Labs adds an email-based AI scheduling agent for small businesses.", url:"https://www.geekwire.com/2026/google-acquires-seattle-startup-howie-and-its-ai-scheduling-assistant/", included:true},
   {date:"2026-11-16", target:"AthenaHQ", acquirer:"Bloomreach", buyer_type:"Strategic", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Answer Engine Optimization", categories:["AI Applications"], desc:"Terms not disclosed. Rationale: ties brand visibility in AI answer engines to measurable commerce revenue.", url:"https://www.businesswire.com/news/home/20261116541343/en/As-AI-Reshapes-How-Consumers-Discover-Brands-Bloomreach-Acquires-AEO-Leader-AthenaHQ-to-Turn-AI-Visibility-Into-Measurable-Revenue", included:true},
   {date:"2026-11-05", target:"Level AI", acquirer:"Five9", buyer_type:"Strategic", ev:325.0, rev:20, ev_rev:16.3, ebitda:null, ev_ebitda:null, vertical:"Contact Center AI", categories:["AI Applications"], desc:"About $325M cash. Multiple on about $20M ARR, growing about 50%. Rationale: adds AI-native CX apps to sell across platforms.", url:"https://www.sec.gov/Archives/edgar/data/0001288847/000128884726000141/projectlanderpressreleas.htm", included:true},
@@ -580,7 +593,7 @@ const DEALS = [
   {date:"2025-05-21", target:"io Products", acquirer:"OpenAI", buyer_type:"Strategic", ev:6500.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Consumer Devices", categories:["AI Applications"], desc:"About $6.5B all-stock. Revenue not disclosed, so no multiple. Rationale: brings in Jony Ive's team to build AI devices.", url:"https://openai.com/sam-and-jony/", included:true},
   {date:"2025-05-15", target:"Refuel.ai", acquirer:"Together AI", buyer_type:"Strategic", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Data Structuring Models", categories:["AI Infrastructure & Developer Tools"], desc:"Terms not disclosed. Rationale: Together AI adds models that turn messy data into AI-ready datasets to its inference and fine-tuning cloud.", url:"https://www.together.ai/blog/together-ai-acquires-refuel-ai", included:true},
   {date:"2025-04-07", target:"Lepton AI", acquirer:"NVIDIA", buyer_type:"Strategic", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Inference Cloud Platform", categories:["AI Infrastructure & Developer Tools"], desc:"Price not disclosed; reported at several hundred million dollars. Rationale: NVIDIA adds a cloud platform for running AI models on its GPUs, now part of DGX Cloud.", url:"https://seekingalpha.com/news/4429256-nvidia-closes-deal-to-acquire-startup-lepton-ai-report", included:true},
-  {date:"2025-03-28", target:"X (Twitter)", acquirer:"xAI", buyer_type:"Strategic", ev:45000.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"Social Media Platform", categories:["Non-AI Targets"], desc:"$45B EV in stock, incl. $12B of debt. Revenue not disclosed, so no multiple. Rationale: combines X's data and users with Grok.", url:"https://www.bloomberg.com/news/articles/2025-03-28/musk-says-that-his-xai-startup-has-acquired-x-for-33-billion", included:true},
+  {date:"2025-03-28", target:"X (Twitter)", acquirer:"xAI", buyer_type:"Strategic", ev:45000.0, rev:2700, ev_rev:16.7, ebitda:1250, ev_ebitda:36.0, vertical:"Social Media Platform", categories:["Non-AI Targets"], desc:"$45B EV in stock, incl. $12B debt. Multiples on reported 2024 revenue and adjusted EBITDA. Rationale: combines X's data and users with Grok.", url:"https://www.bloomberg.com/news/articles/2025-03-28/musk-says-that-his-xai-startup-has-acquired-x-for-33-billion", included:true},
   {date:"2025-03-19", target:"Gretel", acquirer:"NVIDIA", buyer_type:"Strategic", ev:320.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"Synthetic Training Data", categories:["AI Infrastructure & Developer Tools"], desc:"Reported above its last $320M valuation. Revenue not disclosed, so no multiple. Rationale: adds synthetic data generation.", url:"https://techcrunch.com/2025/03/19/nvidia-reportedly-acquires-synthetic-data-startup-gretel/", included:true},
   {date:"2025-03-10", target:"Moveworks", acquirer:"ServiceNow", buyer_type:"Strategic", ev:2850.0, rev:100, ev_rev:28.5, ebitda:null, ev_ebitda:null, vertical:"Enterprise AI Assistants &amp; Agents", categories:["AI Applications"], desc:"$2.85B cash and stock. Multiple on just over $100M ARR. Rationale: adds an AI assistant across IT, HR and finance.", url:"https://fortune.com/2025/03/10/servicenow-buys-ai-agent-company-moveworks-for-2-85-billion/", included:true},
   {date:"2025-03-04", target:"Weights &amp; Biases", acquirer:"CoreWeave", buyer_type:"Strategic", ev:1700.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"AI Developer Platform", categories:["AI Infrastructure & Developer Tools"], desc:"Reported at about $1.7B. Revenue not disclosed, so no multiple. Rationale: pairs its AI cloud with model training tools.", url:"https://coreweave.com/blog/coreweave-to-acquire-weights-biases---industry-leading-ai-developer-platform-for-building-and-deploying-ai-applications", included:true}
@@ -940,6 +953,7 @@ document.querySelectorAll(".mode-btn").forEach(btn => {
     const mode = btn.dataset.mode;
     document.getElementById("view-private").classList.toggle("hidden", mode !== "private");
     document.getElementById("view-public").classList.toggle("hidden", mode !== "public");
+    const cj = document.getElementById("chart-jump"); if (cj) cj.style.display = mode === "private" ? "" : "none";
     history.replaceState(null, "", "#" + mode);
   });
 });
@@ -968,9 +982,9 @@ function computeHeadline() {
   const mr = DEALS.filter(d => d.included && !d.mult_excl && d.ev_rev != null).map(d => d.ev_rev);
   const me = DEALS.filter(d => d.included && !d.mult_excl && d.ev_ebitda != null).map(d => d.ev_ebitda);
   setText("priv-med-rev", mr.length ? round1(medOf(mr)).toFixed(1) + "x" : "n/a");
-  setText("priv-med-rev-desc", mr.length + " deals with disclosed multiples");
+  setText("priv-med-rev-desc", mr.length + " deal" + (mr.length === 1 ? "" : "s") + " with EV and revenue disclosed");
   setText("priv-med-ebitda", me.length ? round1(medOf(me)).toFixed(1) + "x" : "n/a");
-  setText("priv-med-ebitda-desc", me.length + " deal" + (me.length === 1 ? "" : "s") + " with disclosed EBITDA");
+  setText("priv-med-ebitda-desc", me.length + " deal" + (me.length === 1 ? "" : "s") + " with EV and EBITDA disclosed");
   setText("private-count", n);
   document.querySelectorAll("#view-private .chip").forEach(chip => {
     const f = chip.dataset.filter;
@@ -1043,6 +1057,64 @@ function renderSegSummary() {
     <div class="table-wrap"><table><thead><tr><th>Segment</th><th>Deals</th><th>Median EV / Rev</th><th>Mean EV / Rev</th><th>Median EV / EBITDA</th><th>Mean EV / EBITDA</th></tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
+// ============ PRIVATE MULTIPLES CHART ============
+function renderPrivTrend() {
+  const svg = document.getElementById("priv-trend-svg");
+  if (!svg) return;
+  const base = DEALS.filter(d => d.included && !d.mult_excl && d.date >= "2025-01-01");
+  const withMult = base.filter(d => d.ev_rev != null || d.ev_ebitda != null);
+  if (!withMult.length) { document.getElementById("priv-trend").style.display = "none"; return; }
+  const first = withMult.map(d => d.date).sort()[0];
+  let y = +first.slice(0, 4), q = Math.floor((+first.slice(5, 7) - 1) / 3);
+  const now = new Date(), cy = now.getFullYear(), cq = Math.floor(now.getMonth() / 3);
+  const pts = [];
+  while (y < cy || (y === cy && q <= cq)) {
+    const end = new Date(Date.UTC(y, q * 3 + 3, 0)).toISOString().slice(0, 10);
+    const upto = base.filter(d => d.date <= end);
+    const r = upto.filter(d => d.ev_rev != null).map(d => d.ev_rev);
+    const e = upto.filter(d => d.ev_ebitda != null).map(d => d.ev_ebitda);
+    const live = y === cy && q === cq;
+    pts.push({ label: "Q" + (q + 1) + " '" + String(y).slice(2) + (live ? " QTD" : ""), rev: r.length ? medOf(r) : null, nr: r.length, ebitda: e.length ? medOf(e) : null, ne: e.length, live });
+    q++; if (q > 3) { q = 0; y++; }
+  }
+  const W = 760, H = 280, L = 44, R = 52, T = 16, B = 30;
+  const x = i => pts.length === 1 ? (L + W - R) / 2 : L + i * (W - L - R) / (pts.length - 1);
+  const axis = (key) => { const v = pts.map(p => p[key]).filter(v => v != null); const hi = Math.ceil(Math.max(...v) * 1.15); return { lo: 0, hi: Math.max(hi, 1) }; };
+  const ar = axis("rev"), ae = pts.some(p => p.ebitda != null) ? axis("ebitda") : { lo: 0, hi: 1 };
+  const yr = v => T + (ar.hi - v) * (H - T - B) / (ar.hi - ar.lo);
+  const ye = v => T + (ae.hi - v) * (H - T - B) / (ae.hi - ae.lo);
+  let g = "";
+  const ticks = 5;
+  for (let k = 0; k <= ticks; k++) {
+    const yy = T + k * (H - T - B) / ticks;
+    const vr = ar.hi - k * (ar.hi - ar.lo) / ticks, ve = ae.hi - k * (ae.hi - ae.lo) / ticks;
+    g += `<line x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${yy + 4}" text-anchor="end" style="fill:#0c3b2e">${round1(vr).toFixed(1)}x</text>`;
+  }
+  pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle"${p.live ? ' style="font-weight:600;fill:#0c3b2e"' : ''}>${p.label}</text>`; });
+  const line = (key, n, yf, color, name) => {
+    let d = "", s = "", started = false;
+    pts.forEach((p, i) => { if (p[key] == null) return; d += (started ? "L" : "M") + x(i).toFixed(1) + "," + yf(p[key]).toFixed(1) + " "; started = true; });
+    s += `<path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    pts.forEach((p, i) => {
+      if (p[key] == null) return;
+      s += `<circle cx="${x(i)}" cy="${yf(p[key])}" r="${p.live ? 4 : 3}" fill="${p.live ? color : 'white'}" stroke="${color}" stroke-width="2"><title>${p.label}: ${round1(p[key]).toFixed(1)}x median ${name} (${p[n]} deal${p[n] === 1 ? "" : "s"})</title></circle>`;
+      const other = null;
+      const me = yf(p[key]);
+      const below = other != null && Math.abs(other - me) < 22 && me >= other;
+      s += `<text class="val" x="${x(i)}" y="${below ? me + 19 : me - 9}" text-anchor="middle" style="fill:${color}">${round1(p[key]).toFixed(1)}x</text>`;
+    });
+    return s;
+  };
+  svg.innerHTML = g + line("rev", "nr", yr, "#0c3b2e", "EV / Revenue");
+}
+document.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", ev => {
+  ev.preventDefault();
+  const pb = document.querySelector('[data-mode="private"]');
+  if (pb && !pb.classList.contains("active")) pb.click();
+  const t = document.getElementById(a.dataset.jump); if (t) t.scrollIntoView({ behavior: "smooth", block: "center" });
+}));
+
 // Initial render
 renderSegSummary();
 computeHeadline();
@@ -1050,10 +1122,22 @@ computeSubCards();
 renderPrivate();
 renderPublic();
 renderTrend();
+renderPrivTrend();
 
-// Sparklines under the multiples (trailing 12 months at each quarter-end)
-dealSpark("spark-med-rev", "ev_rev", "med");
-dealSpark("spark-med-ebitda", "ev_ebitda", "med");
+// Sparklines: last six quarter-ends of the same cumulative median the chart shows
+function privSpark(id, key) {
+  const rows = DEALS.filter(d => d.included && !d.mult_excl && d[key] != null && d.date >= "2025-01-01");
+  const now = new Date();
+  let y = now.getFullYear(), q = Math.floor(now.getMonth() / 3);
+  const ends = [];
+  for (let i = 0; i < 6; i++) { ends.unshift(new Date(Date.UTC(y, q * 3 + 3, 0)).toISOString().slice(0, 10)); q--; if (q < 0) { q = 3; y--; } }
+  const v = ends.map(e => rows.filter(d => d.date <= e).map(d => d[key])).filter(a => a.length).map(medOf);
+  const el = document.getElementById(id);
+  if (v.length < 2) { if (el) el.innerHTML = ""; return; }
+  sparkline(id, v, "#c9a66b");
+}
+privSpark("spark-med-rev", "ev_rev");
+privSpark("spark-med-ebitda", "ev_ebitda");
 </script>
 <script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/subscribe.js" defer></script>

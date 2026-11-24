@@ -145,6 +145,10 @@
   .trend svg text { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; fill: var(--ink-soft); }
   .trend svg .val { font-size: 11px; font-weight: 600; }
   .trend-note { font-family: 'IBM Plex Serif', serif; font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+  .chart-jump { display: inline-flex; align-items: center; margin-left: 12px; margin-bottom: 28px; vertical-align: top; font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 18px; background: white; border: 1px solid var(--card-border); color: var(--green-deep); cursor: pointer; text-decoration: none; }
+  .chart-jump:hover { border-color: var(--brass); }
+  a.stat-link { color: inherit; text-decoration: underline; text-decoration-color: rgba(201,166,107,0.6); text-underline-offset: 3px; cursor: pointer; }
+  a.stat-link:hover { color: var(--brass); }
   .refresh-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--green-deep); background: white; border: 1px solid var(--card-border); padding: 6px 10px; cursor: pointer; }
   .refresh-btn:hover { border-color: var(--brass); }
   .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
@@ -293,7 +297,7 @@
   <div class="mode-toggle">
     <button class="mode-btn active" data-mode="private">Private M&amp;A <span class="count" id="private-count">23</span></button>
     <button class="mode-btn" data-mode="public">Public Comps <span class="count" id="public-count">6</span></button>
-  </div>
+  </div><a class="chart-jump" id="chart-jump" href="#" data-jump="priv-trend">Multiples Chart &darr;</a>
 
   <!-- ====================== PRIVATE VIEW ====================== -->
   <div id="view-private">
@@ -303,25 +307,25 @@
       <div class="stat">
         <div class="stat-label">Avg EV / LTM Rev</div>
         <div class="stat-num" id="priv-avg-rev">2.2x</div>
-        <div class="stat-desc">Across disclosed deals</div>
+        <div class="stat-desc"><a class="stat-link" href="#" data-jump="priv-trend" id="d-avg-rev">Mean of deals with EV and revenue disclosed</a></div>
         <div class="stat-spark" id="spark-avg-rev"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / LTM Rev</div>
         <div class="stat-num" id="priv-med-rev">1.9x</div>
-        <div class="stat-desc">Trailing 12-month distribution midpoint</div>
+        <div class="stat-desc"><a class="stat-link" href="#" data-jump="priv-trend" id="d-med-rev">Deals with EV and revenue disclosed</a></div>
         <div class="stat-spark" id="spark-med-rev"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Avg EV / LTM EBITDA</div>
         <div class="stat-num" id="priv-avg-ebitda">9.9x</div>
-        <div class="stat-desc">Across disclosed deals</div>
+        <div class="stat-desc"><a class="stat-link" href="#" data-jump="priv-trend" id="d-avg-ebitda">Mean of deals with EV and EBITDA disclosed</a></div>
         <div class="stat-spark" id="spark-avg-ebitda"></div>
       </div>
       <div class="stat">
         <div class="stat-label">Median EV / LTM EBITDA</div>
         <div class="stat-num" id="priv-med-ebitda">8.9x</div>
-        <div class="stat-desc">Trailing 12-month distribution midpoint</div>
+        <div class="stat-desc"><a class="stat-link" href="#" data-jump="priv-trend" id="d-med-ebitda">Deals with EV and EBITDA disclosed</a></div>
         <div class="stat-spark" id="spark-med-ebitda"></div>
       </div>
     </div>
@@ -366,6 +370,15 @@
       </table>
     </div>
     <div class="seg-summary" id="seg-summary"></div>
+
+    <div class="trend" id="priv-trend">
+      <div class="trend-head">
+        <div class="trend-title">Private M&amp;A Median Multiples over time</div>
+        <div class="trend-legend"><span><i style="background:#0c3b2e"></i>Median EV / Revenue (left)</span><span><i style="background:#c9a66b"></i>Median EV / EBITDA (right)</span></div>
+      </div>
+      <svg id="priv-trend-svg" viewBox="0 0 760 280" role="img" aria-label="Median EV to revenue and median EV to EBITDA for private deals at each quarter-end"></svg>
+      <div class="trend-note">Cumulative medians of all deals on this page announced through each quarter-end (outliers excluded), so the latest point matches the headline figures above. Only deals that disclosed enterprise value plus revenue or EBITDA are counted; hover a point for the value and deal count.</div>
+    </div>
 
 
     <!-- Methodology -->
@@ -514,9 +527,9 @@ const DEALS = [
   {date:"2026-11-10", target:"MIND CTI", acquirer:"Enghouse Systems", ev:11.7, rev:19.0, ev_rev:0.6, ebitda:null, ev_ebitda:null, vertical:"UC Software", categories:["UCaaS"], desc:"All-cash take-private at $1.30/share (42% premium); billing, UC analytics and enterprise messaging.", url:"https://globenewswire.com/news-release/2026/11/10/3399837/0/en/mind-cti-to-be-acquired-by-enghouse-systems-in-all-cash-transaction.html", included:true},
   {date:"2026-11-05", target:"Level AI", acquirer:"Five9", ev:325.0, rev:20.0, ev_rev:16.3, ebitda:null, ev_ebitda:null, vertical:"CCaaS / CX AI", categories:["CX AI"], desc:"All-cash deal adding AI-native CX intelligence to Five9's CCaaS platform; ~16x ARR. Excluded as AI outlier.", url:"https://www.sec.gov/Archives/edgar/data/0001288847/000128884726000141/projectlanderpressreleas.htm", included:false},
   {date:"2026-11-03", target:"3CLogic", acquirer:"PartnerOne", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"CCaaS / CX AI", categories:["CCaaS"], desc:"PartnerOne adds 3CLogic as a portfolio company; terms not disclosed.", url:"https://www.prnewswire.com/news-releases/partnerone-acquires-3clogic-expanding-its-enterprise-ai-portfolio-and-advancing-the-future-of-intelligent-customer-engagement-302927176.html", included:true},
-  {date:"2026-11-03", target:"Ada", acquirer:"Dialpad", ev:600.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"UCaaS / CCaaS / CX AI", categories:["CX AI"], desc:"All-share merger pairing Ada's AI agents with Dialpad's cloud telephony and CC platform.", url:"https://decoder.ca/ada-joins-dialpad-in-600-million-ai-merger", included:true},
-  {date:"2026-11-02", target:"Cresta", acquirer:"Salesforce", ev:2700.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"CCaaS / CX AI", categories:["CX AI"], desc:"Adds voice AI agents to Salesforce Service Cloud / Agentforce.", url:"https://www.salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-cresta/", included:true},
-  {date:"2026-10-30", target:"VoiSmart", acquirer:"TIM Enterprise (TIM Group)", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"UCaaS / UC Software", categories:["Europe"], desc:"TIM acquired 70% stake; founder stays CEO and minority holder. Europe.", url:"https://www.gruppotim.it/en/press-archive/corporate/2026/PR-TIM-VoiSmart-30-10-26.html", included:true},
+  {date:"2026-11-03", target:"Ada", acquirer:"Dialpad", ev:430.0, rev:50.0, ev_rev:8.6, ebitda:null, ev_ebitda:null, vertical:"UCaaS / CCaaS / CX AI", categories:["CX AI"], desc:"All-share merger reported at about US$430M (C$600M) on about $50M annual revenue; pairs Ada's AI agents with Dialpad's CC platform.", url:"https://decoder.ca/ada-joins-dialpad-in-600-million-ai-merger", included:true},
+  {date:"2026-11-02", target:"Cresta", acquirer:"Salesforce", ev:2700.0, rev:100.0, ev_rev:27.0, ebitda:null, ev_ebitda:null, vertical:"CCaaS / CX AI", categories:["CX AI"], desc:"Reported at about $2.7B on about $100M ARR; adds voice AI agents to Service Cloud. Excluded as AI outlier.", url:"https://www.salesforce.com/news/stories/salesforce-signs-definitive-agreement-to-acquire-cresta/", included:false},
+  {date:"2026-10-30", target:"VoiSmart", acquirer:"TIM Enterprise (TIM Group)", ev:14.0, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"UCaaS / UC Software", categories:["Europe"], desc:"70% stake for about €9M, valuing VoiSmart at about €12 to 13M (reported); revenue not disclosed. Europe.", url:"https://www.gruppotim.it/en/press-archive/corporate/2026/PR-TIM-VoiSmart-30-10-26.html", included:true},
   {date:"2026-10-29", target:"Xelion", acquirer:"KPN", ev:null, rev:null, ev_rev:null, ebitda:null, ev_ebitda:null, vertical:"UCaaS / CCaaS (Europe)", categories:["Europe"], desc:"KPN SMB strategy play; Xelion runs as independent unit. Europe.", url:"https://www.kpn.com/overons/nieuws/kpn-neemt-xelion-over-en-helpt-ondernemers-met-grip-op-klantcontact/", included:true},
   {date:"2026-09-28", target:"Sangoma Technologies", acquirer:"BRC Group Holdings", ev:204.0, rev:200.1, ev_rev:1.0, ebitda:28.7, ev_ebitda:7.1, vertical:"UCaaS", categories:["UCaaS"], desc:"Take-private at ~US$5.23 per share (~47% premium); expected to close by early 2027.", url:"https://www.businesswire.com/news/home/20260928333255/en/Sangoma-Technologies-Corporation-Enters-into-Definitive-Agreement-to-be-Acquired-by-BRC-Group-Holdings-Inc.", included:true},
   {date:"2026-09-01", target:"Gamma Communications", acquirer:"Epiris", ev:1456.7, rev:871.8, ev_rev:1.7, ebitda:191.3, ev_ebitda:7.6, vertical:"UCaaS (Europe)", categories:["Europe"], desc:"Recommended 1,120p cash offer by scheme of arrangement (53% premium). Europe.", url:"https://uctoday.com/gamma-communications-agrees-1-08bn-takeover-by-epiris", included:true},
@@ -846,6 +859,7 @@ document.querySelectorAll(".mode-btn").forEach(btn => {
     const mode = btn.dataset.mode;
     document.getElementById("view-private").classList.toggle("hidden", mode !== "private");
     document.getElementById("view-public").classList.toggle("hidden", mode !== "public");
+    const cj = document.getElementById("chart-jump"); if (cj) cj.style.display = mode === "private" ? "" : "none";
     history.replaceState(null, "", "#" + mode);
   });
 });
@@ -868,6 +882,11 @@ function computeHeadline() {
   const ebitda = inc.map(d => d.ev_ebitda).filter(v => v !== null && v !== undefined);
   if (rev.length) { setText("priv-avg-rev", round1(avgOf(rev)).toFixed(1) + "x"); setText("priv-med-rev", round1(medOf(rev)).toFixed(1) + "x"); }
   if (ebitda.length) { setText("priv-avg-ebitda", round1(avgOf(ebitda)).toFixed(1) + "x"); setText("priv-med-ebitda", round1(medOf(ebitda)).toFixed(1) + "x"); }
+  const pl = k => k + " deal" + (k === 1 ? "" : "s");
+  setText("d-avg-rev", "Mean of " + pl(rev.length) + " with EV and revenue disclosed");
+  setText("d-med-rev", pl(rev.length) + " with EV and revenue disclosed");
+  setText("d-avg-ebitda", "Mean of " + pl(ebitda.length) + " with EV and EBITDA disclosed");
+  setText("d-med-ebitda", pl(ebitda.length) + " with EV and EBITDA disclosed");
   const n = DEALS.length;
   setText("meta-count", n + " private transaction" + (n === 1 ? "" : "s"));
   setText("private-count", n);
@@ -914,6 +933,71 @@ function renderSegSummary() {
     <div class="table-wrap"><table><thead><tr><th>Segment</th><th>Deals</th><th>Median EV / Rev</th><th>Mean EV / Rev</th><th>Median EV / EBITDA</th><th>Mean EV / EBITDA</th></tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
+// ============ PRIVATE MULTIPLES CHART ============
+function privTrendPoints() {
+  const base = DEALS.filter(d => d.included);
+  const withMult = base.filter(d => d.ev_rev != null || d.ev_ebitda != null);
+  if (!withMult.length) return [];
+  const first = withMult.map(d => d.date).sort()[0];
+  let y = +first.slice(0, 4), q = Math.floor((+first.slice(5, 7) - 1) / 3);
+  const now = new Date(), cy = now.getFullYear(), cq = Math.floor(now.getMonth() / 3);
+  const pts = [];
+  while (y < cy || (y === cy && q <= cq)) {
+    const end = new Date(Date.UTC(y, q * 3 + 3, 0)).toISOString().slice(0, 10);
+    const upto = base.filter(d => d.date <= end);
+    const r = upto.filter(d => d.ev_rev != null).map(d => d.ev_rev);
+    const e = upto.filter(d => d.ev_ebitda != null).map(d => d.ev_ebitda);
+    const live = y === cy && q === cq;
+    pts.push({ label: "Q" + (q + 1) + " '" + String(y).slice(2) + (live ? " QTD" : ""), rev: r.length ? medOf(r) : null, revAvg: r.length ? avgOf(r) : null, nr: r.length, ebitda: e.length ? medOf(e) : null, ebitdaAvg: e.length ? avgOf(e) : null, ne: e.length, live });
+    q++; if (q > 3) { q = 0; y++; }
+  }
+  return pts;
+}
+function renderPrivTrend() {
+  const svg = document.getElementById("priv-trend-svg");
+  if (!svg) return;
+  const pts = privTrendPoints();
+  if (!pts.length) { document.getElementById("priv-trend").style.display = "none"; return; }
+  const W = 760, H = 280, L = 44, R = 52, T = 16, B = 30;
+  const x = i => pts.length === 1 ? (L + W - R) / 2 : L + i * (W - L - R) / (pts.length - 1);
+  const axis = key => { const v = pts.map(p => p[key]).filter(v => v != null); return { lo: 0, hi: Math.max(Math.ceil(Math.max(...v) * 1.15), 1) }; };
+  const ar = axis("rev"), ae = pts.some(p => p.ebitda != null) ? axis("ebitda") : { lo: 0, hi: 1 };
+  const yr = v => T + (ar.hi - v) * (H - T - B) / (ar.hi - ar.lo);
+  const ye = v => T + (ae.hi - v) * (H - T - B) / (ae.hi - ae.lo);
+  let g = "";
+  for (let k = 0; k <= 5; k++) {
+    const yy = T + k * (H - T - B) / 5;
+    g += `<line x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}" stroke="#e8e2d4" stroke-width="1"/>`;
+    g += `<text x="${L - 8}" y="${yy + 4}" text-anchor="end" style="fill:#0c3b2e">${round1(ar.hi - k * ar.hi / 5).toFixed(1)}x</text>`;
+    g += `<text x="${W - R + 8}" y="${yy + 4}" text-anchor="start" style="fill:#a8854a">${round1(ae.hi - k * ae.hi / 5).toFixed(1)}x</text>`;
+  }
+  const step = pts.length > 10 ? 2 : 1;
+  pts.forEach((p, i) => { if (i % step === (pts.length - 1) % step) g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle"${p.live ? ' style="font-weight:600;fill:#0c3b2e"' : ''}>${p.label}</text>`; });
+  const showVal = i => pts.length <= 8 || i === pts.length - 1 || (pts.length - 1 - i) % 4 === 0;
+  const line = (key, n, yf, color, name) => {
+    let d = "", s = "", started = false;
+    pts.forEach((p, i) => { if (p[key] == null) return; d += (started ? "L" : "M") + x(i).toFixed(1) + "," + yf(p[key]).toFixed(1) + " "; started = true; });
+    s += `<path d="${d}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    pts.forEach((p, i) => {
+      if (p[key] == null) return;
+      s += `<circle cx="${x(i)}" cy="${yf(p[key])}" r="${p.live ? 4 : 3}" fill="${p.live ? color : 'white'}" stroke="${color}" stroke-width="2"><title>${p.label}: ${round1(p[key]).toFixed(1)}x median ${name} (${p[n]} deal${p[n] === 1 ? "" : "s"})</title></circle>`;
+      if (!showVal(i)) return;
+      const other = key === "rev" ? (p.ebitda != null ? ye(p.ebitda) : null) : (p.rev != null ? yr(p.rev) : null);
+      const me = yf(p[key]);
+      const below = other != null && Math.abs(other - me) < 22 && me >= other;
+      s += `<text class="val" x="${x(i)}" y="${below ? me + 19 : me - 9}" text-anchor="middle" style="fill:${color}">${round1(p[key]).toFixed(1)}x</text>`;
+    });
+    return s;
+  };
+  svg.innerHTML = g + line("ebitda", "ne", ye, "#c9a66b", "EV / EBITDA") + line("rev", "nr", yr, "#0c3b2e", "EV / Revenue");
+}
+document.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", ev => {
+  ev.preventDefault();
+  const pb = document.querySelector('[data-mode="private"]');
+  if (pb && !pb.classList.contains("active")) pb.click();
+  const t = document.getElementById(a.dataset.jump); if (t) t.scrollIntoView({ behavior: "smooth", block: "center" });
+}));
+
 // Initial render
 renderSegSummary();
 computeHeadline();
@@ -922,11 +1006,16 @@ renderPrivate();
 renderPublic();
 renderTrend();
 
-// Sparklines: approximate rolling 6-quarter trends
-sparkline("spark-avg-rev", [2.6, 2.4, 2.3, 2.1, 2.0, 2.2], "#c9a66b");
-sparkline("spark-med-rev", [2.0, 1.9, 1.8, 1.7, 1.8, 1.9], "#c9a66b");
-sparkline("spark-avg-ebitda", [11.2, 10.5, 9.8, 9.2, 9.5, 9.9], "#c9a66b");
-sparkline("spark-med-ebitda", [9.5, 9.2, 8.6, 8.4, 8.6, 8.9], "#c9a66b");
+renderPrivTrend();
+
+// Sparklines: the last six quarter-ends of the same cumulative series as the chart
+(function () {
+  const pts = privTrendPoints().slice(-6);
+  [["spark-avg-rev", "revAvg"], ["spark-med-rev", "rev"], ["spark-avg-ebitda", "ebitdaAvg"], ["spark-med-ebitda", "ebitda"]].forEach(([id, k]) => {
+    const v = pts.map(p => p[k]).filter(x => x != null);
+    if (v.length >= 2) sparkline(id, v, "#c9a66b");
+  });
+})();
 </script>
 <script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/subscribe.js" defer></script>

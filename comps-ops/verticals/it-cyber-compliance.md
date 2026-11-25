@@ -47,3 +47,5 @@ vertical labels: "Audit / Assessment (SOC, ISO)", "CMMC Compliance Services", "C
 categories (only these six, exactly ONE per deal; per Cy Nov 21 2026, never list a deal in two categories, pick the best fit; European targets always go in "Europe"): "Audit & Assessment" (assessors, auditors, attestation, certification bodies), "Compliance SaaS" (compliance / GRC software), "Cyber & GRC Services" (GRC advisory, managed compliance, cyber services), "CMMC / FedRAMP" (CMMC, FedRAMP, NIST 800-171, DoD / federal compliance), "TICC" (testing, inspection, certification and compliance roll-ups and global TIC players), "Europe".
 Methodology line format: "Last updated: <Month D, YYYY>, 5:00 PM PT".
 Hub card stat line: "<N> private deals · <X.X>x median EV/EBITDA".
+
+Per Cy (Nov 25 2026): any EV / EBITDA (or other multiple) that is not publicly disclosed, i.e. estimated from industry research, must carry est:true on the deal row. The page then shows the hover note "Estimated based on industry research, not publicly available information". Harbor Ridge-advised deals (Core Business Solutions, Qmulos) are actuals and do not get est:true.
